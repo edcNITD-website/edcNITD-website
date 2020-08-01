@@ -1,0 +1,277 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+
+
+  <title>EDC | E-Summit</title>
+
+  <meta content="" name="descriptison">
+
+  <meta content="" name="keywords">
+
+
+
+  <!-- Favicons -->
+
+  <link href="{% static 'img/edc_black.png' %}" rel="icon">
+
+  <link href="{% static 'img/edc_black.png' %}" rel="icon">
+
+
+
+  <!-- Google Fonts -->
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+
+
+  <!-- Vendor CSS Files -->
+
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <link href="{% static 'vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+
+  <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+
+  <link href="{% static 'vendor/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+
+  <link href="{% static 'vendor/venobox/venobox.css' %}" rel="stylesheet">
+
+  <link href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+
+
+
+  <!-- Template Main CSS File -->
+
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+  <!-- ======= Header ======= -->
+
+  <header id="header" class="fixed-top header-transparent">
+
+    <div class="container-fluid">
+
+
+
+      <div class="row justify-content-center">
+
+        <div class="col-xl-11 d-flex align-items-center">
+
+          
+
+      
+
+          <a href="{% url 'home_page' %}" class="logo mr-auto"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid">
+
+
+
+          <nav class="nav-menu d-none d-lg-block">
+
+            <ul>
+
+              <li class="active"><a href="{%url 'home_page' %}">Home</a></li>
+
+              <li><a href="#">About Us</a></li>
+
+              <li><a href="{% url 'esummit_page' %}">E-Summit</a></li>
+
+              <li><a href="{% url 'event_page' %}">Events</a></li>
+
+              <li><a href="{% url 'innovationcell_page' %}">Innovation Cell</a></li>
+
+              <li><a href="{% url 'team_page' %}">Our Team</a></li>
+
+              <li><a href="#footer">Contact Us</a></li>
+
+
+
+            </ul>
+
+          </nav><!-- .nav-menu -->
+
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+  </header><!-- End Header -->
+  {% block content %}{% endblock %}
+  <!-- ======= Footer ======= -->
+
+  <footer id="footer">
+
+    <div class="footer-top">
+
+      <div class="container">
+
+        <div class="row">
+
+
+
+          <div class="col-lg-3 col-md-6 footer-info">
+
+            <h3>EDC NITD</h3>
+
+       
+
+          </div>
+
+
+
+          <div class="col-lg-3 col-md-6 footer-links">
+
+            <h4>Useful Links</h4>
+
+            <ul>
+
+              <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'home_page' %}">Home</a></li>
+
+              <li><i class="ion-ios-arrow-right"></i> <a href="#">About Us</a></li>
+
+              <li><i class="ion-ios-arrow-right"></i> <a href="#">Services</a></li>
+
+              <li><i class="ion-ios-arrow-right"></i> <a href="#">Terms of service</a></li>
+
+              <li><i class="ion-ios-arrow-right"></i> <a href="#">Privacy policy</a></li>
+
+            </ul>
+
+          </div>
+
+
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+
+            <h4>Contact Us</h4>
+
+            <p>
+
+              Address
+
+               <br>
+
+              <strong>Phone:</strong> +91 XXXXX XXXXX<br>
+
+              <strong>Email:</strong> edc.nitd@gmail.com<br>
+
+            </p>
+
+
+
+            <div class="social-links">
+
+              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+
+              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+
+              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+
+              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+
+              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+
+            </div>
+
+
+
+          </div>
+
+
+
+          <div class="col-lg-3 col-md-6 footer-newsletter">
+
+            <h4>Get Notified for Future Events.</h4>
+
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
+
+            <form action="" method="post">
+
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+
+            </form>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    </div>
+
+  </footer><!-- End Footer -->
+
+
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+ 
+
+  <div id="preloader"></div>
+
+
+
+  <!-- Vendor JS Files -->
+
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <script src="{% static 'vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+
+  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+
+  <script src="{% static 'vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+
+  <script src="{% static 'vendor/counterup/counterup.min.js' %}"></script>
+
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+
+  <script src="{% static 'vendor/venobox/venobox.min.js' %}"></script>
+
+  <script src="{% static 'vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+
+
+
+  <!-- Template Main JS File -->
+
+  <script src="{% static 'js/main.js' %}"></script>
+
+
+
+</body>
+</html>

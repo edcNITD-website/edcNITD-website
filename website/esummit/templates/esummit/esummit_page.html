@@ -1,0 +1,520 @@
+{% extends 'esummit/base1.html' %}
+{% load static %}
+{% block content %}
+  <section id="intro">
+
+    <div class="intro-container">
+
+      <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+
+
+
+        <ol class="carousel-indicators"></ol>
+
+
+
+        <div class="carousel-inner" role="listbox">
+
+
+
+          <div class="carousel-item active" style="background-image: url('static/img/intro-carousel/1.jpg')">
+
+            <div class="carousel-container">
+
+              <div class="container">
+
+                <h2 class="animate__animated animate__fadeInDown">E-Summit</h2>
+
+                <p class="animate__animated animate__fadeInUp">
+
+                  The Largest E-Summit of Eastern India.
+
+                 </p>
+
+                <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="carousel-item" style="background-image: url('static/img/intro-carousel/2.jpg')">
+
+            <div class="carousel-container">
+
+              <div class="container">
+
+                <h2 class="animate__animated animate__fadeInDown">Exciting Events</h2></h2>
+
+                <p class="animate__animated animate__fadeInUp">
+                  
+                  Learn about various exciting Event.
+                
+                </p>
+
+                <a href="#services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Know more</a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="carousel-item" style="background-image: url('static/img/intro-carousel/3.jpg')">
+
+            <div class="carousel-container">
+
+              <div class="container">
+
+                <h2 class="animate__animated animate__fadeInDown"><h2>Wonderful Speakers</h2>
+
+                <p class="animate__animated animate__fadeInUp">
+
+                  Hear from the wonderful Speakers we have had in the past.
+                
+                </p>
+
+                <a href="#testimonials" class="btn-get-started scrollto animate__animated animate__fadeInUp">Meet them</a></a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="carousel-item" style="background-image: url('static/img/intro-carousel/4.jpg')">
+
+            <div class="carousel-container">
+
+              <div class="container">
+
+                <h2 class="animate__animated animate__fadeInDown">Our Partners</h2>
+
+                <p class="animate__animated animate__fadeInUp">
+                  
+                  Those who make it happen.
+                
+                </p>
+
+                <a href="#clients" class="btn-get-started scrollto animate__animated animate__fadeInUp">Check Out</a></a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
+
+          <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
+
+          <span class="sr-only">Previous</span>
+
+        </a>
+
+
+
+        <a class="carousel-control-next" href="#introCarousel" role="button" data-slide="next">
+
+          <span class="carousel-control-next-icon ion-chevron-right" aria-hidden="true"></span>
+
+          <span class="sr-only">Next</span>
+
+        </a>
+
+
+
+      </div>
+
+    </div>
+
+  </section><!-- End Intro Section -->
+
+
+
+  <main id="main">
+
+
+
+    <!-- ======= About Us Section ======= -->
+
+    <section id="about">
+
+      <div class="container" data-aos="fade-up">
+
+
+
+        <header class="section-header">
+
+          <h3>E-Summit</h3>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+        </header>
+
+
+
+        <div class="row about-cols">
+
+
+
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="about-col">
+
+              <div class="img">
+
+                <img src="{% static 'img/about-mission.jpg' %}" alt="" class="img-fluid">
+
+                <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+
+              </div>
+
+              <h2 class="title">Our Mission</h2>
+
+              <p>
+
+                Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="about-col">
+
+              <div class="img">
+
+                <img src="{% static 'img/about-plan.jpg' %}" alt="" class="img-fluid">
+
+                <div class="icon"><i class="ion-ios-list-outline"></i></div>
+
+              </div>
+
+              <h2 class="title">Achievements</h2>
+
+              <p>
+
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+
+            <div class="about-col">
+
+              <div class="img">
+
+                <img src="{% static 'img/about-vision.jpg' %}" alt="" class="img-fluid">
+
+                <div class="icon"><i class="ion-ios-eye-outline"></i></div>
+
+              </div>
+
+              <h2 class="title">Past E-Summits</h2></h2>
+
+              <p>
+
+                Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+
+
+      </div>
+
+    </section>
+    
+    <!-- End About Us Section -->
+
+
+
+    <!-- ======= Events Section ======= -->
+
+    <section id="services">
+
+      <div class="container" data-aos="fade-up">
+
+
+
+        <header class="section-header wow fadeInUp">
+
+          <h3>Events</h3>
+
+          <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus, ad pro quaestio laboramus. Ei ubique vivendum pro. At ius nisl accusam lorenta zanos paradigno tridexa panatarel.</p>
+
+        </header>
+
+
+
+        <div class="row">
+
+
+
+          <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
+
+            <h4 class="title">Event 1</h4>
+
+            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+
+          </div>
+
+          <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
+
+            <h4 class="title">Event 2</h4>
+
+            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+
+          </div>
+
+          <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="300">
+
+            <div class="icon"><i class="ion-ios-paper-outline"></i></div>
+
+            <h4 class="title">Event 3</h4>
+
+            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+
+          </div>
+
+          <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+
+            <h4 class="title">Event 4</h4>
+
+            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+
+          </div>
+
+          <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="300">
+
+            <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
+
+            <h4 class="title">Event 5</h4></h4>
+
+            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+
+          </div>
+
+          <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="400">
+
+            <div class="icon"><i class="ion-ios-people-outline"></i></div>
+
+            <h4 class="title">Event 6</h4>
+
+            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+
+          </div>
+
+
+
+        </div>
+
+
+
+      </div>
+
+    </section><!-- End Events Section -->
+
+
+
+    <!-- ======= Speakers Section ======= -->
+
+    <section id="testimonials" class="section-bg">
+
+      <div class="container" data-aos="fade-up">
+
+
+
+        <header class="section-header">
+
+          <h3>Past Speakers</h3>
+
+        </header>
+
+
+
+        <div class="owl-carousel testimonials-carousel">
+
+
+
+          <div class="testimonial-item">
+
+            <img src="{% static 'img/testimonial-1.jpg' %}" class="testimonial-img" alt="">
+
+            <h3>Saul Goodman</h3>
+
+            <h4>Ceo &amp; Founder</h4>
+
+            <p>
+
+              <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
+
+              Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+
+              <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
+
+            </p>
+
+          </div>
+
+
+
+
+         <div class="testimonial-item">
+
+            <img src="{% static 'img/testimonial-2.jpg' %}" class="testimonial-img" alt="">
+
+            <h3>Sara Wilsson</h3>
+
+            <h4>Designer</h4>
+
+            <p>
+
+              <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
+
+              Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+
+              <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
+
+            </p>
+
+          </div>
+
+
+
+          <div class="testimonial-item">
+
+            <img src="{% static 'img/testimonial-3.jpg' %}" class="testimonial-img" alt="">
+
+            <h3>Jena Karlis</h3>
+
+            <h4>Store Owner</h4>
+
+            <p>
+
+              <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
+
+              Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+
+              <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
+
+            </p>
+
+          </div>
+
+
+
+          <div class="testimonial-item">
+
+            <img src="{% static 'img/testimonial-4.jpg' %}" class="testimonial-img" alt="">
+
+            <h3>Matt Brandon</h3>
+
+            <h4>Freelancer</h4>
+
+            <p>
+
+              <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
+
+              Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+
+              <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
+
+            </p>
+
+          </div>
+
+
+
+          <div class="testimonial-item">
+
+            <img src="{% static 'img/testimonial-5.jpg' %}" class="testimonial-img" alt="">
+
+            <h3>John Larson</h3>
+
+            <h4>Entrepreneur</h4>
+
+            <p>
+
+              <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
+
+              Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+
+              <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
+
+            </p>
+
+          </div>
+
+
+
+        </div>
+
+        <!-- ======= End Speakers Section ======= -->
+        <br>
+        <br>
+        <!-- ======= Sponsor Section ======= -->
+    <section id="clients">
+      <div class="container" data-aos="zoom-in">
+
+        <header class="section-header">
+          <h3>Our Partners</h3>
+        </header>
+
+        <div class="owl-carousel clients-carousel">
+          <img src="{% static 'img/logo.png' %}" alt="">
+          <img src="{% static 'img/logo.png' %}" alt="">
+          <img src="{% static 'img/logo.png' %}" alt="">
+          <img src="{% static 'img/logo.png' %}" alt="">
+          <img src="{% static 'img/logo.png' %}" alt="">
+
+        </div>
+       
+        <br>
+        <br>
+
+      </div>
+    </section><!-- End SPonsor Section -->
+
+
+        </div>
+
+      
+  </main>
+  {% endblock %}

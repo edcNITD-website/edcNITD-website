@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def esummit(requests):
+    return render(requests,'esummit/esummit_page.html')
