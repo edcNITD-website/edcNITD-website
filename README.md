@@ -1,6 +1,6 @@
 # edcNITD-website
 
-It is an open source website.Languages used for frontends are HTML,CSS and JavaScript and Django for backened
+It is an open source website.Languages used for frontends are HTML,CSS and JavaScript and Django for backened developments
 
 How to run website:
 
