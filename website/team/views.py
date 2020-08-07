@@ -3,7 +3,7 @@ from .models import Members
 
 # Create your views here.
 
-def index(request):
+def team(request):
     members=Members.objects.all()
     context={}
     # names=[member.name for member in members]
@@ -35,4 +35,4 @@ def index(request):
     context['third']=[third for third in third_year]
     context['second']=[second for second in second_year]
     
-    return render(request,'team/members.html',context)
+    return render(request,'team/team_page.html',context)

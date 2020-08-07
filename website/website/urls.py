@@ -24,7 +24,7 @@ urlpatterns = [
     path('event/',include('events.urls')),
     path('esummit/',include('esummit.urls')),
     path('team/',include('team.urls')),
-    # path('innovationcell/',include('innovationcell.urls')),
+    path('innovationcell/',include('innovationcell.urls')),
 ]
 
 if settings.DEBUG:
