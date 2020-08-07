@@ -55,30 +55,26 @@
     
           
     
-              <a href="#" class="logo mr-auto"><img src="{%static 'img/logo.png' %}" alt="" class="img-fluid">
+              <a href="{% url 'home_page' %}" class="logo mr-auto"><img src="{%static 'img/logo.png' %}" alt="" class="img-fluid">
     
     
     
-              <nav class="nav-menu d-none d-lg-block">
-    
-                <ul>
-    
-                    <li class="active"><a href="#">Home</a></li>
+                <nav class="nav-menu d-none d-lg-block">
       
-                    <li><a href="#about">About Us</a></li>
+                  <ul>
       
-                    <li><a href="">E-Summit</a></li>
-      
-                    <li><a href="#services">Events</a></li>
-      
-                    <li><a href="">Innovation Cell</a></li>
-      
-                    <li><a href="#">Our Team</a></li>
-      
-                    <li><a href="#contact">Contact Us</a></li>
-      
-      
-      
+                      <li class="active"><a href="{%url 'home_page' %}">Home</a></li>
+        
+                      <li><a href="{% url 'esummit_page' %}">E-Summit</a></li>
+        
+                      <li><a href="{% url 'event_page' %}">Events</a></li>
+        
+                      <li><a href="{% url 'innovationcell_page' %}">Innovation Cell</a></li>
+        
+                      <li><a href="{% url 'team_page' %}">Our Team</a></li>
+        
+                      <li><a href="#footer">Contact Us</a></li>
+                      
                   </ul>
     
               </nav><!-- .nav-menu -->

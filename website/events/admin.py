@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import UpcomingEvent,OtherEvent
 
-# Register your models here.
+event_models=[UpcomingEvent,OtherEvent]
+admin.site.register(event_models)
