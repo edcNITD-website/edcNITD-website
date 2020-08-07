@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def innovationcell(requests):
+    return render(requests,'innovationcell/innovationcell_page.html')
