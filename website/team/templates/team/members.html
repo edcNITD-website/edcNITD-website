@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDC Team</title>
+    <link rel="stylesheet" href="{% static "css/teams.css" %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <h1 class="team-title">Our Squad</h1>
+    <div class="members">
+      <div class="flex-container">
+        {%for final in final%}
+          <div class="final-container">
+            <div class="image">
+              {%if final.image%}
+                <img src="{{final.image.url}}" alt="smile">
+              {%else%}
+                <img src="https://scontent.fccu11-1.fna.fbcdn.net/v/t1.0-9/33769797_990308764482605_4005773412654907392_n.jpg?_nc_cat=106&_nc_sid=09cbfe&_nc_ohc=1KtBpyshob8AX8M-tp7&_nc_ht=scontent.fccu11-1.fna&oh=ef6a8915aedec2ab5f776f01c713efe3&oe=5F47208D" alt="photo">
+              {%endif%}
+            </div>
+            <div class="name">
+              <h5>{{ final.name }}</h5>
+            </div>
+            <div class="position">
+              <h6>{{final.position}}</h6>
+            </div>
+            <div class="social-links">
+              {%if final.email%}
+              <span><a href=mailto:{{final.email}}><i class="fa fa-envelope mail" aria-hidden="true"></i></a>
+              </span>
+              {%endif%}
+              {%if final.linkedin%}
+              <span><a href={{final.linkedin}}><i class="fa fa-linkedin" aria-hidden="true"></i></a></span>
+              {%endif%}
+            </div>
+          </div>
+        {%endfor%}
+      </div>
+      <div class="year-heading">
+        <h3>SENIOR COORDINATORS</h3>
+      </div>
+      <div class="flex-container">
+        {%for third in third%}
+          <div class="third-container">
+            <div class="image">
+              {%if third.image%}
+                <img src="{{third.image.url}}" alt="smile">
+              {%else%}
+                <img src="https://scontent.fccu11-1.fna.fbcdn.net/v/t1.0-9/33769797_990308764482605_4005773412654907392_n.jpg?_nc_cat=106&_nc_sid=09cbfe&_nc_ohc=1KtBpyshob8AX8M-tp7&_nc_ht=scontent.fccu11-1.fna&oh=ef6a8915aedec2ab5f776f01c713efe3&oe=5F47208D" alt="photo">
+              {%endif%}
+            </div>
+            <div class="name">
+              <h6>{{ third.name }}</h6>
+            </div>
+            <address class="social-links">
+              {%if third.linkedin%}
+              <span><a href={{third.linkedin}}><i class="fa fa-linkedin" aria-hidden="true"></i></a></span>
+              {%endif%}
+            </address>
+          </div>
+        {%endfor%}
+      </div>
+      <div class="year-heading">
+        <h3>JUNIOR COORDINATORS</h3>
+      </div>
+      <div class="flex-container">
+        {%for second in second%}
+        <div class="second-container">
+          <div class="image">
+            {%if second.image%}
+              <img src="{{second.image.url}}" alt="smile">
+            {%else%}
+              <img src="https://scontent.fccu11-1.fna.fbcdn.net/v/t1.0-9/33769797_990308764482605_4005773412654907392_n.jpg?_nc_cat=106&_nc_sid=09cbfe&_nc_ohc=1KtBpyshob8AX8M-tp7&_nc_ht=scontent.fccu11-1.fna&oh=ef6a8915aedec2ab5f776f01c713efe3&oe=5F47208D" alt="photo">
+            {%endif%}
+          </div>
+          <div class="name">
+            <h6>{{ second.name }}</h6>
+          </div>
+          <div class="social-links">
+            {%if second.linkedin%}
+            <span><a href={{second.linkedin}}><i class="fa fa-linkedin" aria-hidden="true"></i></a></span>
+            {%endif%}
+          </div>
+        </div>
+      {%endfor%}
+    </div>
+  </div>
+  </div>
+</body>
+</html>
