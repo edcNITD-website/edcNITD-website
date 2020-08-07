@@ -1,0 +1,152 @@
+
+.container{
+    text-align: center;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.team-title{
+    font-size: 50px;
+    margin-bottom: 50px;
+}
+
+.members{
+
+    text-align: center;
+}
+
+.second-container{
+    border: lightgray 2px solid;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: lightgrey 2px 2px 8px 2px;
+    margin: 50px;
+    border-radius: 20px;
+    border-radius: 20px;
+}
+
+.second-container .image img{
+    width: 196px;
+    height: 196px;
+    border: rgba(0, 0, 0, 0.9) solid 7px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.third-container{
+    border: lightgray 2px solid;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: lightgrey 2px 2px 8px 2px;
+    margin: 50px;
+    border-radius: 20px;
+    border-bottom-right-radius: 10px;
+}
+
+.third-container .image img{
+    width: 196px;
+    height: 196px;
+    border: rgba(0, 0, 0, 0.9) solid 7px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.final-container{
+    border: lightgray 2px solid;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: lightgrey 2px 2px 8px 2px;
+    margin: 50px;
+    border-radius: 20px;
+}
+
+.final-container .image img{
+    width: 216px;
+    height: 216px;
+    border: rgba(0, 0, 0, 0.9) solid 7px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-bottom: 12px;
+    /* margin-top: 40px;
+    margin-bottom: 20px;
+    border-radius: 100px; */
+
+} 
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.name h5{
+    font-size: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.name h6{
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.position h6{
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: large;
+    font-size: 20px;
+}
+
+.social-links{
+    display: none;
+}
+.mail{
+    padding-right:10px ;
+}
+.final-container:hover {
+    cursor: pointer;
+    width: 230px;
+
+}
+.final-container:hover .image img{
+    width: 226px;
+}
+
+.final-container:hover .social-links{
+    display: inline;
+}
+
+.second-container:hover {
+    cursor: pointer;
+    width: 210px;
+
+}
+.second-container:hover .image img{
+    width: 206px;
+}
+
+.second-container:hover .social-links{
+    display: inline;
+}
+
+.third-container:hover {
+    cursor: pointer;
+    width: 210px;
+
+}
+.third-container:hover .image img{
+    width: 206px;
+}
+
+.third-container:hover .social-links{
+    display: inline;
+}
