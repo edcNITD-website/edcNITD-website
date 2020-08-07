@@ -3,38 +3,39 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>EDC | Team</title>
-    <meta content="" name="descriptison">
-    <meta content="" name="keywords">
+  <title>EDC | Events</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
 
-    
-    <link href="{% static 'img/edc_black.png' %}" rel="icon">
+  
+  <link href="{% static 'img/edc_black.png' %}" rel="icon">
 
-    <link href="{% static 'img/edc_black.png' %}" rel="apple-touch-icon">
+  <link href="{% static 'img/edc_black.png' %}" rel="apple-touch-icon">
 
-    <!-- CSS, Bootstrap, Font -->
-    <link rel="stylesheet" type="text/css" href="{% static "css/teams.css" %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <!-- CSS, Bootstrap, Font -->
+  <link rel="stylesheet" type="text/css" href="{% static "css/teams.css" %}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
 
-    <!-- Vendor CSS Files -->
-    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/icofont/icofont.min.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/venobox/venobox.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
 
-    <!-- Template Main CSS File -->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/venobox/venobox.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
 </head>
 
@@ -63,23 +64,19 @@
     
                 <ul>
     
-                    <li class="active"><a href="#">Home</a></li>
+                    <li class="active"><a href="{%url 'home_page' %}">Home</a></li>
       
-                    <li><a href="#about">About Us</a></li>
+                    <li><a href="{% url 'esummit_page' %}">E-Summit</a></li>
       
-                    <li><a href="">E-Summit</a></li>
+                    <li><a href="{% url 'event_page' %}">Events</a></li>
       
-                    <li><a href="#services">Events</a></li>
+                    <li><a href="{% url 'innovationcell_page' %}">Innovation Cell</a></li>
       
-                    <li><a href="">Innovation Cell</a></li>
+                    <li><a href="{% url 'team_page' %}">Our Team</a></li>
       
-                    <li><a href="#">Our Team</a></li>
-      
-                    <li><a href="#contact">Contact Us</a></li>
-      
-      
-      
-                  </ul>
+                    <li><a href="#footer">Contact Us</a></li>
+                    
+                </ul>
     
               </nav><!-- .nav-menu -->
     
@@ -123,7 +120,7 @@
 
             <ul>
 
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'home_page' %}">Home</a></li>
 
               <li><i class="ion-ios-arrow-right"></i> <a href="#">Services</a></li>
 
