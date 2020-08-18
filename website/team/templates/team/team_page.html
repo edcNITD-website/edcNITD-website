@@ -7,7 +7,9 @@
   <link rel="stylesheet" type="text/css" href="{% static "css/teams.css" %}">
 
   <div class="container">
-    <h1 class="team-title"><a href="#">Our Squad</a></h1>
+    <h1 class="team-title">Our Squad</h1>
+      <div class="grey-line"></div>
+      <div class="coloured-line"></div>
     <div class="members">
       <div class="flex-container">
         {%for final in final%}
@@ -40,8 +42,10 @@
         {%endfor%}
       </div>
       <div class="year-heading">
-        <h3><a href="#">SENIOR COORDINATORS</a></h3>
+        <div>SENIOR COORDINATORS</div>
       </div>
+      <div class="grey-line"></div>
+      <div class="coloured-line"></div>
       <div class="flex-container">
         {%for third in third%}
           <div class="third-container">
@@ -70,8 +74,10 @@
         {%endfor%}
       </div>
       <div class="year-heading">
-        <h3><a href="#">JUNIOR COORDINATORS</a></h3>
+        <div>JUNIOR COORDINATORS</div>
       </div>
+      <div class="grey-line"></div>
+      <div class="coloured-line"></div>
       <div class="flex-container">
         {%for second in second%}
         <div class="second-container">

@@ -6,15 +6,33 @@
 }
 
 .team-title{
-    font-size: 50px;
+    font-size: 45px;
     margin-top: 50px;
-    margin-bottom: 30px;
-    color: black;
+    color: #f38b36;
+    font-weight: 700;
 }
 
 .year-heading{
     margin-top: 40px;
-    color: black;
+    color: #f38b36;
+    font-size: 32px !important;
+    font-weight: 700 !important;
+}
+
+
+.grey-line{
+    border-top: #ddd 1px solid;
+    height: 1px;
+    width: 120px;
+    margin-left: calc(50% - 60px);
+    z-index: -1;
+}
+
+.coloured-line{
+    border-top:#f38b36 3px solid;
+    width: 40px;
+    margin-left: calc(50% - 20px);
+    margin-top: -2px;
 }
 
 .members{
