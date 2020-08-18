@@ -1,4 +1,4 @@
-{% extends "forum/base.html" %}
+{% extends 'forum/base.html' %}
 {% load static %}
 {% block content %}
 <!-- ======= Intro Section ======= -->
@@ -18,7 +18,7 @@
 
 
 
-          <div class="carousel-item active" style="background-image: url('static/img/intro-carousel/1.jpg')">
+          <div class="carousel-item active" style="background-image: url()">
 
             <div class="carousel-container">
 
@@ -26,7 +26,7 @@
 
                 <h2 class="animate__animated animate__fadeInDown">Entrepreneurship Development Cell</h2>
 
-                <p class="animate__animated animate__fadeInUp">The Official Entrepreneur Club of NIT Durgapur.
+                <p class="animate__animated animate__fadeInUp">The Official Entrepreneurship Club of NIT Durgapur.
 
                  </p>
 
@@ -40,7 +40,7 @@
 
 
 
-        <div class="carousel-item" style="background-image:url('static/img/intro-carousel/2.jpg')">
+          <div class="carousel-item" style="background-image: url()">
 
             <div class="carousel-container">
 
@@ -48,9 +48,9 @@
 
                 <h2 class="animate__animated animate__fadeInDown">E-Summit</h2></h2>
 
-                <p class="animate__animated animate__fadeInUp">The Largest Entrepreneur Summit of Eastern India</p>
+                <p class="animate__animated animate__fadeInUp">The Largest E-Summit of Eastern India</p>
 
-                <a href="{% url 'esummit_page' %}" class="btn-get-started scrollto animate__animated animate__fadeInUp">Take a peek</a>
+                <a href="" class="btn-get-started scrollto animate__animated animate__fadeInUp">Take a peek</a>
 
               </div>
 
@@ -60,7 +60,7 @@
 
 
 
-        <div class="carousel-item" style="background-image: url('static/img/intro-carousel/3.jpg')">
+          <div class="carousel-item" style="background-image: url()">
 
             <div class="carousel-container">
 
@@ -70,7 +70,7 @@
 
                 <p class="animate__animated animate__fadeInUp">Make your dreams come true.</p>
 
-                <a href="{% url 'innovationcell_page' %}" class="btn-get-started scrollto animate__animated animate__fadeInUp">Check It Out</a></a>
+                <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Check It Out</a></a>
 
               </div>
 
@@ -80,7 +80,7 @@
 
 
 
-          <div class="carousel-item" style="background-image: url('static/img/intro-carousel/4.jpg')">
+          <div class="carousel-item" style="background-image: url()">
 
             <div class="carousel-container">
 
@@ -90,7 +90,7 @@
 
                 <p class="animate__animated animate__fadeInUp">The ones who make it happen.</p>
 
-                <a href="{% url 'team_page' %}" class="btn-get-started scrollto animate__animated animate__fadeInUp">Meet Us</a></a>
+                <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Meet Us</a></a>
 
               </div>
 
@@ -100,7 +100,7 @@
 
 
 
-          <div class="carousel-item" style="background-image: url('static/img/intro-carousel/5.jpg')">
+          <div class="carousel-item" style="background-image: url()">
 
             <div class="carousel-container">
 
@@ -149,6 +149,9 @@
     </div>
 
   </section><!-- End Intro Section -->
+  
+
+
 
 
 
@@ -184,13 +187,13 @@
 
               <div class="img">
 
-                <img src="{% static 'img/about-mission.jpg' %}" alt="My image" class="img-fluid">
+                <img src="" alt="" class="img-fluid">
 
                 <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
 
               </div>
 
-              <h2 class="title"><a href="{% url 'innovationcell_page' %}">Innovation Cell</a></h2>
+              <h2 class="title">Innovation Cell</h2>
 
               <p>
 
@@ -210,13 +213,13 @@
 
               <div class="img">
 
-                <img src="{% static 'img/about-plan.jpg' %}" alt="" class="img-fluid">
+                <img src="" alt="" class="img-fluid">
 
                 <div class="icon"><i class="ion-ios-list-outline"></i></div>
 
               </div>
 
-              <h2 class="title"><a href="{% url 'esummit_page' %}">E-Summit</a></h2>
+              <h2 class="title">E-Summit</h2>
 
               <p>
 
@@ -236,13 +239,13 @@
 
               <div class="img">
 
-                <img src="{% static 'img/about-vision.jpg' %}" alt="" class="img-fluid">
+                <img src="" alt="" class="img-fluid">
 
                 <div class="icon"><i class="ion-ios-eye-outline"></i></div>
 
               </div>
 
-              <h2 class="title"><a href="{% url 'team_page' %}">Our Team</a></h2>
+              <h2 class="title">Our Alumni</h2></h2>
 
               <p>
 
@@ -261,13 +264,14 @@
 
 
       </div>
+      
 
     </section><!-- End About Us Section -->
 
 
 
-    <!-- ======= Services Section ======= -->
-
+   
+    <!-- ======= Events Section ======= -->
     <section id="services">
 
       <div class="container" data-aos="fade-up">
@@ -282,232 +286,154 @@
 
         </header>
 
+      </div>
 
-
-        <div class="row">
-
-
-
-          <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
-
-            <h4 class="title">Event 1</h4>
-
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-
-          </div>
-
-          <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
-
-            <h4 class="title">Event 2</h4>
-
-            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-
-          </div>
-
-          <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="300">
-
-            <div class="icon"><i class="ion-ios-paper-outline"></i></div>
-
-            <h4 class="title">Event 3</h4>
-
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-
-          </div>
-
-          <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
-
-            <h4 class="title">Event 4</h4>
-
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-
-          </div>
-
-          <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="300">
-
-            <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
-
-            <h4 class="title">Event 5</h4></h4>
-
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-
-          </div>
-
-          <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="400">
-
-            <div class="icon"><i class="ion-ios-people-outline"></i></div>
-
-            <h4 class="title">Event 6</h4>
-
-            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-
-          </div>
+    </section>
+    <!-- End Events Section -->
 
 
 
-        </div>
+<!-- ======= Speakers Section ======= -->
+
+<section id="testimonials" class="section-bg">
+
+  <div class="container" data-aos="fade-up">
 
 
+
+    <header class="section-header">
+
+      <h3>Past Speakers</h3>
+
+    </header>
+
+
+
+    <div class="owl-carousel testimonials-carousel">
+
+
+
+      <div class="testimonial-item">
+
+        <img src="" class="testimonial-img" alt="">
+
+        <h3>Saul Goodman</h3>
+
+        <h4>Ceo &amp; Founder</h4>
+
+        <p>
+
+          <img src="" class="quote-sign-left" alt="">
+
+          Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+
+          <img src="" class="quote-sign-right" alt="">
+
+        </p>
 
       </div>
 
-    </section><!-- End Services Section -->
 
 
 
-    <!-- ======= Testimonials Section ======= -->
+     <div class="testimonial-item">
 
-    <section id="testimonials" class="section-bg">
+        <img src="" class="testimonial-img" alt="">
 
-      <div class="container" data-aos="fade-up">
+        <h3>Sara Wilsson</h3>
 
+        <h4>Designer</h4>
 
+        <p>
 
-        <header class="section-header">
+          <img src="" class="quote-sign-left" alt="">
 
-          <h3>Our Stratups</h3>
+          Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
 
-        </header>
+          <img src="" class="quote-sign-right" alt="">
 
+        </p>
 
+      </div>
 
-        <div class="owl-carousel testimonials-carousel">
 
 
+      <div class="testimonial-item">
 
-          <div class="testimonial-item">
+        <img src="" class="testimonial-img" alt="">
 
-            <img src="{% static 'img/testimonial-1.jpg' %}" class="testimonial-img" alt="">
+        <h3>Jena Karlis</h3>
 
-            <h3>Saul Goodman</h3>
+        <h4>Store Owner</h4>
 
-            <h4>Ceo &amp; Founder</h4>
+        <p>
 
-            <p>
+          <img src="" class="quote-sign-left" alt="">
 
-              <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
+          Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
 
-              Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+          <img src="" class="quote-sign-right" alt="">
 
-              <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
+        </p>
 
-            </p>
+      </div>
 
-          </div>
 
 
+      <div class="testimonial-item">
 
-          <div class="testimonial-item">
+        <img src="" class="testimonial-img" alt="">
 
-            <img src="{% static 'img/testimonial-2.jpg' %}" class="testimonial-img" alt="">
+        <h3>Matt Brandon</h3>
 
-            <h3>Sara Wilsson</h3>
+        <h4>Freelancer</h4>
 
-            <h4>Designer</h4>
+        <p>
 
-            <p>
+          <img src="" class="quote-sign-left" alt="">
 
-              <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
+          Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
 
-              Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+          <img src="" class="quote-sign-right" alt="">
 
-              <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
+        </p>
 
-            </p>
+      </div>
 
-          </div>
 
 
+      <div class="testimonial-item">
 
-          <div class="testimonial-item">
+        <img src="" class="testimonial-img" alt="">
 
-            <img src="{% static 'img/testimonial-3.jpg' %}" class="testimonial-img" alt="">
+        <h3>John Larson</h3>
 
-            <h3>Jena Karlis</h3>
+        <h4>Entrepreneur</h4>
 
-            <h4>Store Owner</h4>
+        <p>
 
-            <p>
+          <img src="" class="quote-sign-left" alt="">
 
-              <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
+          Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
 
-              Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+          <img src="" class="quote-sign-right" alt="">
 
-              <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
+        </p>
 
-            </p>
+      </div>
 
-          </div>
 
 
+    </div>
 
-          <div class="testimonial-item">
+    <!-- ======= End Speakers Section ======= -->
+    <br>
+    <br>
+   
 
-            <img src="{% static 'img/testimonial-4.jpg' %}" class="testimonial-img" alt="">
 
-            <h3>Matt Brandon</h3>
+    </div>
 
-            <h4>Freelancer</h4>
-
-            <p>
-
-              <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
-
-              Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-
-              <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
-
-            </p>
-
-          </div>
-
-
-
-          <div class="testimonial-item">
-
-            <img src="{% static 'img/testimonial-5.jpg' %}" class="testimonial-img" alt="">
-
-            <h3>John Larson</h3>
-
-            <h4>Entrepreneur</h4>
-
-            <p>
-
-              <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
-
-              Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-
-              <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
-
-            </p>
-
-          </div>
-
-
-
-        </div>
-
-
-
-
-
-        </div>
-
-
-
-
-
-  </main><!-- End #main -->
-
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
-  <!-- Uncomment below i you want to use a preloader -->
-
-  <!-- <div id="preloader"></div> -->
-
+  
+</main>
 {% endblock %}

@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>EDC | Events</title>
+  <title>EDC | NITD</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
@@ -14,11 +14,6 @@
   <link href="{% static 'img/edc_black.png' %}" rel="icon">
 
   <link href="{% static 'img/edc_black.png' %}" rel="apple-touch-icon">
-
-  <!-- CSS, Bootstrap, Font -->
-  <link rel="stylesheet" type="text/css" href="{% static "css/teams.css" %}">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 
   <!-- Google Fonts -->
@@ -37,6 +32,9 @@
   <!-- Template Main CSS File -->
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
+   <!-- Team CSS file -->
+   <link rel="stylesheet" type="text/css" href="{% static "css/teams.css" %}">
+   
 </head>
 
 <body>
@@ -56,7 +54,7 @@
     
           
     
-              <a href="#" class="logo mr-auto"><img src="{%static 'img/logo.png' %}" alt="" class="img-fluid">
+              <a href="{% url 'home_page' %}" class="logo mr-auto"><img src="{%static 'img/logo.png' %}" alt="" class="img-fluid">
     
     
     
@@ -91,7 +89,13 @@
       </header><!-- End Header -->
 
       {% block content %}{% endblock %}
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
       <!-- ======= Footer ======= -->
 
   <footer id="footer">

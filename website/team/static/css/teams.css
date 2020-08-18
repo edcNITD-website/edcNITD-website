@@ -7,7 +7,14 @@
 
 .team-title{
     font-size: 50px;
-    margin-bottom: 50px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: black;
+}
+
+.year-heading{
+    margin-top: 40px;
+    color: black;
 }
 
 .members{
@@ -16,69 +23,72 @@
 }
 
 .second-container{
-    border: lightgray 2px solid;
-    width: 200px;
+
+    width: 150px;
     display: flex;
     flex-direction: column;
     text-align: center;
-    box-shadow: lightgrey 2px 2px 8px 2px;
     margin: 50px;
-    border-radius: 20px;
+    margin-bottom: 10px;
     border-radius: 20px;
 }
 
-.second-container .image img{
-    width: 196px;
-    height: 196px;
-    border: rgba(0, 0, 0, 0.9) solid 7px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+.second-container .image{
+    border-radius: 20px;
     margin-bottom: 12px;
+}
+
+
+.second-container .image img{
+    width: 148px;
+    height: 148px;
+    border: rgba(0, 0, 0, 0.9) solid 5px;
+    border-radius: 20px;
 }
 
 .third-container{
-    border: lightgray 2px solid;
-    width: 200px;
+    width: 150px;
     display: flex;
     flex-direction: column;
     text-align: center;
-    box-shadow: lightgrey 2px 2px 8px 2px;
     margin: 50px;
+    margin-bottom: 10px;
     border-radius: 20px;
-    border-bottom-right-radius: 10px;
 }
 
-.third-container .image img{
-    width: 196px;
-    height: 196px;
-    border: rgba(0, 0, 0, 0.9) solid 7px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+.third-container .image{
+    border-radius: 20px;
     margin-bottom: 12px;
+}
+
+
+.third-container .image img{
+    width: 148px;
+    height: 148px;
+    border: rgba(0, 0, 0, 0.9) solid 5px;
+    border-radius: 20px;
 }
 
 .final-container{
-    border: lightgray 2px solid;
-    width: 220px;
+    width: 180px;
     display: flex;
     flex-direction: column;
     text-align: center;
-    box-shadow: lightgrey 2px 2px 8px 2px;
     margin: 50px;
+    margin-bottom: 10px;
     border-radius: 20px;
 }
 
-.final-container .image img{
-    width: 216px;
-    height: 216px;
-    border: rgba(0, 0, 0, 0.9) solid 7px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+.final-container .image{
+    border-radius: 20px;
     margin-bottom: 12px;
-    /* margin-top: 40px;
-    margin-bottom: 20px;
-    border-radius: 100px; */
+}
 
+.final-container .image img{
+    width: 178px;
+    height: 178px;
+    border: rgba(0, 0, 0, 0.9) solid 5px;
+    border-radius: 20px;
 } 
 
 .flex-container{
@@ -89,64 +99,125 @@
 }
 
 .name h5{
-    font-size: 25px;
+    font-size: 20px;
+    font-weight: bold;
     padding-left: 10px;
     padding-right: 10px;
 }
 .name h6{
-    font-size: 20px;
+    font-size: 15px;
+    font-weight: bold;
     padding-left: 10px;
     padding-right: 10px;
 }
 .position h6{
-    font-weight: bold;
     padding-left: 10px;
     padding-right: 10px;
     font-size: large;
-    font-size: 20px;
+    font-size: 17px;
+    font-weight: 500;
+    margin-top: -10px;
+}
+.facebook{
+    margin-right:10px ;
+    background-color: black;
+    padding: 5px;
+    width: 26px;
+    height: 26px;
+    border-radius: 5px;
+}
+.linkedin{
+    background-color: black;
+    padding: 5px;
+    border-radius: 5px;
+    width: 26px;
+    height: 26px;
 }
 
-.social-links{
-    display: none;
+.final-container .image:before {
+	content: "";
+	width: 178px;
+	height: 178px;
+	position: absolute;
+	box-shadow: 0 0 0 0 lightgray inset;
+	transition: all 1s ease-in-out 0s;
+    border-radius:20px; 
 }
-.mail{
-    padding-right:10px ;
-}
-.final-container:hover {
-    cursor: pointer;
-    width: 230px;
 
+.final-container:hover .image:before {
+    border-radius: 20px;
+	box-shadow: 0 0 0 100px lightgray inset;
+    opacity: 0.7;
 }
-.final-container:hover .image img{
-    width: 226px;
+
+.final-container .social-links{
+    position: relative;
+    bottom: 85px;
+    margin-top: -24px;
+    transform: scale(0, 0);
+	transition: all 1s ease-in-out 0s;
 }
 
 .final-container:hover .social-links{
     display: inline;
+    transition-delay: .1s;
+	transform: scale(1, 1);
+}
+.second-container .image:before {
+	content: "";
+	width: 148px;
+	height: 148px;
+	position: absolute;
+	box-shadow: 0 0 0 400 lightgray inset;
+	transition: all 1s ease-in-out 0s;
+    border-radius:20px; 
 }
 
-.second-container:hover {
-    cursor: pointer;
-    width: 210px;
-
+.second-container:hover .image:before {
+	box-shadow: 0 0 0 90px lightgray inset;
+    opacity: 0.7;
 }
-.second-container:hover .image img{
-    width: 206px;
+
+.second-container .social-links{
+   position: relative;
+    bottom: 75px;
+    margin-top: -24px;
+    transform: scale(0, 0);
+	transition: all 1s ease-in-out 0s;
 }
 
 .second-container:hover .social-links{
     display: inline;
+    transition-delay: .1s;
+	transform: scale(1, 1);
 }
 
-.third-container:hover {
-    cursor: pointer;
-    width: 210px;
-
+.third-container .image:before {
+	content: "";
+	width: 148px;
+	height: 148px;
+	position: absolute;
+	box-shadow: 0 0 0 400 lightgray inset;
+	transition: all 1s ease-in-out 0s;
+    border-radius:20px; 
 }
-.third-container:hover .image img{
-    width: 206px;
+
+.third-container:hover .image:before {
+	box-shadow: 0 0 0 90px lightgray inset;
+    opacity: 0.7;
+}
+
+.third-container .social-links{
+   position: relative;
+    bottom: 75px;
+    margin-top: -24px;
+    transform: scale(0, 0);
+	transition: all 1s ease-in-out 0s;
+   
 }
 
 .third-container:hover .social-links{
     display: inline;
+    transition-delay: .1s;
+	transform: scale(1, 1);
 }

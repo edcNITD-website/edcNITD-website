@@ -21,11 +21,11 @@
 
 
 
-  <!-- Favicons -->
 
-  <link href="{% static 'img/logo.png' %}" rel="icon">
 
-  <link href="{% static 'img/logo.png' %}" rel="icon">
+  <link href="{% static 'img/edc_black.png' %}" rel="icon">
+
+  <link href="{% static 'img/edc_black.png' %}" rel="apple-touch-icon">
 
 
 
@@ -52,6 +52,9 @@
   <link href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
 
   <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
 
 
 
@@ -85,7 +88,7 @@
 
       
 
-          <a href="{% url 'home_page' %}" class="logo mr-auto"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid">
+          <a href="" class="logo mr-auto"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid">
 
 
 
@@ -93,9 +96,7 @@
 
             <ul>
 
-              <li class="active"><a href="{%url 'home_page' %}">Home</a></li>
-
-              <li><a href="#About">About Us</a></li>
+              <li class="active"><a href="{% url 'home_page' %}">Home</a></li>
 
               <li><a href="{% url 'esummit_page' %}">E-Summit</a></li>
 
@@ -103,7 +104,10 @@
 
               <li><a href="{% url 'innovationcell_page' %}">Innovation Cell</a></li>
 
-              <li><a href="{% url 'team_page' %}">Our Team</a></li>
+              <li><a href="{% url 'team_page' %}">Our Team</a>
+
+               
+              </li>
 
               <li><a href="#footer">Contact Us</a></li>
 
@@ -122,156 +126,161 @@
     </div>
 
   </header><!-- End Header -->
+
   {% block content %}{% endblock %}
+
+  <br>
+  <br>
+  <br>
   <!-- ======= Footer ======= -->
 
-  <footer id="footer">
+<footer id="footer">
 
-    <div class="footer-top">
-
-      <div class="container">
-
-        <div class="row">
-
-
-
-          <div class="col-lg-3 col-md-6 footer-info">
-
-            <h3>EDC NITD</h3>
-
-       
-
-          </div>
-
-
-
-          <div class="col-lg-3 col-md-6 footer-links">
-
-            <h4>Useful Links</h4>
-
-            <ul>
-
-              <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'home_page' %}">Home</a></li>
-
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">About Us</a></li>
-
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Services</a></li>
-
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Terms of service</a></li>
-
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Privacy policy</a></li>
-
-            </ul>
-
-          </div>
-
-
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-
-            <h4>Contact Us</h4>
-
-            <p>
-
-              Address
-
-               <br>
-
-              <strong>Phone:</strong> +91 XXXXX XXXXX<br>
-
-              <strong>Email:</strong> edc.nitd@gmail.com<br>
-
-            </p>
-
-
-
-            <div class="social-links">
-
-              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-
-              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-
-              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-
-              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-
-              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-
-            </div>
-
-
-
-          </div>
-
-
-
-          <div class="col-lg-3 col-md-6 footer-newsletter">
-
-            <h4>Get Notified for Future Events.</h4>
-
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
-
-            <form action="" method="post">
-
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-
-            </form>
-
-          </div>
-
-
-
+  <div class="footer-top">
+  
+    <div class="container-fluid">
+  
+      <div class="row">
+  
+  
+  
+        <div class="col-lg-3 col-md-6 footer-info">
+  
+          <h3>Entrepreneurship Development Cell</h3>
+          <h5 style="text-align: center; font-size: 10px;border-left: 4px solid #f38b36; padding: 2px 10px 2px 0px;">NIT Durgapur</h5>            
+          <br>
+          <p>Made with <i class="fa fa-heart" aria-hidden="true"></i> by Web-Team </p>
+          
         </div>
-
+  
+  
+  
+  
+        <div class="col-lg footer-contact">
+  
+          <h4>Contact Us</h4>
+  
+          <p>
+  
+            Address
+  
+             <br>
+  
+            <strong>Phone:</strong> +91 XXXXX XXXXX<br>
+  
+            <strong>Email:</strong> edc.nitd@gmail.com<br>
+  
+          </p>
+  
+          
+  
+  
+          <div class="social-links">
+  
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+  
+            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+  
+            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+  
+            <a href="#" class="google-plus"><i class="fa fa-youtube"></i></a>
+  
+            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+  
+          </div>
+  
+  
+  
+        </div>
+  
+        <div class="col-lg footer-links">
+          
+  
+          <h4>Useful Links</h4>
+  
+          <ul>
+  
+            <li><i class="ion-ios-arrow-right"></i> <a href="">Home</a></l>
+  
+            <li><i class="ion-ios-arrow-right"></i> <a href="">E-Summit</a></li>
+  
+            <li><i class="ion-ios-arrow-right"></i> <a href="">Events</a></li>
+  
+            <li><i class="ion-ios-arrow-right"></i> <a href="#">Our Team</a></li>
+  
+          </ul>
+  
+        </div>
+  
+  
+  <!-- x 
+        <div class="col-lg-3 col-md-6 footer-newsletter">
+  
+          <h4>Get Notified for Future Events.</h4>
+  
+          <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
+  
+          <form action="" method="post">
+  
+            <input type="email" name="email"><input type="submit" value="Subscribe">
+  
+          </form>
+  
+        </div>
+  
+  -->
+  
       </div>
-
+  
     </div>
-
-
-
-    </div>
-
+  
+  </div>
+  
+  
+  
+  </div>
+  
   </footer><!-- End Footer -->
-
-
-
+  
+  
+  
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
- 
-
-  <div id="preloader"></div>
-
-
-
+  
+  
+  
+  <div id="preloader">
+  </div>
+  
+  
+  
   <!-- Vendor JS Files -->
-
+  
   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-
+  
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-
+  
   <script src="{% static 'vendor/jquery.easing/jquery.easing.min.js' %}"></script>
-
+  
   <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
-
+  
   <script src="{% static 'vendor/waypoints/jquery.waypoints.min.js' %}"></script>
-
+  
   <script src="{% static 'vendor/counterup/counterup.min.js' %}"></script>
-
+  
   <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-
+  
   <script src="{% static 'vendor/venobox/venobox.min.js' %}"></script>
-
+  
   <script src="{% static 'vendor/owl.carousel/owl.carousel.min.js' %}"></script>
-
+  
   <script src="{% static 'vendor/aos/aos.js' %}"></script>
-
-
-
+  
+  
+  
   <!-- Template Main JS File -->
-
+  
   <script src="{% static 'js/main.js' %}"></script>
-
-
-
+  
 </body>
+
 </html>
