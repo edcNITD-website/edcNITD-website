@@ -1,3 +1,110 @@
 {% extends 'events/base_event.html' %}
 {% load static %}
-{% block content %}{% endblock %}
+{% block content %}
+
+
+  <!-- Team CSS file -->
+  <link rel="stylesheet" type="text/css" href="{% static "css/teams.css" %}">
+
+  <div class="container">
+    <h1 class="team-title">Our Squad</h1>
+      <div class="grey-line"></div>
+      <div class="coloured-line"></div>
+    <div class="members">
+      <div class="flex-container">
+        {%for final in final%}
+          <div class="final-container">
+            <div class="image">
+              {%if final.image%}
+                <img src="{{final.image.url}}" alt="smile">
+              {%else%}
+                <img src="https://scontent.fccu11-1.fna.fbcdn.net/v/t1.0-9/33769797_990308764482605_4005773412654907392_n.jpg?_nc_cat=106&_nc_sid=09cbfe&_nc_ohc=1KtBpyshob8AX8M-tp7&_nc_ht=scontent.fccu11-1.fna&oh=ef6a8915aedec2ab5f776f01c713efe3&oe=5F47208D" alt="photo">
+              {%endif%}
+            </div>
+            {%if final.facebook or final.linkedin%}
+            <div class="social-links">
+              {%if final.facebook%}
+              <span><a href={{final.facebook}}><i class="fa fa-facebook facebook" aria-hidden="true"></i></a>
+              </span>
+              {%endif%}
+              {%if final.linkedin%}
+              <span><a href={{final.linkedin}}><i class="fa fa-linkedin linkedin" aria-hidden="true"></i></a></span>
+              {%endif%}
+            </div>
+            {%endif%}
+            <div class="name">
+              <h5>{{ final.name }}</h5>
+            </div>
+            <div class="position">
+              <h6>{{final.position}}</h6>
+            </div>
+          </div>
+        {%endfor%}
+      </div>
+      <div class="year-heading">
+        <div>SENIOR COORDINATORS</div>
+      </div>
+      <div class="grey-line"></div>
+      <div class="coloured-line"></div>
+      <div class="flex-container">
+        {%for third in third%}
+          <div class="third-container">
+            <div class="image">
+              {%if third.image%}
+                <img src="{{third.image.url}}" alt="smile">
+              {%else%}
+                <img src="https://scontent.fccu11-1.fna.fbcdn.net/v/t1.0-9/33769797_990308764482605_4005773412654907392_n.jpg?_nc_cat=106&_nc_sid=09cbfe&_nc_ohc=1KtBpyshob8AX8M-tp7&_nc_ht=scontent.fccu11-1.fna&oh=ef6a8915aedec2ab5f776f01c713efe3&oe=5F47208D" alt="photo">
+              {%endif%}
+            </div>
+            {%if third.facebook or third.linkedin%}
+            <div class="social-links">
+              {%if third.facebook%}
+              <span><a href={{third.facebook}}><i class="fa fa-facebook facebook" aria-hidden="true"></i></a>
+              </span>
+              {%endif%}
+              {%if third.linkedin%}
+              <span><a href={{third.linkedin}}><i class="fa fa-linkedin linkedin" aria-hidden="true"></i></a></span>
+              {%endif%}
+            </div>
+            {%endif%}
+            <div class="name">
+              <h6>{{ third.name }}</h6>
+            </div>
+          </div>
+        {%endfor%}
+      </div>
+      <div class="year-heading">
+        <div>JUNIOR COORDINATORS</div>
+      </div>
+      <div class="grey-line"></div>
+      <div class="coloured-line"></div>
+      <div class="flex-container">
+        {%for second in second%}
+        <div class="second-container">
+          <div class="image">
+            {%if second.image%}
+              <img src="{{second.image.url}}" alt="smile">
+            {%else%}
+              <img src="https://scontent.fccu11-1.fna.fbcdn.net/v/t1.0-9/33769797_990308764482605_4005773412654907392_n.jpg?_nc_cat=106&_nc_sid=09cbfe&_nc_ohc=1KtBpyshob8AX8M-tp7&_nc_ht=scontent.fccu11-1.fna&oh=ef6a8915aedec2ab5f776f01c713efe3&oe=5F47208D" alt="photo">
+            {%endif%}
+          </div>
+          {%if second.facebook or second.linkedin%}
+          <div class="social-links">
+            {%if second.facebook%}
+            <span><a href={{second.facebook}}><i class="fa fa-facebook facebook" aria-hidden="true"></i></a>
+            </span>
+            {%endif%}
+            {%if second.linkedin%}
+            <span><a href={{second.linkedin}}><i class="fa fa-linkedin linkedin" aria-hidden="true"></i></a></span>
+            {%endif%}
+          </div>
+          {%endif%}
+          <div class="name">
+            <h6>{{ second.name }}</h6>
+          </div>
+        </div>
+      {%endfor%}
+    </div>
+  </div>
+  </div>
+{% endblock %}
