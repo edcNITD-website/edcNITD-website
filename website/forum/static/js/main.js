@@ -17,6 +17,25 @@
     }
   });
 
+  var swiper = new Swiper('.swiper-container', {
+    effect: 'coverflow',
+    centeredSlides: true,
+    grabCursor: true,
+    
+    slidesPerView: 'auto',
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+
   // Back to top button
   $(window).scroll(function() {
     if ($(this).scrollTop() > 100) {
