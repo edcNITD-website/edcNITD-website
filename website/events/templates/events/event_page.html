@@ -12,30 +12,22 @@
       <h1><p>Upcoming Events</p></h1>
     </div>
 <!-- Main -->
-<div class="container">
-  <div class="container">
+<div class="container-fluid">
+  <div class="container-fluid">
     <div class="row">
       {% for ue in upcomingevent %}
-      <div class="col-sm">
+      <div class="col-lg-4">
         <section class="portfolio-details container animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
           <div class="container">
-    
-            <div class="portfolio-details-container">
-    
-              <div class="owl-carousel portfolio-details-carousel">
-                <img src="{{ ue.image1.url }}" class="img-fluid" alt=" ">
-                <img src="{{ ue.image2.url }}" class="img-fluid" alt=" ">
-                <img src="{{ ue.image3.url }}" class="img-fluid" alt=" ">
+
+          <div class="portfolio-details-carousel">
+                <img src="{{ ue.image1.url }}" class="img-fluid"  style="width: 600px; height: 350px; " alt="">
               </div>
-    
-              
-    
-            </div>
     
             <div class="portfolio-description">
               <h2>{{ ue.event_name }}</h2>
               <p>
-                {{ ue.about_event }}
+                {{ ue.about_event }} 
               </p>
             </div>
           </div>
@@ -52,24 +44,18 @@
   <div class="container animate__animated animate__fadeInUp">
     <h1><p>Other Events</p></h1>
   </div>
+</div>
 
-
-
+<div class="container">
   <div class="row">
     {% for oe in otherevent %}
-    <div class="col-md-4"><section class="portfolio-details container animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="col-md-4"><section class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
       <div class="container">
 
         <div class="portfolio-details-container">
-
-          <div class="owl-carousel portfolio-details-carousel">
-            <img src="{{ oe.img1.url }}" class="img-fluid" alt="">
-            <img src="{{ oe.img2.url }}" class="img-fluid" alt="">
-            <img src="{{ oe.img3.url }}" class="img-fluid" alt="">
-          </div>
-
-          
-
+          <div class="portfolio-details-carousel">
+                <img src="{{ oe.img1.url }}" class="img-fluid"  style="width: 300px; height: 200px; " alt="">
+              </div>          
         </div>
 
         <div class="portfolio-description">
@@ -82,6 +68,7 @@
     </section></div>
     {% endfor %}
   </div> 
+</div>
 </div>
 <br>
 <br>
