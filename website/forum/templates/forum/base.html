@@ -100,7 +100,19 @@
 
               <li {%if request.resolver_match.url_name == 'esummit_page' %}class="active"{% endif %}><a href="{% url 'esummit_page' %}">E-Summit</a></li>
 
-              <li {%if request.resolver_match.url_name == 'event_page' %}class="active"{% endif %}><a href="{% url 'event_page' %}">Events</a></li>
+              <li class="drop-down"><a href="{% url 'event_page' %}">Events</a>
+
+                <ul>
+
+                  <li><a href="">Ongoing Events</a></li>
+
+                  <li><a href="">Upcoming Events</a></li>
+
+                  <li><a href="">Other Events</a></li>
+
+                </ul>
+
+              </li>
 
               <!--<li {%if request.resolver_match.url_name == 'innovationcell_page' %}class="active"{% endif %}><a href="{% url 'innovationcell_page' %}">Innovation Cell</a></li>-->
 
@@ -138,13 +150,13 @@
 
   <div class="footer-top">
   
-    <div class="container-fluid">
+    <div class="container">
   
       <div class="row">
   
   
   
-        <div class="col-lg-3 col-md-6 footer-info">
+        <div class="col-lg-4 col-md-4 footer-info">
   
           <h3>Entrepreneurship Development Cell</h3>
           <h5 style="text-align: center; font-size: 10px;border-left: 4px solid #f38b36; padding: 2px 10px 2px 0px;">NIT Durgapur</h5>            
@@ -156,7 +168,7 @@
   
   
   
-        <div class="col-lg footer-contact">
+        <div class="col-lg-4 footer-contact">
   
           <h4>Contact Us</h4>
   
@@ -193,7 +205,7 @@
   
         </div>
   
-        <div class="col-lg footer-links">
+        <div class="col-lg-4 footer-links">
           
   
           <h4>Useful Links</h4>
