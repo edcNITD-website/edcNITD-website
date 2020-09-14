@@ -100,19 +100,7 @@
 
               <li {%if request.resolver_match.url_name == 'esummit_page' %}class="active"{% endif %}><a href="{% url 'esummit_page' %}">E-Summit</a></li>
 
-              <li class="drop-down"><a href="{% url 'event_page' %}">Events</a>
-
-                <ul>
-
-                  <li><a href="">Ongoing Events</a></li>
-
-                  <li><a href="">Upcoming Events</a></li>
-
-                  <li><a href="">Other Events</a></li>
-
-                </ul>
-
-              </li>
+              <li {%if request.resolver_match.url_name == 'event_page' %}class="active"{% endif %}><a href="{% url 'event_page' %}">Events</a></li>
 
               <!--<li {%if request.resolver_match.url_name == 'innovationcell_page' %}class="active"{% endif %}><a href="{% url 'innovationcell_page' %}">Innovation Cell</a></li>-->
 
@@ -121,7 +109,7 @@
                
               </li>
 
-              <li><a href="#footer">Contact Us</a></li>
+              <!--li><a href="#footer">Contact Us</a></li>-->
 
 
 
