@@ -3,73 +3,120 @@
 {% block content %}
 
   <main id="main">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="container animate__animated animate__fadeInUp">
-      <h1><p>Upcoming Events</p></h1>
-    </div>
-<!-- Main -->
-<div class="container-fluid">
-  <div class="container-fluid">
-    <div class="row">
-      {% for ue in upcomingevent %}
-      <div class="col-lg-4">
-        <section class="portfolio-details container animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
-          <div class="container">
 
-          <div class="portfolio-details-carousel">
-                <img src="{{ ue.image1.url }}" class="img-fluid"  style="width: 600px; height: 350px; " alt="">
-              </div>
-    
-            <div class="portfolio-description">
-              <h2>{{ ue.event_name }}</h2>
-              <p>
-                {{ ue.about_event }} 
-              </p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div>
+        {%if oe_count%}
+        <header class="section-header">
+            <h3>Ongoing Events</h3>
+        </header>
+        <div class="container">
+        <div class="row">
+            {% for oe in oe %}
+            <div class="col-md-4"><section class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="container">
+        
+                <div class="portfolio-details-container">
+                <div class="portfolio-details-carousel">
+                        <img src="{{ oe.image1.url }}" class="img-fluid"  style="width: 300px; height: 200px; " alt="">
+                    </div>          
+                </div>
+        
+                <div class="portfolio-description">
+                <h2>{{oe.event_name}}</h2>
+                <p>
+                    {{oe.about_event}}
+                </p>
+                </div>
             </div>
-          </div>
-        </section>
-      </div>
-      {% endfor %}
+            </section></div>
+            {% endfor %}
+        </div> 
+        </div>
+        </div>
+        {%endif%}
     </div>
-  </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <div class="container animate__animated animate__fadeInUp">
-    <h1><p>Other Events</p></h1>
-  </div>
-</div>
 
-<div class="container">
-  <div class="row">
-    {% for oe in otherevent %}
-    <div class="col-md-4"><section class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
-      <div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
-        <div class="portfolio-details-container">
-          <div class="portfolio-details-carousel">
-                <img src="{{ oe.img1.url }}" class="img-fluid"  style="width: 300px; height: 200px; " alt="">
-              </div>          
+    <div>
+        {%if ue_count%}
+        <header class="section-header">
+            <h3>Upcoming Events</h3>
+        </header>
+        <div class="container">
+        <div class="row">
+            {% for ue in ue %}
+            <div class="col-md-4"><section class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="container">
+        
+                <div class="portfolio-details-container">
+                <div class="portfolio-details-carousel">
+                        <img src="{{ ue.image1.url }}" class="img-fluid"  style="width: 300px; height: 200px; " alt="">
+                    </div>          
+                </div>
+        
+                <div class="portfolio-description">
+                <h2>{{ue.event_name}}</h2>
+                <p>
+                    {{ue.about_event}}
+                </p>
+                </div>
+            </div>
+            </section></div>
+            {% endfor %}
+        </div> 
         </div>
-
-        <div class="portfolio-description">
-          <h2>{{oe.eventname}}</h2>
-          <p>
-            {{oe.aboutevent}}
-          </p>
         </div>
-      </div>
-    </section></div>
-    {% endfor %}
-  </div> 
-</div>
-</div>
-<br>
-<br>
+        {%endif%}
+    </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+    <div>
+        {%if ae_count%}
+        <header class="section-header">
+            <h3>All Events</h3>
+        </header>
+        <div class="container">
+        <div class="row">
+            {% for ae in ae %}
+            <div class="col-md-4"><section class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="container">
+        
+                <div class="portfolio-details-container">
+                <div class="portfolio-details-carousel">
+                        <img src="{{ ae.image1.url }}" class="img-fluid"  style="width: 300px; height: 200px; " alt="">
+                    </div>          
+                </div>
+        
+                <div class="portfolio-description">
+                <h2>{{ae.event_name}}</h2>
+                <p>
+                    {{ae.about_event}}
+                </p>
+                </div>
+            </div>
+            </section></div>
+            {% endfor %}
+        </div> 
+        </div>
+        </div>
+        {%endif%}
+    </div>
+
+<br>  
 {% endblock %}
