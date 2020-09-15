@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UpcomingEvent,OtherEvent
+from .models import*
 
-event_models=[UpcomingEvent,OtherEvent]
+event_models=[Event]
 admin.site.register(event_models)
