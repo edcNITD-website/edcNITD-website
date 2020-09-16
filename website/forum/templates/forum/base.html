@@ -147,8 +147,8 @@
   
         <div class="col-lg-3 footer-info">
   
-          <h3 style="font-size:20px;">Entrepreneurship Development Cell</h3>
-          <p style="border-left: 4px solid #f38b36; text-align:left; padding-left:150px;">NIT Durgapur</p>            
+          <h3>Entrepreneurship Development Cell</h3>
+          <p style="border-left: 4px solid #f38b36; text-align:left; padding-left:130px;">NIT Durgapur</p>            
           <br>
           <p style="text-align:left; padding-left:85px;">Made with <i class="fa fa-heart" aria-hidden="true"></i> by Web-Team </p>
           
@@ -157,13 +157,13 @@
       <div class="col-lg-1">
         </div>  
   
-        <div class="col-lg-3 footer-contact">
+        <div class="col-md-3 footer-contact">
   
           <h4>Contact Us</h4>
   
           <p>
   
-            <i class="fa fa-map-marker"> :</i> Mahatma Gandhi Avenue, A-Zone, Durgapur,
+            <i class="fa fa-map-marker"> :</i> Mahatma Gandhi Avenue,<br> A-Zone, Durgapur,
              West Bengal <br> Durgapur: 713209 
              <br>
   
@@ -178,7 +178,7 @@
   
           <div class="social-links">
   
-            <a target="_blank" href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a target="_blank" href="https://twitter.com/edcnitd" class="twitter"><i class="fa fa-twitter"></i></a>
   
             <a target="_blank" href="https://www.facebook.com/edc.nitd" class="facebook"><i class="fa fa-facebook"></i></a>
   
@@ -202,14 +202,13 @@
   
           <ul>
   
-            <li><i class="ion-ios-arrow-right"></i> <a href="">Home</a></l>
+            <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'home_page' %}">Home</a></l>
   
-            <li><i class="ion-ios-arrow-right"></i> <a href="">E-Summit</a></li>
+            <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'esummit_page' %}">E-Summit</a></li>
   
-            <li><i class="ion-ios-arrow-right"></i> <a href="">Events</a></li>
+            <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'event_page' %}">Events</a></li>
   
-            <li><i class="ion-ios-arrow-right"></i> <a href="#">Our Team</a></li>
-  
+            <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'team_page' %}">Our Team</a></li>
           </ul>
   
         </div>
