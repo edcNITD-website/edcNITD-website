@@ -10,7 +10,11 @@
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
-  
+<!-- favicons
+		================================================== -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
+
   <link href="{% static 'img/edc_black.png' %}" rel="icon">
 
   <link href="{% static 'img/edc_black.png' %}" rel="apple-touch-icon">
@@ -112,7 +116,7 @@
           <h3>Entrepreneurship Development Cell</h3>
           <p style="border-left: 4px solid #f38b36; text-align:left; padding-left:130px;">NIT Durgapur</p>            
           <br>
-          <p style="text-align:left; padding-left:85px;">Made with <i class="fa fa-heart" aria-hidden="true"></i> by Web-Team </p>
+          <p style="text-align:left; padding-left:85px;">Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="{% url 'web_team' %}">Web-Team </a></p>
           
         </div>
 
@@ -164,7 +168,7 @@
   
           <ul>
   
-            <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'home_page' %}">Home</a></l>
+            <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'home_page' %}">Home</a></li>
   
             <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'esummit_page' %}">E-Summit</a></li>
   

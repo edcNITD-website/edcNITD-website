@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'team',
     'innovationcell',
     'events',
+    'web_team',
     'esummit',
 ]
 
