@@ -340,8 +340,8 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
 }
 
 #header .logo img {
-  height: 50px;
-  width: auto;
+  height: auto;
+  width: 100px;
 }
 
 @media (max-width: 992px) {

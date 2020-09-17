@@ -1,15 +1,56 @@
 {% extends 'events/base_event.html' %}
 {% load static %}
 {% block content %}
+ <ul class="nav nav-menu justify-content-center bg-dark">
+  <li class="nav-item">
+    <a class="nav-link active" href="#oc">Ongoing Evnets</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#ue">Upcoming Events</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#ae">All Events</a>
+  </li>
+</ul>
 
-  <main id="main">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+<br>
+<br>
+
+<div class="container animate__animated animate__fadeInUp">
+      <h1 id="#oc"><p>Ongoing Events</p></h1>
+    </div>
+<!-- Main -->
+<div class="container-fluid">
+  <div class="container-fluid">
+    <div class="row">
+      {% for ue in upcomingevent %}
+      <div class="col-lg-4">
+        <section class="portfolio-details container animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
+          <div class="container">
+
+          <div class="portfolio-details-carousel">
+                <img src="{{ ue.image1.url }}" class="img-fluid"  style="width: 600px; height: 350px; " alt="">
+              </div>
+    
+            <div class="portfolio-description">
+              <h2>{{ ue.event_name }}</h2>
+              <p>
+                {{ ue.about_event }} 
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+
     <div class="container animate__animated animate__fadeInUp">
-      <h1><p>Upcoming Events</p></h1>
+      <h1 id="#uc"><p>Upcoming Events</p></h1>
     </div>
 <!-- Main -->
 <div class="container-fluid">
@@ -38,11 +79,8 @@
   </div>
   <br>
   <br>
-  <br>
-  <br>
-  <br>
   <div class="container animate__animated animate__fadeInUp">
-    <h1><p>Other Events</p></h1>
+    <h1 id="#ae"><p>All Events</p></h1>
   </div>
 </div>
 
