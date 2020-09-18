@@ -52,6 +52,11 @@
                 </p>
                 </div>
             </div>
+            {% if oe.registration_link%}
+            <div class="text-center">
+                <a href="{{oe.registration_link}}" target="blank" class="btn btn-primary stretched-link">Participate in {{oe.event_name}}</a>
+            </div>
+            {%endif%}
             </section></div>
             {% endfor %}
         </div> 
@@ -85,6 +90,11 @@
                 </p>
                 </div>
             </div>
+            {% if ue.registration_link%}
+            <div class="text-center">
+                <a href="{{ue.registration_link}}" target="blank" class="btn btn-primary stretched-link">Participate in {{ue.event_name}}</a>
+            </div>
+            {% endif %}
             </section></div>
             {% endfor %}
         </div> 
