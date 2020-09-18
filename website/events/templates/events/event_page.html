@@ -1,19 +1,37 @@
 {% extends 'events/base_event.html' %}
 {% load static %}
 {% block content %}
-
-  <main id="main">
-
+<br>
+<br>
+{%if oe_count or ue_count or ae_count%}
+<div>
+    <ul class="nav nav-menu justify-content-center bg-dark fixed-top" style="margin-top: 90px;">
+        {%if oe_count %}
+        <li class="nav-item">
+            <a class="nav-link active" href="#oe">Ongoing Events</a>
+        </li>
+        {% endif %}
+        {%if ue_count %}
+        <li class="nav-item">
+            <a class="nav-link" href="#ue">Upcoming Events</a>
+        </li>
+        {%endif%}
+        {%if ae_count%}
+        <li class="nav-item">
+            <a class="nav-link" href="#ae">All Events</a>
+        </li>
+        {%endif%}
+    </ul>
+</div>
+{% endif %}
     <br>
     <br>
     <br>
     <br>
-    <br>
-
     <div>
         {%if oe_count%}
         <header class="section-header">
-            <h3>Ongoing Events</h3>
+            <h3 id="oe">Ongoing Events</h3>
         </header>
         <div class="container">
         <div class="row">
@@ -46,7 +64,7 @@
     <div>
         {%if ue_count%}
         <header class="section-header">
-            <h3>Upcoming Events</h3>
+            <h3 id="ue">Upcoming Events</h3>
         </header>
         <div class="container">
         <div class="row">
@@ -79,7 +97,7 @@
     <div>
         {%if ae_count%}
         <header class="section-header">
-            <h3>All Events</h3>
+            <h3 id="ae">All Events</h3>
         </header>
         <div class="container">
         <div class="row">
