@@ -1,34 +1,28 @@
 {% extends 'events/base_event.html' %}
 {% load static %}
 {% block content %}
-<br>
-<br>
 {%if oe_count or ue_count or ae_count%}
 <div>
     <ul class="nav nav-menu justify-content-center bg-dark fixed-top" style="margin-top: 90px;">
         {%if oe_count %}
         <li class="nav-item">
-            <a class="nav-link active" href="#oe">Ongoing Events</a>
+            <a class="nav-link active" href="#event-type-oe">Ongoing Events</a>
         </li>
         {% endif %}
         {%if ue_count %}
         <li class="nav-item">
-            <a class="nav-link" href="#ue">Upcoming Events</a>
+            <a class="nav-link" href="#event-type-ue">Upcoming Events</a>
         </li>
         {%endif%}
         {%if ae_count%}
         <li class="nav-item">
-            <a class="nav-link" href="#ae">All Events</a>
+            <a class="nav-link" href="#event-type-all">All Events</a>
         </li>
         {%endif%}
     </ul>
 </div>
 {% endif %}
-    <br>
-    <br>
-    <br>
-    <br>
-    <div>
+    <div id="event-type-oe" style="padding-top: 150px;">
         {%if oe_count%}
         <header class="section-header">
             <h3 id="oe">Ongoing Events</h3>
@@ -64,9 +58,7 @@
         </div>
         {%endif%}
     </div>
-    <br>
-    <br>
-    <div>
+    <div id="event-type-ue" style="padding-top: 150px;">
         {%if ue_count%}
         <header class="section-header">
             <h3 id="ue">Upcoming Events</h3>
@@ -86,7 +78,7 @@
                 <div class="portfolio-description">
                 <h2>{{ue.event_name}}</h2>
                 <p>
-                    {{ue.about_event}}a
+                    {{ue.about_event}}
                 </p>
                 </div>
             </div>
@@ -102,9 +94,7 @@
         </div>
         {%endif%}
     </div>
-  <br>
-  <br>
-    <div>
+    <div id="event-type-all" style="padding-top: 150px;">
         {%if ae_count%}
         <header class="section-header">
             <h3 id="ae">All Events</h3>

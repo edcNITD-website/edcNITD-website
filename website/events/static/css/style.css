@@ -3,6 +3,7 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
 body {
   background: #fff;
   color: #666666;
@@ -1895,4 +1896,8 @@ section {
   text-align: center;
   font-size: 13px;
   color: #ddd;
+}
+
+.event-container{
+  margin-top: 100px;
 }
