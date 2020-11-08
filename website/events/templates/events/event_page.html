@@ -22,6 +22,65 @@
     </ul>
 </div>
 {% endif %}
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<style>
+    
+    
+    
+    a.morelink {
+        text-decoration:none;
+        outline: none;
+    }
+    .morecontent span {
+        display: none;
+    
+    }
+
+    
+    
+</style>
+<script>
+   
+    
+    $(document).ready(function() {
+        var showChar = 156;
+        var ellipsestext = "...";
+        var moretext = "more";
+        var lesstext = "less";
+        $('.pop').each(function() {
+            var content = $(this).html();
+    
+            if(content.length > showChar) {
+    
+                var c = content.substr(0, showChar);
+                var h = content.substr(showChar-1, content.length - showChar);
+    
+                var html = c + '<span class="moreelipses">'+ellipsestext+'</span>&nbsp;<span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">'+moretext+'</a></span>';
+    
+                $(this).html(html);
+            }
+    
+        });
+    
+        $(".morelink").click(function(){
+            if($(this).hasClass("less")) {
+                $(this).removeClass("less");
+                $(this).html(moretext);
+            } else {
+                $(this).addClass("less");
+                $(this).html(lesstext);
+            }
+            $(this).parent().prev().toggle();
+            $(this).prev().toggle();
+            return false;
+        });
+    });
+</script>
+
+
+
+
     <div id="event-type-oe" style="padding-top: 150px;">
         {%if oe_count%}
         <header class="section-header">
@@ -40,8 +99,8 @@
                 </div>
         
                 <div class="portfolio-description">
-                <h2>{{oe.event_name}}</h2>
-                <p>
+                <h2 style="font-size: 22px;">{{oe.event_name}}</h2>
+                <p class="pop">
                     {{oe.about_event}}
                 </p>
                 </div>
@@ -58,6 +117,10 @@
         </div>
         {%endif%}
     </div>
+
+   
+
+
     <div id="event-type-ue" style="padding-top: 150px;">
         {%if ue_count%}
         <header class="section-header">
@@ -76,8 +139,8 @@
                 </div>
         
                 <div class="portfolio-description">
-                <h2>{{ue.event_name}}</h2>
-                <p>
+                <h2 style="font-size: 22px;">{{ue.event_name}}</h2>
+                <p class="pop">
                     {{ue.about_event}}
                 </p>
                 </div>
@@ -112,8 +175,8 @@
                 </div>
         
                 <div class="portfolio-description">
-                <h2>{{ae.event_name}}</h2>
-                <p>
+                <h2 style="font-size: 22px;">{{ae.event_name}}</h2>
+                <p class="pop">
                     {{ae.about_event}}
                 </p>
                 </div>

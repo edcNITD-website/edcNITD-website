@@ -161,6 +161,59 @@
   </section><!-- End Intro Section -->
   
 
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<style>
+    
+    
+    
+    a.morelink {
+        text-decoration:none;
+        outline: none;
+    }
+    .morecontent span {
+        display: none;
+    
+    }
+
+    
+    
+</style>
+<script>
+    $(document).ready(function() {
+        var showChar = 166;
+        var ellipsestext = "...";
+        var moretext = "more";
+        var lesstext = "less";
+        $('.pop').each(function() {
+            var content = $(this).html();
+    
+            if(content.length > showChar) {
+    
+                var c = content.substr(0, showChar);
+                var h = content.substr(showChar-1, content.length - showChar);
+    
+                var html = c + '<span class="moreelipses">'+ellipsestext+'</span>&nbsp;<span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">'+moretext+'</a></span>';
+    
+                $(this).html(html);
+            }
+    
+        });
+    
+        $(".morelink").click(function(){
+            if($(this).hasClass("less")) {
+                $(this).removeClass("less");
+                $(this).html(moretext);
+            } else {
+                $(this).addClass("less");
+                $(this).html(lesstext);
+            }
+            $(this).parent().prev().toggle();
+            $(this).prev().toggle();
+            return false;
+        });
+    });
+</script>
+
 
 
 
@@ -205,7 +258,8 @@
 
               <h2 class="title">Innovation Cell</h2>
 
-              <p>Institute Innovation Cell has been established under Union Ministry of Human Resource Development and aims to systematically foster culture of innovation in all Higher Education Institutions (HEIs) across the country.Its primary mandate is to encourage, inspire and nurture young students by exposing them to new ideas and processes resulting in innovative activities in their formative years fostered through network of innovation clubs in HEIs. EDC, NIT Durgapur is an integral part of IIIC, NIT Durgapur and works together with it to carry out various entrepreneurial activities and projects in the campus.</p>
+              <p class="pop">
+                Institute Innovation Cell has been established under Union Ministry of Human Resource Development and aims to systematically foster culture of innovation in all Higher Education Institutions (HEIs) across the country.Its primary mandate is to encourage, inspire and nurture young students by exposing them to new ideas and processes resulting in innovative activities in their formative years fostered through network of innovation clubs in HEIs. EDC, NIT Durgapur is an integral part of IIIC, NIT Durgapur and works together with it to carry out various entrepreneurial activities and projects in the campus.</p>
 
             </div>
 
@@ -227,7 +281,8 @@
 
               <h2 class="title">E-Summit</h2>
 
-              <p>E-Summit is the second biggest of its kind in Eastern India after IIT Kharagpur. Boasting of a plethora of workshops, competitions, discussion panels, business pitches and guest lecture series, the summit aims to help students get exposure about entrepreneurship, encourage students to take up ventures in career and to help build an active startup ecosystem in the country. The mission of the summit is to educate and support student entrepreneurs, startups and SMEs for creating high-value jobs.</p>
+              <p class="pop">
+                E-Summit is the second biggest of its kind in Eastern India after IIT Kharagpur. Boasting of a plethora of workshops, competitions, discussion panels, business pitches and guest lecture series, the summit aims to help students get exposure about entrepreneurship, encourage students to take up ventures in career and to help build an active startup ecosystem in the country. The mission of the summit is to educate and support student entrepreneurs, startups and SMEs for creating high-value jobs.</p>
 
             </div>
 
@@ -249,7 +304,8 @@
 
               <h2 class="title">Our Alumni</h2></h2>
 
-              <p>
+              <p class="pop">
+                
                 The key role in building this club has been taken up by the alumni. They have nurtured this club and helped it to reach heights. They have been instrumental in forming this club with utmost sincerity and dedication.
               </p>
 
