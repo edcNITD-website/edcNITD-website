@@ -128,8 +128,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'forum/static'),
     os.path.join(BASE_DIR, 'events/static'),
-    os.path.join(BASE_DIR, 'esummit/static'),
-    os.path.join(BASE_DIR, 'innovationcell/static'),
     os.path.join(BASE_DIR, 'team/static'),
     os.path.join(BASE_DIR, 'web_team/static'),
 )
