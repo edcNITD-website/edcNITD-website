@@ -22,9 +22,8 @@
 
   <!-- favicons
 		================================================== -->
-    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
-    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
-
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
 
   <!-- Google Fonts -->
 
@@ -85,7 +84,7 @@
 
       
 
-          <a href="" class="logo mr-auto"><img src="" alt="" class="img-fluid">
+          <a href="{% url 'home_page' %}" class="logo mr-auto"><img src="{%static 'img/logo.png' %}" alt="" class="img-fluid">
 
 
 
@@ -97,7 +96,7 @@
 
               <li {%if request.resolver_match.url_name == 'esummit_page' %}class="active"{% endif %}><a href="{% url 'esummit_page' %}">E-Summit</a></li>
 
-              <li {%if request.resolver_match.url_name == 'event_page' %}class="active"{% endif %}><a href="{% url 'event_page' %}">Events</a></li>
+             <!--<li {%if request.resolver_match.url_name == 'event_page' %}class="active"{% endif %}><a href="{% url 'event_page' %}">Events</a></li>-->
 
               <!--<li {%if request.resolver_match.url_name == 'innovationcell_page' %}class="active"{% endif %}><a href="{% url 'innovationcell_page' %}">Innovation Cell</a></li>-->
 
