@@ -209,7 +209,7 @@
     
       <div class="card" style="padding: auto;">
         <div class="card__head">
-          <div class="card__image"><img class="card-img-top" style="width: 350px; height: 240px;" src="{% static 'img/esummit/auction.jpeg'%}" alt="Card image"></div>
+          <div class="card__image"><img class="card-img-top" style="width: 100%; height: 100%;" src="{% static 'img/esummit/auction.jpeg'%}" alt="Card image"></div>
         </div>
         <div class="card__body">
           <h2 class="card__headline"><strong>Auction Arcadia</strong></h2>
@@ -229,7 +229,7 @@
   <div class="col-sm" data-aos="fade-up">
       <div class="card" style="padding: auto;">
       <div class="card__head">
-        <div class="card__image"><img class="card-img-top" style="width: 350px; height: 240px;" src="{% static 'img/esummit/etalk.jpeg'%}" alt="Card image"></div>
+        <div class="card__image"><img class="card-img-top" style="width: 100%; height: 100%;" src="{% static 'img/esummit/etalk.jpeg'%}" alt="Card image"></div>
       </div>
       <div class="card__body">
         <h2 class="card__headline"><strong>E-Talks</strong></h2>
@@ -249,7 +249,7 @@
   <div class="col-sm" data-aos="fade-up">
     <div class="card">
       <div class="card__head">
-        <div class="card__image"><img class="card-img-top" style="width: 350px; height: 240px;" src="{% static 'img/esummit/pitchfest.jpeg'%}" alt="Card image"></div>
+        <div class="card__image"><img class="card-img-top" style="width: 100%; height: 100%;" src="{% static 'img/esummit/pitchfest.jpeg'%}" alt="Card image"></div>
       </div>
       <div class="card__body">
         <h2 class="card__headline"><strong>Pitchfest</strong></h2>
@@ -264,10 +264,11 @@
     </div>
   </div>
 </div>
+<br>
+<a href="{% url 'event_page' %}" class="btn-get-started scrollto animate__animated animate__fadeInUp" style="position: absolute; right: 10px;">View all E-SUMMIT'21 Events  <i class="fa fa-arrow-right"></i></a>
 </div>
 </div>
-  <br>
-  <a href="{% url 'event_page' %}" class="btn-get-started scrollto animate__animated animate__fadeInUp" style="float:right; padding-right:185px;">View all E-SUMMIT'21 Events  <i class="fa fa-arrow-right"></i></a>
+  
 
       </div>
     </section>
