@@ -91,7 +91,30 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     margin-bottom: 20px;
   }
+  
+}
+@media screen and (max-width: 1300px) {
+  
+  .card {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+  .card__text {
+    font-size: 13px;
+  }
 
+}
+.card__text {
+  line-height: 1.2;
+  margin: 0;
+  opacity: .8;
+}
+
+@media screen and (max-width: 400px) {
+  .card__text {
+    font-size: 13px;
+  }
 }
 
 .card__foot {
@@ -99,16 +122,10 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 0 1em 2em;
+  padding: 0 1em 1em;
   opacity: 0;
   -webkit-transition-property: opacity;
   transition-property: opacity;
-}
-
-.card__text {
-  line-height: 1.1;
-  margin: 0;
-  opacity: .8;
 }
 /* New Events Card */
 
