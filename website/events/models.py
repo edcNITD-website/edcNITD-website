@@ -4,7 +4,7 @@ import datetime
 
 
 class Event(models.Model):
-    event_name=models.CharField(max_length=15)
+    event_name=models.CharField(max_length=30)
     about_event=models.TextField(max_length=500)
     image=models.ImageField(upload_to=None, default="",blank=True,null=False)
     start_date=models.DateTimeField(auto_now=False,auto_now_add=False,blank=True,null=True)
