@@ -1,14 +1,24 @@
 {% load static %}
 <!DOCTYPE html>
+
 <html lang="en">
 
+
+
 <head>
+
   <meta charset="utf-8">
+
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+
+
   <title>EDC | NITD</title>
+
   <meta content="" name="descriptison">
+
   <meta content="" name="keywords">
+
 
   <!-- favicons
 		================================================== -->
@@ -16,43 +26,89 @@
     <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
 
   <!-- Google Fonts -->
+
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
 
+
+
   <!-- Vendor CSS Files -->
+
   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
   <link href="{% static 'vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+
   <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+
   <link href="{% static 'vendor/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+
   <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+
   <link href="{% static 'vendor/venobox/venobox.css' %}" rel="stylesheet">
+
   <link href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
   <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
 
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
+
+
+
   <!-- Template Main CSS File -->
+
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+
 
 </head>
 
+
+
 <body>
+
+
+
   <!-- ======= Header ======= -->
 
   <header id="header" class="fixed-top header-transparent">
+
     <div class="container-fluid">
+
+
+
       <div class="row justify-content-center">
+
         <div class="col-xl-11 d-flex align-items-center">
+
+          
+
+      
+
           <a href="{% url 'home_page' %}" class="logo mr-auto"><img src="{%static 'img/logo.png' %}" alt="" class="img-fluid">
 
+
+
           <nav class="nav-menu d-none d-lg-block">
+
             <ul>
+
               <li {%if request.resolver_match.url_name == 'home_page' %}class="active"{% endif %}><a href="{% url 'home_page' %}">Home</a></li>
+
               <li {%if request.resolver_match.url_name == 'esummit_page' %}class="active"{% endif %}><a href="{% url 'esummit_page' %}">E-Summit'21</a></li>
-              <li {%if request.resolver_match.url_name == 'event_page' %}class="active"{% endif %}><a href="{% url 'event_page' %}">Event Registrations</a></li>
+
+             <li {%if request.resolver_match.url_name == 'event_page' %}class="active"{% endif %}><a href="{% url 'event_page' %}">Event Registrations</a></li>
+
               <!--<li {%if request.resolver_match.url_name == 'innovationcell_page' %}class="active"{% endif %}><a href="{% url 'innovationcell_page' %}">Innovation Cell</a></li>-->
+
               <li {%if request.resolver_match.url_name == 'team_page' %}class="active"{% endif %}><a href="{% url 'team_page' %}">Our Team</a>
+
+               
               </li>
+
               <!--li><a href="#footer">Contact Us</a></li>-->
+
+
+
             </ul>
 
           </nav><!-- .nav-menu -->
