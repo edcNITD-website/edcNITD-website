@@ -178,43 +178,7 @@
     
     
 </style>
-<script>
-  $(document).ready(function() {
-    var showChar = 156;
-    var ellipsestext = "...";
-    var moretext = "more";
-    var lesstext = "less";
-    $('.pop').each(function() {
-        var content = $(this).html();
 
-        if(content.length > showChar) {
-
-            var c = content.substr(0, showChar);
-            var h = content.substr(showChar, content.length - showChar);
-
-            var html = c + '<span class="moreelipses">'+ellipsestext+'</span><span class="morecontent"><span>' + h + '</span><a href="" class="morelink">'+moretext+'</a></span>';
-
-            $(this).html(html);
-        }
-
-    });
-
-    
-        $(".morelink").click(function(){
-            if($(this).hasClass("less")) {
-                $(this).removeClass("less");
-                $(this).html(moretext);
-            } else {
-                $(this).addClass("less");
-                $(this).html(lesstext);
-            }
-            $(this).parent().prev().toggle();
-            $(this).prev().toggle();
-            return false;
-        });
-    });
-
-</script>
 
 
 
@@ -359,7 +323,7 @@
           background-size: cover;">
             <div class="container" style="max-width: 300px; height: 250px;"></div>
             <div class="panel panel-default" style="background-color: rgba(0,0,0,0.7); width: 100%; height: 50px; text-align: center;">
-              <div class="panel-body" style="padding-top: 10px;">X-Change: One of our many fun events</div>
+              <div class="panel-body" style="padding-top: 10px; color: orange;">X-Change: One of our many fun events</div>
             </div>
           </div>
           <div class="swiper-slide" style="background-image:url('{% static 'img/cr2.jpg' %}');
@@ -367,7 +331,7 @@
           background-size: cover;">
             <div class="container" style="max-width: 300px; height: 250px;"></div>
             <div class="panel panel-default" style="background-color: rgba(0,0,0,0.7); width:  100%; height: 50px; text-align: center;">
-              <div class="panel-body" style="padding-top: 10px;">Luminous: EDC's celebration of Diwali</div>
+              <div class="panel-body" style="padding-top: 10px; color: orange;">Luminous: EDC's celebration of Diwali</div>
             </div>
           </div>
           <div class="swiper-slide" style="background-image:url('{% static 'img/cr3.jpg' %}');
@@ -375,7 +339,7 @@
           background-size: cover;">
             <div class="container" style="max-width: 300px; height: 250px;"></div>
             <div class="panel panel-default" style="background-color: rgba(0,0,0,0.7); width:  100%; height: 50px; text-align: center;">
-              <div class="panel-body" style="padding-top: 10px;">BizzCup: Our signature fresher's event</div>
+              <div class="panel-body" style="padding-top: 10px; color: orange;">BizzCup: Our signature fresher's event</div>
             </div>
           </div>
           <div class="swiper-slide" style="background-image:url('{% static 'img/cr4.jpeg' %}');
@@ -383,7 +347,7 @@
           background-size: cover;">
             <div class="container" style="max-width: 300px; height: 250px;"></div>
             <div class="panel panel-default" style="background-color: rgba(0,0,0,0.7); width:  100%; height: 50px; text-align: center;">
-              <div class="panel-body" style="padding-top: 10px;">The crowd at E-SUMMIT</div>
+              <div class="panel-body" style="padding-top: 10px; color: orange;">The crowd at E-SUMMIT</div>
             </div>
           </div>
           <div class="swiper-slide" style="background-image:url('{% static 'img/cr5.jpg' %}');
@@ -391,7 +355,7 @@
           background-size: cover;">
             <div class="container" style="max-width: 300px; height: 250px;"></div>
             <div class="panel panel-default" style="background-color: rgba(0,0,0,0.7); width: 100%; height: 50px; text-align: center;">
-              <div class="panel-body" style="padding-top: 10px;">Team EDC</div>
+              <div class="panel-body" style="padding-top: 10px; color: orange;">Team EDC</div>
             </div>
           </div>
           <div class="swiper-slide" style="background-image:url('{% static 'img/cr6.jpg' %}');
@@ -399,7 +363,7 @@
           background-size: cover;">
             <div class="container" style="max-width: 300px; height: 250px;"></div>
             <div class="panel panel-default" style="background-color: rgba(0,0,0,0.7); width:  100%; height: 50px; text-align: center;">
-              <div class="panel-body" style="padding-top: 10px;">Prajakta Koli at E-SUMMIT'19</div>
+              <div class="panel-body" style="padding-top: 10px; color: orange;">Prajakta Koli at E-SUMMIT'19</div>
             </div>
           </div>
           
