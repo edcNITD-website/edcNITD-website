@@ -212,7 +212,15 @@
   </div>
   
   </footer><!-- End Footer -->
-  
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script>
+    $('.back-to-top').click(function() {
+      $('html, body').animate({
+        scrollTop: 0
+      }, 1500, 'easeInOutExpo');
+      return false;
+    });
+  </script>  
 
       <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
@@ -229,7 +237,7 @@
   <script src="{% static 'vendor/aos/aos.js' %}"></script>
 
   <!-- Template Main JS File -->
-  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/main1.js' %}"></script>
 
 </body>
 
