@@ -30,13 +30,26 @@
   <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
+  <link href="{% static 'css/loader.css' %}" rel="stylesheet">
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
 </head>
 
-<body>
-  <div id="preloader">
+<body  onload="loaderfunction()">
+
+  <!-- ======= Preloader ======= -->
+  <div id="loader">
+    <div id="loading">
+      <div class="loading-screen">
+      <div class="loading-animation">
+        <img src="{% static 'img/loader/edc.png' %}" alt="" class="logo">
+        <div class="loading-bar"></div>
+      </div>
+      </div>
+    </div>
   </div>
+  <!-- ======= Preloader ends ======= -->
+
   <section id="about">
     <header id="header" class="fixed-top">
 
@@ -237,6 +250,7 @@
   <script src="{% static 'vendor/aos/aos.js' %}"></script>
 
   <!-- Template Main JS File -->
+  <script src="{% static 'js/loader.js' %}"></script>
   <script src="{% static 'js/main1.js' %}"></script>
 
 </body>
