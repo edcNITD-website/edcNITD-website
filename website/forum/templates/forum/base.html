@@ -55,7 +55,7 @@
 
 
   <!-- Template Main CSS File -->
-  <link href="{% static 'css/loader.css' %}" rel="stylesheet">
+
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
 
@@ -64,20 +64,8 @@
 
 
 
-<body onload="loaderfunction()">
-  
-  <!-- ======= Preloader ======= -->
-  <div id="loader">
-    <div id="loading">
-      <div class="loading-screen">
-      <div class="loading-animation">
-        <img src="{% static 'img/loader/edc.png' %}" alt="" class="logo">
-        <div class="loading-bar"></div>
-      </div>
-      </div>
-    </div>
-  </div>
-  <!-- ======= Preloader ends ======= -->
+<body>
+
 
 
   <!-- ======= Header ======= -->
@@ -257,6 +245,13 @@
   
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   
+  
+  
+  <div id="preloader">
+  </div>
+  
+  
+  
   <!-- Vendor JS Files -->
   
   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
@@ -282,7 +277,7 @@
   
   
   <!-- Template Main JS File -->
-  <script src="{% static 'js/loader.js' %}"></script>
+  
   <script src="{% static 'js/main.js' %}"></script>
   
 </body>
