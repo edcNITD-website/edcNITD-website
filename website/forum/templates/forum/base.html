@@ -57,6 +57,7 @@
   <!-- Template Main CSS File -->
 
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'loader/loader.css' %}" rel="stylesheet">
 
 
 
@@ -64,7 +65,7 @@
 
 
 
-<body>
+<body onload="loaderfunction()">
 
 
 
@@ -247,9 +248,14 @@
   
   
   
-  <div id="preloader">
-  </div>
-  
+  <div id="loader">
+    <div id="loading">
+   <div class="loading-screen">
+    <div class="loading-animation">
+      <img src="{% static 'img/favicon.png' %}" alt="" class="loader_logo">
+      <div class="loading-bar"></div>
+    </div>
+  </div></div></div>
   
   
   <!-- Vendor JS Files -->
@@ -279,6 +285,7 @@
   <!-- Template Main JS File -->
   
   <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'loader/loader.js' %}"></script>
   
 </body>
 
