@@ -112,5 +112,15 @@
       {%endfor%}
     </div>
   </div>
+
+  </div>
+  <div class="container">
+    {% for year, alumni in alumni_dic.items %}
+      {{year}}
+      <br>
+      {% for member in alumni %}
+        <h2>{{member.name}}</h2>
+      {% endfor %}
+    {% endfor %}
   </div>
 {% endblock %}
