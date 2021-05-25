@@ -51,6 +51,6 @@ def team(request):
             alumni_dic[starting_year]=current_list 
             starting_year-=1
     context['alumni_dic'] = alumni_dic
-    print(alumni_dic)
-    print(context)
+    # print(alumni_dic)
+    # print(context)
     return render(request,'team/team_page.html',context)
