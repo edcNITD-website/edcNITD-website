@@ -26,132 +26,249 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <style>
-    
-    
-    
     a.morelink {
-        text-decoration:none;
+        text-decoration: none;
         outline: none;
     }
+
     .morecontent span {
         display: none;
-    
-    }
 
-    
-    
+    }
 </style>
 
 
 
 
 
-    <div id="event-type-oe" style="padding-top: 150px;">
+<div id="event-type-oe" style="padding-top: 150px;">
+
+    <header class="section-header">
+        <h3 style="z-index: 10;" id="oe">Ongoing Events</h3>
+    </header>
+
+    <div class="container">
         {%if oe_count%}
-        <header class="section-header">
-            <h3 style="z-index: 10;" id="oe">Ongoing Events</h3>
-        </header>
-        <div class="container">
+        {%else%}
+        <div class="default_display">
+            <p style="font-size: 28px;font-weight: 600; padding-top: 50px;">Next Ongoing Event from:</p>
+            <div id="countdown">
+                <div class="contain">
+                    <svg width="150px" height="150px" viewBox="0 0 150 150">
+                        <g fill="none" stroke-width="6">
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="#f38b36" opacity="0.1" />
+                            <circle id="oedayss" cx="75" cy="75" r="50" stroke="#f38b36"
+                                transform="rotate(-90 75 75)" />
+                        </g>
+                        <span id="oedays" class="inside"></span>
+                    </svg>
+                    <span class="extra">DAYS</span>
+                </div>
+                <div class="contain">
+                    <svg width="150px" height="150px" viewBox="0 0 150 150">
+                        <g fill="none" stroke-width="6">
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="#f38b36" opacity="0.1" />
+                            <circle id="oehourss" cx="75" cy="75" r="50" stroke="#f38b36"
+                                transform="rotate(-90 75 75)" />
+                        </g>
+                        <span id="oehours" class="inside"></span>
+                    </svg>
+                    <span class="extra">HOURS</span>
+                </div>
+                <div class="contain">
+                    <svg width="150px" height="150px" viewBox="0 0 150 150">
+                        <g fill="none" stroke-width="6">
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="#f38b36" opacity="0.1" />
+                            <circle id="oeminutess" cx="75" cy="75" r="50" stroke="#f38b36"
+                                transform="rotate(-90 75 75)" />
+                        </g>
+                        <span id="oeminutes" class="inside"></span>
+                    </svg>
+                    <span class="extra">MINUTES</span>
+                </div>
+                <div class="contain">
+                    <svg width="150px" height="150px" viewBox="0 0 150 150">
+                        <g fill="none" stroke-width="6">
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="#f38b36" opacity="0.1" />
+                            <circle id="oesecondss" cx="75" cy="75" r="50" stroke="#f38b36"
+                                transform="rotate(-90 75 75)" />
+                        </g>
+                        <span id="oeseconds" class="inside"></span>
+                    </svg>
+                    <span class="extra">SECONDS</span>
+                </div>
+            </div>
+        </div>
+        {%endif%}
+        {%if oe_count%}
         <div class="row">
             {% for oe in oe %}
-            <div class="col-md-4"><section class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
-            <div class="container">
-        
-                <div class="portfolio-details-container">
-                <div class="portfolio-details-carousel">
-                        <img src="{{ oe.image.url }}" class="img-fluid"  style="width: 300px; height: 200px; " alt="">
-                    </div>          
-                </div>
-        
-                <div class="portfolio-description">
-                <h2 style="font-size: 22px;">{{oe.event_name}}</h2>
-                <p class="pop">
-                    {{oe.about_event}}
-                </p>
-                </div>
+            <div class="col-md-4">
+                <section
+                    class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
+
+                    <div class="container">
+
+                        <div class="portfolio-details-container">
+                            <div class="portfolio-details-carousel">
+                                <img src="{{ oe.image.url }}" class="img-fluid" style="width: 300px; height: 200px; "
+                                    alt="">
+                            </div>
+                        </div>
+
+                        <div class="portfolio-description">
+                            <h2 style="font-size: 22px;">{{oe.event_name}}</h2>
+                            <p class="pop">
+                                {{oe.about_event}}
+                            </p>
+                        </div>
+                    </div>
+                    {% if oe.registration_link%}
+                    <div class="text-center">
+                        <a href="{{oe.registration_link}}" target="blank"
+                            class="btn btn-primary stretched-link">Register in {{oe.event_name}}</a>
+                    </div>
+                    {%endif%}
+                </section>
             </div>
-            {% if oe.registration_link%}
-            <div class="text-center">
-                <a href="{{oe.registration_link}}" target="blank" class="btn btn-primary stretched-link">Register in {{oe.event_name}}</a>
-            </div>
-            {%endif%}
-            </section></div>
             {% endfor %}
-        </div> 
-        </div>
         </div>
         {%endif%}
     </div>
+</div>
+</div>
 
-   
 
 
-    <div id="event-type-ue" style="padding-top: 150px;">
+
+<div id="event-type-ue" style="padding-top: 150px;">
+
+    <header class="section-header">
+        <h3 style="z-index: 10;" id="ue">Upcoming Events</h3>
+    </header>
+    <div class="container">
         {%if ue_count%}
-        <header class="section-header">
-            <h3 style="z-index: 10;" id="ue">Upcoming Events</h3>
-        </header>
-        <div class="container">
+        {%else%}
+        <div class="default_display">
+            <p style="font-size: 28px;font-weight: 600; padding-top: 50px;">Next Upcoming Event from:</p>
+            <div id="countdown">
+                <div class="contain">
+                    <svg width="150px" height="150px" viewBox="0 0 150 150">
+                        <g fill="none" stroke-width="6">
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="#f38b36" opacity="0.1" />
+                            <circle id="uedayss" cx="75" cy="75" r="50" stroke="#f38b36"
+                                transform="rotate(-90 75 75)" />
+                        </g>
+                        <span id="uedays" class="inside"></span>
+                    </svg>
+                    <span class="extra">DAYS</span>
+                </div>
+                <div class="contain">
+                    <svg width="150px" height="150px" viewBox="0 0 150 150">
+                        <g fill="none" stroke-width="6">
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="#f38b36" opacity="0.1" />
+                            <circle id="uehourss" cx="75" cy="75" r="50" stroke="#f38b36"
+                                transform="rotate(-90 75 75)" />
+                        </g>
+                        <span id="uehours" class="inside"></span>
+                    </svg>
+                    <span class="extra">HOURS</span>
+                </div>
+                <div class="contain">
+                    <svg width="150px" height="150px" viewBox="0 0 150 150">
+                        <g fill="none" stroke-width="6">
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="#f38b36" opacity="0.1" />
+                            <circle id="ueminutess" cx="75" cy="75" r="50" stroke="#f38b36"
+                                transform="rotate(-90 75 75)" />
+                        </g>
+                        <span id="ueminutes" class="inside"></span>
+                    </svg>
+                    <span class="extra">MINUTES</span>
+                </div>
+                <div class="contain">
+                    <svg width="150px" height="150px" viewBox="0 0 150 150">
+                        <g fill="none" stroke-width="6">
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="#f38b36" opacity="0.1" />
+                            <circle id="uesecondss" cx="75" cy="75" r="50" stroke="#f38b36"
+                                transform="rotate(-90 75 75)" />
+                        </g>
+                        <span id="ueseconds" class="inside"></span>
+                    </svg>
+                    <span class="extra">SECONDS</span>
+                </div>
+            </div>
+        </div>
+        {%endif%}
+        {%if ue_count%}
         <div class="row">
             {% for ue in ue %}
-            <div class="col-md-4"><section class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
-            <div class="container">
-        
-                <div class="portfolio-details-container">
-                <div class="portfolio-details-carousel">
-                        <img src="{{ ue.image.url }}" class="img-fluid"  style="width: 300px; height: 200px; " alt="">
-                    </div>          
-                </div>
-        
-                <div class="portfolio-description">
-                <h2 style="font-size: 22px;">{{ue.event_name}}</h2>
-                <p class="pop">
-                    {{ue.about_event}}
-                </p>
-                </div>
+            <div class="col-md-4">
+                <section
+                    class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
+                    <div class="container">
+
+                        <div class="portfolio-details-container">
+                            <div class="portfolio-details-carousel">
+                                <img src="{{ ue.image.url }}" class="img-fluid" style="width: 300px; height: 200px; "
+                                    alt="">
+                            </div>
+                        </div>
+
+                        <div class="portfolio-description">
+                            <h2 style="font-size: 22px;">{{ue.event_name}}</h2>
+                            <p class="pop">
+                                {{ue.about_event}}
+                            </p>
+                        </div>
+                    </div>
+                    {% if ue.registration_link%}
+                    <div class="text-center">
+                        <a href="{{ue.registration_link}}" target="blank"
+                            class="btn btn-primary stretched-link">Participate in {{ue.event_name}}</a>
+                    </div>
+                    {% endif %}
+                </section>
             </div>
-            {% if ue.registration_link%}
-            <div class="text-center">
-                <a href="{{ue.registration_link}}" target="blank" class="btn btn-primary stretched-link">Participate in {{ue.event_name}}</a>
-            </div>
-            {% endif %}
-            </section></div>
             {% endfor %}
-        </div> 
-        </div>
         </div>
         {%endif%}
     </div>
-    <div id="event-type-all" style="padding-top: 150px;">
-        {%if ae_count%}
-        <header class="section-header" >
-            <h3 style="z-index: 10;" id="ae">All Events</h3>
-        </header>
-        <div class="container">
+</div>
+</div>
+<div id="event-type-all" style="padding-top: 150px;">
+    {%if ae_count%}
+    <header class="section-header">
+        <h3 style="z-index: 10;" id="ae">All Events</h3>
+    </header>
+    <div class="container">
         <div class="row">
             {% for ae in ae %}
-            <div class="col-md-4"><section class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
-            <div class="container">
-        
-                <div class="portfolio-details-container">
-                <div class="portfolio-details-carousel">
-                        <img src="{{ ae.image.url }}" class="img-fluid"  style="width: 300px; height: 200px; " alt="">
-                    </div>          
-                </div>
-        
-                <div class="portfolio-description">
-                <h2 style="font-size: 22px;">{{ae.event_name}}</h2>
-                <p class="pop">
-                    {{ae.about_event}}
-                </p>
-                </div>
+            <div class="col-md-4">
+                <section
+                    class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
+                    <div class="container">
+
+                        <div class="portfolio-details-container">
+                            <div class="portfolio-details-carousel">
+                                <img src="{{ ae.image.url }}" class="img-fluid" style="width: 300px; height: 200px; "
+                                    alt="">
+                            </div>
+                        </div>
+
+                        <div class="portfolio-description">
+                            <h2 style="font-size: 22px;">{{ae.event_name}}</h2>
+                            <p class="pop">
+                                {{ae.about_event}}
+                            </p>
+                        </div>
+                    </div>
+                </section>
             </div>
-            </section></div>
             {% endfor %}
-        </div> 
         </div>
-        </div>
-      {%endif%}
-    </div> 
+    </div>
+</div>
+{%endif%}
+</div>
 <br>
 {% endblock %}
