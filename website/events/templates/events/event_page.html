@@ -49,6 +49,38 @@
 
     <div class="container">
         {%if oe_count%}
+        <div class="row">
+            {% for oe in oe %}
+            <div class="col-md-4">
+                <section
+                    class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
+
+                    <div class="container">
+
+                        <div class="portfolio-details-container">
+                            <div class="portfolio-details-carousel">
+                                <img src="{{ oe.image.url }}" class="img-fluid" style="width: 300px; height: 200px; "
+                                    alt="">
+                            </div>
+                        </div>
+
+                        <div class="portfolio-description">
+                            <h2 style="font-size: 22px;">{{oe.event_name}}</h2>
+                            <p class="pop">
+                                {{oe.about_event}}
+                            </p>
+                        </div>
+                    </div>
+                    {% if oe.registration_link%}
+                    <div class="text-center">
+                        <a href="{{oe.registration_link}}" target="blank"
+                            class="btn btn-primary stretched-link">Register in {{oe.event_name}}</a>
+                    </div>
+                    {%endif%}
+                </section>
+            </div>
+            {% endfor %}
+        </div>
         {%else%}
         <div class="default_display">
             <p style="font-size: 28px;font-weight: 600; padding-top: 50px;">Next Ongoing Event from:</p>
@@ -100,40 +132,6 @@
             </div>
         </div>
         {%endif%}
-        {%if oe_count%}
-        <div class="row">
-            {% for oe in oe %}
-            <div class="col-md-4">
-                <section
-                    class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
-
-                    <div class="container">
-
-                        <div class="portfolio-details-container">
-                            <div class="portfolio-details-carousel">
-                                <img src="{{ oe.image.url }}" class="img-fluid" style="width: 300px; height: 200px; "
-                                    alt="">
-                            </div>
-                        </div>
-
-                        <div class="portfolio-description">
-                            <h2 style="font-size: 22px;">{{oe.event_name}}</h2>
-                            <p class="pop">
-                                {{oe.about_event}}
-                            </p>
-                        </div>
-                    </div>
-                    {% if oe.registration_link%}
-                    <div class="text-center">
-                        <a href="{{oe.registration_link}}" target="blank"
-                            class="btn btn-primary stretched-link">Register in {{oe.event_name}}</a>
-                    </div>
-                    {%endif%}
-                </section>
-            </div>
-            {% endfor %}
-        </div>
-        {%endif%}
     </div>
 </div>
 </div>
@@ -148,6 +146,37 @@
     </header>
     <div class="container">
         {%if ue_count%}
+        <div class="row">
+            {% for ue in ue %}
+            <div class="col-md-4">
+                <section
+                    class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
+                    <div class="container">
+
+                        <div class="portfolio-details-container">
+                            <div class="portfolio-details-carousel">
+                                <img src="{{ ue.image.url }}" class="img-fluid" style="width: 300px; height: 200px; "
+                                    alt="">
+                            </div>
+                        </div>
+
+                        <div class="portfolio-description">
+                            <h2 style="font-size: 22px;">{{ue.event_name}}</h2>
+                            <p class="pop">
+                                {{ue.about_event}}
+                            </p>
+                        </div>
+                    </div>
+                    {% if ue.registration_link%}
+                    <div class="text-center">
+                        <a href="{{ue.registration_link}}" target="blank"
+                            class="btn btn-primary stretched-link">Participate in {{ue.event_name}}</a>
+                    </div>
+                    {% endif %}
+                </section>
+            </div>
+            {% endfor %}
+        </div>
         {%else%}
         <div class="default_display">
             <p style="font-size: 28px;font-weight: 600; padding-top: 50px;">Next Upcoming Event from:</p>
@@ -199,39 +228,6 @@
             </div>
         </div>
         {%endif%}
-        {%if ue_count%}
-        <div class="row">
-            {% for ue in ue %}
-            <div class="col-md-4">
-                <section
-                    class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
-                    <div class="container">
-
-                        <div class="portfolio-details-container">
-                            <div class="portfolio-details-carousel">
-                                <img src="{{ ue.image.url }}" class="img-fluid" style="width: 300px; height: 200px; "
-                                    alt="">
-                            </div>
-                        </div>
-
-                        <div class="portfolio-description">
-                            <h2 style="font-size: 22px;">{{ue.event_name}}</h2>
-                            <p class="pop">
-                                {{ue.about_event}}
-                            </p>
-                        </div>
-                    </div>
-                    {% if ue.registration_link%}
-                    <div class="text-center">
-                        <a href="{{ue.registration_link}}" target="blank"
-                            class="btn btn-primary stretched-link">Participate in {{ue.event_name}}</a>
-                    </div>
-                    {% endif %}
-                </section>
-            </div>
-            {% endfor %}
-        </div>
-        {%endif%}
     </div>
 </div>
 </div>
@@ -271,4 +267,80 @@
 {%endif%}
 </div>
 <br>
+
+<script>
+    const second = 1000,minute = second * 60,hour = minute * 60,day = hour * 24;
+    var timer=JSON.parse("{{timer|escapejs}}")
+    let eventday2 = timer.next_oe,
+        eventday1 = timer.next_ue,
+        countDown1 = new Date(eventday1).getTime(),
+        countDown2 = new Date(eventday2).getTime();
+        console.log(timer);
+        if(timer.oe==0)
+        {
+        let x = setInterval(function () {
+            let now = new Date().getTime(),
+                distance2 = countDown2 - now;
+            (document.getElementById("oedays").innerText = Math.floor(
+                distance2 / day
+            )),
+                (document.getElementById("oehours").innerText = Math.floor(
+                (distance2 % day) / hour
+                )),
+                (document.getElementById("oeminutes").innerText = Math.floor(
+                (distance2 % hour) / minute
+                )),
+                (document.getElementById("oeseconds").innerText = Math.floor(
+                (distance2 % minute) / second
+                ));
+
+            function setCounter(id, value, max) {
+                var elem = document.getElementById(id);
+                var radius = elem.r.baseVal.value;
+                var circumference = radius * 2 * Math.PI;
+                var barLength = Math.floor((value * circumference) / max);
+
+                elem.setAttribute("stroke-dasharray", barLength + " " + circumference);
+            }
+            setCounter("oesecondss", Math.floor((distance2 % minute) / second), 60);
+            setCounter("oeminutess", Math.floor((distance2 % hour) / minute), 60);
+            setCounter("oehourss", Math.floor((distance2 % day) / hour), 24);
+            setCounter("oedayss", Math.floor(distance2 / day), 365);
+            }, 0);
+        }
+        if(timer.ue==0)
+        {
+        let y = setInterval(function () {
+            let now = new Date().getTime(),
+                distance1 = countDown1 - now;
+
+            (document.getElementById("uedays").innerText = Math.floor(
+                distance1 / day
+            )),
+                (document.getElementById("uehours").innerText = Math.floor(
+                (distance1 % day) / hour
+                )),
+                (document.getElementById("ueminutes").innerText = Math.floor(
+                (distance1 % hour) / minute
+                )),
+                (document.getElementById("ueseconds").innerText = Math.floor(
+                (distance1 % minute) / second
+                ));
+
+            function setCounter(id, value, max) {
+                var elem = document.getElementById(id);
+                var radius = elem.r.baseVal.value;
+                var circumference = radius * 2 * Math.PI;
+                var barLength = Math.floor((value * circumference) / max);
+
+                elem.setAttribute("stroke-dasharray", barLength + " " + circumference);
+            }
+
+            setCounter("uesecondss", Math.floor((distance1 % minute) / second), 60);
+            setCounter("ueminutess", Math.floor((distance1 % hour) / minute), 60);
+            setCounter("uehourss", Math.floor((distance1 % day) / hour), 24);
+            setCounter("uedayss", Math.floor(distance1 / day), 365);
+            }, 0);
+        }
+</script>
 {% endblock %}
