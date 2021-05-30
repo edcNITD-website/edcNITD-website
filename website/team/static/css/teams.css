@@ -391,3 +391,6 @@
 .year-alumni-holder{
     display: none;
 }
+.year-alumni-holder.batch-visible{
+    display: block;
+}
