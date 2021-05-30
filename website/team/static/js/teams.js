@@ -3,3 +3,5 @@ $(".hover").mouseleave(
     $(this).removeClass("hover");
   }
 );
+
+var yearBtns = document.querySelectorAll('.year-btn');
