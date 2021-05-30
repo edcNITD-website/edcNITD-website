@@ -10,6 +10,7 @@ class Members(models.Model):
     facebook=models.URLField(blank=True,max_length=200,default=None)
     linkedin=models.URLField(blank=True,max_length=200,default=None)
     email=models.EmailField(blank=True,max_length=254,default=None)
-    passing_out_date=models.DateField()
+    passing_out_date=models.DateField(blank=False)
+    
     def __str__(self):
         return self.name

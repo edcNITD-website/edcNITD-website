@@ -5,6 +5,9 @@
 
   <!-- Team CSS file -->
   <link rel="stylesheet" type="text/css" href="{% static "css/teams.css" %}">
+ <!-- Team JS file and plugins -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="{% static "js/teams.js" %}"></script>
 
   <div class="container">
     <h1 class="team-title">Our Team</h1>
@@ -112,15 +115,71 @@
       {%endfor%}
     </div>
   </div>
-
-  </div>
-  <div class="container">
+</div>
+<!-- ALUMNI SECTION -->
+  
+    <div class="container" id ="alumni">
+  	<h1 class="team-title">Meet Our Alumni</h1>
+    <div class="alumni-grey-line"></div>
+    <div class="alumni-coloured-line" ></div>
+    <br>
+    <div class="year-list-holder">
+      <ul class="year-list">
+        {% for year, alumni in alumni_dic.items %}
+          {% if alumni %}
+            {% if year != 2021 %}
+            <li class="icon fa fa-arrow-right" id="year-arrow"></li>
+            {% endif %}
+            <li class="year">
+              <button type="button" title="{{year}}" class="year-btn" onclick="showAlumni(this)"><span>{{year}}</span></button>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
     {% for year, alumni in alumni_dic.items %}
-      {{year}}
-      <br>
-      {% for member in alumni %}
-        <h2>{{member.name}}</h2>
+      {% if year == max_alumni_year %}
+        <div class="year-alumni-holder batch-visible" id="{{year}}">
+      {% else %}
+        <div class="year-alumni-holder" id="{{year}}">
+      {% endif %}
+        <div class="year-heading batch_year">
+          <div>BATCH OF {{year}}</div>
+        </div>
+        <div class="grey-line"></div>
+        <div class="coloured-line"></div>
+        <div class="flex-container" id="alumni"></div>
+        {% for member in alumni %}
+        <figure class="alumnibox">
+          {%if member.image%}
+            <img src="{{member.image.url}}" alt="smile">
+          {%else%}
+            <img src="https://scontent.fccu11-1.fna.fbcdn.net/v/t1.0-9/33769797_990308764482605_4005773412654907392_n.jpg?_nc_cat=106&_nc_sid=09cbfe&_nc_ohc=1KtBpyshob8AX8M-tp7&_nc_ht=scontent.fccu11-1.fna&oh=ef6a8915aedec2ab5f776f01c713efe3&oe=5F47208D" alt="photo">
+          {%endif%}
+          <figcaption>
+            <h3><b>{{member.name}}</b></h3>
+            <div class="icons">
+              {% if member.facebook%}
+                <a id = "facebook" href="{{member.facebook}}" target="_blank"><i class="ion-social-facebook"></i></a>
+              {% endif %}
+              {% if member.linkedin%}
+                <a id = "linkedin" href="{{member.linkedin}}" target="_blank"> <i class="ion-social-linkedin"></i></a>
+              {% endif %}
+            </div>
+          </figcaption>
+        </figure>
       {% endfor %}
+      </div>
     {% endfor %}
   </div>
+  <script>
+    function showAlumni(element){
+      console.log(element.innerText);
+      var year = element.innerText;
+      var prev_batch = document.getElementsByClassName('batch-visible');
+      prev_batch[0].classList.remove('batch-visible');
+      var batch_holder = document.getElementById(year);
+      batch_holder.classList.add('batch-visible')
+    }
+  </script>
 {% endblock %}
