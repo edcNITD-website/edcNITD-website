@@ -5,9 +5,7 @@
 
   <!-- Team CSS file -->
   <link rel="stylesheet" type="text/css" href="{% static "css/teams.css" %}">
-   <!-- Team JS file and plugins -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script type="text/javascript" src="{% static "js/teams.js" %}"></script>
+  <script src="{% static "js/teams.js" %}"></script>
 
   <div class="container">
     <h1 class="team-title">Our Team</h1>
@@ -122,9 +120,26 @@
       <div class="alumni-grey-line"></div>
       <div class="alumni-coloured-line" ></div>
       <br>
-      <div class="flex-container" id="alumni"></div>
+      <div class="year-list-holder">
+        <ul class="year-list">
+        {% for year, alumni in alumni_dic.items %}
+          {% if alumni %}
+            <li class="year">
+              <button type="button" title="{{year}}" class="year-btn">{{year}}</button>
+            </li>
+          {% endif %}
+        {% endfor %} 
+        </ul>
+      </div>
       {% for year, alumni in alumni_dic.items %}
-      {% for member in alumni %}
+      <div id = "{{year}}">
+      <div class="year-heading">
+        <div>BATCH OF {{year}}</div>
+      </div>
+      <div class="grey-line"></div>
+      <div class="coloured-line"></div>
+      <div class="flex-container" id="alumni"></div>
+        {% for member in alumni %}
         <figure class="alumnibox">
           {%if member.image%}
             <img src="{{member.image.url}}" alt="smile">
@@ -142,9 +157,10 @@
                 {% endif %}
              </div>
           </figcaption>
-       </figure>
-      {% endfor %}
-    {% endfor %}
+        </figure>
+      </div>
+     {% endfor %}
+     {% endfor %}
   </div>
 {% endblock %}
 
