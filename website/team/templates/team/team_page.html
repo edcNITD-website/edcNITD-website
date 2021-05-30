@@ -5,7 +5,9 @@
 
   <!-- Team CSS file -->
   <link rel="stylesheet" type="text/css" href="{% static "css/teams.css" %}">
-  <script src="{% static "js/teams.js" %}"></script>
+ <!-- Team JS file and plugins -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="{% static "js/teams.js" %}"></script>
 
   <div class="container">
     <h1 class="team-title">Our Team</h1>
@@ -115,30 +117,32 @@
   </div>
 
   </div>
-  <div class="container" id ="alumni">
+    <div class="container" id ="alumni">
   	<h1 class="team-title">Meet Our Alumni</h1>
-      <div class="alumni-grey-line"></div>
-      <div class="alumni-coloured-line" ></div>
-      <br>
-      <div class="year-list-holder">
-        <ul class="year-list">
+    <div class="alumni-grey-line"></div>
+    <div class="alumni-coloured-line" ></div>
+    <br>
+    <div class="year-list-holder">
+      <ul class="year-list">
         {% for year, alumni in alumni_dic.items %}
           {% if alumni %}
             <li class="year">
-              <button type="button" title="{{year}}" class="year-btn">{{year}}</button>
+              <button type="button" title="{{year}}" class="year-btn" onclick="showAlumni(this)">{{year}}</button>
             </li>
           {% endif %}
-        {% endfor %} 
-        </ul>
-      </div>
-      {% for year, alumni in alumni_dic.items %}
-      <div id = "{{year}}">
-      <div class="year-heading">
-        <div>BATCH OF {{year}}</div>
-      </div>
-      <div class="grey-line"></div>
-      <div class="coloured-line"></div>
-      <div class="flex-container" id="alumni"></div>
+        {% endfor %}
+      </ul>
+    </div>
+    <br>
+    <div class="flex-container" id="alumni"></div>
+    {% for year, alumni in alumni_dic.items %}
+      {% if year == max_alumni_year %}
+        <div class="year-alumni-holder batch-visible" id="{{year}}">
+          <h1>hello</h1>
+      {% else %}
+        <div class="year-alumni-holder" id="{{year}}">
+      {% endif %}
+        <h2 class="batch_year">Batch of {{year}}</h2>
         {% for member in alumni %}
         <figure class="alumnibox">
           {%if member.image%}
@@ -147,21 +151,29 @@
             <img src="https://scontent.fccu11-1.fna.fbcdn.net/v/t1.0-9/33769797_990308764482605_4005773412654907392_n.jpg?_nc_cat=106&_nc_sid=09cbfe&_nc_ohc=1KtBpyshob8AX8M-tp7&_nc_ht=scontent.fccu11-1.fna&oh=ef6a8915aedec2ab5f776f01c713efe3&oe=5F47208D" alt="photo">
           {%endif%}
           <figcaption>
-             <h3><b>{{member.name}}</b></h3>
-             <div class="icons">
-                {% if member.facebook%}
-                 <a id = "facebook" href="{{member.facebook}}" target="_blank"><i class="ion-social-facebook"></i></a>
-                {% endif %}
-                {% if member.linkedin%}
-                 <a id = "linkedin" href="{{member.linkedin}}" target="_blank"> <i class="ion-social-linkedin"></i></a>
-                {% endif %}
-             </div>
+            <h3><b>{{member.name}}</b></h3>
+            <div class="icons">
+              {% if member.facebook%}
+                <a id = "facebook" href="{{member.facebook}}" target="_blank"><i class="ion-social-facebook"></i></a>
+              {% endif %}
+              {% if member.linkedin%}
+                <a id = "linkedin" href="{{member.linkedin}}" target="_blank"> <i class="ion-social-linkedin"></i></a>
+              {% endif %}
+            </div>
           </figcaption>
         </figure>
+      {% endfor %}
       </div>
-     {% endfor %}
-     {% endfor %}
+    {% endfor %}
   </div>
+  <script>
+    function showAlumni(element){
+      console.log(element.innerText);
+      var year = element.innerText;
+      var prev_batch = document.getElementsByClassName('batch-visible');
+      prev_batch[0].classList.remove('batch-visible');
+      var batch_holder = document.getElementById(year);
+      batch_holder.classList.add('batch-visible')
+    }
+  </script>
 {% endblock %}
-
-
