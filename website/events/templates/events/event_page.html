@@ -1,28 +1,29 @@
 {% extends 'events/base_event.html' %}
 {% load static %}
 {% block content %}
-<!--
-{%if oe_count or ue_count or ae_count%}
-<div>
-    <ul class="nav nav-menu justify-content-center bg-dark fixed-top" style="margin-top: 90px;">
-        {%if oe_count %}
-        <li class="nav-item">
-            <a class="nav-link active" href="#event-type-oe">Ongoing Events</a>
+
+<!-- sub-navbar -->
+<div class="sub-nav">
+    <ul class="nav sub-nav-menu justify-content-center bg-dark fixed-top" style="margin-top: 90px;">
+        <li>
+            <button id="hamb">
+                <i class="fa fa-ellipsis-v" id="subnav-icon"></i>
+
+            </button>
         </li>
-        {% endif %}
-        {%if ue_count %}
-        <li class="nav-item">
-            <a class="nav-link" href="#event-type-ue">Upcoming Events</a>
-        </li>
-        {%endif%}
-        {%if ae_count%}
-        <li class="nav-item">
-            <a class="nav-link" href="#event-type-all">All Events</a>
-        </li>
-        {%endif%}
+        <div id="visible">
+            <li class="subnav-item">
+                <a class="subnav-link active" href="#event-type-oe">Ongoing Events</a>
+            </li>
+            <li class="subnav-item">
+                <a class="subnav-link" href="#event-type-ue">Upcoming Events</a>
+            </li>
+            <li class="subnav-item">
+                <a class="subnav-link" href="#event-type-all">All Events</a>
+            </li>
+        </div>
     </ul>
 </div>
-{% endif %} -->
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <style>
@@ -40,8 +41,8 @@
 
 
 
-
-<div id="event-type-oe" style="padding-top: 150px;">
+<!-- events -->
+<div id="event-type-oe" style="padding-top: 230px;">
 
     <header class="section-header">
         <h3 style="z-index: 10;" id="oe">Ongoing Events</h3>
@@ -269,30 +270,52 @@
 <br>
 
 <script>
-    const second = 1000,minute = second * 60,hour = minute * 60,day = hour * 24;
-    var timer=JSON.parse("{{timer|escapejs}}")
+    // sub-navbar
+    const hamb = document.getElementById("hamb");
+    const navUL = document.getElementById("visible");
+    const hambicon = document.getElementById("subnav-icon");
+
+    hamb.addEventListener('click', () => {
+        navUL.classList.toggle('show');
+        hamb.classList.toggle('turn');
+        hambicon.classList.toggle('change');
+    })
+
+    // toggle active class
+    $(function () {
+        $(".subnav-link").click(function () {
+            $(".subnav-link").removeClass("active");
+            $(this).addClass("active");
+        })
+    });
+
+    // dynamic countdown timer
+    const second = 1000,
+        minute = second * 60,
+        hour = minute * 60,
+        day = hour * 24;
+    var timer = JSON.parse("{{timer|escapejs}}")
     let eventday2 = timer.next_oe,
         eventday1 = timer.next_ue,
         countDown1 = new Date(eventday1).getTime(),
         countDown2 = new Date(eventday2).getTime();
-        console.log(timer);
-        if(timer.oe==0)
-        {
+    console.log(timer);
+    if (timer.oe == 0) {
         let x = setInterval(function () {
             let now = new Date().getTime(),
                 distance2 = countDown2 - now;
             (document.getElementById("oedays").innerText = Math.floor(
                 distance2 / day
             )),
-                (document.getElementById("oehours").innerText = Math.floor(
+            (document.getElementById("oehours").innerText = Math.floor(
                 (distance2 % day) / hour
-                )),
-                (document.getElementById("oeminutes").innerText = Math.floor(
+            )),
+            (document.getElementById("oeminutes").innerText = Math.floor(
                 (distance2 % hour) / minute
-                )),
-                (document.getElementById("oeseconds").innerText = Math.floor(
+            )),
+            (document.getElementById("oeseconds").innerText = Math.floor(
                 (distance2 % minute) / second
-                ));
+            ));
 
             function setCounter(id, value, max) {
                 var elem = document.getElementById(id);
@@ -306,10 +329,9 @@
             setCounter("oeminutess", Math.floor((distance2 % hour) / minute), 60);
             setCounter("oehourss", Math.floor((distance2 % day) / hour), 24);
             setCounter("oedayss", Math.floor(distance2 / day), 365);
-            }, 0);
-        }
-        if(timer.ue==0)
-        {
+        }, 0);
+    }
+    if (timer.ue == 0) {
         let y = setInterval(function () {
             let now = new Date().getTime(),
                 distance1 = countDown1 - now;
@@ -317,15 +339,15 @@
             (document.getElementById("uedays").innerText = Math.floor(
                 distance1 / day
             )),
-                (document.getElementById("uehours").innerText = Math.floor(
+            (document.getElementById("uehours").innerText = Math.floor(
                 (distance1 % day) / hour
-                )),
-                (document.getElementById("ueminutes").innerText = Math.floor(
+            )),
+            (document.getElementById("ueminutes").innerText = Math.floor(
                 (distance1 % hour) / minute
-                )),
-                (document.getElementById("ueseconds").innerText = Math.floor(
+            )),
+            (document.getElementById("ueseconds").innerText = Math.floor(
                 (distance1 % minute) / second
-                ));
+            ));
 
             function setCounter(id, value, max) {
                 var elem = document.getElementById(id);
@@ -340,7 +362,7 @@
             setCounter("ueminutess", Math.floor((distance1 % hour) / minute), 60);
             setCounter("uehourss", Math.floor((distance1 % day) / hour), 24);
             setCounter("uedayss", Math.floor(distance1 / day), 365);
-            }, 0);
-        }
+        }, 0);
+    }
 </script>
 {% endblock %}
