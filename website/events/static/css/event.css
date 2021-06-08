@@ -29,10 +29,10 @@
   font-weight: bold;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 770px) {
   #countdown {
     display: grid !important;
-    grid-template-columns: 200px 200px;
+    grid-template-columns: 170px 170px;
     align-items: center;
   }
 
@@ -46,7 +46,7 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 359px) {
   #countdown {
     display: grid !important;
     grid-template-columns: 200px;
@@ -61,6 +61,14 @@
     justify-content: space-around;
     font-size: 1.5rem;
   }
+}
+
+.event_font {
+  font-size: 26px;
+  font-weight: 500;
+  padding-top: 50px;
+  padding-top: 20px;
+  margin-top: -10px;
 }
 
 .subnav-link {
@@ -96,6 +104,10 @@
     display: flex;
     justify-content: space-around;
     padding: 0.75rem;
+  }
+
+  #event-type-oe {
+    padding-top: 190px;
   }
 }
 
@@ -151,5 +163,9 @@
     color: white;
     transform: rotate(540deg);
     transition: transform 0.5s ease-in, color 0.5s ease-in;
+  }
+
+  #event-type-oe {
+    padding-top: 190px;
   }
 }

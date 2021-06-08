@@ -42,7 +42,7 @@
 
 
 <!-- events -->
-<div id="event-type-oe" style="margin-top: 85px;padding-top: 150px;">
+<div id="event-type-oe" style="margin-top: -80px;">
 
     <header class="section-header">
         <h3 style="z-index: 10;" id="oe">Ongoing Events</h3>
@@ -84,7 +84,7 @@
         </div>
         {%else%}
         <div class="default_display">
-            <p style="font-size: 26px;font-weight: 500; padding-top: 50px;">Next Event will be <span
+            <p class="event_font">Next Event will be <span
                     style="color: #f38b36;font-size: 29px;font-weight: 600;">LIVE</span> in:</p>
             <div id="countdown">
                 <div class="contain">
@@ -140,7 +140,7 @@
 
 
 
-<div id="event-type-ue" style="margin-top: 5px;padding-top: 150px;">
+<div id="event-type-ue" style="margin-top: -80px;padding-top: 170px;">
 
     <header class="section-header">
         <h3 style="z-index: 10;" id="ue">Upcoming Events</h3>
@@ -180,7 +180,7 @@
         </div>
         {%else%}
         <div class="default_display">
-            <p style="font-size: 26px;font-weight: 500; padding-top: 50px;">Next Event <span
+            <p class="event_font">Next Event <span
                     style="color: #f38b36;font-size: 29px;font-weight: 600;">REGISTRATION</span> starts in:</p>
             <div id="countdown">
                 <div class="contain">
@@ -233,7 +233,7 @@
     </div>
 </div>
 </div>
-<div id="event-type-all" style="margin-top: 5px;padding-top: 150px;">
+<div id="event-type-all" style="margin-top: -80px;padding-top: 170px;">
     {%if ae_count%}
     <header class="section-header">
         <h3 style="z-index: 10;" id="ae">All Events</h3>
@@ -313,7 +313,8 @@
         $('.subnav-item a').each(function () {
             var currLink = $(this);
             var refElement = $(currLink.attr("href"));
-            if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() >
+            if (refElement.position().top <= (scrollPos + 90) && refElement.position().top + refElement
+                .height() >
                 scrollPos) {
                 $('#subnav-link').removeClass("active");
                 currLink.addClass("active");
