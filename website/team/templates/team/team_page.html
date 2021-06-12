@@ -115,8 +115,9 @@
       {%endfor%}
     </div>
   </div>
-
-  </div>
+</div>
+<!-- ALUMNI SECTION -->
+  
     <div class="container" id ="alumni">
   	<h1 class="team-title">Meet Our Alumni</h1>
     <div class="alumni-grey-line"></div>
@@ -126,23 +127,28 @@
       <ul class="year-list">
         {% for year, alumni in alumni_dic.items %}
           {% if alumni %}
+            {% if year != 2021 %}
+            <li class="icon fa fa-arrow-right" id="year-arrow"></li>
+            {% endif %}
             <li class="year">
-              <button type="button" title="{{year}}" class="year-btn" onclick="showAlumni(this)">{{year}}</button>
+              <button type="button" title="{{year}}" class="year-btn" onclick="showAlumni(this)"><span>{{year}}</span></button>
             </li>
           {% endif %}
         {% endfor %}
       </ul>
     </div>
-    <br>
-    <div class="flex-container" id="alumni"></div>
     {% for year, alumni in alumni_dic.items %}
       {% if year == max_alumni_year %}
         <div class="year-alumni-holder batch-visible" id="{{year}}">
-          <h1>hello</h1>
       {% else %}
         <div class="year-alumni-holder" id="{{year}}">
       {% endif %}
-        <h2 class="batch_year">Batch of {{year}}</h2>
+        <div class="year-heading batch_year">
+          <div>BATCH OF {{year}}</div>
+        </div>
+        <div class="grey-line"></div>
+        <div class="coloured-line"></div>
+        <div class="flex-container" id="alumni"></div>
         {% for member in alumni %}
         <figure class="alumnibox">
           {%if member.image%}
