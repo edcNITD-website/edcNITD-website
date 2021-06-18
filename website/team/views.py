@@ -12,22 +12,22 @@ def team(request):
     # images=[member.image for member in members]
     positions=[member.position for member in Members.objects.all()]
     
-    third_year= Members.objects.filter(year=3).order_by('name')
-    second_year=Members.objects.filter(year=2).order_by('name')
+    third_year= Members.objects.filter(passing_out_date__gte=timezone.now().date()).filter(year=3).order_by('name')
+    second_year=Members.objects.filter(passing_out_date__gte=timezone.now().date()).filter(year=2).order_by('name')
 
     position_holders=[]
 
-    for member in Members.objects.filter(position='President'):
+    for member in Members.objects.filter(passing_out_date__gte=timezone.now().date()).filter(position='President'):
         position_holders.append(member)
-    for member in Members.objects.filter(position='General Secretary'):
+    for member in Members.objects.filter(passing_out_date__gte=timezone.now().date()).filter(position='General Secretary'):
         position_holders.append(member)
-    for member in Members.objects.filter(position='Treasurer'):
+    for member in Members.objects.filter(passing_out_date__gte=timezone.now().date()).filter(position='Treasurer'):
         position_holders.append(member)
-    for member in Members.objects.filter(position='Vice President'):
+    for member in Members.objects.filter(passing_out_date__gte=timezone.now().date()).filter(position='Vice President'):
         position_holders.append(member)
-    for member in Members.objects.filter(position='Convenor'):
+    for member in Members.objects.filter(passing_out_date__gte=timezone.now().date()).filter(position='Convenor'):
         position_holders.append(member)
-    for member in Members.objects.filter(year=4).exclude(position='President').exclude(position='Vice President').exclude(position='General Secretary').exclude(position='Convenor').exclude(position='Treasurer'):
+    for member in Members.objects.filter(passing_out_date__gte=timezone.now().date()).filter(year=4).exclude(position='President').exclude(position='Vice President').exclude(position='General Secretary').exclude(position='Convenor').exclude(position='Treasurer'):
         position_holders.append(member)
 
     # print(position_holders)

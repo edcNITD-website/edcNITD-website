@@ -7,7 +7,7 @@
   <link rel="stylesheet" type="text/css" href="{% static "css/teams.css" %}">
  <!-- Team JS file and plugins -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script type="text/javascript" src="{% static "js/teams.js" %}"></script>
+  <script defer type="text/javascript" src="{% static "js/teams.js" %}"></script>
 
   <div class="container">
     <h1 class="team-title">Our Team</h1>
@@ -172,14 +172,4 @@
       </div>
     {% endfor %}
   </div>
-  <script>
-    function showAlumni(element){
-      console.log(element.innerText);
-      var year = element.innerText;
-      var prev_batch = document.getElementsByClassName('batch-visible');
-      prev_batch[0].classList.remove('batch-visible');
-      var batch_holder = document.getElementById(year);
-      batch_holder.classList.add('batch-visible')
-    }
-  </script>
 {% endblock %}
