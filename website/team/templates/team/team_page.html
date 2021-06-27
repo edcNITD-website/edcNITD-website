@@ -5,6 +5,11 @@
 
   <!-- Team CSS file -->
   <link rel="stylesheet" type="text/css" href="{% static "css/teams.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "css/alumni.css" %}">
+
+  <!-- Team JS file and plugins -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer type="text/javascript" src="{% static 'js/alumni.js' %}"></script>
 
   <div class="container">
     <h1 class="team-title">Our Team</h1>
@@ -112,5 +117,64 @@
       {%endfor%}
     </div>
   </div>
+  </div>
+<!-- ALUMNI SECTION -->
+  
+    <div class="container" id ="alumni">
+    <h1 class="team-title">Meet Our Alumni</h1>
+    <div class="alumni-grey-line"></div>
+    <div class="alumni-coloured-line" ></div>
+    <br>
+    <div class="flex-container" id="year-bar">
+      <i class="icon fa fa-arrow-left" id="year-arrow"></i>
+      <div class="year-list-holder">
+      <ul class="year-list">
+        {% for year, alumni in alumni_dic.items %}
+          {% if alumni %}
+            {% if year == 2021 %}
+            <li class="year active_year year-btn" id= "{{year}}-year" title="{{year}}" onclick="showAlumni(this)"><span>{{year}}</span></li>  
+            {% else %}
+            <li class="year year-btn" title="{{year}}" id= "{{year}}-year" onclick="showAlumni(this)"><span>{{year}}</span></li>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </ul>
+      </div>
+      <i class="icon fa fa-arrow-right" id="year-arrow"></i>
+    </div>
+    {% for year, alumni in alumni_dic.items %}
+      {% if year == max_alumni_year %}
+        <div class="year-alumni-holder batch-visible" id="{{year}}">
+      {% else %}
+        <div class="year-alumni-holder" id="{{year}}">
+      {% endif %}
+        <div class="year-heading batch_year">
+          <div>BATCH OF {{year}}</div>
+        </div>
+        <div class="grey-line"></div>
+        <div class="coloured-line"></div>
+        <div class="flex-container" id="alumni"></div>
+        {% for member in alumni %}
+        <figure class="alumnibox">
+          {%if member.image%}
+            <img src="{{member.image.url}}" alt="smile">
+          {%else%}
+            <img src="https://scontent.fccu11-1.fna.fbcdn.net/v/t1.0-9/33769797_990308764482605_4005773412654907392_n.jpg?_nc_cat=106&_nc_sid=09cbfe&_nc_ohc=1KtBpyshob8AX8M-tp7&_nc_ht=scontent.fccu11-1.fna&oh=ef6a8915aedec2ab5f776f01c713efe3&oe=5F47208D" alt="photo">
+          {%endif%}
+          <figcaption>
+            <h3><b>{{member.name}}</b></h3>
+            <div class="icons">
+              {% if member.facebook%}
+                <a id = "facebook" href="{{member.facebook}}" target="_blank"><i class="ion-social-facebook"></i></a>
+              {% endif %}
+              {% if member.linkedin%}
+                <a id = "linkedin" href="{{member.linkedin}}" target="_blank"> <i class="ion-social-linkedin"></i></a>
+              {% endif %}
+            </div>
+          </figcaption>
+        </figure>
+      {% endfor %}
+      </div>
+    {% endfor %}
   </div>
 {% endblock %}
