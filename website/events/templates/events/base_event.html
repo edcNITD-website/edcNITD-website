@@ -10,14 +10,15 @@
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
-<!-- favicons
+  <!-- favicons
 		================================================== -->
-    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
-    <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+  <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+  <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
 
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -32,6 +33,7 @@
   <!-- Template Main CSS File -->
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
   <link href="{% static 'loader/loader.css' %}" rel="stylesheet">
+  <link href="{% static 'css/event.css' %}" rel="stylesheet">
 
 
 </head>
@@ -39,147 +41,159 @@
 <body onload="loaderfunction()">
   <div id="loader">
     <div id="loading">
-   <div class="loading-screen">
-    <div class="loading-animation">
-      <img src="{% static 'img/favicon.png' %}" alt="" class="loader_logo">
-      <div class="loading-bar"></div>
+      <div class="loading-screen">
+        <div class="loading-animation">
+          <img src="{% static 'img/favicon.png' %}" alt="" class="loader_logo">
+          <div class="loading-bar"></div>
+        </div>
+      </div>
     </div>
-  </div></div></div>
+  </div>
 
   <section id="about">
     <header id="header" class="fixed-top">
 
-        <div class="container-fluid">
-    
-    
-    
-          <div class="row justify-content-center">
-    
-            <div class="col-xl-11 d-flex align-items-center">
-    
-              
-    
-          
-    
-              <a href="{% url 'home_page' %}" class="logo mr-auto"><img src="{%static 'img/logo.png' %}" alt="" class="img-fluid">
-    
-    
-    
+      <div class="container-fluid">
+
+
+
+        <div class="row justify-content-center">
+
+          <div class="col-xl-11 d-flex align-items-center">
+
+
+
+
+
+            <a href="{% url 'home_page' %}" class="logo mr-auto"><img src="{%static 'img/logo.png' %}" alt=""
+                class="img-fluid">
+
+
+
               <nav class="nav-menu d-none d-lg-block">
-    
+
                 <ul>
-    
-                    <li {%if request.resolver_match.url_name == 'home_page' %}class="active"{% endif %}><a href="{%url 'home_page' %}">Home</a></li>
-      
-                    <li {%if request.resolver_match.url_name == 'esummit_page' %}class="active"{% endif %}><a href="{% url 'esummit_page' %}">E-Summit'21</a></li>
-      
-                   <li {%if request.resolver_match.url_name == 'event_page' %}class="active"{% endif %}><a href="{% url 'event_page' %}">Event Registrations</a></li>
-      
-                    <!--<li {%if request.resolver_match.url_name == 'innovationcell_page' %}class="active"{% endif %}><a href="{% url 'innovationcell_page' %}">Innovation Cell</a></li>-->
-      
-                    <li {%if request.resolver_match.url_name == 'team_page' %}class="active"{% endif %}><a href="{% url 'team_page' %}">Our Team</a></li>
-      
-                    <!--<li><a href="#footer">Contact Us</a></li>-->
-                    
+
+                  <li {%if request.resolver_match.url_name == 'home_page' %}class="active" {% endif %}><a
+                      href="{%url 'home_page' %}">Home</a></li>
+
+                  <li {%if request.resolver_match.url_name == 'esummit_page' %}class="active" {% endif %}><a
+                      href="{% url 'esummit_page' %}">E-Summit'21</a></li>
+
+                  <li {%if request.resolver_match.url_name == 'event_page' %}class="active" {% endif %}><a
+                      href="{% url 'event_page' %}">Event Registrations</a></li>
+
+                  <!--<li {%if request.resolver_match.url_name == 'innovationcell_page' %}class="active"{% endif %}><a href="{% url 'innovationcell_page' %}">Innovation Cell</a></li>-->
+
+                  <li {%if request.resolver_match.url_name == 'team_page' %}class="active" {% endif %}><a
+                      href="{% url 'team_page' %}">Our Team</a></li>
+
+                  <!--<li><a href="#footer">Contact Us</a></li>-->
+
                 </ul>
-    
+
               </nav><!-- .nav-menu -->
-    
-            </div>
-    
+
           </div>
-  
+
         </div>
-    
-      </header><!-- End Header -->
 
-      {% block content %}{% endblock %}
-    </section>
+      </div>
+
+    </header><!-- End Header -->
+
+    {% block content %}{% endblock %}
+  </section>
   <!-- ======= Footer ======= -->
-
 <footer id="footer">
 
-  <div class="footer-top">
-  
-    <div class="container-fluid">
-  
-      <div class="row">
-  
-        <div class="col-lg-1">
-        </div>
-  
-        <div class="col-lg-3 footer-info">
-  
-          <h3>Entrepreneurship Development Cell</h3>
-          <p style="border-left: 4px solid #f38b36; text-align:center;">NIT Durgapur</p>            
-          <br>
-          <p style="text-align:center;">Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="{% url 'web_team' %}">Web-Team </a></p>
-          <p style="text-align:center;">© 2021 EDC. All Rights Reserved.</p>
-        </div>
+    <div class="footer-top">
 
-      <div class="col-lg-1">
-        </div>  
-  
-        <div class="col-md-3 footer-contact">
-  
-          <h4>Contact Us</h4>
-  
-          <p>
-  
-            <i class="fa fa-map-marker"> :</i> Mahatma Gandhi Avenue,<br> A-Zone, Durgapur,
-             West Bengal <br> Durgapur: 713209 
-             <br>
-  
-            <i class="fa fa-phone "></i> : +91 96096 04777 (Swagata Laxmi Sengupta)<br>
-  
-            <i class="fa fa-envelope-o"> :</i><a href="mailto:edcnitd.official@gmail.com"> edcnitd.official@gmail.com</a><br>
-  
-          </p>
-  
-          
-  
-  
-          <div class="social-links">
-  
-            <a target="_blank" href="https://twitter.com/edcnitd" class="twitter"><i class="fa fa-twitter"></i></a>
-  
-            <a target="_blank" href="https://www.facebook.com/edc.nitd" class="facebook"><i class="fa fa-facebook"></i></a>
-  
-            <a target="_blank" href="https://www.instagram.com/edc.nitd" class="instagram"><i class="fa fa-instagram"></i></a>
-  
-            <a target="_blank" href="https://www.youtube.com/channel/UCaBiTXfp5gknGPS6N3asDBg" class="google-plus"><i class="fa fa-youtube"></i></a>
-  
-            <a target="_blank" href="https://www.linkedin.com/company/edcnitd/" class="linkedin"><i class="fa fa-linkedin"></i></a>
-  
-          </div> 
-  
-        </div>
+      <div class="container-fluid">
 
-      <div class="col-lg-1">
-        </div>
-  
-        <div class="col-lg-2 footer-links">
-          
-  
-          <h4>Useful Links</h4>
-  
-          <ul>
-  
-            <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'home_page' %}">Home</a></li>
-  
-            <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'esummit_page' %}">E-Summit'21</a></li>
-  
-            <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'event_page' %}">Event Registrations</a></li>
-  
-            <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'team_page' %}">Our Team</a></li>
-          </ul>
-  
-        </div>
+        <div class="row">
 
-          
-  
-  
-  <!-- x 
+          <div class="col-lg-1">
+          </div>
+
+          <div class="col-lg-3 footer-info">
+
+            <h3>Entrepreneurship Development Cell</h3>
+            <p style="border-left: 4px solid #f38b36; text-align:center;">NIT Durgapur</p>
+            <br>
+            <p style="text-align:center;">Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a
+                href="{% url 'web_team' %}">Web-Team </a></p>
+            <p style="text-align:center;">© 2021 EDC. All Rights Reserved.</p>
+          </div>
+
+          <div class="col-lg-1">
+          </div>
+
+          <div class="col-md-3 footer-contact">
+
+            <h4>Contact Us</h4>
+
+            <p>
+
+              <i class="fa fa-map-marker"> :</i> Mahatma Gandhi Avenue,<br> A-Zone, Durgapur,
+              West Bengal <br> Durgapur: 713209
+              <br>
+
+              <i class="fa fa-phone "></i> : +91 96096 04777 (Swagata Laxmi Sengupta)<br>
+
+              <i class="fa fa-envelope-o"> :</i><a href="mailto:edcnitd.official@gmail.com">
+                edcnitd.official@gmail.com</a><br>
+
+            </p>
+
+
+
+
+            <div class="social-links">
+
+              <a target="_blank" href="https://twitter.com/edcnitd" class="twitter"><i class="fa fa-twitter"></i></a>
+
+              <a target="_blank" href="https://www.facebook.com/edc.nitd" class="facebook"><i
+                  class="fa fa-facebook"></i></a>
+
+              <a target="_blank" href="https://www.instagram.com/edc.nitd" class="instagram"><i
+                  class="fa fa-instagram"></i></a>
+
+              <a target="_blank" href="https://www.youtube.com/channel/UCaBiTXfp5gknGPS6N3asDBg" class="google-plus"><i
+                  class="fa fa-youtube"></i></a>
+
+              <a target="_blank" href="https://www.linkedin.com/company/edcnitd/" class="linkedin"><i
+                  class="fa fa-linkedin"></i></a>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-1">
+          </div>
+
+          <div class="col-lg-2 footer-links">
+
+
+            <h4>Useful Links</h4>
+
+            <ul>
+
+              <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'home_page' %}">Home</a></li>
+
+              <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'esummit_page' %}">E-Summit'21</a></li>
+
+              <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'event_page' %}">Event Registrations</a></li>
+
+              <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'team_page' %}">Our Team</a></li>
+            </ul>
+
+          </div>
+
+
+
+
+          <!-- x 
         <div class="col-lg-3 col-md-6 footer-newsletter">
   
           <h4>Get Notified for Future Events.</h4>
@@ -195,43 +209,43 @@
         </div>
   
   -->
-  
-      </div>
-  
-    </div>
-  
-  </div>
-  
-  
-  
-  </div>
-  
-  </footer><!-- End Footer -->
+
         </div>
 
-  
       </div>
-  
+
     </div>
-  
+
+
+
+    </div>
+
+  </footer><!-- End Footer -->
   </div>
-  
-  
-  
+
+
   </div>
-  
+
+  </div>
+
+  </div>
+
+
+
+  </div>
+
   </footer><!-- End Footer -->
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script>
-    $('.back-to-top').click(function() {
+    $('.back-to-top').click(function () {
       $('html, body').animate({
         scrollTop: 0
       }, 1500, 'easeInOutExpo');
       return false;
     });
-  </script>  
+  </script>
 
-      <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
