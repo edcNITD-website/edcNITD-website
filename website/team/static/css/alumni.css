@@ -47,7 +47,7 @@
     margin-right: -2px;
 }
 
-.year-list-holder ul:before, .active:after{
+.year-list-holder ul:before, .year-list-holder ul .active:after{
   content: '';
   width: 100%;
   border: 2px solid #f38b36;
