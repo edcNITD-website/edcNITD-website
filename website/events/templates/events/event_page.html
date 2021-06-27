@@ -1,157 +1,403 @@
 {% extends 'events/base_event.html' %}
 {% load static %}
 {% block content %}
-<!--
-{%if oe_count or ue_count or ae_count%}
-<div>
-    <ul class="nav nav-menu justify-content-center bg-dark fixed-top" style="margin-top: 90px;">
-        {%if oe_count %}
-        <li class="nav-item">
-            <a class="nav-link active" href="#event-type-oe">Ongoing Events</a>
+
+<!-- sub-navbar -->
+<div class="sub-nav">
+    <ul class="nav sub-nav-menu justify-content-center bg-dark fixed-top" style="margin-top: 90px;">
+        <li>
+            <button id="hamb">
+                <i class="fa fa-ellipsis-v" id="subnav-icon"></i>
+
+            </button>
         </li>
-        {% endif %}
-        {%if ue_count %}
-        <li class="nav-item">
-            <a class="nav-link" href="#event-type-ue">Upcoming Events</a>
-        </li>
-        {%endif%}
-        {%if ae_count%}
-        <li class="nav-item">
-            <a class="nav-link" href="#event-type-all">All Events</a>
-        </li>
-        {%endif%}
+        <div id="visible">
+            <li class="subnav-item">
+                <a class="subnav-link active" href="#event-type-oe">Ongoing Events</a>
+            </li>
+            <li class="subnav-item">
+                <a class="subnav-link" href="#event-type-ue">Upcoming Events</a>
+            </li>
+            <li class="subnav-item">
+                <a class="subnav-link" href="#event-type-all">All Events</a>
+            </li>
+        </div>
     </ul>
 </div>
-{% endif %} -->
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <style>
-    
-    
-    
     a.morelink {
-        text-decoration:none;
+        text-decoration: none;
         outline: none;
     }
+
     .morecontent span {
         display: none;
-    
-    }
 
-    
-    
+    }
 </style>
 
 
 
 
+<!-- events -->
+<div id="event-type-oe" style="margin-top: -80px;">
 
-    <div id="event-type-oe" style="padding-top: 150px;">
+    <header class="section-header">
+        <h3 style="z-index: 10;" id="oe">Ongoing Events</h3>
+    </header>
+
+    <div class="container">
         {%if oe_count%}
-        <header class="section-header">
-            <h3 style="z-index: 10;" id="oe">Ongoing Events</h3>
-        </header>
-        <div class="container">
         <div class="row">
             {% for oe in oe %}
-            <div class="col-md-4"><section class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
-            <div class="container">
-        
-                <div class="portfolio-details-container">
-                <div class="portfolio-details-carousel">
-                        <img src="{{ oe.image.url }}" class="img-fluid"  style="width: 300px; height: 200px; " alt="">
-                    </div>          
-                </div>
-        
-                <div class="portfolio-description">
-                <h2 style="font-size: 22px;">{{oe.event_name}}</h2>
-                <p class="pop">
-                    {{oe.about_event}}
-                </p>
-                </div>
+            <div class="col-md-4">
+                <section
+                    class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
+
+                    <div class="container">
+
+                        <div class="portfolio-details-container">
+                            <div class="portfolio-details-carousel">
+                                <img src="{{ oe.image.url }}" class="img-fluid" style="width: 300px; height: 200px; "
+                                    alt="">
+                            </div>
+                        </div>
+
+                        <div class="portfolio-description">
+                            <h2 style="font-size: 22px;">{{oe.event_name}}</h2>
+                            <p class="pop">
+                                {{oe.about_event}}
+                            </p>
+                        </div>
+                    </div>
+                    {% if oe.registration_link%}
+                    <div class="text-center">
+                        <a href="{{oe.registration_link}}" target="blank"
+                            class="btn btn-primary stretched-link">Register in {{oe.event_name}}</a>
+                    </div>
+                    {%endif%}
+                </section>
             </div>
-            {% if oe.registration_link%}
-            <div class="text-center">
-                <a href="{{oe.registration_link}}" target="blank" class="btn btn-primary stretched-link">Register in {{oe.event_name}}</a>
-            </div>
-            {%endif%}
-            </section></div>
             {% endfor %}
-        </div> 
         </div>
+        {%else%}
+        <div class="default_display">
+            <p class="event_font">Next Event will be <span
+                    style="color: #f38b36;font-size: 29px;font-weight: 600;">LIVE</span> in:</p>
+            <div id="countdown">
+                <div class="contain">
+                    <svg width="150px" height="150px" viewBox="0 0 150 150">
+                        <g fill="none" stroke-width="6">
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="#f38b36" opacity="0.1" />
+                            <circle id="oedayss" cx="75" cy="75" r="50" stroke="#f38b36"
+                                transform="rotate(-90 75 75)" />
+                        </g>
+                        <span id="oedays" class="inside"></span>
+                    </svg>
+                    <span class="extra">DAYS</span>
+                </div>
+                <div class="contain">
+                    <svg width="150px" height="150px" viewBox="0 0 150 150">
+                        <g fill="none" stroke-width="6">
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="#f38b36" opacity="0.1" />
+                            <circle id="oehourss" cx="75" cy="75" r="50" stroke="#f38b36"
+                                transform="rotate(-90 75 75)" />
+                        </g>
+                        <span id="oehours" class="inside"></span>
+                    </svg>
+                    <span class="extra">HOURS</span>
+                </div>
+                <div class="contain">
+                    <svg width="150px" height="150px" viewBox="0 0 150 150">
+                        <g fill="none" stroke-width="6">
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="#f38b36" opacity="0.1" />
+                            <circle id="oeminutess" cx="75" cy="75" r="50" stroke="#f38b36"
+                                transform="rotate(-90 75 75)" />
+                        </g>
+                        <span id="oeminutes" class="inside"></span>
+                    </svg>
+                    <span class="extra">MINUTES</span>
+                </div>
+                <div class="contain">
+                    <svg width="150px" height="150px" viewBox="0 0 150 150">
+                        <g fill="none" stroke-width="6">
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="#f38b36" opacity="0.1" />
+                            <circle id="oesecondss" cx="75" cy="75" r="50" stroke="#f38b36"
+                                transform="rotate(-90 75 75)" />
+                        </g>
+                        <span id="oeseconds" class="inside"></span>
+                    </svg>
+                    <span class="extra">SECONDS</span>
+                </div>
+            </div>
         </div>
         {%endif%}
     </div>
+</div>
+</div>
 
-   
 
 
-    <div id="event-type-ue" style="padding-top: 150px;">
+<div id="event-type-ue" style="margin-top: -80px;padding-top: 170px;">
+
+    <header class="section-header">
+        <h3 style="z-index: 10;" id="ue">Upcoming Events</h3>
+    </header>
+    <div class="container">
         {%if ue_count%}
-        <header class="section-header">
-            <h3 style="z-index: 10;" id="ue">Upcoming Events</h3>
-        </header>
-        <div class="container">
         <div class="row">
             {% for ue in ue %}
-            <div class="col-md-4"><section class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
-            <div class="container">
-        
-                <div class="portfolio-details-container">
-                <div class="portfolio-details-carousel">
-                        <img src="{{ ue.image.url }}" class="img-fluid"  style="width: 300px; height: 200px; " alt="">
-                    </div>          
-                </div>
-        
-                <div class="portfolio-description">
-                <h2 style="font-size: 22px;">{{ue.event_name}}</h2>
-                <p class="pop">
-                    {{ue.about_event}}
-                </p>
-                </div>
+            <div class="col-md-4">
+                <section
+                    class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
+                    <div class="container">
+
+                        <div class="portfolio-details-container">
+                            <div class="portfolio-details-carousel">
+                                <img src="{{ ue.image.url }}" class="img-fluid" style="width: 300px; height: 200px; "
+                                    alt="">
+                            </div>
+                        </div>
+
+                        <div class="portfolio-description">
+                            <h2 style="font-size: 22px;">{{ue.event_name}}</h2>
+                            <p class="pop">
+                                {{ue.about_event}}
+                            </p>
+                        </div>
+                    </div>
+                    {% if ue.registration_link%}
+                    <div class="text-center">
+                        <a href="{{ue.registration_link}}" target="blank"
+                            class="btn btn-primary stretched-link">Participate in {{ue.event_name}}</a>
+                    </div>
+                    {% endif %}
+                </section>
             </div>
-            {% if ue.registration_link%}
-            <div class="text-center">
-                <a href="{{ue.registration_link}}" target="blank" class="btn btn-primary stretched-link">Participate in {{ue.event_name}}</a>
-            </div>
-            {% endif %}
-            </section></div>
             {% endfor %}
-        </div> 
         </div>
+        {%else%}
+        <div class="default_display">
+            <p class="event_font">Next Event <span
+                    style="color: #f38b36;font-size: 29px;font-weight: 600;">REGISTRATION</span> starts in:</p>
+            <div id="countdown">
+                <div class="contain">
+                    <svg width="150px" height="150px" viewBox="0 0 150 150">
+                        <g fill="none" stroke-width="6">
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="#f38b36" opacity="0.1" />
+                            <circle id="uedayss" cx="75" cy="75" r="50" stroke="#f38b36"
+                                transform="rotate(-90 75 75)" />
+                        </g>
+                        <span id="uedays" class="inside"></span>
+                    </svg>
+                    <span class="extra">DAYS</span>
+                </div>
+                <div class="contain">
+                    <svg width="150px" height="150px" viewBox="0 0 150 150">
+                        <g fill="none" stroke-width="6">
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="#f38b36" opacity="0.1" />
+                            <circle id="uehourss" cx="75" cy="75" r="50" stroke="#f38b36"
+                                transform="rotate(-90 75 75)" />
+                        </g>
+                        <span id="uehours" class="inside"></span>
+                    </svg>
+                    <span class="extra">HOURS</span>
+                </div>
+                <div class="contain">
+                    <svg width="150px" height="150px" viewBox="0 0 150 150">
+                        <g fill="none" stroke-width="6">
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="#f38b36" opacity="0.1" />
+                            <circle id="ueminutess" cx="75" cy="75" r="50" stroke="#f38b36"
+                                transform="rotate(-90 75 75)" />
+                        </g>
+                        <span id="ueminutes" class="inside"></span>
+                    </svg>
+                    <span class="extra">MINUTES</span>
+                </div>
+                <div class="contain">
+                    <svg width="150px" height="150px" viewBox="0 0 150 150">
+                        <g fill="none" stroke-width="6">
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="#f38b36" opacity="0.1" />
+                            <circle id="uesecondss" cx="75" cy="75" r="50" stroke="#f38b36"
+                                transform="rotate(-90 75 75)" />
+                        </g>
+                        <span id="ueseconds" class="inside"></span>
+                    </svg>
+                    <span class="extra">SECONDS</span>
+                </div>
+            </div>
         </div>
         {%endif%}
     </div>
-    <div id="event-type-all" style="padding-top: 150px;">
-        {%if ae_count%}
-        <header class="section-header" >
-            <h3 style="z-index: 10;" id="ae">All Events</h3>
-        </header>
-        <div class="container">
+</div>
+</div>
+<div id="event-type-all" style="margin-top: -80px;padding-top: 170px;">
+    {%if ae_count%}
+    <header class="section-header">
+        <h3 style="z-index: 10;" id="ae">All Events</h3>
+    </header>
+    <div class="container">
         <div class="row">
             {% for ae in ae %}
-            <div class="col-md-4"><section class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
-            <div class="container">
-        
-                <div class="portfolio-details-container">
-                <div class="portfolio-details-carousel">
-                        <img src="{{ ae.image.url }}" class="img-fluid"  style="width: 300px; height: 200px; " alt="">
-                    </div>          
-                </div>
-        
-                <div class="portfolio-description">
-                <h2 style="font-size: 22px;">{{ae.event_name}}</h2>
-                <p class="pop">
-                    {{ae.about_event}}
-                </p>
-                </div>
+            <div class="col-md-4">
+                <section
+                    class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
+                    <div class="container">
+
+                        <div class="portfolio-details-container">
+                            <div class="portfolio-details-carousel">
+                                <img src="{{ ae.image.url }}" class="img-fluid" style="width: 300px; height: 200px; "
+                                    alt="">
+                            </div>
+                        </div>
+
+                        <div class="portfolio-description">
+                            <h2 style="font-size: 22px;">{{ae.event_name}}</h2>
+                            <p class="pop">
+                                {{ae.about_event}}
+                            </p>
+                        </div>
+                    </div>
+                </section>
             </div>
-            </section></div>
             {% endfor %}
-        </div> 
         </div>
-        </div>
-      {%endif%}
-    </div> 
+    </div>
+</div>
+{%endif%}
+</div>
 <br>
+
+<script>
+    // sub-navbar
+    const hamb = document.getElementById("hamb");
+    const navUL = document.getElementById("visible");
+    const hambicon = document.getElementById("subnav-icon");
+
+    hamb.addEventListener('click', () => {
+        navUL.classList.toggle('show');
+        hamb.classList.toggle('turn');
+        hambicon.classList.toggle('change');
+    })
+
+    //toggle active class
+    $(document).ready(function () {
+        $(document).on("scroll", onScroll);
+
+        //smoothscroll
+        $('.subnav-item a[href^="#"]').on('click', function (e) {
+            e.preventDefault();
+            $(document).off("scroll");
+
+            $('.subnav-item a').each(function () {
+                $(this).removeClass('active');
+            })
+            $(this).addClass('active');
+
+            var target = this.hash,
+                menu = target;
+            $target = $(target);
+            $('html, body').stop().animate({
+                'scrollTop': $target.offset().top + 5
+            }, 500, 'swing', function () {
+                window.location.hash = target;
+                $(document).on("scroll", onScroll);
+            });
+        });
+    });
+
+    function onScroll(event) {
+        var scrollPos = $(document).scrollTop();
+        $('.subnav-item a').each(function () {
+            var currLink = $(this);
+            var refElement = $(currLink.attr("href"));
+            if (refElement.position().top <= (scrollPos + 90) && refElement.position().top + refElement
+                .height() >
+                scrollPos) {
+                $('#subnav-link').removeClass("active");
+                currLink.addClass("active");
+            } else {
+                currLink.removeClass("active");
+            }
+        });
+    }
+
+    // dynamic countdown timer
+    const second = 1000,
+        minute = second * 60,
+        hour = minute * 60,
+        day = hour * 24;
+    var timer = JSON.parse("{{timer|escapejs}}")
+    let eventday2 = timer.next_oe,
+        eventday1 = timer.next_ue,
+        countDown1 = new Date(eventday1).getTime(),
+        countDown2 = new Date(eventday2).getTime();
+    console.log(timer);
+    if (timer.oe == 0) {
+        let x = setInterval(function () {
+            let now = new Date().getTime(),
+                distance2 = countDown2 - now;
+            (document.getElementById("oedays").innerText = Math.floor(
+                distance2 / day
+            )),
+            (document.getElementById("oehours").innerText = Math.floor(
+                (distance2 % day) / hour
+            )),
+            (document.getElementById("oeminutes").innerText = Math.floor(
+                (distance2 % hour) / minute
+            )),
+            (document.getElementById("oeseconds").innerText = Math.floor(
+                (distance2 % minute) / second
+            ));
+
+            function setCounter(id, value, max) {
+                var elem = document.getElementById(id);
+                var radius = elem.r.baseVal.value;
+                var circumference = radius * 2 * Math.PI;
+                var barLength = Math.floor((value * circumference) / max);
+
+                elem.setAttribute("stroke-dasharray", barLength + " " + circumference);
+            }
+            setCounter("oesecondss", Math.floor((distance2 % minute) / second), 60);
+            setCounter("oeminutess", Math.floor((distance2 % hour) / minute), 60);
+            setCounter("oehourss", Math.floor((distance2 % day) / hour), 24);
+            setCounter("oedayss", Math.floor(distance2 / day), 365);
+        }, 0);
+    }
+    if (timer.ue == 0) {
+        let y = setInterval(function () {
+            let now = new Date().getTime(),
+                distance1 = countDown1 - now;
+
+            (document.getElementById("uedays").innerText = Math.floor(
+                distance1 / day
+            )),
+            (document.getElementById("uehours").innerText = Math.floor(
+                (distance1 % day) / hour
+            )),
+            (document.getElementById("ueminutes").innerText = Math.floor(
+                (distance1 % hour) / minute
+            )),
+            (document.getElementById("ueseconds").innerText = Math.floor(
+                (distance1 % minute) / second
+            ));
+
+            function setCounter(id, value, max) {
+                var elem = document.getElementById(id);
+                var radius = elem.r.baseVal.value;
+                var circumference = radius * 2 * Math.PI;
+                var barLength = Math.floor((value * circumference) / max);
+
+                elem.setAttribute("stroke-dasharray", barLength + " " + circumference);
+            }
+
+            setCounter("uesecondss", Math.floor((distance1 % minute) / second), 60);
+            setCounter("ueminutess", Math.floor((distance1 % hour) / minute), 60);
+            setCounter("uehourss", Math.floor((distance1 % day) / hour), 24);
+            setCounter("uedayss", Math.floor(distance1 / day), 365);
+        }, 0);
+    }
+</script>
 {% endblock %}
