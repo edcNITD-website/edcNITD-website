@@ -168,6 +168,7 @@
 #alumni.container{
     padding-top: 10px;
     width: 100%;
+    max-width: 1500px;
 }
 
 #alumni.flex-container{
