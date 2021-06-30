@@ -1,101 +1,187 @@
-{% extends 'events/base_event.html' %}
-{% load static %}
-{% block content %}
+{% extends 'events/base_event.html' %} {% load static %} {% block content %}
 
- 
+<!-- Developers CSS file -->
+<link rel="stylesheet" type="text/css" href="{% static "css/webteam.css" %}">
 
-  <!-- Team CSS file -->
-  <link rel="stylesheet" type="text/css" href="{% static "css/webteam.css" %}">
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+  crossorigin="anonymous"
+/>
 
+<div class="AllBig">
+  <!-- <section id="about"> -->
   <div class="container">
-    <h1 class="team-title">Meet  the  Dev'Ops</h1>
-      <div class="grey-line"></div>
-      <div class="coloured-line"></div>
-    <div class="members" style="padding-top: 30px;">
+    <div class="container quote">
+      <div>
+        <div class="col-ls quote1">
+          <h1>
+            <span>M</span><span>eet</span> <span>O</span><span>ur</span>
+            <span>D</span><span>ev'OPs</span>
+          </h1>
+        </div>
+        <div class="grey-line"></div>
+        <div class="coloured-line"></div>
+      </div>
+    </div>
 
-      <div class="flex-container">
+    <div class="card">
+      <div class="imgBx">
+        <img
+          class="inner-img"
+          src="{% static 'img/webteam/Amish_Bharti.jpeg'%}"
+          alt="Team Image"
+        />
+      </div>
+      <div class="content">
+        <div class="contentBx">
+          <h3>Amish Bharti</h3>
+        </div>
+        <div class="facions">
+          <a href="https://github.com/amish1999"><i class="fa fa-github fa-2x"></i> </a>
+        </div>
+      </div>
+    </div>
 
-        <div class="final-container">
-            <div class="image">
-              <img src="{% static 'img/webteam/Amish_Bharti.jpeg'%}" alt="Team Image">
-            </div>
-            <div class="social-links">
-                <span><a href="https://github.com/amish1999" target="_blank"><i class="fa fa-github github" aria-hidden="true" style="background-color: black; padding: 5px; border-radius: 5px; width: 26px; height: 26px;"></i></a></span>
-              </div>
-           <div class="name" style="color: black;">
-              <h5>Amish <br>Bharti</h5>
-            </div>
-          </div>
 
-          <div class="final-container">
-            <div class="image">
-              <img src="{% static 'img/webteam/Prakhar_Srivastava.jpeg'%}" alt="Team Image">
-            </div>
-            <div class="social-links">
-                <span><a href="https://github.com/Prakhar19999" target="_blank"><i class="fa fa-github github" aria-hidden="true" style="background-color: black; padding: 5px; border-radius: 5px; width: 26px; height: 26px;"></i></a></span>
-              </div>
-           <div class="name" style="color: black;">
-              <h5>Prakhar <br>Srivastava</h5>
-            </div>
-          </div>
-
-          <div class="final-container">
-            <div class="image">
-              <img src="{% static 'img/webteam/Sayan_Pal.jpeg'%}" alt="Team Image">
-            </div>
-            <div class="social-links">
-                <span><a href="https://github.com/sayanp99" target="_blank"><i class="fa fa-github github" aria-hidden="true" style="background-color: black; padding: 5px; border-radius: 5px; width: 26px; height: 26px;"></i></a></span>
-              </div>
-           <div class="name" style="color: black;">
-              <h5>Sayan <br>Pal</h5>
-            </div>
-          </div>
-
+    <!-- Prakhar Shrivastav -->
+    <div class="card">
+      <div class="imgBx">
+        <img
+          class="inner-img"
+          src="{% static 'img/webteam/Prakhar_Srivastava.jpeg'%}"
+          alt="Team Image"
+        />
       </div>
 
-
-     <!--2nd flex-->
-     <div class="flex-container">
-        
-        <div class="final-container">
-          <div class="image">
-            <img src="{% static 'img/webteam/Subhajoy_Mahanta.jpeg'%}" alt="Team Image">
-          </div>
-          <div class="social-links">
-              <span><a href="https://github.com/Subhajoy123" target="_blank"><i class="fa fa-github github" aria-hidden="true" style="background-color: black; padding: 5px; border-radius: 5px; width: 26px; height: 26px;"></i></a></span>
-            </div>
-         <div class="name" style="color: black;">
-            <h5>Subhajoy <br>Mahanta</h5>
-          </div>
+      
+      <div class="content">
+        <div class="contentBx">
+          <h3>Prakhar Shrivastava</h3>
         </div>
-
-        <div class="final-container">
-          <div class="image">
-            <img src="{% static 'img/webteam/Abha_Jha.jpeg'%}" alt="Team Image">
-          </div>
-          <div class="social-links">
-              <span><a href="https://github.com/Abha2001" target="_blank"><i class="fa fa-github github" aria-hidden="true" style="background-color: black; padding: 5px; border-radius: 5px; width: 26px; height: 26px;"></i></a></span>
-            </div>
-         <div class="name" style="color: black;">
-            <h5>Abha <br>Jha</h5>
-          </div>
+        <div class="facions">
+          <a href="https://github.com/Prakhar19999"><i class="fa fa-github fa-2x"></i></a>
         </div>
+      </div>
+    </div>
+    
 
-        <div class="final-container">
-          <div class="image">
-            <img src="{% static 'img/webteam/Ankit_Rai.jpeg'%}" alt="Team Image">
-          </div>
-          <div class="social-links">
-              <span><a href="https://github.com/spaceySama" target="_blank"><i class="fa fa-github github" aria-hidden="true" style="background-color: black; padding: 5px; border-radius: 5px; width: 26px; height: 26px;"></i></a></span>
-            </div>
-         <div class="name" style="color: black;">
-            <h5>Ankit <br>Rai</h5>
-          </div>
+    <!-- Subhajoy Mahanta -->
+    <div class="card">
+      <div class="imgBx">
+        <img
+          class="inner-img"
+          src="{% static 'img/webteam/Sayan_Pal.jpeg'%}"
+          alt="Team Image"
+        />
+      </div>
+      <div class="content">
+        <div class="contentBx">
+          <h3>Sayan Pal</h3>
         </div>
-
+        <div class="facions">
+          <a href="https://github.com/sayanp99"><i class="fa fa-github fa-2x"></i> </a>
+        </div>
+      </div>
     </div>
 
+    <div class="card">
+      <div class="imgBx">
+        <img
+          class="inner-img"
+          src="{% static 'img/webteam/Subhajoy_Mahanta.jpeg'%}"
+          alt="Team Image"
+        />
+      </div>
+      <div class="content">
+        <div class="contentBx">
+          <h3>Subhajoy Mahanta</h3>
+        </div>
+        <div class="facions">
+          <a href="https://github.com/Subhajoy123"><i class="fa fa-github fa-2x"></i></a>
+        </div>
+      </div>
     </div>
-</div>    
-  
+
+    <div class="card">
+      <div class="imgBx">
+        <img
+          class="inner-img"
+          src="{% static 'img/webteam/Abha_Jha.jpeg' %}"
+          alt="Team Image"
+        />
+      </div>
+      <div class="content">
+        <div class="contentBx">
+          <h3>Abha Jha</h3>
+        </div>
+        <div class="facions">
+          <a href="https://github.com/Abha2001"><i class="fa fa-github fa-2x"></i> </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="imgBx">
+        <img
+          class="inner-img"
+          src="{% static 'img/webteam/Ankit_Rai.jpeg'%}"
+          alt="Team Image"
+        />
+      </div>
+      <div class="content">
+        <div class="contentBx">
+          <h3>Ankit Rai</h3>
+        </div>
+        <div class="facions">
+          <a href="https://github.com/spaceySama"><i class="fa fa-github fa-2x"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+    <!-- CONTRIBUTORS -->
+    <div class="container quote">
+      <div>
+        <div class="col-ls quote1">
+          <h1><span>Con</span><span>tributors</span></h1>
+        </div>
+        <div class="grey-line"></div>
+        <div class="coloured-line"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="imgBx">
+        <img class="inner-img" src="{% static ' '%}" alt="Team Image" />
+      </div>
+      <div class="content">
+        <div class="contentBx">
+          <h3>Ankit Rai</h3>
+        </div>
+        <div class="facions">
+          <a href="#"><i class="fa fa-github fa-2x"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="imgBx">
+        <img class="inner-img" src="{% static ' '%}" alt="Team Image" />
+      </div>
+      <div class="content">
+        <div class="contentBx">
+          <h3>Ankit Rai</h3>
+        </div>
+        <div class="facions">
+          <a href="#"><i class="fa fa-github fa-2x"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
