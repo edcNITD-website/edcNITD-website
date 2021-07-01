@@ -65,7 +65,6 @@
         </div>
       </div>
     </div>
-    
 
     <!-- Subhajoy Mahanta -->
     <div class="card">
@@ -96,6 +95,7 @@
       </div>
       <div class="content">
         <div class="contentBx">
+          
           <h3>Subhajoy Mahanta</h3>
         </div>
         <div class="facions">
@@ -154,34 +154,27 @@
         <div class="coloured-line"></div>
       </div>
     </div>
-
+    {% for contributor in contributors %}
+    
     <div class="card">
       <div class="imgBx">
-        <img class="inner-img" src="{% static ' '%}" alt="Team Image" />
+        {% if contributor.image %}
+        <img class="inner-img" src="{{contributor.image.url}}" alt="Team Image" />
+        {% else %}
+        <img src="https://scontent.fccu11-1.fna.fbcdn.net/v/t1.0-9/33769797_990308764482605_4005773412654907392_n.jpg?_nc_cat=106&_nc_sid=09cbfe&_nc_ohc=1KtBpyshob8AX8M-tp7&_nc_ht=scontent.fccu11-1.fna&oh=ef6a8915aedec2ab5f776f01c713efe3&oe=5F47208D" alt="photo">
+        {% endif %}
       </div>
       <div class="content">
         <div class="contentBx">
-          <h3>Ankit Rai</h3>
+          <h3>{{contributor.name}}</h3>
         </div>
         <div class="facions">
-          <a href="#"><i class="fa fa-github fa-2x"></i></a>
+          <a href="{{contributor.github}}"><i class="fa fa-github fa-2x"></i></a>
         </div>
       </div>
     </div>
-
-    <div class="card">
-      <div class="imgBx">
-        <img class="inner-img" src="{% static ' '%}" alt="Team Image" />
-      </div>
-      <div class="content">
-        <div class="contentBx">
-          <h3>Ankit Rai</h3>
-        </div>
-        <div class="facions">
-          <a href="#"><i class="fa fa-github fa-2x"></i></a>
-        </div>
-      </div>
-    </div>
+    {% endfor %}
+    
   </div>
 </div>
 {% endblock %}
