@@ -155,10 +155,6 @@
       <!-- </div> -->
     </div>
 
-    <br />
-    <br />
-    <br />
-
     <!-- CONTRIBUTORS -->
     <div class="container quote">
       <div>
@@ -169,8 +165,9 @@
         <div class="coloured-line"></div>
       </div>
     </div>
-    {% for contributor in contributors %}
+
     <div class="cards">
+      {% for contributor in contributors %}
       <div class="card">
         <div class="imgBx">
           {% if contributor.image %}
@@ -197,8 +194,8 @@
           </div>
         </div>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
 </div>
 {% endblock %}
