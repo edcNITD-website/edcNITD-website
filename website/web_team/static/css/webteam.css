@@ -138,7 +138,7 @@
    max-width: 1200px;
    margin: 0 auto;
    display: grid;
-   grid-gap: 1rem;
+   grid-gap: 0.1rem;
  }
 
  /* Screen larger than 600px? 2 column */
@@ -154,6 +154,27 @@
      grid-template-columns: repeat(3, 1fr);
    }
  }
+
+  .cards_con {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 0.1rem;
+  }
+
+  /* Screen larger than 600px? 2 column */
+  @media (min-width: 500px) {
+    .cards_con {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Screen larger than 900px? 3 columns */
+  @media (min-width: 900px) {
+    .cards_con {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
 
 
  .container .card {
