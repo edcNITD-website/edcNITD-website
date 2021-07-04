@@ -1,6 +1,7 @@
  @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
  @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@579&family=Zen+Dots&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
 
  * {
@@ -183,7 +184,7 @@
    height: 200px;
    margin: 20px;
    overflow: hidden;
-   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.308);
    border-radius: 20px;
    display: flex;
    justify-content: center;
@@ -195,14 +196,15 @@
  .inner-img {
    width: 200px;
    height: 200px;
-   transition: 0.4s ease-in-out;
+   transition: 0.6s ease-in-out;
    background: #131313d0;
    position: relative;
  }
 
 
  .inner-img:hover {
-   transform: scale(1.2);
+   transform: scale(1.03);
+   transition: 0.6s ease-in-out;
  }
 
 
@@ -218,14 +220,16 @@
    flex-direction: column;
    white-space: nowrap;
    backdrop-filter: blur(20px);
-   background-color: rgba(51, 51, 51, 0.4);
+   background-color: rgba(173, 173, 173, 0.4);
    box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.2);
    border-top-left-radius: 20px;
    border-top-right-radius: 20px;
    transition: bottom 0.5s;
    transition-delay: 0.65s;
-
  }
+
+
+
 
  .content {
    margin-top: 1rem;
@@ -240,34 +244,42 @@
 
  .container .card .content .contentBx h3 {
 
-   color: rgb(243, 164, 61);
-   font-weight: 550;
+   color: rgb(0, 0, 0);
+   font-weight: 700 !important;
    font-size: 18px;
    text-align: center;
-   margin: 20px 0 15px;
+   margin: 40px 0 1px;
    line-height: 1.1em;
    transition: 0.5s;
    transition-delay: 0.4s;
    opacity: 0;
    transform: translateY(-20px);
-   font-style: 'MuseoModerno';
-   text-shadow: 0 -10px 10px rgba(0, 0, 0, 0.3);
+   font-family: 'Comfortaa',
+   cursive !important;
+   text-shadow: 0 -10px 10px rgba(0, 0, 0, 0.2);
    padding-top: 20px;
 
  }
 
 
  .facions {
-   margin-bottom: 1.5rem;
+   margin-bottom: 2.5rem;
+   /* background-color: #000000;
+   border-bottom-left-radius: 10px;
+   border-bottom-right-radius: 10px;
+   border-top-right-radius: 10px;
+   border-top-left-radius: 10px; */
  }
 
  .facions i {
-   color: #000;
+   
+   color: #ffffff;
    transition: 0.3s ease-in-out;
+   padding: 2px;
  }
 
  .facions i:hover {
-   color: #f38b36;
+   color: rgb(255, 187, 0);
    transition: 0.2s;
  }
 
