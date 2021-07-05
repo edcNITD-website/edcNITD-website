@@ -1,7 +1,7 @@
  @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
-
  @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@579&family=Zen+Dots&display=swap');
  @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap');
 
 
  * {
@@ -197,15 +197,15 @@
    width: 200px;
    height: 200px;
    transition: 0.6s ease-in-out;
-   background: #131313d0;
    position: relative;
+
  }
 
 
- .inner-img:hover {
+ /* .inner-img:hover {
    transform: scale(1.03);
    transition: 0.6s ease-in-out;
- }
+ } */
 
 
  .container .card .content {
@@ -219,9 +219,9 @@
    z-index: 2;
    flex-direction: column;
    white-space: nowrap;
-   backdrop-filter: blur(20px);
-   background-color: rgba(173, 173, 173, 0.4);
-   box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.2);
+   backdrop-filter: blur(10px);
+   background-color: rgba(34, 34, 34, 0.5);
+   box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.3);
    border-top-left-radius: 20px;
    border-top-right-radius: 20px;
    transition: bottom 0.5s;
@@ -244,8 +244,8 @@
 
  .container .card .content .contentBx h3 {
 
-   color: rgb(0, 0, 0);
-   font-weight: 700 !important;
+   color: #ffa734;
+   font-weight: bolder !important;
    font-size: 18px;
    text-align: center;
    margin: 40px 0 1px;
@@ -254,9 +254,9 @@
    transition-delay: 0.4s;
    opacity: 0;
    transform: translateY(-20px);
-   font-family: 'Comfortaa',
-   cursive !important;
-   text-shadow: 0 -10px 10px rgba(0, 0, 0, 0.2);
+   font-family: 'MuseoModerno',
+   sans-serif !important;
+   text-shadow: 0 -0px 15px rgba(0, 0, 0, 0.2);
    padding-top: 20px;
 
  }
@@ -273,15 +273,15 @@
 
  .facions i {
    
-   color: #ffffff;
+   color: #ffa734;
    transition: 0.3s ease-in-out;
    padding: 2px;
  }
 
- .facions i:hover {
-   color: rgb(255, 187, 0);
+ /* .facions i:hover {
+   color: rgb(36, 36, 36);
    transition: 0.2s;
- }
+ } */
 
 
  .container .card:hover .content .contentBx h3 {
