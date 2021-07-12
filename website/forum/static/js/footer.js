@@ -1,5 +1,5 @@
-var year = new Date().getFullYear();
+//Automatic Year Footer
 
-//var date = '&copy; '
+var year = new Date().getFullYear();
 
 document.getElementById("Auto_Year").innerHTML = year;
