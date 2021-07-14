@@ -9,7 +9,7 @@
 }
 
 #year-arrow{
-    color: #f38b36;
+    color: var(--theme-color);
     font-size: 2rem;
     margin-top: 0.77em;
     cursor: pointer;
@@ -50,7 +50,7 @@
 .year-list-holder ul:before, .year-list-holder ul .active:after{
   content: '';
   width: 100%;
-  border: 2px solid #f38b36;
+  border: 2px solid var(--theme-color);
   position: absolute;
   top: 2.6em;
   margin-top: -2px;
@@ -72,10 +72,10 @@
   background: #ffffff;
   margin: 0 4.4em;
   display: inline-block;
-  color: #f38b36;
+  color: var(--theme-color);
   font-weight: 900;
   cursor: pointer;
-  border: 3px solid #f38b36;
+  border: 3px solid var(--theme-color);
   transition-duration: 0.3s ;
   position: static;
 }
@@ -87,7 +87,7 @@
   text-align: center;
   line-height: 4.3em;
   border-radius: 50%;
-  background: #f38b36;
+  background: var(--theme-color);
   margin: 0 4.4em;
   display: inline-block;
   color: #ffffff;
@@ -107,10 +107,10 @@
     background: #ffffff;
     margin: 0 6em;
     display: inline-block;
-    color: #f38b36;
+    color: var(--theme-color);
     font-weight: 900;
     cursor: pointer;
-    border: 3px solid #f38b36;
+    border: 3px solid var(--theme-color);
     transition-duration: 0.3s ;
     position: static;
   }
@@ -124,7 +124,7 @@
     text-align: center;
     line-height: 4.3em;
     border-radius: 50%;
-    background: #f38b36;
+    background: var(--theme-color);
     margin: 0 6em;
     display: inline-block;
     color: #ffffff;
@@ -140,7 +140,7 @@
 }
 
 .year-list-holder::-webkit-scrollbar-thumb{
-    background: #f38b36;
+    background: var(--theme-color);
     border-radius: 10px;
 }
 
@@ -159,7 +159,7 @@
 }
 
 .alumni-coloured-line{
-    border-top:#f38b36 3px solid;
+    border-top:var(--theme-color) 3px solid;
     width: 80px;
     margin-left: calc(50% - 40px);
     margin-top: -2px;
@@ -190,7 +190,7 @@
     border-radius: 10px;
     padding-bottom: 10px;
     border: 3px solid;
-    border-color: #f38b36;
+    border-color: var(--theme-color);
     border-radius: 10px;
     
 }
@@ -209,7 +209,7 @@
     backface-visibility: hidden;
     vertical-align: top;
     /*border: 3px solid;
-    border-image: linear-gradient(145deg, #f38b36, #ffcc00);
+    border-image: linear-gradient(145deg, var(--theme-color), #ffcc00);
     border-image-slice: 1; */
 }    
 
@@ -244,11 +244,11 @@
 }
 
 .alumnibox .icons:hover {
-  color: #f38b36;
+  color: var(--theme-color);
 }        
 
 .alumnibox .icons #linkedin:hover, .alumnibox .icons #facebook:hover {
-    color: #f38b36;
+    color: var(--theme-color);
 }
 
 .year-alumni-holder{

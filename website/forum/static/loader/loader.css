@@ -42,13 +42,13 @@
     content: '';
     width: 68px;
     height: 2px;
-    background:orange;
+    background:var(--theme-color);
     position: absolute;
     left: -34px;
-    animation: orangebar 1.5s infinite ease;
+    animation: var(--theme-color)bar 1.5s infinite ease;
   }
   
-  @keyframes orangebar{
+  @keyframes var(--theme-color)bar{
     50%{
       left: 96px;
     }

@@ -91,7 +91,7 @@
 }
 
 .sub-nav a.active {
-  color: #f38b36;
+  color: var(--theme-color);
 }
 
 @media screen and (min-width: 700px) {
@@ -154,7 +154,7 @@
   }
 
   #subnav-icon.change {
-    color: #f38b36;
+    color: var(--theme-color);
     transform: rotate(270deg);
     transition: transform 0.5s ease-in, color 0.5s ease-in;
   }
