@@ -4,13 +4,25 @@
  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap');
 
 
- * {
+.team-title{
+  font-size: 45px;
+  margin-top: 50px;
+  color: var(--theme-color);
+  font-weight: 700;
+}
+
+.year-heading{
+  margin-top: 40px;
+  color: var(--theme-color);
+  font-size: 32px !important;
+  font-weight: 700 !important;
+}
+* {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
    font-family: "Poppins", sans-serif;
- }
-
+}
 
  .AllBig {
    display: flex;
@@ -20,6 +32,12 @@
  }
 
 
+.coloured-line{
+  border-top:var(--theme-color) 3px solid;
+  width: 40px;
+  margin-left: calc(50% - 20px);
+  margin-top: -2px;
+}
  /* #about {
     background: url(./about-bg.jpg) center top no-repeat fixed;
     background-size: cover;
