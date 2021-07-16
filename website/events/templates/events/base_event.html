@@ -107,7 +107,7 @@
     {% block content %}{% endblock %}
   </section>
   <!-- ======= Footer ======= -->
-<footer id="footer">
+  <footer id="footer">
 
     <div class="footer-top">
 
@@ -238,14 +238,6 @@
 
   </footer><!-- End Footer -->
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script>
-    $('.back-to-top').click(function () {
-      $('html, body').animate({
-        scrollTop: 0
-      }, 1500, 'easeInOutExpo');
-      return false;
-    });
-  </script>
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
@@ -263,6 +255,7 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'js/main1.js' %}"></script>
+  <script src="{% static 'js/back_to_top.js' %}"></script>
   <script src="{% static 'loader/loader.js' %}"></script>
 
 </body>
