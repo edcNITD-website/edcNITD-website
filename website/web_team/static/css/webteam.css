@@ -137,7 +137,7 @@
 
 
  .coloured-line {
-   border-top: #f38b36 3px solid;
+   border-top: #var(--theme-color) 3px solid;
    width: 40px;
    margin-left: calc(50% - 20px);
    margin-top: -2px;
