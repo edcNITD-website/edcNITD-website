@@ -91,7 +91,7 @@
 
  h1 span {
    display: inline-flex;
-   color: #ffa734;
+   color: var(--theme-color);
    font-family: 'MuseoModerno' !important;
  }
 
@@ -262,7 +262,7 @@
 
  .container .card .content .contentBx h3 {
 
-   color: #ffa734;
+   color: var(--theme-color);
    font-weight: bolder !important;
    font-size: 18px;
    text-align: center;
@@ -291,7 +291,7 @@
 
  .facions i {
    
-   color: #ffa734;
+   color: var(--theme-color);
    transition: 0.3s ease-in-out;
    padding: 2px;
  }
