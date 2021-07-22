@@ -1,4 +1,5 @@
-// sub-navbar
+
+
 const hamb = document.getElementById("hamb");
 const navUL = document.getElementById("visible");
 const hambicon = document.getElementById("subnav-icon");
@@ -40,14 +41,13 @@ function onScroll(event) {
     $('.subnav-item a').each(function () {
         var currLink = $(this);
         var refElement = $(currLink.attr("href"));
-        if (refElement.position().top <= (scrollPos + 90) && refElement.position().top + refElement
-            .height() >
-            scrollPos) {
+        if (refElement.position().top <= (scrollPos + 90) && refElement.position().top + refElement.height() > scrollPos) {
             $('#subnav-link').removeClass("active");
             currLink.addClass("active");
         } else {
             currLink.removeClass("active");
         }
-
     });
 }
+
+
