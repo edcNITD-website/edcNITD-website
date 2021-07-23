@@ -146,11 +146,11 @@
   
         <div class="col-lg-3 footer-info">
   
-          <h3>Entrepreneurship Development Cell</h3>
+          <h3 style="text-align: center;">Entrepreneurship Development Cell</h3>
           <p style="border-left: 4px solid var(--theme-color); text-align:center;">NIT Durgapur</p>            
           <br>
           <p style="text-align:center;">Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="{% url 'web_team' %}"> Web-Team </a></p>
-          <p style="text-align:center;">© 2021 EDC. All Rights Reserved.</p>
+          <p style="text-align:center;">© <span id="Auto_Year"></span> EDC. All Rights Reserved.</p>
         </div>
 
       <div class="col-lg-1">
@@ -290,6 +290,7 @@
   
   <script src="{% static 'js/main.js' %}"></script>
   <script src="{% static 'loader/loader.js' %}"></script>
+  <script src="{% static 'js/footer_base.js' %}"></script>
   
 </body>
 
