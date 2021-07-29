@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'events',
     'web_team',
     'esummit',
+    'sotm',
 ]
 
 MIDDLEWARE = [
@@ -130,6 +131,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'events/static'),
     os.path.join(BASE_DIR, 'team/static'),
     os.path.join(BASE_DIR, 'web_team/static'),
+    os.path.join(BASE_DIR, 'sotm/static'),
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
