@@ -1,0 +1,34 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Company Login Form {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/sotm_companies.css' %}">
+<!-- FAQs -->
+<section class="companies">
+    <center><h2>Login</h2></center>
+    {% if user.is_authenticated %}
+        <h2>Logout first to login</h2>
+    {% else %}
+        <form action="" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <label for="username">Username</label>
+                <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username">
+            </fieldset>
+            
+            <fieldset>
+                <label for="password">Enter Password</label>
+                <input type="password" name="password" autocomplete="new-password" required="" id="id_password">
+            </fieldset>
+
+            <fieldset>
+                <input type="submit" value="Login" class="cta-btn" name="company" id="submit-btn" >
+            </fieldset>
+        
+        </form>
+    {% endif %}
+    
+</section>
+<!-- Footer -->
+
+{% endblock %}
