@@ -1,0 +1,25 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Companies {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/sotm_companies.css' %}">
+<!-- FAQs -->
+<section class="company">
+    {% if company %}
+        <h2>Name: {{company.company_name}}</h2>
+        <h3>{{company.vision}}</h3>
+        <h4>Domain : {{company.domain}}</h4>
+        <h4>{% if company.positions %}
+                {% for position in company.positions.all %}
+                    {{position}}
+                {% endfor %}
+            {% endif %}
+        </h4>
+        <h4>{{company.founders}}</h4>
+        <h4>founded in {{company.founding_year}}</h4>
+    {% endif %}
+</section>
+<!-- Footer -->
+
+<script src="{% static 'js/sotm_home.js' %}"></script>
+{% endblock %}

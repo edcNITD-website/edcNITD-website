@@ -1,5 +1,37 @@
 {% extends 'sotm/sotm_base.html' %}
 {% load static %}
+{% block title %} Startup Of the Month {% endblock %}
 {% block content %}
-<h1>Hello</h1>
+<link rel="stylesheet" href="{% static 'css/sotm_home.css' %}">
+<!-- FAQs -->
+<section class="faqs">
+    {% if hero_faqs or normal_faqs %}
+        <center><h2 id="faq-heading">FAQs</h2></center>
+        <ul class="faq-holder">
+            {% for faq in hero_faqs %}
+                <li class="faq active" id="{{faq.id}}-faq">
+                    <ul class="question active" id="{{faq.id}}-question">
+                        <li><h3>‣ {{faq.question}}</h3></li>
+                        <li><button onclick="toggleAnswer(this)" id="{{faq.id}}">+</button></li>
+                    </ul>
+                    <p id="{{faq.id}}-answer" class="active">{{faq.answer}}</p>
+                </li>
+            {% endfor %}
+            {% for faq in normal_faqs %}
+                <li class="faq"  id="{{faq.id}}-faq">
+                    <ul class="question" id="{{faq.id}}-question">
+                        <li><h3>‣ {{faq.question}}</h3></li>
+                        <li><button onclick="toggleAnswer(this)" id="{{faq.id}}">-</button></li>
+                    </ul>
+                    <p id="{{faq.id}}-answer">{{faq.answer}}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2>No FAQs found</h2>
+    {% endif %}
+</section>
+<!-- Footer -->
+
+<script src="{% static 'js/sotm_home.js' %}"></script>
 {% endblock %}

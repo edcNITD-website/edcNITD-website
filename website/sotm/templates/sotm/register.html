@@ -1,0 +1,63 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Company Registeration Form {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/sotm_companies.css' %}">
+<!-- FAQs -->
+<section class="companies">
+    <center><h2>Signup</h2></center>
+    {% if user.is_authenticated %}
+        <h2>Logout first to login</h2>
+    {% else %}
+        <form action="" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <label for="username">Username</label>
+                <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username">
+            </fieldset>
+        
+            <fieldset>
+                <label for="email">Email</label>
+                <input type="email" name="email" maxlength="254" id="id_email">
+            </fieldset>
+            
+            <fieldset>
+                <label for="password1">Enter Password</label>
+                <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1">
+            </fieldset>
+            
+            <fieldset>
+                <label for="company_name">Company Name</label>
+                <input type="text" name="company_name" maxlength="150" autofocus="" required="" id="id_company_name">
+            </fieldset>
+            
+            <fieldset>
+                <label for="vision">Vision</label>
+                <input type="text" name="vision" maxlength="150" autofocus="" required="" id="id_vision">
+            </fieldset>
+            
+            <fieldset>
+                <label for="domain">Domain of the Company</label>
+                <input type="text" name="domain" maxlength="150" autofocus="" required="" id="id_domain">
+            </fieldset>
+            
+            <fieldset>
+                <label for="username">founders</label>
+                <input type="text" name="founders" maxlength="150" autofocus="" required="" id="id_founders">
+            </fieldset>
+            
+            <fieldset>
+                <label for="username">founding_year</label>
+                <input type="number" name="founding_year" autofocus="" required="" id="id_founding_year">
+            </fieldset>
+            
+            <fieldset>
+                <input type="submit" value="Signup" class="cta-btn" name="company" id="submit-btn" >
+            </fieldset>
+            
+        </form>
+    {% endif %}
+</section>
+<!-- Footer -->
+
+{% endblock %}
