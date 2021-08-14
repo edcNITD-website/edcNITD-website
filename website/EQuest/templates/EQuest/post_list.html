@@ -72,7 +72,7 @@
      
     </li>
     <li class="active text-center">
-      <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="#"><span><i class="fa fas fa-hand-o-right">Miscllaneous</i></span></a></a>
+      <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="#"><span><i class="fa fas fa-hand-o-right">Miscellaneous</i></span></a></a>
    
   </li>
   
@@ -106,6 +106,7 @@
           <!-- end of one card -->
  
          <!-- one card -->
+         {%  for post in posts  %}
          <div class="col-12 mx-auto text-center align-items-center">
           <div class="card">
             <div class="imgBx">
@@ -113,53 +114,34 @@
             </div>
             <div class="details">
               <div class="content">
-                <h2>Title </h2>
-                <h6 class="my-1">Category:</h6>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                <h2>{{post.title}} </h2>
+                <h6 class="my-1">{{post.genre}}</h6>
+                <p>{{post.content|truncatewords_html:10}}</p>
                 <a href="#">Read More</a>
               </div>
             </div>
           </div>
           </div>
-          <!-- end of one card -->
-           <!-- one card -->
-        <div class="col-12 mx-auto text-center align-items-center">
-          <div class="card">
-            <div class="imgBx">
-              <img src="https://images.unsplash.com/photo-1524293568345-75d62c3664f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=654&q=80" alt="">
-            </div>
-            <div class="details">
-              <div class="content">
-                <h2>Title </h2>
-                <h6 class="my-1">Category:</h6>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                <a href="#">Read More</a>
-              </div>
-            </div>
-          </div>
-          </div>
-          <!-- end of one card -->
-           <!-- one card -->
-        <div class="col-12 mx-auto text-center align-items-center">
-          <div class="card">
-            <div class="imgBx">
-              <img src="https://images.unsplash.com/photo-1524293568345-75d62c3664f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=654&q=80" alt="">
-            </div>
-            <div class="details">
-              <div class="content">
-                <h2>Title </h2>
-                <h6 class="my-1">Category:</h6>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                <a href="#">Read More</a>
-              </div>
-            </div>
-          </div>
-          </div>
-          <!-- end of one card -->
-          
-       
-        
-        </div>
+          {% endfor %}
+       {% if is_paginated %}
+        {% if page_obj.has_previous %}
+          <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+          <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+        {% for num in page_obj.paginator.page_range %}
+         {% if page_obj.number == num %}
+          <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+         {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3'  %}
+         <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+         {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+         <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+         <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">End</a>
+        {% endif %}
+       {% endif %}
+         
+        <!--</div>
         <div class="row my-3 justify-content-center">
           <nav aria-label="Page navigation example">
             <ul class="pagination ">
@@ -178,7 +160,8 @@
         </div>
         
       </div>
-
+-->
+        
     </div>
   </div>
   </div>

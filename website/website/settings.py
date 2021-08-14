@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'events',
     'web_team',
     'esummit',
+    'EQuest',
 ]
 
 MIDDLEWARE = [
