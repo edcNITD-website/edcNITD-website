@@ -1,0 +1,25 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Internships {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/sotm_companies.css' %}">
+<!-- FAQs -->
+<section class="internship">
+        <h2>Opportunity view</h2>
+        <div class="opportunity">
+            <h2>{{opportunity.position}} at {{opportunity.company}}</h2>
+                    <h3>{{opportunity.position}}</h3>
+                    <h4>{{opportunity.company}}</h4>
+                    <p>{{opportunity.description}}</p>
+                    {% if is_student or is_owner %}
+                        <a href="{{opportunity.register_url}}">Register link</a>
+                    {% else %}
+                            <h2>You are not registered, please register to view more details</h2>
+                    {% endif%}
+                        <br>
+    
+</section>
+<!-- Footer -->
+
+<script src="{% static 'js/sotm_home.js' %}"></script>
+{% endblock %}

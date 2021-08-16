@@ -1,0 +1,135 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Companies {% endblock %}
+{% block content %}
+{% if is_owner %}
+    <link rel="stylesheet" href="{% static 'css/sotm_companies_profile.css' %}">
+    <div class="container">
+        <div class="main-body">
+            <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="https://st3.depositphotos.com/13159112/17145/v/600/depositphotos_171453724-stock-illustration-default-avatar-profile-icon-grey.jpg"
+                                    alt="Admin" class="rounded-circle" width="150" height="150">
+                                <div class="mt-3">
+                                    <h4>{{company.company_name}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-3 p-3">
+                        <ul class="list-group list-group-flush">
+                            <li class="d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0">Website</h6>
+                                <span style="color: orange;">https://abc.com</span>
+                            </li>
+                            <hr>
+                            <li class="d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0">Github</h6>
+                                <span style="color: orange;">abc_123</span>
+                            </li>
+                            <hr>
+                            <li class="d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0">Twitter</h6>
+                                <span style="color: orange;">@abcd</span>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0 content-head">Company Name</h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    {{company.company_name}}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0 content-head">Company Vision</h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    {{company.vision}}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0 content-head">Domain</h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    {{company.domain}}
+                                </div>
+                            </div>
+                            {% if company.positions %}
+                            
+
+                                    {% for position in company.positions.all %}
+                                    {{position}}
+                                    {% endfor %}
+
+                            {% endif %}
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0 content-head">Founders</h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    {{company.founders}}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0 content-head">Founding Year</h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    {{company.founding_year}}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <a class="btn" target="__blank" href="#"
+                                        style="background-color: orange;color: white;">Edit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- {% if company.positions %}
+
+
+                    {% for position in company.positions.all %}
+                    {{position}}
+                    {% endfor %}
+
+                    {% endif %} -->
+
+                    <div class="row gutters-sm">
+                        <div class="col-sm-6 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h6 class="d-flex align-items-center mb-3"><i
+                                            class="material-icons text-info mr-2">Internship</i>1</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% else %}
+    <center><h3>You are not registered as the owner of this company</h3></center>
+{% endif %}
+<script src="{% static 'js/sotm_home.js' %}"></script>
+{% endblock %}

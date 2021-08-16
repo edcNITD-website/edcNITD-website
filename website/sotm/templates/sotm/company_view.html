@@ -8,6 +8,9 @@
     {% if company %}
         <h2>Name: {{company.company_name}}</h2>
         <h3>{{company.vision}}</h3>
+        {% if company.logo %}
+            <img src="{{company.logo.url}}" height="50px" alt="{{company.name}}-image">
+        {% endif %}
         <h4>Domain : {{company.domain}}</h4>
         <h4>{% if company.positions %}
                 {% for position in company.positions.all %}
@@ -15,6 +18,21 @@
                 {% endfor %}
             {% endif %}
         </h4>
+        {% if opportunities %}
+            {% for opportunity in opportunities %}
+                <li>
+                    <h3>{{opportunity.position.name}}</h3>
+
+                    <h4>{{opportunity.description}}</h4>
+
+                    <a href="{{opportunity.register_url}}">{{opportunity.register_url}}</a>
+
+                    {% if is_owner %}
+                        <a href="{% url 'sotm:edit_opportunity' company.id opportunity.id %}">Edit</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        {% endif %}
         <h4>{{company.founders}}</h4>
         <h4>founded in {{company.founding_year}}</h4>
     {% endif %}

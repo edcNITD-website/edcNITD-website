@@ -4,3 +4,5 @@ from sotm.models import *
 admin.site.register(FAQ)
 admin.site.register(Company)
 admin.site.register(Position)
+admin.site.register(Student)
+admin.site.register(Opportunity)

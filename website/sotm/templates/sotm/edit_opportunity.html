@@ -1,0 +1,34 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Add position for company {{company.name}} {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/sotm_companies.css' %}">
+<!-- FAQs -->
+<section class="companies">
+    <center><h2>Edit position for company {{company.name}}</h2></center>
+    {% if is_owner %}
+        <form action="" method="post">
+            {% csrf_token %}
+            
+            <fieldset>
+                <label for="registeration_url">Registeration Url</label>
+                <input type="text" name="registeration_url" value="{{opportunity.register_url}}" maxlength="300" id="id_uregisteration_url">
+            </fieldset>
+
+            <fieldset>
+                <label for="id_position_description">Position Description</label>
+                <textarea name="description" id="id_position_description" cols="30" rows="10">{{opportunity.description}}</textarea>
+            </fieldset>
+            
+            <fieldset>
+                <input type="submit" value="Add Position for internship" class="cta-btn" name="add_position" id="submit-btn" >
+            </fieldset>
+            
+        </form>
+    {% else %}
+        <h3>You are not registered as the owner of this company</h3>
+    {% endif %}
+</section>
+<!-- Footer -->
+
+{% endblock %}

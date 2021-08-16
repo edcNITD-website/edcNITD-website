@@ -1,0 +1,32 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Add position for company {{company.name}} {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/sotm_companies.css' %}">
+<!-- FAQs -->
+<section class="companies">
+    <center><h2>Remove position for company {{company.name}}</h2></center>
+    {% if is_owner %}
+        <form action="" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <label for="position_name">Position Name</label>
+                <select name="position_name" id="id_position_name">
+                    {% for position in positions %}
+                        <option value="{{position.name}}">{{position.name}}</option>
+                    {% endfor %}
+                </select>
+            </fieldset>
+            
+            <fieldset>
+                <input type="submit" value="Remove Position for internship" class="cta-btn" name="remove_position" id="submit-btn" >
+            </fieldset>
+            
+        </form>
+    {% else %}
+        <h3>You are not registered as the owner of this company</h3>
+    {% endif %}
+</section>
+<!-- Footer -->
+
+{% endblock %}

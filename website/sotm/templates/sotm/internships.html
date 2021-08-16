@@ -1,0 +1,65 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Internships {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/sotm_companies.css' %}">
+<!-- FAQs -->
+<section class="internships">
+    {% if companies %}
+        <h2>Internships</h2>
+        <ul>
+            <li>
+                <label for="position-filter">Position Filter</label>
+                <select name="position-filter" id="position-filter">
+                {% for position in positions %}
+                    <option value="{{position}}">{{position}}</option>
+                {% endfor %}
+            </select></li>
+        </ul>
+        <div class="opportunities">
+            {% for position,opportunities in positions_dic.items %}
+                {% if position == active_position %}
+                    <ul id="{{position}}_opportunities" class="active_position position_opp">
+                        <h2>{{position}}</h2>
+                        {% for opportunity in opportunities %}
+                        
+                            <li>
+                                <h3>{{opportunity.position}}</h3>
+                                <h4>{{opportunity.company}}</h4>
+                                <a href="{% url 'sotm:view_opportunity' opportunity.id %}">View more</a>
+                            </li>
+                            <br>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <ul id="{{position}}_opportunities" class="position_opp">
+                        <h2>{{position}}</h2>
+                        {% for opportunity in opportunities %}
+                        
+                            <li>
+                                <h3>{{opportunity.position}}</h3>
+                                <h4>{{opportunity.company}}</h4>
+                                <a href="{% url 'sotm:view_opportunity' opportunity.id %}">View more</a>
+                            </li>
+                            <br>
+                        {% endfor %}
+                    </ul>   
+                    {% endif %}    
+                {% endfor %}
+            </div>
+    {% endif%}
+</section>
+<!-- Footer -->
+
+<script src="{% static 'js/sotm_home.js' %}"></script>
+<script src="{% static 'js/internships.js' %}"></script>
+
+<style>
+    .position_opp{
+        display: none;
+    }
+    .position_opp.active_position{
+        display: block;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Company Registeration Form {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/sotm_companies.css' %}">
+<!-- FAQs -->
+<section class="companies">
+    <center><h2>Create Position</h2></center>
+    {% if is_owner  %}
+        <form action="" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <label for="position_name">Position Name</label>
+                <input type="text" name="position_name" maxlength="150" autofocus="" required="" id="id_username">
+            </fieldset>
+
+            <fieldset>
+                <input type="submit" value="Create Position" class="cta-btn" name="create_position" id="submit-btn" >
+            </fieldset>
+            
+        </form>
+    {% else %}
+        <h3>You are not registered as a company</h3>
+    {% endif %}
+</section>
+<!-- Footer -->
+
+{% endblock %}
