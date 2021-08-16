@@ -7,12 +7,17 @@
 <section class="companies">
     <center><h2>Edit Company</h2></center>
     {% if is_owner %}
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             
             <fieldset>
                 <label for="company_name">Company Name</label>
                 <input type="text" name="company_name" maxlength="150" autofocus="" value="{{company.company_name}}" required="" id="id_company_name">
+            </fieldset>
+            
+            <fieldset>
+                <label for="id_company_logo">Company Logo</label>
+                <input type="file" name="company_logo" accept="image/*" id="id_company_logo" value="{{company.image.url}}">
             </fieldset>
             
             <fieldset>
@@ -33,6 +38,26 @@
             <fieldset>
                 <label for="username">founding_year</label>
                 <input type="number" name="founding_year" autofocus="" value="{{company.founding_year}}" required="" id="id_founding_year">
+            </fieldset>
+            
+            <fieldset>
+                <label for="website">Website</label>
+                <input type="text" name="website" maxlength="300" value="{{company.website}}" id="id_website">
+            </fieldset>
+
+            <fieldset>
+                <label for="facebook">Facebook</label>
+                <input type="text" name="facebook" maxlength="300" value="{{company.facebook}}" id="id_facebook">
+            </fieldset>
+            
+            <fieldset>
+                <label for="linkedin">Linkedin</label>
+                <input type="text" name="linkedin" maxlength="300" value="{{company.linkedin}}" id="id_linkedin">
+            </fieldset>
+            
+            <fieldset>
+                <label for="instagram">Instagram</label>
+                <input type="text" name="instagram" maxlength="300" value="{{company.instagram}}" id="id_instagram">
             </fieldset>
             
             <fieldset>

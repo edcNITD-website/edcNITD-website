@@ -9,7 +9,8 @@
     {% if user.is_authenticated %}
         <h2>Logout first to login</h2>
     {% else %}
-        <form action="" method="post">
+        <h2>Company Form</h2>
+        <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <fieldset>
                 <label for="username">Username</label>
@@ -29,6 +30,11 @@
             <fieldset>
                 <label for="company_name">Company Name</label>
                 <input type="text" name="company_name" maxlength="150" autofocus="" required="" id="id_company_name">
+            </fieldset>
+            
+            <fieldset>
+                <label for="id_company_logo">Company Logo</label>
+                <input type="file" name="company_logo" accept="image/*" id="id_company_logo">
             </fieldset>
             
             <fieldset>
@@ -52,7 +58,51 @@
             </fieldset>
             
             <fieldset>
+                <label for="website">Website</label>
+                <input type="text" name="website" maxlength="300" id="id_website">
+            </fieldset>
+
+            <fieldset>
+                <label for="facebook">Facebook</label>
+                <input type="text" name="facebook" maxlength="300" id="id_facebook">
+            </fieldset>
+            
+            <fieldset>
+                <label for="linkedin">Linkedin</label>
+                <input type="text" name="linkedin" maxlength="300" id="id_linkedin">
+            </fieldset>
+            
+            <fieldset>
+                <label for="instagram">Instagram</label>
+                <input type="text" name="instagram" maxlength="300" id="id_instagram">
+            </fieldset>
+            
+            <fieldset>
                 <input type="submit" value="Signup" class="cta-btn" name="company" id="submit-btn" >
+            </fieldset>
+            
+        </form>
+        <br>
+        <h2>Student Form</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset>
+                <label for="username">Username</label>
+                <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username">
+            </fieldset>
+        
+            <fieldset>
+                <label for="email">Email</label>
+                <input type="email" name="email" maxlength="254" id="id_email">
+            </fieldset>
+            
+            <fieldset>
+                <label for="password1">Enter Password</label>
+                <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1">
+            </fieldset>
+            
+            <fieldset>
+                <input type="submit" value="Signup" class="cta-btn" name="student" id="submit-btn" >
             </fieldset>
             
         </form>

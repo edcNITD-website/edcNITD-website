@@ -19,6 +19,9 @@
                     {% endif %}
                 </h4>
                 <h4>{{company.founders}}</h4>
+                {% if company.logo %}
+                    <img src="{{company.logo.url}}" height="50px" alt="{{company.name}}-image">
+                {% endif %}
                 <h4>founded in {{company.founding_year}}</h4>
                 <a href="{% url 'sotm:company_view' company.id %}">Read more</a>
                 <br>
@@ -27,6 +30,20 @@
                 {% endif %}
             {% endfor %}
         </ul>
+        <!-- Final Pagination -->
+    <center>
+        {%if company_list.has_previous %} {# whether the previous page exists #}
+            <a href="?page={{company_list.previous_page_number}}" class="paginator-btn"><</a> {# link to the prev page #}
+        {% else %}
+            <a href="#" class="paginator-btn disable"><</a> {# link to the prev page #}
+        {% endif %}
+        <span id="current-page">{{company_list.number}}</span> {# the current page number #}  
+        {%if company_list.has_next %} {# whether the next page exists #}
+            <a href="?page={{company_list.next_page_number}}" class="paginator-btn">></a> {# link to the next page #}
+        {% else %}
+            <a href="#" class="paginator-btn disable">></a> {# link to the prev page #}
+        {% endif %}
+    </center>
     {% endif%}
 </section>
 <!-- Footer -->
