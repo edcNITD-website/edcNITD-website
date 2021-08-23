@@ -262,9 +262,17 @@ def sotm_logout(request):
     return redirect('/sotm/')
 
 @login_required
-def profile_view(request,company_id):
-    company = get_object_or_404(Company,id=company_id)
-    context = {}
-    context['company'] = company
-    context['is_owner'] = request.user == company.user
-    return render(request,'sotm/sotm_profile.html',context)
+def profile_view(request):
+    companies = Company.objects.all()
+    for company in companies:
+        if request.user == company.user:
+            # context = {}
+            # if company.user == request.user:
+            #     context['is_owner'] = True
+            # else:
+            #     context['is_owner'] = False
+            # context['company'] = company
+            # context['opportunities'] = company.get_opportunities()
+            # return render(request,'sotm/company_view.html',context)
+            return company_view(request,company.id)
+    pass

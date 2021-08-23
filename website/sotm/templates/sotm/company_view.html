@@ -2,39 +2,166 @@
 {% load static %}
 {% block title %} Companies {% endblock %}
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/sotm_companies.css' %}">
-<!-- FAQs -->
+<link rel="stylesheet" href="{% static 'css/sotm_companies_profile.css' %}">
 <section class="company">
     {% if company %}
-        <h2>Name: {{company.company_name}}</h2>
-        <h3>{{company.vision}}</h3>
-        {% if company.logo %}
-            <img src="{{company.logo.url}}" height="50px" alt="{{company.name}}-image">
-        {% endif %}
-        <h4>Domain : {{company.domain}}</h4>
-        <h4>{% if company.positions %}
-                {% for position in company.positions.all %}
-                    {{position}}
-                {% endfor %}
-            {% endif %}
-        </h4>
-        {% if opportunities %}
-            {% for opportunity in opportunities %}
-                <li>
-                    <h3>{{opportunity.position.name}}</h3>
+    <div class="container">
+        <div class="main-body">
+            <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="{{company.logo.url}}" alt="Admin" class="rounded-circle" width="150"
+                                    height="150">
+                                <div class="mt-3">
+                                    <h4>{{company.company_name}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-3 p-3">
+                        <ul class="list-group list-group-flush">
+                            <li class="d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0">Website</h6>
+                                <span class="content-head">{{company.website}}</span>
+                            </li>
+                            <hr>
+                            <li class="d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0">Facebook</h6>
+                                <span class="content-head">{{company.facebook}}</span>
+                            </li>
+                            <hr>
+                            <li class="d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0">LinkedIn</h6>
+                                <span class="content-head">{{company.linkedin}}</span>
+                            </li>
+                            <hr>
+                            <li class="d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0">Instagram</h6>
+                                <span class="content-head">{{company.instagram}}</span>
+                            </li>
 
-                    <h4>{{opportunity.description}}</h4>
-
-                    <a href="{{opportunity.register_url}}">{{opportunity.register_url}}</a>
-
-                    {% if is_owner %}
-                        <a href="{% url 'sotm:edit_opportunity' company.id opportunity.id %}">Edit</a>
+                        </ul>
+                    </div>
+                    {% if company.positions %}
+                    <div class="card mt-3 p-3">
+                        <h4>Positions</h4>
+                        <ul class="list-group list-group-flush">
+                            {% for position in company.positions.all %}
+                            <li class="d-flex flex-wrap">
+                                <hr>
+                                <h5 class="mt-2 mr-2">>></h5>
+                                <h6 class="m-2 content-head">
+                                    {{position}}</h6>
+                            </li>
+                            {% if is_owner %}
+                            <div class="row">
+                                <div class="col">
+                                    <a class="btn" href="{% url 'sotm:create_position' company.id %}">Add</a>
+                                    <a class="btn" href="{% url 'sotm:remove_position' company.id %}">Remove</a>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
                     {% endif %}
-                </li>
-            {% endfor %}
-        {% endif %}
-        <h4>{{company.founders}}</h4>
-        <h4>founded in {{company.founding_year}}</h4>
+                </div>
+                <div class="col-md-8">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0 content-head">Company Name</h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    {{company.company_name}}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0 content-head">Company Vision</h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    {{company.vision}}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0 content-head">Domain</h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    {{company.domain}}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0 content-head">Founders</h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    {{company.founders}}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0 content-head">Founding Year</h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    {{company.founding_year}}
+                                </div>
+                            </div>
+                            {% if is_owner %}
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <a class="btn" href="{% url 'sotm:company_edit' company.id %}">Edit</a>
+                                    <a class="btn" href="{% url 'sotm:add_position' company.id %}">Add Internships</a>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% if opportunities %}
+                    {% for opportunity in opportunities %}
+                    <div class="row gutters-sm">
+                        <div class="col-sm-6 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h4 class="content-head">{{opportunity.position.name}}</h4>
+
+                                    <span>{{opportunity.description}}</span>
+
+                                    {% if user.is_authenticated %}
+                                    <br>
+                                    <a class="btn" href="{{opportunity.register_url}}">Register
+                                        Here!</a>
+                                    <a class="btn" href="{% url 'sotm:view_opportunity' opportunity.id %}">View
+                                        Details
+                                        Here</a>
+                                    {% else %}
+                                    <h6 class="mt-4">login to view more!</h6>
+                                    {% endif %}
+
+                                    {% if is_owner %}
+                                    <a class="btn"
+                                        href="{% url 'sotm:edit_opportunity' company.id opportunity.id %}">Edit</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+    </div>
     {% endif %}
 </section>
 <!-- Footer -->
