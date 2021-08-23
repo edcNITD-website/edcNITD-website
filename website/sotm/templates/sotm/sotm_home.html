@@ -3,35 +3,78 @@
 {% block title %} Startup Of the Month {% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/sotm_home.css' %}">
+<!-- Carousel -->
+<div class="slider" style="z-index:5;">
+    <div class="slide current">
+        <div class="content">
+            <h1>Slide One</h1>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit hic
+                maxime, voluptatibus labore doloremque vero!
+            </p>
+            <a class="btn" target="__blank" href="#">Go To Somewhere</a>
+        </div>
+    </div>
+    <div class="slide">
+        <div class="content">
+            <h1>Slide Two</h1>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit hic
+                maxime, voluptatibus labore doloremque vero!
+            </p>
+            <a class="btn" target="__blank" href="#">Go To Somewhere</a>
+        </div>
+    </div>
+    <div class="slide">
+        <div class="content">
+            <h1>Slide Three</h1>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit hic
+                maxime, voluptatibus labore doloremque vero!
+            </p>
+            <a class="btn" target="__blank" href="#">Go To Somewhere</a>
+        </div>
+    </div>
+
+    <div class="buttons" style="z-index:5;">
+        <button id="prev"><i class="fas fa-arrow-left"></i></button>
+        <button id="next"><i class="fas fa-arrow-right"></i></button>
+    </div>
+</div>
 <!-- FAQs -->
 <section class="faqs">
     {% if hero_faqs or normal_faqs %}
-        <center><h2 id="faq-heading">FAQs</h2></center>
-        <ul class="faq-holder">
-            {% for faq in hero_faqs %}
-                <li class="faq active" id="{{faq.id}}-faq">
-                    <ul class="question active" id="{{faq.id}}-question">
-                        <li><h3>‣ {{faq.question}}</h3></li>
-                        <li><button onclick="toggleAnswer(this)" id="{{faq.id}}">+</button></li>
-                    </ul>
-                    <p id="{{faq.id}}-answer" class="active">{{faq.answer}}</p>
+    <center>
+        <h2 id="faq-heading">FAQs</h2>
+    </center>
+    <ul class="faq-holder">
+        {% for faq in hero_faqs %}
+        <li class="faq active" id="{{faq.id}}-faq">
+            <ul class="question active" id="{{faq.id}}-question">
+                <li>
+                    <h3>‣ {{faq.question}}</h3>
                 </li>
-            {% endfor %}
-            {% for faq in normal_faqs %}
-                <li class="faq"  id="{{faq.id}}-faq">
-                    <ul class="question" id="{{faq.id}}-question">
-                        <li><h3>‣ {{faq.question}}</h3></li>
-                        <li><button onclick="toggleAnswer(this)" id="{{faq.id}}">-</button></li>
-                    </ul>
-                    <p id="{{faq.id}}-answer">{{faq.answer}}</p>
+                <li><button onclick="toggleAnswer(this)" id="{{faq.id}}">-</button></li>
+            </ul>
+            <p id="{{faq.id}}-answer" class="active">{{faq.answer}}</p>
+        </li>
+        {% endfor %}
+        {% for faq in normal_faqs %}
+        <li class="faq" id="{{faq.id}}-faq">
+            <ul class="question" id="{{faq.id}}-question">
+                <li>
+                    <h3>‣ {{faq.question}}</h3>
                 </li>
-            {% endfor %}
-        </ul>
+                <li><button onclick="toggleAnswer(this)" id="{{faq.id}}">+</button></li>
+            </ul>
+            <p id="{{faq.id}}-answer">{{faq.answer}}</p>
+        </li>
+        {% endfor %}
+    </ul>
     {% else %}
-        <h2>No FAQs found</h2>
+    <h2>No FAQs found</h2>
     {% endif %}
 </section>
-<!-- Footer -->
 
 <script src="{% static 'js/sotm_home.js' %}"></script>
 {% endblock %}

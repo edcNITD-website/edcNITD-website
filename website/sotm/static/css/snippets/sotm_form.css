@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap");
+
+.container-form {
+  display: flex;
+  justify-content: center !important;
+  font-family: "Montserrat", sans-serif;
+  margin: 6rem 3rem 4rem 3rem;
+}
+
+.total {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 3em;
+  height: auto;
+  width: auto;
+  max-width: 750px;
+  border-radius: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(15px);
+  box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.total p {
+  font-weight: 600;
+  color: var(--clr-theme);
+  opacity: 0.7;
+  font-size: 1.7rem;
+  margin-top: 0;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+form a {
+  text-decoration: none;
+  color: var(--clr-theme);
+  font-size: 14px;
+}
+
+form a:hover {
+  text-shadow: 2px 2px 6px #00000040;
+  color: #fff;
+}
+
+.total input,
+.total textarea,
+.total select {
+  background: transparent;
+  padding: 1em;
+  margin-bottom: 2em;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5000px;
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.total textarea,
+.total select,
+.total option {
+  width: 90%;
+  border-radius: 5px !important;
+}
+
+a,
+input:focus,
+select:focus,
+textarea:focus,
+button:focus,
+fieldset {
+  outline: none;
+}
+
+fieldset {
+  border: none;
+}
+
+.total select {
+  color: var(--clr-theme) !important;
+}
+
+.total .cta-btn {
+  background-color: var(--clr-theme) !important;
+  color: #fff;
+  width: 100%;
+}
+
+.total input:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+}
+
+.total input[type="button"] {
+  margin-top: 10px;
+  width: 150px;
+  font-size: 1rem;
+}
+
+.total input[type="button"]:hover {
+  cursor: pointer;
+}
+
+.total input[type="button"]:active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.total:hover {
+  margin: 4px;
+}
+
+::placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+/* registration */
+
+.wrapper .tabs ul {
+  margin-bottom: 30px;
+  margin-left: -31px;
+  display: flex;
+  width: auto;
+}
+
+.wrapper .tabs ul li {
+  width: 50%;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 17px;
+  color: var(--clr-theme);
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+.wrapper .tabs ul li.active {
+  background: var(--clr-theme);
+  color: #fff;
+}
+
+.startup form .form {
+  display: flex !important;
+  flex-direction: row;
+}
+
+@media (min-width: 750px) {
+  .startup form .form .part-1 {
+    padding-right: 2rem;
+  }
+
+  .startup form .form .part-2 {
+    padding-left: 2rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .startup form .form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 700px) {
+  .drop {
+    display: none;
+  }
+}
+
+.drop {
+  background: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 10px 10px 60px -8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.drop-1 {
+  height: 80px;
+  width: 80px;
+  top: -20px;
+  left: -40px;
+  z-index: -1;
+}
+
+.drop-4 {
+  height: 120px;
+  width: 120px;
+  top: -60px;
+  right: -60px;
+}
