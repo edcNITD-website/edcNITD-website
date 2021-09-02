@@ -8,16 +8,18 @@
 }
 
 .total {
-  background: rgba(255, 255, 255, 0.3);
   padding: 3em;
   height: auto;
   width: auto;
   max-width: 750px;
   border-radius: 20px;
-  border-left: 1px solid rgba(255, 255, 255, 0.3);
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(15px);
-  box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(
+    to right,
+    rgba(39, 39, 39, 0.582),
+    rgba(39, 39, 39, 0.411)
+  );
+  box-shadow: inset 0 0 40px rgba(90, 90, 90, 0.5);
+  -webkit-backdrop-filter: blur(4px);
   text-align: center;
   position: relative;
   -webkit-transition: all 0.2s ease-in-out;
@@ -26,7 +28,7 @@
 
 .total p {
   font-weight: 600;
-  color: var(--clr-theme);
+  color: var(--theme-color);
   opacity: 0.7;
   font-size: 1.7rem;
   margin-top: 0;
@@ -36,7 +38,7 @@
 
 form a {
   text-decoration: none;
-  color: var(--clr-theme);
+  color: var(--theme-color);
   font-size: 14px;
 }
 
@@ -85,11 +87,11 @@ fieldset {
 }
 
 .total select {
-  color: var(--clr-theme) !important;
+  color: var(--theme-color) !important;
 }
 
 .total .cta-btn {
-  background-color: var(--clr-theme) !important;
+  background-color: var(--theme-color) !important;
   color: #fff;
   width: 100%;
 }
@@ -136,7 +138,7 @@ fieldset {
   padding: 15px 0;
   text-align: center;
   font-size: 17px;
-  color: var(--clr-theme);
+  color: var(--theme-color);
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
@@ -145,7 +147,7 @@ fieldset {
 }
 
 .wrapper .tabs ul li.active {
-  background: var(--clr-theme);
+  background: var(--theme-color);
   color: #fff;
 }
 

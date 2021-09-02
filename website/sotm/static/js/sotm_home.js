@@ -68,3 +68,16 @@ prev.addEventListener("click", (e) => {
 if (auto) {
   slideInterval = setInterval(nextSlide, intervalTime);
 }
+
+(function ($) {
+  "use strict";
+  $(document).ready(function () {
+    // Testimonials carousel (uses the Owl Carousel library)
+    $(".internships-carousel").owlCarousel({
+      autoplay: true,
+      dots: true,
+      loop: true,
+      items: 1
+    });
+  });
+})(jQuery);
