@@ -11,7 +11,21 @@ def sotm_home(request):
     context = {}
     context['hero_faqs'] = FAQ.objects.filter(is_hero=True)
     context['normal_faqs'] = FAQ.objects.filter(is_hero=False)
+    verified_companies = Company.objects.filter(verified=True)
+    all_opportunities = []
+    count=0
+    for company in verified_companies:
+        for opp in Opportunity.objects.filter(company=company):
+            count+=1
+            if count > 5:
+                break
+            all_opportunities.append(opp)
+    context['all_opportunities'] = all_opportunities
+    print(context)
+
+
     return render(request,'sotm/sotm_home.html',context)
+
 
 def sotm_companies(request):
     context = {}

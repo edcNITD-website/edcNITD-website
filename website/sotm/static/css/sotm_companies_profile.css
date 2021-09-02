@@ -22,18 +22,18 @@
 }
 
 .card a {
-  background-color: var(--clr-theme);
+  background-color: var(--theme-color);
   color: white;
   margin-top: 10px;
 }
 
 .card a:hover {
   background-color: white;
-  color: var(--clr-theme);
+  color: var(--theme-color);
 }
 
 .content-head {
-  color: var(--clr-theme) !important;
+  color: var(--theme-color) !important;
 }
 
 .card-body {

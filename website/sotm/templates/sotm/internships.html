@@ -2,30 +2,31 @@
 {% load static %}
 {% block title %} Internships {% endblock %}
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/sotm_companies.css' %}">
+<link rel="stylesheet" href="{% static 'css/sotm_internships.css' %}">
 <!-- FAQs -->
-<section class="internships">
+<section class="container internships">
     {% if companies %}
-    <h2>Internships</h2>
-    <ul>
+    <h2 class="internships-heading">Internships</h2>
+    <center><ul class="filter">
         <li>
-            <label for="position-filter">Position Filter</label>
+            <label id="internships-position" for="position-filter">Position Filter</label> <br>
             <select name="position-filter" id="position-filter">
                 {% for position in positions %}
                 <option value="{{position}}">{{position}}</option>
                 {% endfor %}
             </select></li>
-    </ul>
+    </ul></center>
     <div class="opportunities">
         {% for position,opportunities in positions_dic.items %}
         {% if position == active_position %}
         <ul id="{{position}}_opportunities" class="active_position position_opp">
-            <h2>{{position}}</h2>
+            <h2 class="internship-position">{{position}}</h2>
             {% for opportunity in opportunities %}
 
-            <li>
+            <li class="available">
                 <h3>{{opportunity.position}}</h3>
-                <h4>{{opportunity.company}}</h4>
+                <h4>at <span>{{opportunity.company}}</span></h4>
+                <br>
                 <a href="{% url 'sotm:view_opportunity' opportunity.id %}">View more</a>
             </li>
             <br>
