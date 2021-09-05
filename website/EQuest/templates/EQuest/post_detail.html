@@ -35,58 +35,42 @@
 
   <!-- categories and posts -->
   <div class="container">
-  <div class="row">
-    <div class="col-2 categories mx-auto justify-content-around">
+    <div class="row">
+      <div class="col-2 categories mx-auto justify-content-around">
+        
+        <nav id="sidebar">
+          <div class="sidebar-header">
+              <h3>CATEGORIES</h3>
+          </div>
       
-      <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>CATEGORIES</h3>
-        </div>
-
-        <ul class="list-unstyled components">
-            
+          <ul class="list-unstyled components">
             <li class="active text-center">
-                <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="#"><span><i class="fa fas fa-star">Latest</i></span></a></a>
-             
+              <a href="{%url "post:post_list" %}" data-toggle="collapse" aria-expanded="false" ><span><i class="fa fas fa-star">All</i></span></a></a>
             </li>
-            <li class="active text-center">
-              <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="#"><span><i class="fa fas fa-institution">Companies</i></span></a></a>
-           
-          </li>
-          <li class="active text-center">
-            <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="#"><span><i class="fa fas fa-laptop">Technology</i></span></a></a>
-         
-        </li>
-        <li class="active text-center">
-          <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="#"><span><i class="fa fas fa-smile-o">Fun Facts</i></span></a></a>
-       
-      </li>
-      <li class="active text-center">
-        <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="#"><span><i class="fa fas fa-group">Startups</i></span></a></a>
-     
-      </li>
-      <li class="active text-center">
-      <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="#"><span><i class="fa fas fa-hand-o-right">Miscllaneous</i></span></a></a>
+              {%for c in categories%}
+              <li class="active text-center">
+                  <a href="{{c.get_absolute_url}}" data-toggle="collapse" aria-expanded="false" ><span><i class="fa fas fa-star">{{c.name}}</i></span></a></a>
+              </li>
+              {%endfor%}
    
-      </li>
-  
-         
-        </ul>
-
-  
-     </nav>
-  </div>
+            </ul>
+          </nav>
+          </div>
       
     
     
       <div class="col-10 justify-content-around scrolling">
       <div class="row">
         <div class="card mb-3">
-          <img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg" data-holder-rendered="true" style="height: 400px; width: 100%; display: block;">
+          {%if post.image%}
+          <img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180" src="{{post.image.url}}" data-holder-rendered="true" style="height: 400px; width: 100%; display: block;">
+          {%else%}
+          <img src="https://scontent.fccu11-1.fna.fbcdn.net/v/t1.0-9/33769797_990308764482605_4005773412654907392_n.jpg?_nc_cat=106&_nc_sid=09cbfe&_nc_ohc=1KtBpyshob8AX8M-tp7&_nc_ht=scontent.fccu11-1.fna&oh=ef6a8915aedec2ab5f776f01c713efe3&oe=5F47208D" alt="">
+          {%endif%}
           <div class="card-body">
             <h5 class="card-title"></h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <p class="card-text">{{post.content}}</p>
+            <p class="card-text"><small class="text-muted">{{post.date}}</small></p>
           </div>
         </div>
           
