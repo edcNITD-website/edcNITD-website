@@ -45,10 +45,10 @@
     background:var(--theme-color);
     position: absolute;
     left: -34px;
-    animation: var(--theme-color)bar 1.5s infinite ease;
+    animation: colorbar 1.5s infinite ease;
   }
   
-  @keyframes var(--theme-color)bar{
+  @keyframes colorbar{
     50%{
       left: 96px;
     }
