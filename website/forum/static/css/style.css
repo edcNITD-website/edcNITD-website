@@ -1943,3 +1943,7 @@ section {
   font-size: 13px;
   color: #ddd;
 }
+
+#photogenic-journey,#glimpses{
+  overflow-x: hidden;
+}
