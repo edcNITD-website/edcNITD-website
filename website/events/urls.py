@@ -19,4 +19,5 @@ from .import views
 
 urlpatterns = [
     path('',views.event, name='event_page'),
+    path('events/<int:id>/', views.eventdetails, name="showevent"),
 ]

@@ -53,3 +53,11 @@ def event(request):
     context={'ue':upcoming_event,'oe':ongoing_event,'ae':all_event,'ae_count':ae_count,'ue_count':ue_count ,'oe_count':oe_count,'timer':timerJSON}
 
     return render(request,'events/event_page.html', context)
+
+def eventdetails(request, id):
+    if request.method == "POST":
+        event = Event.objects.get(pk=id)   
+        images = EventImages.objects.filter(event=event) 
+        timeline = Timeline.objects.filter(event=event)     
+        context = {'event':event, 'images':images, 'timeline':timeline}
+        return render(request, 'events/eventdetails.html', context)
