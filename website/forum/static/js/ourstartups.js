@@ -15,7 +15,7 @@ function initSlider() {
 function startProgressBar() {
   // apply keyframe animation
   $("#bar").css({
-    width: "100%",
+    width: "80%",
     transition: "width 5000ms"
   });
 }

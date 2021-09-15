@@ -20,7 +20,7 @@ function startProgressBar() {
     });
   }else{
     $("#bar").css({
-      width: "100%",
+      width: "80%",
       transition: "width 5000ms"
     });
   }
