@@ -3,11 +3,49 @@
 {% block content %}
 <link href="{% static 'css/eventdetails.css' %}" rel="stylesheet">
 
-<div class="container">
+
+ <div class="container">
   <header class="section-header">
-    <h3 style="z-index: 10;" id="oe">{{event.event_name}}</h3>
+    <h3 id="oe">{{event.event_name}}</h3>
   </header>
+  <div class="row justify-content-start">
+    <div class="col-6">
+      <img src="{{event.poster.url}}" style="width: 600px; height: 400px;">
+    </div>
+    <div class="col-6 scroll1">
+      <br>
+      <h1 class="mb-4 heading"> {{event.about_event}}  </h1>
+   
+      <form action="#" class="contact-form">
+       
+        <div class="form-group">
+         
+          <p class="text-center"><span class="bull">&#9733</span> Registration Deadline <i class="fas fa-calendar-alt"></i>: {{event.end_date}}</p>
+
+    <p class=" text-center"><span class="bull">&#9733 </span> {{event.prizes}}   </p>
+                <hr class="line">
+  <div class="form-group text-center d-flex button-sec align-items-center">
+          
+          <a class="form-control btn-text btn btn-secondary rounded submit px-3" href="{{event.registration_link}}">Register here</a>
+        </div>
+
+      </form>
+    <!-- {{event.start_date}}
     <br>
+    
+    <br>
+    {{event.prizes}}
+    <br>
+    
+    <br>  -->
+    </div>
+  </div> 
+
+<!-- <div class="container">
+  <header class="section-header">
+    <h3 id="oe">{{event.event_name}}</h3>
+  </header> -->
+    <!-- <br>
     {{event.about_event}}
     <br>
     <img src="{{event.poster.url}}" style="width: 600px; height: 400px;">
@@ -19,7 +57,7 @@
     {{event.prizes}}
     <br>
     <a href="{{event.registration_link}}">Register here</a>
-    <br>
+    <br> -->
     {% for p in images %}
     <div class="text-center">
         <img class="d-block w-100" src="{{p.images.url}}" alt="First slide">
@@ -31,7 +69,7 @@
       <p>{{j.date}}</p>
       <p>{{j.details}}</p>
     </div>
-    {% endfor %}
-</div>               
+    {% endfor %} 
+</div>         
 
 {% endblock %}  
