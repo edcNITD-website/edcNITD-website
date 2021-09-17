@@ -1,0 +1,37 @@
+{% extends 'events/base_event.html' %}
+{% load static %}
+{% block content %}
+<link href="{% static 'css/eventdetails.css' %}" rel="stylesheet">
+
+<div class="container">
+  <header class="section-header">
+    <h3 style="z-index: 10;" id="oe">{{event.event_name}}</h3>
+  </header>
+    <br>
+    {{event.about_event}}
+    <br>
+    <img src="{{event.poster.url}}" style="width: 600px; height: 400px;">
+    <br>
+    {{event.start_date}}
+    <br>
+    {{event.end_date}}
+    <br>
+    {{event.prizes}}
+    <br>
+    <a href="{{event.registration_link}}">Register here</a>
+    <br>
+    {% for p in images %}
+    <div class="text-center">
+        <img class="d-block w-100" src="{{p.images.url}}" alt="First slide">
+      </div>
+    {% endfor %}
+    {% for j in timeline %}
+    <div class="text-center">
+      <p>{{j.title}}</p>
+      <p>{{j.date}}</p>
+      <p>{{j.details}}</p>
+    </div>
+    {% endfor %}
+</div>               
+
+{% endblock %}  
