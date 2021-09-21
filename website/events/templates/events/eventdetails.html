@@ -1,35 +1,39 @@
 {% extends 'events/base_event.html' %}
 {% load static %}
 {% block content %}
-<link href="{% static 'css/eventdetails.css' %}" rel="stylesheet">
+<head>
+  <link href="{% static 'css/eventdetails.css' %}" rel="stylesheet">
 
+  <script src="https://kit.fontawesome.com/ff27e9a84b.js" crossorigin="anonymous"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
- <div class="container">
+</head>
+<!-- poster and image-->
+ <!-- <div class="container">
   <header class="section-header">
     <h3 id="oe">{{event.event_name}}</h3>
   </header>
   <div class="row justify-content-start">
-    <div class="col-6">
-      <img src="{{event.poster.url}}" style="width: 600px; height: 400px;">
+    <div class="col-sm-6">
+      <img class="img-responsive" src="{{event.poster.url}}" style="width: 500px; height: 400px;">
     </div>
-    <div class="col-6 scroll1">
+    <div class=" col-sm-6">
       <br>
       <h1 class="mb-4 heading"> {{event.about_event}}  </h1>
-   
-      <form action="#" class="contact-form">
-       
-        <div class="form-group">
-         
-          <p class="text-center"><span class="bull">&#9733</span> Registration Deadline <i class="fas fa-calendar-alt"></i>: {{event.end_date}}</p>
+      <div class="form-group">
+      <p class="text-center"><span class="bull">&#9733</span> Registration Deadline <i class="fas fa-calendar-alt"></i>: {{event.end_date}}</p>
 
-    <p class=" text-center"><span class="bull">&#9733 </span> {{event.prizes}}   </p>
+      <p class=" text-center"><span class="bull">&#9733 </span> {{event.prizes}}   </p>
                 <hr class="line">
-  <div class="form-group text-center d-flex button-sec align-items-center">
+      <div class="form-group text-center d-flex  align-items-center">
           
-          <a class="form-control btn-text btn btn-secondary rounded submit px-3" href="{{event.registration_link}}">Register here</a>
-        </div>
+      <a class="btn-outline" href="{{event.registration_link}}">Register here</a>
+      
+      </div> -->
+<!--end of poster and image-->
 
-      </form>
     <!-- {{event.start_date}}
     <br>
     
@@ -39,7 +43,7 @@
     
     <br>  -->
     </div>
-  </div> 
+  </div>  
 
 <!-- <div class="container">
   <header class="section-header">
@@ -59,17 +63,88 @@
     <a href="{{event.registration_link}}">Register here</a>
     <br> -->
     {% for p in images %}
-    <div class="text-center">
+    <!-- <div class="text-center">
         <img class="d-block w-100" src="{{p.images.url}}" alt="First slide">
-      </div>
+      </div> -->
     {% endfor %}
     {% for j in timeline %}
-    <div class="text-center">
+    <!-- <div class="text-center">
       <p>{{j.title}}</p>
       <p>{{j.date}}</p>
       <p>{{j.details}}</p>
-    </div>
+    </div> -->
     {% endfor %} 
-</div>         
+<!-- </div>    -->
 
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="page-header">
+        <h1 id="timeline">Timeline</h1>
+    </div>
+    <ul class="timeline">
+        <li>
+          <div class="timeline-badge"><i class="glyphicon glyphicon-star"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">1Hello</h4>
+              <!-- <p><small class="text-muted"><i class="glyphicon glyphicon-star"></i> 11 hours ago via Twitter</small></p> -->
+            </div>
+            <div class="timeline-body">
+              <p>Mussum ipsum cacilds, vidis litro abertis.</p>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-inverted">
+          <div class="timeline-badge warning"><i class="glyphicon glyphicon-star"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">2Mussum ipsum cacilds</h4>
+            </div>
+            <div class="timeline-body">
+              <p>Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="timeline-badge danger"><i class="glyphicon glyphicon-star"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              
+              <h4 class="timeline-title">2Mussum ipsum cacilds</h4>
+
+            </div>
+            <div class="timeline-body">
+              <p>Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem aspernatur quisquam prae</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+
+        
+      
+        
+   
+<!--************* slider code *************-->
+
+
+ <div><section id="slider">
+  <input type="radio" name="slider" id="s1">
+  <input type="radio" name="slider" id="s2">
+  <input type="radio" name="slider" id="s3" checked>
+  <input type="radio" name="slider" id="s4">
+  <input type="radio" name="slider" id="s5">
+  <label for="s1" id="slide1"></label>
+  <label for="s2" id="slide2"></label>
+  <label for="s3" id="slide3"></label>
+  <label for="s4" id="slide4"></label>
+  <label for="s5" id="slide5"></label>
+</section></div>
+ 
+ 
+ 
+ 
 {% endblock %}  
