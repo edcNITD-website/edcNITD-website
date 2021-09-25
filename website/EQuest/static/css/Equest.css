@@ -218,10 +218,11 @@
 
 
 #sidebar {
-  margin-top: 0.8rem;
+    margin-top: 0.8rem;
 	margin-left: -5rem;
+	min-height: 100%;
     min-width: 210px;
-    max-width: 210px;
+    max-width: 224px;
     background: var(--theme-color);
     color: #fff;
     transition: all 0.3s;
@@ -248,7 +249,7 @@
 
 
 #sidebar ul li a {
-    padding: 10px;
+    padding: 15px;
     font-size: 1.3em;
     display: block;
 }
@@ -348,5 +349,3 @@ a.article:hover {
   color: #fff;
   background-color: var(--theme-color) !important;
 }
-
-
