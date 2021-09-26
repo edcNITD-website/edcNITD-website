@@ -111,7 +111,7 @@
 
 
   .card {
-  z-index: 1;
+  z-index: -1;
   position: relative;
   width: 90%;
   min-height: 30vh;
@@ -173,7 +173,6 @@
   border: 2px solid var(--theme-color);
   color: var(--theme-color);
   font-weight: 500;
-  z-index: 2;
 }
 .card .details .content a:hover {
   background: #262626;
@@ -219,11 +218,10 @@
 
 
 #sidebar {
-    margin-top: 0.8rem;
+  margin-top: 0.8rem;
 	margin-left: -5rem;
-	min-height: 100%;
     min-width: 210px;
-    max-width: 224px;
+    max-width: 210px;
     background: var(--theme-color);
     color: #fff;
     transition: all 0.3s;
@@ -250,7 +248,7 @@
 
 
 #sidebar ul li a {
-    padding: 15px;
+    padding: 10px;
     font-size: 1.3em;
     display: block;
 }
@@ -350,3 +348,5 @@ a.article:hover {
   color: #fff;
   background-color: var(--theme-color) !important;
 }
+
+

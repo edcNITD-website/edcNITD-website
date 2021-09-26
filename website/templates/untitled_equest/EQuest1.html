@@ -23,6 +23,12 @@
   
   <div class="container title">
     <div class="row">
+      <div class="col-2 mt-5">
+        <button type="button" id="sidebarCollapse" class="btn btn-color">
+          <i class="fa fas fa-bars"></i>
+          <span>Categories</span>
+      </button>
+      </div>
       <div class="col-10 six headerdiv">
         <h1 class="h1header">E-QUEST
           <span>Example Tagline Text</span>
@@ -42,17 +48,14 @@
         <div class="sidebar-header">
             <h3>CATEGORIES</h3>
         </div>
-    
+
         <ul class="list-unstyled components">
-          <li class="active text-center">
-            <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{%url "post:post_list" %}"><span><i class="fa fas fa-star">All</i></span></a></a>
-          </li>
-            {%for c in categories%}
+            
             <li class="active text-center">
-                <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{{c.get_absolute_url}}"><span><i class="fa fas fa-star">{{c.name}}</i></span></a></a>
+                <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="#"><span><i class="fa fas fa-star">Latest</i></span></a></a>
+             
             </li>
-            {%endfor%}
-            <!--<li class="active text-center">
+            <li class="active text-center">
               <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="#"><span><i class="fa fas fa-institution">Companies</i></span></a></a>
            
           </li>
@@ -69,74 +72,94 @@
      
     </li>
     <li class="active text-center">
-      <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="#"><span><i class="fa fas fa-hand-o-right">Miscellaneous</i></span></a></a>
+      <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="#"><span><i class="fa fas fa-hand-o-right">Miscllaneous</i></span></a></a>
    
-  </li>-->
+  </li>
+  
+         
+        </ul>
+
+  
+    </nav>
+    </div>
       
-      </ul>
-      </nav>
-      </div>
     
     
     <div class="col-10 justify-content-around scrolling">
       <div class="row">
-       
-         <!-- one card -->
-         {%  for x in post  %}
-         <div class="col-12 mx-auto text-center align-items-center">
+        <!-- one card -->
+        <div class="col-12 mx-auto text-center align-items-center">
           <div class="card">
             <div class="imgBx">
-              {%if x.image%}
-              <img src="{{x.image.url}}" alt="">
-              {%else%}
-              <img src="https://scontent.fccu11-1.fna.fbcdn.net/v/t1.0-9/33769797_990308764482605_4005773412654907392_n.jpg?_nc_cat=106&_nc_sid=09cbfe&_nc_ohc=1KtBpyshob8AX8M-tp7&_nc_ht=scontent.fccu11-1.fna&oh=ef6a8915aedec2ab5f776f01c713efe3&oe=5F47208D" alt="">
-              {%endif%}
+              <img src="https://images.unsplash.com/photo-1524293568345-75d62c3664f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=654&q=80" alt="">
             </div>
             <div class="details">
               <div class="content">
-                <h2>{{x.title}} </h2>
-                <h6 class="my-1">{{x.category}}</h6>
-                <p>{{x.content|truncatewords_html:10}}</p>
-                <a href="{{x.get_absolute_url}}" class="button">Read more</a>
+                <h2>Title </h2>
+                <h6 class="my-1">Category:</h6>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                <a href="#">Read More</a>
               </div>
- 
             </div>
-
           </div>
           </div>
-          {% endfor %}
-          {% if is_paginated %} <!--pagination-->
+          <!-- end of one card -->
+ 
+         <!-- one card -->
+         <div class="col-12 mx-auto text-center align-items-center">
+          <div class="card">
+            <div class="imgBx">
+              <img src="https://images.unsplash.com/photo-1524293568345-75d62c3664f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=654&q=80" alt="">
+            </div>
+            <div class="details">
+              <div class="content">
+                <h2>Title </h2>
+                <h6 class="my-1">Category:</h6>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                <a href="#">Read More</a>
+              </div>
+            </div>
+          </div>
+          </div>
+          <!-- end of one card -->
+           <!-- one card -->
+        <div class="col-12 mx-auto text-center align-items-center">
+          <div class="card">
+            <div class="imgBx">
+              <img src="https://images.unsplash.com/photo-1524293568345-75d62c3664f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=654&q=80" alt="">
+            </div>
+            <div class="details">
+              <div class="content">
+                <h2>Title </h2>
+                <h6 class="my-1">Category:</h6>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                <a href="#">Read More</a>
+              </div>
+            </div>
+          </div>
+          </div>
+          <!-- end of one card -->
+           <!-- one card -->
+        <div class="col-12 mx-auto text-center align-items-center">
+          <div class="card">
+            <div class="imgBx">
+              <img src="https://images.unsplash.com/photo-1524293568345-75d62c3664f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=654&q=80" alt="">
+            </div>
+            <div class="details">
+              <div class="content">
+                <h2>Title </h2>
+                <h6 class="my-1">Category:</h6>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                <a href="#">Read More</a>
+              </div>
+            </div>
+          </div>
+          </div>
+          <!-- end of one card -->
+          
+       
         
-          <div class="row my-3 justify-content-center">
-            <nav aria-label="Page navigation example">
-              <ul class="pagination ">
-                
-          {% if page_obj.has_previous %}
-          <li class="page-item disabled">
-            <a class="page-link" href="?page=1">First</a>
-            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>
-          </li>
-          {% endif %}
-          {% for num in page_obj.paginator.page_range %}
-           {% if page_obj.number == num %}
-           <li class="page-item"> <a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
-           {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3'  %}
-           <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li> 
-           {% endif %}
-          {% endfor %}
-          {% if page_obj.has_next %}
-           <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
-           <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">End</a></li>
-          {% endif %}
-        </ul>
-        </nav>
-  
         </div>
-    
-       </div>
-         {% endif %}
-         
-        <!--</div>
         <div class="row my-3 justify-content-center">
           <nav aria-label="Page navigation example">
             <ul class="pagination ">
@@ -155,8 +178,7 @@
         </div>
         
       </div>
--->
-        
+
     </div>
   </div>
   </div>
