@@ -21,4 +21,7 @@ def post_list(request,category_slug=None):
                                                   })
 def post_detail(request,id):
     post=get_object_or_404(Post,id=id) 
-    return render(request,'EQuest/post_detail.html',{'post':post})
+    category=None
+    categories=Category.objects.all()
+    return render(request,'EQuest/post_detail.html',{'post':post,
+                                                    'categories':categories,})

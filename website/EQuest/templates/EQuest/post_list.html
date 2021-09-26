@@ -83,7 +83,7 @@
        
          <!-- one card -->
          {%  for x in post  %}
-         <div class="col-12 mx-auto text-center align-items-center">
+        <div class="col-12 mx-auto text-center align-items-center">
           <div class="card">
             <div class="imgBx">
               {%if x.image%}
@@ -97,13 +97,11 @@
                 <h2>{{x.title}} </h2>
                 <h6 class="my-1">{{x.category}}</h6>
                 <p>{{x.content|truncatewords_html:10}}</p>
-                <a href="{{x.get_absolute_url}}" class="button">Read more</a>
+                <a href="{{x.get_absolute_url}}" class="button">Read More</a>
               </div>
- 
             </div>
-
           </div>
-          </div>
+        </div>
           {% endfor %}
           {% if is_paginated %} <!--pagination-->
         
