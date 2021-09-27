@@ -45,11 +45,11 @@
       
           <ul class="list-unstyled components">
             <li class="active text-center">
-              <a href="{%url "post:post_list" %}" data-toggle="collapse" aria-expanded="false" ><span><i class="fa fas fa-star">All</i></span></a></a>
+              <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{%url "post:post_list" %}"><span><i class="fa fas fa-star">All</i></span></a></a>
             </li>
               {%for c in categories%}
               <li class="active text-center">
-                  <a href="{{c.get_absolute_url}}" data-toggle="collapse" aria-expanded="false" ><span><i class="fa fas fa-star">{{c.name}}</i></span></a></a>
+                  <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{{c.get_absolute_url}}"><span><i class="fa fas fa-star">{{c.name}}</i></span></a></a>
               </li>
               {%endfor%}
    
