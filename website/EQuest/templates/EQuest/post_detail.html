@@ -21,51 +21,54 @@
 
   <!-- title -->
   
-  <div class="container title">
-    <div class="row">
-      <div class="col-10 six headerdiv">
-        <h1 class="h1header">E-QUEST
-          <span>Example Tagline Text</span>
-        </h1>
-      </div>
-    </div>
-  </div>
+  <div class="container">
+
 
 
 
   <!-- categories and posts -->
-  <div class="container">
-    <div class="row">
-      <div class="col-2 categories mx-auto justify-content-around">
-        
-        <nav id="sidebar">
-          <div class="sidebar-header">
-              <h3>CATEGORIES</h3>
-          </div>
+  
+     <!-- menu -->
+     <nav class="sidebar">
       
-          <ul class="list-unstyled components">
-            <li class="active text-center">
-              <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{%url "post:post_list" %}"><span><i class="fa fas fa-star">All</i></span></a></a>
-            </li>
-              {%for c in categories%}
-              <li class="active text-center">
-                  <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{{c.get_absolute_url}}"><span><i class="fa fas fa-star">{{c.name}}</i></span></a></a>
-              </li>
-              {%endfor%}
-   
-            </ul>
-          </nav>
-          </div>
+      <h5 class="ct-title">CATEGORIES</h5>
+      <hr>
+      <ul>
+      <li class="active text-center">
+        <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{%url "post:post_list" %}"><span>All</i></a></a>
+      </li>
+        {%for c in categories%}
+        <li class="active text-center">
+            <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{{c.get_absolute_url}}"><span>{{c.name}}</span></a></a>
+        </li>
+        {%endfor%}
+  </ul>
+</nav>
+
+
+          
       
+    <article>
+
+      <!-- back button -->
+  <div onclick="window.history.go(-1)" class="back-btn">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+  </div>
+
+      <h1 class="team-title">E-QUEST</h1>
+      <h2 class="tagline">"Your weekly dose of quests"</h2>
+      <div class="grey-line"></div>
+      <div class="coloured-line"></div>
+    <br>
+  
     
-    
-      <div class="col-10 justify-content-around scrolling">
+      <div class="col-10 mx-auto">
       <div class="row">
         <div class="card mb-3">
           {%if post.image%}
-          <img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180" src="{{post.image.url}}" data-holder-rendered="true" style="height: 400px; width: 100%; display: block;">
+          <img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180" src="{{post.image.url}}" data-holder-rendered="true" style="height: auto; width: 100%; display: block;">
           {%else%}
-          <img src="https://scontent.fccu11-1.fna.fbcdn.net/v/t1.0-9/33769797_990308764482605_4005773412654907392_n.jpg?_nc_cat=106&_nc_sid=09cbfe&_nc_ohc=1KtBpyshob8AX8M-tp7&_nc_ht=scontent.fccu11-1.fna&oh=ef6a8915aedec2ab5f776f01c713efe3&oe=5F47208D" alt="">
+      
           {%endif%}
           <div class="card-body">
             <h5 class="card-title"></h5>
@@ -95,8 +98,10 @@
         </div> -->
         
       </div>
+    </article>
 
-    </div>
+    
+  </div>
   </div>
 
   <link
