@@ -1,6 +1,9 @@
 from typing import List
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
+from website import settings
+
 # Create your models here.
 class FAQ(models.Model):
     question = models.CharField('Question',max_length=200)
@@ -31,6 +34,15 @@ class Company(models.Model):
     website = models.CharField(max_length=200,null=True,blank=True,default=None)
     class Meta:
         verbose_name_plural = 'Companies'
+
+    def new_registeration(self):
+        # todo send email to edc regarding new registeration by the company
+        send_mail(
+            subject="A new company has registered! Their name is "+self.company_name,
+            message="Congratulations a new company has registered for SOTM, Its name is "+self.company_name+". Their email id is "+self.user.email + " . Please verify the company and make the change to backend.",
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=["mma.20u10180@btech.nitdgp.ac.in"],
+        )
 
     def __str__(self) -> str:
         return self.company_name

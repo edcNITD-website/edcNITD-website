@@ -248,6 +248,7 @@ def sotm_register(request):
             if(request.FILES['company_logo'] is not None):
                 company.logo = request.FILES['company_logo']
             company.save()
+            company.new_registeration()
             return redirect('/sotm/login')
     context = {}
     return render(request,'sotm/register.html',context)
