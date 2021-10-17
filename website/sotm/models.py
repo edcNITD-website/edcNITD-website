@@ -3,7 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from website import settings
-
+from django.utils import timezone
 # Create your models here.
 class FAQ(models.Model):
     question = models.CharField('Question',max_length=200)
@@ -74,6 +74,7 @@ class Opportunity(models.Model):
     tags= models.ManyToManyField(OpportunityTag)
     register_url = models.CharField("Link to register",max_length=300)
     description = models.TextField()
+    create_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self) -> str:
         return str(self.company)+" | "+self.name

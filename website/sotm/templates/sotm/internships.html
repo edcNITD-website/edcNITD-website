@@ -7,7 +7,7 @@
 <section class="container internships">
     {% if companies %}
     <h2 class="internships-heading">Internships</h2>
-    <center><ul class="filter">
+    <center><ul class="filter flex">
         <li>
             <label id="internships-position" for="position-filter">Internship Tags</label> <br>
             <select name="position-filter" id="position-filter">
@@ -15,12 +15,21 @@
                 <option value="{{position}}">{{position}}</option>
                 {% endfor %}
             </select></li>
+        <li>
+
+            <label id="order-s" for="internships-order">Order By</label> <br>
+            <select name="internships-order" id="internships-order">
+                <option class="op-order" value="asc" selected>Recent first</option>
+                <option class="op-order" value="dsc">Earliest First</option>
+            </select></li>
+        </li>
     </ul></center>
     <div class="opportunities">
+        <br>
+        <center><h2 id="internship-header">{{active_pos}}</h2></center>
         {% for position,opportunities in positions_dic.items %}
         {% if position == active_position %}
         <ul id="{{position}}_opportunities" class="active_position position_opp">
-            <h2 class="internship-position">{{position}}</h2>
             {% for opportunity in opportunities %}
 
             <li class="available">
@@ -34,12 +43,12 @@
         </ul>
         {% else %}
         <ul id="{{position}}_opportunities" class="position_opp">
-            <h2>{{position}}</h2>
             {% for opportunity in opportunities %}
 
             <li class="available">
                 <h3>{{opportunity.name}}</h3>
-                <h4>{{opportunity.company}}</h4>
+                <h4>at <span>{{opportunity.company}}</span></h4>
+                <br>
                 <a href="{% url 'sotm:view_opportunity' opportunity.id %}">View more</a>
             </li>
             <br>
