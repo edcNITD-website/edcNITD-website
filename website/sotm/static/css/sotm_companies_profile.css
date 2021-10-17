@@ -65,3 +65,16 @@
 .shadow-none {
   box-shadow: none !important;
 }
+
+.tags{
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+.tags li{
+  background-color: var(--theme-color);
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  border-radius: 500px;
+}

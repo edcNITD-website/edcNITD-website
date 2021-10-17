@@ -12,8 +12,8 @@ class FAQ(models.Model):
     def __str__(self) -> str:
         return self.question
 
-class Position(models.Model):
-    name = models.CharField("Position Name",max_length=200,unique=True)
+class OpportunityTag(models.Model):
+    name = models.CharField("Opportunity Name",max_length=200,unique=True)
     def __str__(self) -> str:
         return self.name
 
@@ -23,7 +23,6 @@ class Company(models.Model):
     vision = models.TextField(default="")
     company_name = models.CharField(max_length=100)
     domain = models.CharField(max_length=100)
-    positions = models.ManyToManyField(Position,blank=True)
     founders = models.CharField(max_length=200)
     founding_year = models.IntegerField()
     verified = models.BooleanField(default=False)
@@ -47,19 +46,13 @@ class Company(models.Model):
     def __str__(self) -> str:
         return self.company_name
 
-    def add_position(self,position_name):
-        position = Position.objects.filter(name=position_name).first()
-        self.positions.add(position)
-        self.save()
-        
-    def remove_position(self,position_name):
-        position = Position.objects.filter(name=position_name).first()
-        self.positions.remove(position)
-        self.save()
+    def positions(self) -> List:
+        result = Opportunity.objects.filter(company=self)
+        return result 
 
     def has_position(self,position_name):
         positon_names = []
-        for position in self.positions.all():
+        for position in self.positions().all():
             positon_names.append(position.name)
         for name in positon_names:
             if name == position_name:
@@ -77,12 +70,13 @@ class Student(models.Model):
 
 class Opportunity(models.Model):
     company= models.ForeignKey(Company,on_delete=models.CASCADE)
-    position= models.ForeignKey(Position,on_delete=models.CASCADE)
+    name = models.CharField("Opportunity Name",max_length=200)
+    tags= models.ManyToManyField(OpportunityTag)
     register_url = models.CharField("Link to register",max_length=300)
     description = models.TextField()
 
     def __str__(self) -> str:
-        return str(self.company)+'_'+str(self.position)
+        return str(self.company)+" | "+self.name
 
     class Meta:
         verbose_name_plural = 'Opportunities'
