@@ -131,7 +131,7 @@
 
     <header class="section-header">
 
-      <h3 style="text-align: center;">Interships</h3>
+      <h1 style="text-align: center;">Internships</h1>
 
     </header>
 
@@ -140,6 +140,8 @@
       {% for opp in all_opportunities %}  
 
         <div class="testimonial-item">
+            <center><img class="postcard__img rounded-circle" src="{{opp.company.logo.url}}" alt="{{company.name}}-image" width="150"
+            height="150"></center>
 
             <h2>{{ opp.position }}</h2>
 
@@ -174,7 +176,7 @@
 <section class="faqs">
     {% if hero_faqs or normal_faqs %}
     <center>
-        <h2 id="faq-heading">FAQs</h2>
+        <h1 id="faq-heading">FAQs</h1>
     </center>
     <ul class="faq-holder">
         {% for faq in hero_faqs %}

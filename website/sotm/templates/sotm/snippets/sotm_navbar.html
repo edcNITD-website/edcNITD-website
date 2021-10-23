@@ -3,7 +3,8 @@
 
 <div class="nav-wrapper" style="z-index:10;">
         <nav class="navbar">
-                <a href="{% url 'home_page' %}" class="logo mr-auto"><img src="{%static 'img/logo.png' %}" alt="" class="img-fluid nav-logo"></a>
+                <a href="{% url 'home_page' %}" class="logo mr-auto"><img src="{%static 'img/logo.png' %}" alt=""
+                                class="img-fluid nav-logo"></a>
                 <div class="menu-toggle" id="mobile-menu">
                         <span class="bar"></span>
                         <span class="bar"></span>
@@ -31,6 +32,9 @@
                         <li class="nav-item"><a {%if request.resolver_match.url_name == 'register' %}class="active-link"
                                         {% endif %} href="{% url 'sotm:register' %}">Register</a></li>
                         {% endif %}
+                        <li class="nav-item"><a
+                                        {%if request.resolver_match.url_name == 'home_page' %}class="active-link"
+                                        {% endif %} href="{% url 'home_page' %}">EDC</a></li>
                 </ul>
         </nav>
 </div>
