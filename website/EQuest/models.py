@@ -3,14 +3,27 @@ from django.db.models.fields import TextField
 from django.utils import timezone
 from django.urls import reverse
 # Create post model
+
+
+class Category(models.Model):
+    name=models.CharField(max_length=100,db_index=True)
+    slug=models.SlugField(unique=True)
+    class Meta:
+        ordering=('-name',)
+    def __str__(self):
+        return self.name
+    def get_absolute_url(self):
+        return reverse('post:post_by_category',args=[self.slug])
 class Post(models.Model):
     title=models.CharField(max_length=100)
     content=models.TextField()
     date=models.DateTimeField(default=timezone.now)
-    genre=models.CharField(max_length=100,default=None)
+    category=models.ForeignKey(Category,on_delete=models.CASCADE)
     image=models.ImageField(blank=True, upload_to=None,default=None)
-
+    class Meta:
+        ordering=('-date',)
+        
     def __str__(self):
         return self.title
     def get_absolute_url(self):
-        return reverse('post-detail',kwargs={'pk':self.pk})
+        return reverse('post:post_detail',args=[self.id,])
