@@ -24,7 +24,6 @@
 .card a {
   background-color: var(--theme-color);
   color: white;
-  margin-top: 10px;
 }
 
 .card a:hover {
@@ -64,4 +63,16 @@
 
 .shadow-none {
   box-shadow: none !important;
+}
+
+.social {
+  font-size: 15px;
+  padding: 3px 0;
+  color: #eee;
+  margin-right: 4px;
+  border-radius: 3px;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  transition: 0.3s;
 }

@@ -4,4 +4,6 @@ $(".menu-toggle").click(function () {
   $(this).toggleClass("is-active");
 });
 
-
+$(window).scroll(function () {
+  $(".nav-wrapper").toggleClass("scrolled", $(this).scrollTop() > 90);
+});
