@@ -23,28 +23,29 @@
                     <div class="card mt-3 p-3">
                         <ul class="list-group list-group-flush">
                             <li class="d-flex justify-content-between align-items-center flex-wrap">
+
                                 <h6 class="mb-0">Website</h6>
-                                <span class="content-head">{{company.website}}</span>
+                                <a target="_blank" href="{{company.website}}" class="social"><i class="fas fa-globe"></i></a>
                             </li>
                             <hr>
                             <li class="d-flex justify-content-between align-items-center flex-wrap">
                                 <h6 class="mb-0">Facebook</h6>
-                                <span class="content-head">{{company.facebook}}</span>
+                                <a target="_blank" href="{{company.facebook}}" class="social"><i class="fab fa-facebook-f"></i></a>
                             </li>
                             <hr>
                             <li class="d-flex justify-content-between align-items-center flex-wrap">
                                 <h6 class="mb-0">LinkedIn</h6>
-                                <span class="content-head">{{company.linkedin}}</span>
+                                <a target="_blank" href="{{company.linkedin}}" class="social"><i class="fab fa-linkedin-in"></i></a>
                             </li>
                             <hr>
                             <li class="d-flex justify-content-between align-items-center flex-wrap">
                                 <h6 class="mb-0">Instagram</h6>
-                                <span class="content-head">{{company.instagram}}</span>
+                                <a target="_blank" href="{{company.instagram}}" class="social"><i class="fab fa-instagram"></i></a>
                             </li>
 
                         </ul>
                     </div>
-                    {% if company.positions %}
+                    <!-- {% if company.positions %}
                     <div class="card mt-3 p-3">
                         <h4>Positions</h4>
                         <ul class="list-group list-group-flush">
@@ -66,7 +67,7 @@
                             {% endfor %}
                         </ul>
                     </div>
-                    {% endif %}
+                    {% endif %} -->
                 </div>
                 <div class="col-md-8">
                     <div class="card mb-3">
@@ -115,6 +116,15 @@
                                     {{company.founding_year}}
                                 </div>
                             </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0 content-head">Contact Number</h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    {{company.company_phone}}
+                                </div>
+                            </div>
                             {% if is_owner %}
                             <hr>
                             <div class="row">
@@ -127,10 +137,12 @@
                             {% endif %}
                         </div>
                     </div>
-                    {% if opportunities %}
-                    {% for opportunity in opportunities %}
-                    <div class="row gutters-sm">
-                        <div class="col-sm-6 mb-3">
+
+
+<!--                     <div class="row gutters-sm">
+                        {% if opportunities %}
+                        {% for opportunity in opportunities %}
+                        <div class="col-lg-6 mb-3">
                             <div class="card h-100">
                                 <div class="card-body">
                                     <h4 class="content-head">{{opportunity.name}}</h4>
@@ -155,12 +167,43 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    {% endfor %}
-                    {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                    </div> -->
+
+
                 </div>
             </div>
-
+            {% if opportunities %}
+            <ul class="opp_list">
+                {% for opportunity in opportunities %}
+                <li class="col-sm-6 mb-2">
+                    <div class="card opp-cards h-100">
+                        <div class="card-body">
+                            <h4 class="content-head">{{opportunity.position.name}}</h4>
+            
+                            <span>{{opportunity.description}}</span>
+            
+                            {% if user.is_authenticated %}
+                            <br>
+                            <a class="btn" href="{{opportunity.register_url}}">Register
+                                Here!</a>
+                            <a class="btn" href="{% url 'sotm:view_opportunity' opportunity.id %}">View
+                                Details
+                                Here</a>
+                            {% else %}
+                            <h6 class="mt-4">login to view more!</h6>
+                            {% endif %}
+            
+                            {% if is_owner %}
+                            <a class="btn" href="{% url 'sotm:edit_opportunity' company.id opportunity.id %}">Edit</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
     </div>
     {% endif %}

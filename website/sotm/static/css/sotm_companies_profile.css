@@ -24,7 +24,6 @@
 .card a {
   background-color: var(--theme-color);
   color: white;
-  margin-top: 10px;
 }
 
 .card a:hover {
@@ -82,3 +81,31 @@
   font-size: 14px;
   border-radius: 500px;
 }
+.opp_list {
+  padding: 0 !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.opp_list li:nth-child( odd ){
+  /* margin-right: 1px !important; */
+}
+
+.opp-cards{
+  max-width: 628px !important;
+  margin-bottom: 2px !important;
+}
+
+.social {
+  font-size: 15px;
+  padding: 3px 0;
+  color: #eee;
+  margin-right: 4px;
+  border-radius: 3px;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  transition: 0.3s;
+}
+

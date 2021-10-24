@@ -12,8 +12,10 @@
             <label id="internships-position" for="position-filter">Internship Tags</label> <br>
             <select name="position-filter" id="position-filter">
                 {% for position in positions %}
-                <option value="{{position}}">{{position}}</option>
+                <option value="{{position}}">{{position}}
+                </option>
                 {% endfor %}
+                <option value="All">All</option>
             </select></li>
         <li>
 
@@ -24,6 +26,7 @@
             </select></li>
         </li>
     </ul></center>
+    
     <div class="opportunities">
         <br>
         <center><h2 id="internship-header">{{active_pos}}</h2></center>
