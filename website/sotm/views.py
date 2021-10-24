@@ -75,6 +75,7 @@ def company_edit(request,company_id):
         company.linkedin = request.POST.get('linkedin')
         company.instagram = request.POST.get('instagram')
         company.website = request.POST.get('website')
+        company.company_phone = request.POST.get('phone')
         if 'company_logo' in request.FILES:
             if(request.FILES['company_logo'] is not None):
                 company.logo.delete()
@@ -263,6 +264,7 @@ def sotm_register(request):
             company.linkedin = request.POST.get('linkedin')
             company.instagram = request.POST.get('instagram')
             company.website = request.POST.get('website')
+            company.company_phone = request.POST.get('phone')
             if(request.FILES['company_logo'] is not None):
                 company.logo = request.FILES['company_logo']
             company.save()

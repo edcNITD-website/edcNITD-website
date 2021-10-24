@@ -22,7 +22,7 @@ class Company(models.Model):
     logo=models.ImageField(blank=True, upload_to='companyLogos/',default=None)
     vision = models.TextField(default="")
     company_name = models.CharField(max_length=100)
-    company_phone = models.IntegerField()
+    company_phone = models.CharField(max_length=20)
     domain = models.CharField(max_length=100)
     founders = models.CharField(max_length=200)
     founding_year = models.IntegerField()

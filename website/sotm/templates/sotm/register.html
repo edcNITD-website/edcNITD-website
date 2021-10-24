@@ -25,7 +25,7 @@
                      <form action="" method="post" enctype="multipart/form-data">
                          <div class="form">
                              {% csrf_token %}
-                             <div class="part-1">
+                             <div class="part-1 part">
                                  <fieldset>
                                      <input type="text" name="username" placeholder="Username" maxlength="150"
                                          autofocus="" required="" id="id_username">
@@ -46,6 +46,11 @@
                                  </fieldset>
 
                                  <fieldset>
+                                    <input type="text" name="phone" placeholder="Company Name" maxlength="150"
+                                        autofocus="" required="" id="id_phone">
+                                </fieldset>
+
+                                 <fieldset>
                                      <input type="text" name="vision" placeholder="Vision of the Company"
                                          maxlength="150" autofocus="" required="" id="id_vision">
                                  </fieldset>
@@ -57,7 +62,7 @@
 
                              </div>
 
-                             <div class="part-2">
+                             <div class="part-2 part">
 
                                  <fieldset>
                                      <input type="text" name="founders" placeholder="Founders" maxlength="150"
