@@ -65,6 +65,23 @@
   box-shadow: none !important;
 }
 
+
+.opp_list {
+  padding: 0 !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.opp_list li:nth-child( odd ){
+  /* margin-right: 1px !important; */
+}
+
+.opp-cards{
+  max-width: 628px !important;
+  margin-bottom: 2px !important;
+}
+
 .social {
   font-size: 15px;
   padding: 3px 0;
@@ -76,3 +93,4 @@
   height: 30px;
   transition: 0.3s;
 }
+

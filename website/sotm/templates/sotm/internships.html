@@ -7,15 +7,19 @@
 <section class="container internships">
     {% if companies %}
     <h2 class="internships-heading">Internships</h2>
+    
     <center><ul class="filter">
         <li>
             <label id="internships-position" for="position-filter">Position Filter</label> <br>
             <select name="position-filter" id="position-filter">
                 {% for position in positions %}
-                <option value="{{position}}">{{position}}</option>
+                <option value="{{position}}">{{position}}
+                </option>
                 {% endfor %}
+                <option value="All">All</option>
             </select></li>
     </ul></center>
+    
     <div class="opportunities">
         {% for position,opportunities in positions_dic.items %}
         {% if position == active_position %}
@@ -37,7 +41,7 @@
             <h2>{{position}}</h2>
             {% for opportunity in opportunities %}
 
-            <li>
+            <li class="available">
                 <h3>{{opportunity.position}}</h3>
                 <h4>{{opportunity.company}}</h4>
                 <a href="{% url 'sotm:view_opportunity' opportunity.id %}">View more</a>

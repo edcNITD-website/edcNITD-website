@@ -73,6 +73,7 @@ def company_edit(request,company_id):
         company.domain = request.POST.get('domain')
         company.founders = request.POST.get('founders')
         company.founding_year = request.POST.get('founding_year')
+        company.company_phone = request.POST.get('company_phone')
         company.facebook = request.POST.get('facebook')
         company.linkedin = request.POST.get('linkedin')
         company.instagram = request.POST.get('instagram')
@@ -167,6 +168,7 @@ def internships(request):
             if opp.position == position:
                 opp_list.append(opp)
         positions_dic[position.name]=opp_list
+    positions_dic['All'] = all_opportunities
     context['positions_dic'] = positions_dic
     context['active_position'] = all_positions.first().name
     return render(request,'sotm/internships.html',context)
@@ -240,6 +242,7 @@ def sotm_register(request):
             company.vision = request.POST.get('vision')
             company.domain = request.POST.get('domain')
             company.founders = request.POST.get('founders')
+            company.company_phone = request.POST.get('company_phone')
             company.founding_year = request.POST.get('founding_year')
             company.facebook = request.POST.get('facebook')
             company.linkedin = request.POST.get('linkedin')

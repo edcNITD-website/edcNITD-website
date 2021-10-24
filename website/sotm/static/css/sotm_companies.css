@@ -8,7 +8,7 @@
   padding-left: 0 !important;
 }
 
-a,
+.postcard__tagbox a,
 a:hover {
   font-weight: 600;
   color: #fff;
@@ -247,5 +247,9 @@ a:hover {
   justify-content: center;
   font-size: 40px;
   background-color: var(--theme-color);
-  border-radius: 100px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px !important;
+  padding: 5px !important;
 }
