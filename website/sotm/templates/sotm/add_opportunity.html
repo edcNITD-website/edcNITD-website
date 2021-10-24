@@ -13,7 +13,7 @@
             {% csrf_token %}
             <fieldset>
                 <p>Create Internships</p>
-                <label>Select Position</label>
+                <label>Select Tags related to the position</label>
                 <br>
                 <select name="position_name" id="id_position_name" multiple="multiple">
                     {% for position in positions %}

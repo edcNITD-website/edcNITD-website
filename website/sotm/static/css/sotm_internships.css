@@ -11,9 +11,10 @@
   margin-bottom: 40px;
   padding: 0 !important;
   display: flex;
+  flex-wrap: wrap;
   margin: 0px auto;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 #internships-position,#order-s {

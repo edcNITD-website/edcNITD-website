@@ -166,7 +166,7 @@ def internships(request):
     context['companies'] = verified_companies
     all_opportunities = []
     for company in verified_companies:
-        for opp in Opportunity.objects.filter(company=company).order_by("-create_date"):
+        for opp in Opportunity.objects.filter(company=company).order_by("create_date"):
             all_opportunities.append(opp)
     context['all_opportunities'] = all_opportunities
     positions_dic = {}
@@ -175,9 +175,9 @@ def internships(request):
         for opp in all_opportunities:
             if position in opp.tags.all():
                 opp_list.append(opp)
-        positions_dic[position.name+'_asc']=opp_list
-        opp_list =  list(reversed(opp_list))
         positions_dic[position.name+'_dsc']=opp_list
+        opp_list =  list(reversed(opp_list))
+        positions_dic[position.name+'_asc']=opp_list
     context['positions_dic'] = positions_dic
     context['active_position'] = all_positions.first().name+'_asc'
     context['active_pos'] = all_positions.first().name

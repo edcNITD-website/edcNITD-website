@@ -71,6 +71,10 @@
   justify-content: center;
   align-items: center;
   padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 .tags li{
   background-color: var(--theme-color);
