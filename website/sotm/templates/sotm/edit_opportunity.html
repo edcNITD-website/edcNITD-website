@@ -2,7 +2,13 @@
 {% load static %}
 {% block title %} Add position for company {{company.name}} {% endblock %}
 {% block content %}
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
 <link rel="stylesheet" href="{% static 'css/snippets/sotm_form.css' %}">
+
+
 <!-- FAQs -->
 <section class="companies">
     <!-- <center>
@@ -15,10 +21,29 @@
             <p>Edit Internship</p>
 
             <fieldset>
+                <label for="name">Name</label>
+                <br>
+                <input type="text" name="name" value="{{opportunity.name}}" maxlength="300" id="name">
+            </fieldset>
+
+            <fieldset>
                 <label for="registeration_url">Registeration Url</label>
                 <br>
                 <input type="text" name="registeration_url" value="{{opportunity.register_url}}" maxlength="300"
                     id="id_uregisteration_url">
+            </fieldset>
+            <fieldset>
+                <p>Create Internships</p>
+                <label>Select Position</label>
+                <br>
+                <select name="position_name" id="id_position_name" multiple="multiple">
+                    {% for position in positions %}
+                    <option selected value="{{position.name}}">{{position.name}}</option>
+                    {% endfor %}
+                    {% for position in other_positions %}
+                    <option value="{{position.name}}">{{position.name}}</option>
+                    {% endfor %}
+                </select>
             </fieldset>
 
             <fieldset>
@@ -27,6 +52,8 @@
                 <textarea name="description" id="id_position_description"
                     rows="10">{{opportunity.description}}</textarea>
             </fieldset>
+
+
 
             <fieldset>
                 <input type="submit" value="Edit Internship" class="cta-btn" name="add_position" id="submit-btn">
@@ -43,4 +70,5 @@
 </section>
 <!-- Footer -->
 
+<script src="{% static '/js/sotm_form.js' %}"></script>
 {% endblock %}

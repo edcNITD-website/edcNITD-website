@@ -131,6 +131,7 @@
                                 <div class="col-sm-12">
                                     <a class="btn" href="{% url 'sotm:company_edit' company.id %}">Edit</a>
                                     <a class="btn" href="{% url 'sotm:add_position' company.id %}">Add Internships</a>
+                                    <a href="{% url 'sotm:create_position' company.id %}" class="btn">Create New Tag</a>
                                 </div>
                             </div>
                             {% endif %}
@@ -144,9 +145,9 @@
                         <div class="col-lg-6 mb-3">
                             <div class="card h-100">
                                 <div class="card-body">
-                                    <h4 class="content-head">{{opportunity.position.name}}</h4>
+                                    <h4 class="content-head">{{opportunity.name}}</h4>
 
-                                    <span>{{opportunity.description}}</span>
+                                    <span>{{opportunity.description|truncatechars:100}}</span>
 
                                     {% if user.is_authenticated %}
                                     <br>

@@ -10,15 +10,20 @@
 .filter {
   margin-bottom: 40px;
   padding: 0 !important;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px auto;
+  justify-content: center;
+  gap: 1rem;
 }
 
-#internships-position {
+#internships-position,#order-s {
   margin-bottom: 5px;
   font-size: 20px;
   font-weight: 600;
 }
 
-#position-filter {
+#position-filter, #internships-order {
 
   color: white;
   font-weight: 600;

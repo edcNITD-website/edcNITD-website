@@ -21,9 +21,6 @@ def sotm_home(request):
                 break
             all_opportunities.append(opp)
     context['all_opportunities'] = all_opportunities
-    print(context)
-
-
     return render(request,'sotm/sotm_home.html',context)
 
 
@@ -90,7 +87,7 @@ def company_edit(request,company_id):
 def sotm_add_opportunity(request,company_id):
     company = get_object_or_404(Company,id=company_id)
     context = {}
-    positions = Position.objects.all()
+    positions = OpportunityTag.objects.all()
     context['positions'] = positions
     context['company'] = company
     if company.user == request.user:
@@ -99,14 +96,17 @@ def sotm_add_opportunity(request,company_id):
         context['is_owner'] = False
     if request.method == 'POST':
         if request.user == company.user:
-            company.add_position(request.POST.get('position_name'))
             opportunity = Opportunity()
+            opportunity.name = request.POST.get('name')
             opportunity.register_url = request.POST.get('registeration_url')
             company.save()
             opportunity.company = company
-            opportunity.position = Position.objects.filter(name=request.POST.get('position_name')).first()
             opportunity.description = request.POST.get('description')
+            opp_tags = request.POST.getlist('position_name')
             opportunity.save()
+            for opp_tag in opp_tags:
+                tag = OpportunityTag.objects.get(name=opp_tag)
+                opportunity.tags.add(tag)
             return redirect('/sotm/')
     return render(request,'sotm/add_opportunity.html',context)
 
@@ -114,7 +114,7 @@ def sotm_add_opportunity(request,company_id):
 def sotm_remove_opportunity(request,company_id):
     company = get_object_or_404(Company,id=company_id)
     context = {}
-    positions = company.positions.all()
+    positions = company.positions().all()
     context['positions'] = positions
     if company.user == request.user:
         context['is_owner'] = True
@@ -122,10 +122,8 @@ def sotm_remove_opportunity(request,company_id):
         context['is_owner'] = False
     if request.method == 'POST':
         if request.user == company.user:
-            company.remove_position(request.POST.get('position_name'))
             company.save()
-            pos = Position.objects.filter(name=request.POST.get('position_name')).first()
-            opportunity = Opportunity.objects.filter(company=company).filter(position=pos).first()
+            opportunity = Opportunity.objects.filter(company=company).filter(name=request.POST.get('position_name')).first()
             opportunity.delete()
             return redirect('/sotm/')
     
@@ -138,39 +136,56 @@ def edit_opportunity(request,company_id,opp_id):
     context = {}
     context['company'] =company
     context['opportunity'] = opportunity
+    context['positions'] = opportunity.tags.all()
+    other_tags = OpportunityTag.objects.all().difference(opportunity.tags.all())
+    context['other_positions'] = other_tags
     if company.user == request.user:
         context['is_owner'] = True
     else:
         context['is_owner'] = False
     if request.method == 'POST':
         if request.user == company.user:
+            opportunity.name = request.POST.get('name')
             opportunity.register_url = request.POST.get('registeration_url')
+            company.save()
+            opportunity.company = company
             opportunity.description = request.POST.get('description')
+            opp_tags = request.POST.getlist('position_name')
             opportunity.save()
+            for opp_tag in opp_tags:
+                tag = OpportunityTag.objects.get(name=opp_tag)
+                opportunity.tags.add(tag)
             return HttpResponseRedirect('/sotm/companies/'+str(company.id))
+    print(context)
     return render(request,'sotm/edit_opportunity.html',context)
 
 def internships(request):
     context = {}
-    all_positions = Position.objects.all()
-    context['positions'] = all_positions
+    all_positions = OpportunityTag.objects.all()
+    context['positions'] = all_positions # all the tags
     verified_companies = Company.objects.filter(verified=True)
     context['companies'] = verified_companies
     all_opportunities = []
     for company in verified_companies:
-        for opp in Opportunity.objects.filter(company=company):
+        for opp in Opportunity.objects.filter(company=company).order_by("create_date"):
             all_opportunities.append(opp)
     context['all_opportunities'] = all_opportunities
     positions_dic = {}
     for position in all_positions:
         opp_list = []
         for opp in all_opportunities:
-            if opp.position == position:
+            if position in opp.tags.all():
                 opp_list.append(opp)
+        positions_dic[position.name+'_dsc']=opp_list
+        opp_list =  list(reversed(opp_list))
+        positions_dic[position.name+'_asc']=opp_list
+
         positions_dic[position.name]=opp_list
-    positions_dic['All'] = all_opportunities
+    positions_dic['All_dsc'] = all_opportunities
+    positions_dic['All_asc'] = list(reversed(all_opportunities))
     context['positions_dic'] = positions_dic
-    context['active_position'] = all_positions.first().name
+    context['active_position'] = all_positions.first().name+'_asc'
+    context['active_pos'] = all_positions.first().name
     return render(request,'sotm/internships.html',context)
 
 def opportunity_view(request,opp_id):
@@ -199,7 +214,7 @@ def opportunity_view(request,opp_id):
 def create_new_position(request,company_id):
     company = get_object_or_404(Company,id=company_id)
     context = {}
-    positions = Position.objects.all()
+    positions = OpportunityTag.objects.all()
     context['positions'] = positions
     if company.user == request.user:
         context['is_owner'] = True
@@ -212,9 +227,9 @@ def create_new_position(request,company_id):
                 names.append(position.name)
             name = request.POST.get('position_name')
             if name not in names:
-                position = Position()
-                position.name = name
-                position.save()
+                tag = OpportunityTag()
+                tag.name = name
+                tag.save()
                 return HttpResponseRedirect('/sotm/')
     return render(request,'sotm/sotm_create_position.html',context)
 
@@ -251,6 +266,7 @@ def sotm_register(request):
             if(request.FILES['company_logo'] is not None):
                 company.logo = request.FILES['company_logo']
             company.save()
+            company.new_registeration()
             return redirect('/sotm/login')
     context = {}
     return render(request,'sotm/register.html',context)

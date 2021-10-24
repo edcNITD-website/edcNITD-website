@@ -3,6 +3,9 @@
 {% block title %} Add position for company {{company.name}} {% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/snippets/sotm_form.css' %}">
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
 <section class="companies">
     {% if is_owner %}
     <div class="container-form">
@@ -10,14 +13,21 @@
             {% csrf_token %}
             <fieldset>
                 <p>Create Internships</p>
-                <label>Select Position</label>
-                <select name="position_name" id="id_position_name">
+                <label>Select Tags related to the position</label>
+                <br>
+                <select name="position_name" id="id_position_name" multiple="multiple">
                     {% for position in positions %}
                     <option value="{{position.name}}">{{position.name}}</option>
                     {% endfor %}
                 </select>
             </fieldset>
+            <br>
 
+            <fieldset>
+                <label for="name">Name</label>
+                <br>
+                <input type="text" name="name" placeholder="" maxlength="300" id="name">
+            </fieldset>
             <fieldset>
                 <label for="registeration_url">Registeration Url</label>
                 <br>
@@ -44,5 +54,5 @@
     <h3>You are not registered as the owner of this company</h3>
     {% endif %}
 </section>
-
+<script src="{% static '/js/sotm_form.js' %}"></script>
 {% endblock %}
