@@ -34,7 +34,7 @@
           <li class="active text-center">
             <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{%url "post:post_list" %}"><span>All</i></a></a>
           </li>
-            {%for c in categories%}
+            {%for c in categories %}
             <li class="active text-center">
                 <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{{c.get_absolute_url}}"><span>{{c.name}}</span></a></a>
             </li>

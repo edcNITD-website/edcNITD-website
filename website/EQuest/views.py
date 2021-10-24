@@ -12,16 +12,19 @@ def post_list(request,category_slug=None):
     category=None
     categories=Category.objects.all()  # <appname>/<model>_<viewtype>.html
     post=Post.objects.all()
+    i = 1
     if category_slug:
         category=get_object_or_404(Category,slug=category_slug)
         post=post.filter(category = category)
     return render(request,'EQuest/post_list.html',{'categories':categories,
                                                    'category':category,
                                                    'post': post,
-                                                  })
+                                                 })
 def post_detail(request,id):
     post=get_object_or_404(Post,id=id) 
     category=None
     categories=Category.objects.all()
     return render(request,'EQuest/post_detail.html',{'post':post,
                                                     'categories':categories,})
+                                                
+
