@@ -13,68 +13,42 @@
   <!-- Team JS file and plugins -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    
-   
+  
 
 
 <!-- body  -->
+ <!-- sidebar menu -->
 
-
-  <!-- title -->
-  
-<div class="container">
-
-
-
-    <!-- menu -->
-    <nav class="sidebar">
+ <div class="category-bar">
       
-          <h5 class="ct-title">CATEGORIES</h5>
-          <hr>
-          <ul>
-          <li class="active text-center">
-            <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{%url "post:post_list" %}"><span>All</i></a></a>
-          </li>
-            {%for c in categories%}
-            <li class="active text-center">
-                <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{{c.get_absolute_url}}"><span>{{c.name}}</span></a></a>
-            </li>
-            {%endfor%}
-      </ul>
-  </nav>
+  <h5 class="ct-title">CATEGORIES</h5>
+  <hr>
+  <ul>
+  <li class="active text-center">
+    <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{%url "post:post_list" %}"><span>All ({{count}})</span></a></a>
+  </li>
+    {%for c in categories%}
+    <li class="active text-center">
+        <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{{c.get_absolute_url}}"><span>{{c.name}}</span></a></a>
+    </li>
+    {%endfor%}
+</ul>
+</div>
 
 
-  <!-- categories and posts -->
-  
-  <!-- <div class="row"> -->
-    <!-- <div class="col-2 categories mx-auto justify-content-around">
-      
-      <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>CATEGORIES</h3>
-        </div>
-    
-        <ul class="list-unstyled components">
-          <li class="active text-center">
-            <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{%url "post:post_list" %}"><span><i class="fa fas fa-star">All</i></span></a></a>
-          </li>
-            {%for c in categories%}
-            <li class="active text-center">
-                <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{{c.get_absolute_url}}"><span><i class="fa fas fa-star">{{c.name}}</i></span></a></a>
-            </li>
-            {%endfor%}
-           
-      
-      </ul>
-      </nav>
-      </div> -->
-    
-    
-    <article>
 
+<div class="container article">
+
+    
+    <!-- <div class="article"> -->
+
+      <!-- heading -->
       <h1 class="team-title">E-QUEST</h1>
-      <h2 class="tagline" style="font-style: italic;">"Your weekly dose of quests"</h2>
       <div class="grey-line"></div>
       <div class="coloured-line"></div>
+      <h2 class="tagline my-3" style="font-style: italic;">"Your weekly dose of quests"</h2>
+      
+      
       
     <br>
     
@@ -82,7 +56,7 @@
        
          <!-- one card -->
          {%  for x in post  %}
-        <div class="col-10 col-md-6">
+        <div class="col-10 col-lg-4 col-md-6">
           <div class="card">
             <div class="imgBx">
               {%if x.image%}
@@ -93,78 +67,30 @@
             </div>
             <div class="details">
               <div class="content">
-                <h2>{{x.title}} </h2>
+                <h2 class="content-title">{{x.title}} </h2>
                 <h6 class="my-1">({{x.category}})</h6>
-                <p>{{x.content|truncatewords_html:5}}</p>
+                <p class="my-1">{{x.content|truncatewords_html:20}}</p>
                 <a href="{{x.get_absolute_url}}" class="button">Read More</a>
               </div>
             </div>
           </div>
         </div>
           {% endfor %}
-          {% if is_paginated %} <!--pagination-->
+
         
-          <div class="row my-3 justify-content-center">
-            <nav aria-label="Page navigation example">
-              <ul class="pagination ">
-                
-          {% if page_obj.has_previous %}
-          <li class="page-item disabled">
-            <a class="page-link" href="?page=1">First</a>
-            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>
-          </li>
-          {% endif %}
-          {% for num in page_obj.paginator.page_range %}
-           {% if page_obj.number == num %}
-           <li class="page-item"> <a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
-           {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3'  %}
-           <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li> 
-           {% endif %}
-          {% endfor %}
-          {% if page_obj.has_next %}
-           <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
-           <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">End</a></li>
-          {% endif %}
-        </ul>
-        </nav>
-  
+
         </div>
-    
-       </div>
-         {% endif %}
-        </article>
          
-        <!--</div>
-        <div class="row my-3 justify-content-center">
-          <nav aria-label="Page navigation example">
-            <ul class="pagination ">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-              </li>
-            </ul>
-          </nav>
-  
-        </div>
-        
-      </div>
--->
-        
     </div>
-  </div>
-  </div>
-</div>
+        
+    <!-- </div> -->
 
 
-            <!-- Bootstrap core JS-->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-            <!-- Core theme JS-->
-            <script defer type="text/javascript" src="{% static 'js/Equest.js' %}"></script>
+
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script defer type="text/javascript" src="{% static 'js/Equest.js' %}"></script>
   
 
 {% endblock %}
