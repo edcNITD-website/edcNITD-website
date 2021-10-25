@@ -1,0 +1,107 @@
+{% extends 'events/base_event.html' %}
+{% load static %}
+{% block content %}
+
+<!-- BOOTSTRAP CDN AND AUXILLARY CSS-->
+<link href="{% static 'css/eventdetails.css' %}" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+<!-- POSTER AND IMAGE-->
+<div class="container pad">
+  <header class="section-header">
+    <h3 class="event-name">{{event.event_name}}</h3>
+  </header>
+  <div class="row justify-content-start">
+    <div class="col-sm-6">
+      <img class="poster" src="{{event.poster.url}}">
+    </div>
+    <div class=" col-sm-6 description">
+      <p class="text-desc"><i class="fa fa-pencil" aria-hidden="true"></i> Description:</p>
+      <h1 class="mb-4 heading about-event">{{event.about_event}}</h1>
+      <hr class="line">
+      <p class="text-desc"><i class="fa fa-calendar" aria-hidden="true"></i> Registration Starts: <span class="date-calender">{{event.start_date|date:"d M, Y" }}</span></p>
+      <p class="text-desc"><i class="fa fa-calendar" aria-hidden="true"></i> Registration Ends: <span class="date-calender">{{event.end_date|date:"d M, Y" }}</span></p>
+      <p class="text-desc mt-3"><i class="fa fa-calendar" aria-hidden="true"></i> Prizes: <span class="date-calender">{{event.prizes}}</span></p>
+      <div class="text-center mt-5">
+        <a class="btn btn-register" href="{{event.registration_link}}"><span="btntext">REGISTER HERE</span>&nbsp;&nbsp;<i class="fa fa-1.8x fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+  </div>
+</div> 
+
+<!-- TIMELINE -->
+<div class="container pad">
+  <div class="page-header">
+    <h1 id="timeline">Timeline</h1>
+  </div>
+  <ul class="timeline">
+    {% for rounds in timeline %}
+    {% if forloop.counter|divisibleby:2 %}
+    <li class="timeline-inverted">
+      <div class="timeline-badge"><i class="glyphicon glyphicon-star"></i></div>
+      <div class="timeline-panel">
+        <div class="timeline-heading">
+          <h4 class="timeline-title">{{rounds.title}}</h4>
+        </div>
+        <div class="timeline-heading">
+          <h4 class="timeline-title">{{rounds.date}}</h4>
+        </div>
+        <div class="timeline-body">
+          <p>{{rounds.details}}</p>
+        </div>
+      </div>
+    </li>
+    {% else %}
+    <li>
+      <div class="timeline-badge warning"><i class="glyphicon glyphicon-star"></i></div>
+      <div class="timeline-panel">
+        <div class="timeline-heading">
+          <h4 class="timeline-title">{{rounds.title}}</h4>
+        </div>
+        <div class="timeline-heading">
+          <h4 class="timeline-title">{{rounds.date}}</h4>
+        </div>
+        <div class="timeline-body">
+          <p>{{rounds.details}}</p>
+        </div>
+      </div>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+
+<!--SLIDER-->
+<section id="slider" class="container pad">
+  {% for p in images %}
+    <!-- <div class="text-center">
+        <img class="d-block w-100" src="{{p.images.url}}" alt="First slide">
+      </div> -->
+  {% endfor %}
+  <input type="radio" name="slider" id="s1">
+  <input type="radio" name="slider" id="s2">
+  <input type="radio" name="slider" id="s3" checked>
+  <input type="radio" name="slider" id="s4">
+  <input type="radio" name="slider" id="s5">
+
+  <label for="s1" id="slide1"> 
+    <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" alt=".."> 
+  </label>
+
+  <label for="s2" id="slide2"> 
+    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80" alt="..">
+  </label>
+
+  <label for="s3" id="slide3"> 
+    <img src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="..">
+  </label>
+
+  <label for="s4" id="slide4"> 
+    <img src="https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270" alt="..">
+  </label>
+
+  <label for="s5" id="slide5"> 
+    <img src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__480.jpg" alt=".."> 
+  </label>
+
+</section>
+{% endblock %}  
