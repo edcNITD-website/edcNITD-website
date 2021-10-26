@@ -35,11 +35,11 @@
       <hr>
       <ul>
       <li class="active text-center">
-        <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{%url "post:post_list" %}"><span>All</i></a></a>
+        <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{%url "post:post_list" %}"><span>All({{count}})</i></a></a>
       </li>
         {%for c in categories%}
         <li class="active text-center">
-            <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{{c.get_absolute_url}}"><span>{{c.name}}</span></a></a>
+            <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{{c.get_absolute_url}}"><span>{{c.name}}({{c.posts_count}})</span></a></a>
         </li>
         {%endfor%}
   </ul>
