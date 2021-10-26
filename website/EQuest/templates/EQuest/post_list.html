@@ -39,6 +39,51 @@
 
 <div class="container article">
 
+
+    <!-- menu -->
+    <nav class="sidebar">
+      
+          <h5 class="ct-title">CATEGORIES</h5>
+          <hr>
+          <ul>
+          <li class="active text-center">
+            <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{%url "post:post_list" %}"><span>All({{count}})</i></a></a>
+          </li>
+            {%for c in categories %}
+            <li class="active text-center">
+                <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{{c.get_absolute_url}}"><span>{{c.name}}({{c.posts_count}}) </span></a></a>
+            </li>
+            {%endfor%}
+      </ul>
+  </nav>
+
+
+  <!-- categories and posts -->
+  
+  <!-- <div class="row"> -->
+    <!-- <div class="col-2 categories mx-auto justify-content-around">
+      
+      <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>CATEGORIES</h3>
+        </div>
+    
+        <ul class="list-unstyled components">
+          <li class="active text-center">
+            <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{%url "post:post_list" %}"><span><i class="fa fas fa-star">All</i></span></a></a>
+          </li>
+            {%for c in categories%}
+            <li class="active text-center">
+                <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{{c.get_absolute_url}}"><span><i class="fa fas fa-star">{{c.name}}</i></span></a></a>
+            </li>
+            {%endfor%}
+           
+      
+      </ul>
+      </nav>
+      </div> -->
+    
+
     
     <!-- <div class="article"> -->
 
@@ -77,10 +122,12 @@
         </div>
           {% endfor %}
 
+
         
 
         </div>
          
+
     </div>
         
     <!-- </div> -->

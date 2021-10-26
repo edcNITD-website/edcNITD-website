@@ -36,11 +36,13 @@
       <hr>
       <ul>
       <li class="active text-center">
-        <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{%url "post:post_list" %}"><span>All</span></a></a>
+
+        <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{%url "post:post_list" %}"><span>All({{count}})</i></a></a>
+
       </li>
         {%for c in categories%}
         <li class="active text-center">
-            <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{{c.get_absolute_url}}"><span>{{c.name}}</span></a></a>
+            <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{{c.get_absolute_url}}"><span>{{c.name}}({{c.posts_count}})</span></a></a>
         </li>
         {%endfor%}
   </ul>
@@ -59,7 +61,10 @@
     <i class="fa fa-arrow-left" aria-hidden="true"><span> BACK</span></i>
   </div>
 
-      <!-- <h1 class="team-title">E-QUEST</h1>
+
+      <h1 class="team-title">{{post.title}}</h1>
+      <h2 class="tagline" style="font-style: italic;">"Your weekly dose of quests"</h2>
+
       <div class="grey-line"></div>
       <div class="coloured-line"></div>
       <h2 class="tagline my-3" style="font-style: italic;">"Your weekly dose of quests"</h2> -->
