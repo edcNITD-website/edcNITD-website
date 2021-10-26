@@ -28,6 +28,7 @@ def post_detail(request,id):
     post=get_object_or_404(Post,id=id) 
     category=None
     categories=Category.objects.all()
+
     count = Post.objects.all().count()
     categories = Category.objects.all().annotate(posts_count=Count('post'))
     return render(request,'EQuest/post_detail.html',{'post':post,
