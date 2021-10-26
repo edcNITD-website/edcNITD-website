@@ -18,7 +18,6 @@ def post_list(request,category_slug=None):
     return render(request,'EQuest/post_list.html',{'categories':categories,
                                                    'category':category,
                                                    'post': post,
-                                                   'count': count,
                                                   })
 def post_detail(request,id):
     post=get_object_or_404(Post,id=id) 
