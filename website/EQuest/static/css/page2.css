@@ -4,7 +4,7 @@
 }
 
 /* navigation *//* categories sidebar */
-.sidebar {
+.category-bar {
     position: fixed;
     left: -16em;
     top: 0;
@@ -50,7 +50,7 @@
       pointer-events: none;*/
   }
   
-  .sidebar:after {
+  .category-bar:after {
     position: absolute;
     content: " ";
     width: 0;
@@ -62,15 +62,15 @@
     border-color: transparent transparent transparent rgba(0,0,0,0.9);
   }
   
-  .sidebar ul {
+  .category-bar ul {
     width: 14em;
     list-style-type: none;
     margin: 0;
     padding: 1em;
   }
   
-  .sidebar a:link,
-  .sidebar a:visited {
+  .category-bar a:link,
+  .category-bar a:visited {
     display: block;
     width: 100%;
     font-weight: bold;
@@ -83,8 +83,8 @@
     text-transform: uppercase;
   }
   
-  .sidebar a:hover,
-  .sidebar a:focus {
+  .category-bar a:hover,
+  .category-bar a:focus {
     color: #fff;
     background-color: darken(#bada55, 20%);
     text-shadow: 0 0 4px #fff;
@@ -93,8 +93,8 @@
   
   .article,
   .article:after,
-  .sidebar,
-  .sidebar * {
+  .category-bar,
+  .category-bar * {
     -webkit-transition: all 600ms ease;
     -moz-transition: all 600ms ease;
     -ms-transition: all 600ms ease;
@@ -102,11 +102,11 @@
     transition: all 600ms ease;
   }
   
-  .sidebar:hover {
+  .category-bar:hover {
     left: 0;
   }
   
-  .sidebar:hover ~ .article {
+  .category-bar:hover ~ .article {
     -webkit-transform: translateX(16em) perspective(600px) rotateY(10deg);
     -moz-transform: translateX(16em) perspective(600px) rotateY(10deg);
     -ms-transform: translateX(16em) perspective(600px) rotateY(10deg);
@@ -114,7 +114,7 @@
     transform: translateX(16em) perspective(600px) rotateY(10deg);
   }
   
-  .sidebar:hover ~ .article:after {
+  .category-bar:hover ~ .article:after {
     left: 60%;
   }
   
