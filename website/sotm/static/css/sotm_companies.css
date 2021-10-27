@@ -33,8 +33,8 @@ a:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
-  box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
+  -webkit-box-shadow: 0 4px 21px -12px rgba(53, 53, 53, 0.719);
+  box-shadow: 0 4px 21px -12px rgba(53, 53, 53, 0.719);
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
   margin: 0 0 2rem 0;
@@ -49,10 +49,10 @@ a:hover {
     linear,
     left top,
     right top,
-    from(#1f1f1f),
+    from(#0b19a8),
     to(#5e5e5e)
   );
-  background-image: linear-gradient(to right, #1f1f1f, #5e5e5e);
+  background-image: linear-gradient(to right, #242430, #5e5e5e);
   /* Add the blur effect */
 }
 

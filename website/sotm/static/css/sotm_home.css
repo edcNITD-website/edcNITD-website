@@ -193,7 +193,7 @@ h2 {
 .timeline__event {
   background-image: linear-gradient(
     to right,
-    rgba(39, 39, 39, 0.582),
+    var(--clr-bg-light-50),
     rgba(39, 39, 39, 0.411)
   );
   box-shadow: inset 0 0 40px rgba(90, 90, 90, 0.5);
@@ -351,7 +351,7 @@ h2 {
   padding: 0 !important;
 }
 .faq {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--clr-bg-light);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(15px);
   padding: 1em 1em 0.5em;
@@ -377,7 +377,7 @@ h2 {
 }
 .faq p {
   display: none;
-  color: var(--clr-bg-light);
+  color: var(--clr-text-light);
   padding-bottom: 0.5rem;
   padding-left: 2rem;
   font-style: inherit;
@@ -388,7 +388,7 @@ h2 {
   margin-top: 0.5em;
 }
 .faq.active {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--clr-bg-light-50);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(15px);
 }
@@ -398,8 +398,13 @@ h2 {
 .section-header h1 {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  font-size: 65px;
+  font-size: 48px;
   color: var(--theme-color);
+}
+@media screen and (min-width: 600px) {
+  .section-header h1{
+    font-size: 65px;
+  }
 }
 
 .owl-carousel .owl-item img {

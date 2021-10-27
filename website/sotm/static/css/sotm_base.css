@@ -3,9 +3,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
 
 :root {
-    --clr-bg-dark: #111112;
-    --theme-color: #f97f0f;
-    --clr-bg-light: #c4c4c4;
+    --clr-bg-dark: #232931;
+    --theme-color: #4ECCA3;
+    --clr-text-light: #eee;
+    --clr-bg-light: #393e46;
+    --clr-bg-light-50 : hsl(217, 10%, 35%);
 }
 
 * {
@@ -17,7 +19,7 @@
 }
 
 body {
-    background-color: #1b1b1b;
+    background-color: var(--clr-bg-dark);
     color: white;
 }
 
