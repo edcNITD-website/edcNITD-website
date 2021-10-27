@@ -8,6 +8,30 @@
 
   <!-- Team CSS file -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/page2.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/api.css' %}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  
+  <!-- css for API only -->
+  <style>
+    #shareButton {
+      bottom: 8%; right: 4%; font-size: 1.5rem;
+    }
+    @media screen and (max-width: 767px) {
+    #shareButton {
+      bottom: -4%;
+      right: 4%;
+      font-size: 1rem;
+    }
+    #shareButton > .container {
+      width: 60px;
+    }
+  }
+@media screen and (min-width : 768px) and (max-width : 979px)  {
+  #shareButton > .container {
+      width: 215px;
+    }
+}
+  </style>
 
 
   <!-- Team JS file and plugins -->
@@ -79,7 +103,21 @@
           {{post.content}}
         </p>
         
+        
       </div>
+       <!-- adding api  -->
+       <button id="shareButton" onclick="share(this)">
+        <i class="fas fa-share-alt"></i>
+        <i class="fas fa-times"></i>
+        <div class="container">
+          <div class="addthis_inline_share_toolbox"></div>  <!-- addthis tools plugin class --> 
+          
+          <!--for old users of AddThis-->
+          <div class="addthis_sharing_toolbox"></div>
+        </div>
+        
+      </button>
+    <!-- end of api  -->
       </div>
     </div>
 
@@ -111,6 +149,7 @@
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
             <!-- Core theme JS-->
             <script defer type="text/javascript" src="{% static 'js/Equest.js' %}"></script>
+            <script defer type="text/javascript" src="{% static 'js/api.js' %}"></script>
   
 
 {% endblock %}
