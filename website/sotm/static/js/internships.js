@@ -11,6 +11,8 @@ document.addEventListener('input', function (event) {
         let prev_active_element = document.getElementsByClassName("active_position")[0];
         prev_active_element.classList.remove('active_position');
         new_active_element.classList.add('active_position');
+        let internship_name = document.getElementById('internship-header');
+        internship_name.innerText = position_head;
     }
 
     

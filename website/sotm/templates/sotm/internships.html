@@ -6,7 +6,10 @@
 <!-- FAQs -->
 <section class="container internships">
     {% if companies %}
-    <h2 class="internships-heading">Internships</h2>
+    <center>
+    <h2 id="internship-header">{{active_pos}}</h2>
+    </center>
+    <br>
     <center><ul class="filter flex">
         <li>
             <label id="internships-position" for="position-filter">Internship Tags</label> <br>
@@ -29,7 +32,7 @@
     
     <div class="opportunities">
         <br>
-        <center><h2 id="internship-header">{{active_pos}}</h2></center>
+        
         {% for position,opportunities in positions_dic.items %}
         {% if position == active_position %}
         <ul id="{{position}}_opportunities" class="active_position position_opp">
