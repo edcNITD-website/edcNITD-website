@@ -408,8 +408,10 @@ h2 {
 }
 
 .owl-carousel .owl-item img {
-  width: 150px !important;
-  margin: auto !important;
+    height: 150px;
+    width: 150px;
+    -o-object-fit: cover;
+    object-fit: cover;
 }
 #testimonials .testimonial-item .testimonial-img  {
   width: 120px;

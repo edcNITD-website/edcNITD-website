@@ -120,10 +120,20 @@ a:hover {
   height: 100%;
 }
 
+.postcard .postcard__preview-txt-ch {
+  /* font-family: "Roboto", cursive !important;
+  font-weight: 500 !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: justify; */
+  height: 100%;
+  display: flex;
+}
+
 .postcard .postcard__tagbox {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  /* display: flex; */
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -ms-flex-flow: row wrap;
@@ -131,7 +141,6 @@ a:hover {
   font-size: 14px;
   margin: 20px 0 0 0;
   padding: 0;
-  -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
 }
@@ -252,4 +261,20 @@ a:hover {
   text-decoration: none;
   border-radius: 5px !important;
   padding: 5px !important;
+}
+
+.tags{
+  margin: auto;
+  align-items: center;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tags li{
+  background-color: var(--theme-color);
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  border-radius: 500px;
 }

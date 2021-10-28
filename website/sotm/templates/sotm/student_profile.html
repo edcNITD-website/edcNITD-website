@@ -1,0 +1,24 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Companies {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/student_profile.css' %}">
+{% if is_owner %}
+<div class="container">
+	<div class="cover-photo">
+		<img src="{% static 'images/default.png' %}" class="profile">
+	</div>
+	<div class="profile-name">{{student.user.username}}</div>
+	<p class="about"><i class="fas fa-envelope"></i> &ensp; {{student.user.email}}</p>
+	<button class="msg-btn">Edit Profile</button>
+	<button class="follow-btn">Home</button>
+	<div>
+		<i class="fab fa-facebook-f"></i>
+		<i class="fab fa-instagram"></i>
+		<!-- <i class="fab fa-youtube"></i>
+		  <i class="fab fa-twitter"></i> -->
+	</div>
+</div>
+
+{% endif %}
+{% endblock %}
