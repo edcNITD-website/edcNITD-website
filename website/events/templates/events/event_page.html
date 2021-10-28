@@ -241,14 +241,18 @@
                                 <img src="{{ ae.poster.url }}" class="img-fluid" style="width: 300px; height: 200px; " alt="">
                             </div>
                         </div>
-
+                        
+                        
+                        
                         <div class="portfolio-description">
-                            <h2 style="font-size: 22px;">{{ae.event_name}}</h2>
+                            <h2 style="font-size: 22px;font-size: 22px; margin-bottom: 1.2rem;margin-top:0;width: 100%; text-align: center;text-transform: capitalize;">{{ae.event_name}}</h2>
                         </div>
                         <form action="{% url 'showevent' ae.id %}" method="POST" class="d-inline">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-success" style="width: 100px;">View Event</button>
+                            <button type="submit" class="btn btn-success"style="width: 75%; margin-bottom: 1rem; margin-left: 12.5%;background:var(--theme-color);">View Event</button>
                         </form>
+                        <button type="submit" class="btn btn-success" style="width: 75%;margin-left: 12.5%;margin-bottom: 1rem;background:var(--theme-color);"><a href="eventdetails.html"></a> Register Now</button>
+
                     </div>
                 </section>
             </div>

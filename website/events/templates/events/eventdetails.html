@@ -4,79 +4,102 @@
 
 <!-- BOOTSTRAP CDN AND AUXILLARY CSS-->
 <link href="{% static 'css/eventdetails.css' %}" rel="stylesheet">
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+/>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
 
 <!-- POSTER AND IMAGE-->
-<div class="container pad">
+<div class=" container">
   <header class="section-header">
     <h3 class="event-name">{{event.event_name}}</h3>
   </header>
-  <div class="row justify-content-start">
-    <div class="col-sm-6">
-      <img class="poster" src="{{event.poster.url}}">
+  <div class="row justify-content-start clearfix" style="height: 0%;">
+    <div class="">
+      <!-- <img class="poster" src="{{event.poster.url}}"> -->
     </div>
-    <div class=" col-sm-6 description">
-      <p class="text-desc"><i class="fa fa-pencil" aria-hidden="true"></i> Description:</p>
+    <div class=" col-lg-6 col-md-12 description clearfix">
+      <!-- <p class="text-desc"><i class="fa fa-pencil" aria-hidden="true"></i> Description:</p>
       <h1 class="mb-4 heading about-event">{{event.about_event}}</h1>
       <hr class="line">
       <p class="text-desc"><i class="fa fa-calendar" aria-hidden="true"></i> Registration Starts: <span class="date-calender">{{event.start_date|date:"d M, Y" }}</span></p>
       <p class="text-desc"><i class="fa fa-calendar" aria-hidden="true"></i> Registration Ends: <span class="date-calender">{{event.end_date|date:"d M, Y" }}</span></p>
-      <p class="text-desc mt-3"><i class="fa fa-calendar" aria-hidden="true"></i> Prizes: <span class="date-calender">{{event.prizes}}</span></p>
+      <p class="text-desc mt-3"><i class="fa fa-calendar" aria-hidden="true"></i> Prizes: <span class="date-calender">{{event.prizes}}</span></p> -->
       <div class="text-center mt-5">
-        <a class="btn btn-register" href="{{event.registration_link}}"><span="btntext">REGISTER HERE</span>&nbsp;&nbsp;<i class="fa fa-1.8x fa-arrow-right" aria-hidden="true"></i></a>
+        <!-- <a class="btn btn-register" href="{{event.registration_link}}"><span="btntext">REGISTER HERE</span>&nbsp;&nbsp;<i class="fa fa-1.8x fa-arrow-right" aria-hidden="true"></i></a> -->
       </div>
   </div>
 </div> 
 
-<!-- TIMELINE -->
-<div class="container pad">
-  <div class="page-header">
-    <h1 id="timeline">Timeline</h1>
+<!-- new code for poster-->
+
+<div class="poster_img">
+  <div class="eve_img_desc">
+    <div class="eve_img clearfix"> <img class="poster-eve" src="{{event.poster.url}}"></div>
+    <div class="eve_descrip clearfix">
+      <p><i class="fa fa-pencil" aria-hidden="true"></i> Description:</p>
+      <h1 class="">{{event.about_event}}</h1>
+      <hr class="">
+      <p class=""><i class="fa fa-calendar" aria-hidden="true"></i> Registration Starts: <span class="">{{event.start_date|date:"d M, Y" }}</span></p>
+      <p class=""><i class="fa fa-calendar" aria-hidden="true"></i> Registration Ends: <span class="">{{event.end_date|date:"d M, Y" }}</span></p>
+      <p class="" style="text-align: left;"><i class="fa fa-calendar" aria-hidden="true"></i> Prizes: <span class="date-calender">{{event.prizes}}</span></p>
+      <div class="btn_eve" style="text-align: left; max-width: 100%; max-height: 100%; margin-top: 2rem; display: flex; justify-content: left;">
+        <a class="btn btn-register" style="text-align: center;" href="{{event.registration_link}}"><span class="btntext">REGISTER HERE</span>&nbsp;&nbsp;<i class="fa fa-1.8x fa-arrow-right" aria-hidden="true"></i></a>
+      </div> 
+    </div>
   </div>
-  <ul class="timeline">
-    {% for rounds in timeline %}
-    {% if forloop.counter|divisibleby:2 %}
-    <li class="timeline-inverted">
-      <div class="timeline-badge"><i class="glyphicon glyphicon-star"></i></div>
-      <div class="timeline-panel">
-        <div class="timeline-heading">
-          <h4 class="timeline-title">{{rounds.title}}</h4>
-        </div>
-        <div class="timeline-heading">
-          <h4 class="timeline-title">{{rounds.date}}</h4>
-        </div>
-        <div class="timeline-body">
-          <p>{{rounds.details}}</p>
-        </div>
-      </div>
-    </li>
-    {% else %}
-    <li>
-      <div class="timeline-badge warning"><i class="glyphicon glyphicon-star"></i></div>
-      <div class="timeline-panel">
-        <div class="timeline-heading">
-          <h4 class="timeline-title">{{rounds.title}}</h4>
-        </div>
-        <div class="timeline-heading">
-          <h4 class="timeline-title">{{rounds.date}}</h4>
-        </div>
-        <div class="timeline-body">
-          <p>{{rounds.details}}</p>
-        </div>
-      </div>
-    </li>
-    {% endif %}
-    {% endfor %}
-  </ul>
+</div>
+
+
+<!-- TIMELINE 2-->
+<div class="wrapper-card">
+  <div class="card-time-left">
+    <div class="bullet-time"></div>
+    <div class="round-time-left"><i class="fa fa-check"></i></div>
+    <div class="text-time-left">
+      <h2 style="text-align: left;">Third Step - 2nd January 2021</h2>
+          <p style="text-align: left;">Aenean in fermentum anefficitur sodales. Etiam dapibus metus diam, malesuada cursus ligula dapibus non. Duis pellentesque hendrerit orci id congue.</p>
+    </div>
+  </div>
+</div>
+<div class="wrapper-card">
+  <div class="card-time-right">
+    <div class="round-time-right" style="text-align: right; justify-content: right; margin-left: 100%;  transform: translate(-50%, 95%);"><i  class="fa fa-check"></i></div>
+    <div class="text-time-right">
+      <h2 style="text-align: right;">Third Step - 2nd January 2021</h2>
+          <p style="text-align: right;">Aenean in fermentum anefficitur sodales. Etiam dapibus metus diam, malesuada cursus ligula dapibus non. Duis pellentesque hendrerit orci id congue.</p>
+    </div>
+  </div>  
+</div>
+<div class="wrapper-card">
+  <div class="card-time-left-top">
+    <div class="round-time-left"><i class="fa fa-check"></i></div>
+    <div class="text-time-left">
+      <h2 style="text-align: left;">Third Step - 2nd January 2021</h2>
+          <p style="text-align: left;">Aenean in fermentum anefficitur sodales. Etiam dapibus metus diam, malesuada cursus ligula dapibus non. Duis pellentesque hendrerit orci id congue.</p>
+    </div>
+    <div class="bullet-time"></div>
+  </div>
 </div>
 
 <!--SLIDER-->
-<section id="slider" class="container pad">
+<!-- <section id="slider" class="container pad">
   {% for p in images %}
     <!-- <div class="text-center">
         <img class="d-block w-100" src="{{p.images.url}}" alt="First slide">
       </div> -->
-  {% endfor %}
+  <!-- {% endfor %}
   <input type="radio" name="slider" id="s1">
   <input type="radio" name="slider" id="s2">
   <input type="radio" name="slider" id="s3" checked>
@@ -103,5 +126,40 @@
     <img src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__480.jpg" alt=".."> 
   </label>
 
-</section>
-{% endblock %}  
+</section>-->
+<!-- Swiper -->
+<div class="swiper-container two">
+  <div class="swiper-wrapper">
+            <div class="swiper-slide">
+        <div class="slider-image">
+          <img src="//demo.xpeedstudio.com/wp/appscraft/demo2/wp-content/uploads/sites/2/2017/09/blue-screenshort-slider-img-5-1.png" alt="slide 1">
+        </div>
+      </div>
+            <div class="swiper-slide">
+        <div class="slider-image">
+          <img src="//demo.xpeedstudio.com/wp/appscraft/demo2/wp-content/uploads/sites/2/2017/09/blue-screenshort-slider-img-4-1.png" alt="slide 2">
+        </div>
+      </div>
+            <div class="swiper-slide">
+        <div class="slider-image">
+          <img src="//demo.xpeedstudio.com/wp/appscraft/demo2/wp-content/uploads/sites/2/2017/09/blue-screenshort-slider-img-2-1.png" alt="slide 3">
+        </div>
+      </div>
+            <div class="swiper-slide">
+        <div class="slider-image">
+          <img src="//demo.xpeedstudio.com/wp/appscraft/demo2/wp-content/uploads/sites/2/2017/09/blue-screenshort-slider-img-1-1.png" alt="slide 4">
+        </div>
+      </div>
+            <div class="swiper-slide">
+        <div class="slider-image">
+          <img src="//demo.xpeedstudio.com/wp/appscraft/demo2/wp-content/uploads/sites/2/2017/09/blue-screenshort-slider-img-1-1.png" alt="slide 5">
+        </div>
+      </div>
+          <!-- Add Pagination -->
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script type="text/javascript" src="{% static 'js/slider.js' %}"></script>
+
+{% endblock %} 
