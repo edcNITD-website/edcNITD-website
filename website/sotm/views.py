@@ -91,7 +91,7 @@ def company_edit(request,company_id):
                 company.logo.delete()
                 company.logo = request.FILES['company_logo']
         company.save()
-        return redirect('/sotm/')
+        return redirect('/sotm/companies/profile')
     return render(request,'sotm/company_edit.html',context)
 
 @login_required
@@ -118,7 +118,7 @@ def sotm_add_opportunity(request,company_id):
             for opp_tag in opp_tags:
                 tag = OpportunityTag.objects.get(name=opp_tag)
                 opportunity.tags.add(tag)
-            return redirect('/sotm/')
+            return redirect('/sotm/companies/profile')
     return render(request,'sotm/add_opportunity.html',context)
 
 @login_required
@@ -136,7 +136,7 @@ def sotm_remove_opportunity(request,company_id):
             company.save()
             opportunity = Opportunity.objects.filter(company=company).filter(name=request.POST.get('position_name')).first()
             opportunity.delete()
-            return redirect('/sotm/')
+            return redirect('/sotm/companies/profile')
     
     return render(request,'sotm/remove_opportunity.html',context)
 
@@ -243,7 +243,7 @@ def create_new_position(request,company_id):
                 tag = OpportunityTag()
                 tag.name = name
                 tag.save()
-                return HttpResponseRedirect('/sotm/')
+                return HttpResponseRedirect('/sotm/companies/'+str(company.id))
     return render(request,'sotm/sotm_create_position.html',context)
 
 def sotm_register(request):
