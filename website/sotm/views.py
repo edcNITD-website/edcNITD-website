@@ -44,6 +44,16 @@ def sotm_companies(request):
             context['owned_company'] = company        
     return render(request,'sotm/sotm_companies.html',context)
 
+def student_view(request,student_id):
+    student = get_object_or_404(Student,id=student_id)
+    context = {}
+    if student.user == request.user:
+        context['is_owner'] = True
+    else:
+        context['is_owner'] = False
+    context['student'] = student
+    return render(request,'sotm/student_profile.html',context)
+
 def company_view(request,company_id):
     company = get_object_or_404(Company,id=company_id)
     context = {}
@@ -200,9 +210,11 @@ def opportunity_view(request,opp_id):
         company = Company.objects.filter(user=request.user).first()
     if student != None:
         context['is_student'] = True
+        context['is_authenticated'] = True
     else:
         context['is_student'] = False
     if company != None:
+        context['is_authenticated'] = True
         if opportunity.company == company:
             context['is_owner'] = True
         else:
@@ -299,6 +311,7 @@ def sotm_logout(request):
 @login_required
 def profile_view(request):
     companies = Company.objects.all()
+    students = Student.objects.all()
     for company in companies:
         if request.user == company.user:
             # context = {}
@@ -310,4 +323,7 @@ def profile_view(request):
             # context['opportunities'] = company.get_opportunities()
             # return render(request,'sotm/company_view.html',context)
             return company_view(request,company.id)
+    for student in students:
+        if request.user == student.user:
+            return student_view(request,student.id)
     pass

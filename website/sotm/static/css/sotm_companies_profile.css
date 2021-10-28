@@ -1,5 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap");
+
 .main-body {
-  padding: 15px;
+  padding: 5px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.main-body .btn {
+  background-color: var(--theme-color);
+  color: white;
+  margin-top: 14px;
+}
+
+.main-body .btn:hover {
+  background-color: white;
+  color: var(--theme-color);
 }
 
 .card {
@@ -21,24 +35,25 @@
   box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
 }
 
-.card a {
-  background-color: var(--theme-color);
-  color: white;
-}
-
-.card a:hover {
-  background-color: white;
-  color: var(--theme-color);
-}
-
 .content-head {
   color: var(--theme-color) !important;
+}
+
+.content {
+  padding: 4px;
 }
 
 .card-body {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1rem;
+}
+
+.card-body img {
+  height: 150px;
+  width: 150px;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 .gutters-sm {
@@ -97,15 +112,17 @@
   margin-bottom: 2px !important;
 }
 
-.social {
-  font-size: 15px;
-  padding: 3px 0;
-  color: #eee;
-  margin-right: 4px;
-  border-radius: 3px;
+.social i {
+  font-size: 25px !important;
+  color: var(--theme-color) !important;
+  padding-right: 15px;
   text-align: center;
-  width: 30px;
-  height: 30px;
+  transition: 0.3s;
+  width: 35px;
+}
+
+.social i:hover {
+  color: white !important;
   transition: 0.3s;
 }
 

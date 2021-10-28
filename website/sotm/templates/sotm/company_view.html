@@ -12,35 +12,38 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="{{company.logo.url}}" alt="Admin" class="rounded-circle" width="150"
-                                    height="150">
-                                <div class="mt-3">
-                                    <h4>{{company.company_name}}</h4>
+                                <img src="{{company.logo.url}}" alt="Admin" class="rounded-circle">
+                                <div class="mt-3 social">
+                                    <h4>{{company.company_name}}
+                                    {% if is_owner %}
+                                    <a href="{% url 'sotm:company_edit' company.id %}"><i class="fas fa-edit"></i></a>
+                                    {% endif %}
+                                </h4>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card mt-3 p-3">
-                        <ul class="list-group list-group-flush">
+                        <ul class="list-group list-group-flush social">
                             <li class="d-flex justify-content-between align-items-center flex-wrap">
 
                                 <h6 class="mb-0">Website</h6>
-                                <a target="_blank" href="{{company.website}}" class="social"><i class="fas fa-globe"></i></a>
+                                <a target="_blank" href="{{company.website}}"><i class="fas fa-globe"></i></a>
                             </li>
                             <hr>
                             <li class="d-flex justify-content-between align-items-center flex-wrap">
                                 <h6 class="mb-0">Facebook</h6>
-                                <a target="_blank" href="{{company.facebook}}" class="social"><i class="fab fa-facebook-f"></i></a>
+                                <a target="_blank" href="{{company.facebook}}"><i class="fab fa-facebook-f"></i></a>
                             </li>
                             <hr>
                             <li class="d-flex justify-content-between align-items-center flex-wrap">
                                 <h6 class="mb-0">LinkedIn</h6>
-                                <a target="_blank" href="{{company.linkedin}}" class="social"><i class="fab fa-linkedin-in"></i></a>
+                                <a target="_blank" href="{{company.linkedin}}"><i class="fab fa-linkedin-in"></i></a>
                             </li>
                             <hr>
                             <li class="d-flex justify-content-between align-items-center flex-wrap">
                                 <h6 class="mb-0">Instagram</h6>
-                                <a target="_blank" href="{{company.instagram}}" class="social"><i class="fab fa-instagram"></i></a>
+                                <a target="_blank" href="{{company.instagram}}"><i class="fab fa-instagram"></i></a>
                             </li>
 
                         </ul>
@@ -129,9 +132,8 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <a class="btn" href="{% url 'sotm:company_edit' company.id %}">Edit</a>
                                     <a class="btn" href="{% url 'sotm:add_position' company.id %}">Add Internships</a>
-                                    <a href="{% url 'sotm:create_position' company.id %}" class="btn">Create New Tag</a>
+                                    <a href="{% url 'sotm:create_position' company.id %}" class="btn">Create New Position</a>
                                 </div>
                             </div>
                             {% endif %}
@@ -139,7 +141,7 @@
                     </div>
 
 
-<!--                     <div class="row gutters-sm">
+                    <!--                     <div class="row gutters-sm">
                         {% if opportunities %}
                         {% for opportunity in opportunities %}
                         <div class="col-lg-6 mb-3">
@@ -177,26 +179,28 @@
             {% if opportunities %}
             <ul class="opp_list">
                 {% for opportunity in opportunities %}
-                <li class="col-sm-6 mb-2">
+                <li class="col-lg-6 mb-3">
                     <div class="card opp-cards h-100">
                         <div class="card-body">
-                            <h4 class="content-head">{{opportunity.position.name}}</h4>
-            
-                            <span>{{opportunity.description}}</span>
-            
+                            <h4 class="content-head">{{opportunity.name}} </h4>
+
+                            <span class="content mb-2">{{opportunity.description}}</span>
+
                             {% if user.is_authenticated %}
                             <br>
+                            {% if not is_owner %}
                             <a class="btn" href="{{opportunity.register_url}}">Register
                                 Here!</a>
+                            {% endif %}
                             <a class="btn" href="{% url 'sotm:view_opportunity' opportunity.id %}">View
                                 Details
                                 Here</a>
                             {% else %}
-                            <h6 class="mt-4">login to view more!</h6>
+                            <h6 class="mt-4 content-head">login to view more!</h6>
                             {% endif %}
-            
+
                             {% if is_owner %}
-                            <a class="btn" href="{% url 'sotm:edit_opportunity' company.id opportunity.id %}">Edit</a>
+                            <a class="btn" href="{% url 'sotm:edit_opportunity' company.id opportunity.id %}">Edit Internship</a>
                             {% endif %}
                         </div>
                     </div>

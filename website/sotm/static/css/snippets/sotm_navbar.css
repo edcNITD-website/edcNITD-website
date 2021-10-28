@@ -132,7 +132,9 @@
     position: fixed;
     justify-content: start;
     top: 95px;
-    background: rgba(0, 0, 0, 0.1);
+    /* background: rgba(0, 0, 0, 0.1); */
+    background-color: var(--clr-bg-light) 0.6 !important;
+    background-image: none;
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     width: 100%;

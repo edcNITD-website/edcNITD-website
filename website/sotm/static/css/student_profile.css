@@ -1,0 +1,78 @@
+
+.container{
+  user-select: none;
+  margin: 100px auto;
+  /* background: #231e39; */
+  color: #b3b8cd;
+  border-radius: 5px;
+  width: 350px;
+  text-align: center;
+  box-shadow: inset 0 0 40px rgba(90, 90, 90, 0.5);
+  font-family: Montserrat, sans-serif;
+}
+.cover-photo{
+  /* background-image: linear-gradient(to right, var(--clr-bg-dark), var(--clr-bg-light)); */
+  background-image: url(https://images.unsplash.com/photo-1498262257252-c282316270bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80);
+  height: 160px;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+.profile{
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  margin: 93px 0 0 -175px;
+  border: 1px solid var(--clr-bg-dark);
+  background: var(--clr-bg-light);
+}
+.profile-name{
+  font-size: 25px;
+  font-weight: bold;
+  margin: 27px 0 0 120px;
+  color: var(--theme-color);
+}
+.about{
+  margin-top: 35px;
+  line-height: 21px;
+}
+button{
+  margin: 10px 0 40px 0;
+}
+.msg-btn{
+  background: var(--theme-color);
+  color: var(--clr-bg-dark);
+}
+.msg-btn, .follow-btn{
+  color: var(--theme-color);
+  border: 1px solid var(--theme-color);
+  padding: 10px 25px;
+  color: var(--clr-bg-dark);
+  border-radius: 3px;
+  font-family: Montserrat, sans-serif;
+  cursor: pointer;
+}
+.msg-btn:hover{
+  background: transparent;
+  color: var(--theme-color);
+}
+.follow-btn{
+  margin-left: 10px;
+  background: transparent;
+  color: var(--theme-color);
+}
+.follow-btn:hover{
+  background: var(--theme-color);
+  color: var(--clr-bg-dark);
+  transition: .5s;
+}
+.container i{
+  padding-left: 20px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: .5s;
+  color: var(--theme-color);
+}
+.container i:hover{
+  color: white;
+}
