@@ -39,12 +39,15 @@
 }
 
 .active_position {
+  display: flex !important;
+  flex-wrap: wrap !important;
   text-align: center;
   margin: 1em auto;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 !important;
+  
 }
 
 .available {
@@ -56,6 +59,8 @@
   padding-left: 20px;
   width: 50%;
   min-width: 285px;
+  max-width: 400px;
+  margin: 10px;
   /* background-image: linear-gradient(
     to right,
     rgba(39, 39, 39, 0.582),
