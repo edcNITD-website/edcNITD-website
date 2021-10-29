@@ -10,6 +10,22 @@
   z-index: 12;
 }
 
+.grey-line{
+  border-top: #ddd 1px solid;
+  height: 1px;
+  width: 120px;
+  margin-left: calc(50% - 60px);
+  z-index: -1;
+  margin-top: -9px;
+}
+
+.coloured-line{
+  border-top:var(--theme-color) 3px solid;
+  width: 40px;
+  margin-left: calc(50% - 20px);
+  margin-top: -10px;
+}
+
 /* navigation *//* categories sidebar */
 .category-bar {
     position: fixed;
