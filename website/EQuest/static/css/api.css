@@ -8,7 +8,9 @@
     border-radius: 50%;
     border: 0;
     outline: 0;
-    
+    visibility: hidden;
+    margin-bottom: 45px;
+    padding-bottom: 0px;
       background: linear-gradient(135deg, var(--theme-color), var(--theme-color));  
        /* hsl(0, 100%, 30%), hsl(330, 100%, 40%)  */
     color: #fff;
@@ -35,7 +37,8 @@
     width: 200px;
     background: hsl(0, 40%, 95%);
     bottom: 100%;
-    right: 0;
+    /* right: 0; */
+    left: 0;
     padding: 8px;
     box-shadow: 0 0 1px 0 var(--theme-color),
       2px 3px 8px 2px var(--theme-color);
@@ -45,6 +48,7 @@
     visibility: hidden;
     transition: 0.3s;
     transform: translateY(10%);
+    transform: translateX(-30%);
   }
   
   #shareButton > .container:hover {
@@ -58,7 +62,7 @@
     transform: translateY(0);
   }
   
-  .addthis_inline_share_toolbox,
+  .addthis_inline_share_toolbox_x667,
   .addthis_sharing_toolbox {
     text-align: right;
   }

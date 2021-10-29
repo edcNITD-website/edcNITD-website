@@ -19,16 +19,23 @@
     @media screen and (max-width: 767px) {
     #shareButton {
       bottom: -4%;
-      right: 4%;
-      font-size: 1rem;
+      right: 80%;
+      font-size: 1.2rem;
+      visibility: visible;
     }
     #shareButton > .container {
-      width: 60px;
+      width: 212px;
+    }
+    #pDiv {
+      margin-top: 25px;
     }
   }
 @media screen and (min-width : 768px) and (max-width : 979px)  {
   #shareButton > .container {
       width: 215px;
+    }
+    #pDiv {
+      margin-top: 25px;
     }
 }
   </style>
@@ -96,8 +103,9 @@
         {%else%}
     
         {%endif%}
-      </div>  
-      <div class="col-md-7 text-center scrolling mx-auto" style="padding-left: 30px;">
+      </div>
+      
+      <div id="pDiv" class="col-md-7 text-center scrolling mx-auto" style="padding-left: 30px;">
         <p>
           {{post.content}}
         </p>
