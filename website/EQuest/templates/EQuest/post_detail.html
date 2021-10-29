@@ -9,28 +9,41 @@
   <!-- Team CSS file -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/page2.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/api.css' %}">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+ 
   
   <!-- css for API only -->
   <style>
-    #shareButton {
-      bottom: 8%; right: 4%; font-size: 1.5rem;
-    }
+    
     @media screen and (max-width: 767px) {
     #shareButton {
-      bottom: -4%;
-      right: 4%;
-      font-size: 1rem;
+      bottom: -7%;
+      right: 80%;
+      font-size: 1.2rem;
+      visibility: visible;
+      margin-bottom: 30px;
+   
+    }
+    #shareButton:hover {
+      box-shadow: 4px 6px 16px 4px var(--theme-color);
     }
     #shareButton > .container {
-      width: 60px;
+      width: 212px;
+    }
+    #pDiv {
+      margin-top: 25px;
     }
   }
-@media screen and (min-width : 768px) and (max-width : 979px)  {
-  #shareButton > .container {
-      width: 215px;
+
+/* @media screen and (max-width: 360px) {
+  #shareButton {
+    margin-bottom: 35px;
+    position: fixed;
+    visibility: visible;
+} 
+#shareButton:hover {
+      box-shadow: 4px 6px 16px 4px var(--theme-color);
     }
-}
+} */
   </style>
 
 
@@ -96,8 +109,9 @@
         {%else%}
     
         {%endif%}
-      </div>  
-      <div class="col-md-7 text-center scrolling mx-auto" style="padding-left: 30px;">
+      </div>
+      
+      <div id="pDiv" class="col-md-7 text-center scrolling mx-auto" style="padding-left: 30px;">
         <p>
           {{post.content}}
         </p>
@@ -106,8 +120,8 @@
       </div>
        <!-- adding api  -->
        <button id="shareButton" onclick="share(this)">
-        <i class="fas fa-share-alt"></i>
-        <i class="fas fa-times"></i>
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+        <i class="fa fa-times" aria-hidden="true"></i>
         <div class="container">
           <div class="addthis_inline_share_toolbox"></div>  <!-- addthis tools plugin class --> 
           
@@ -126,12 +140,12 @@
      
   
 
-  <link
+  <!-- <link
   rel="stylesheet"
   href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
   integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
   crossorigin="anonymous"
-  />
+  /> -->
   <link
   href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap"
   rel="stylesheet"

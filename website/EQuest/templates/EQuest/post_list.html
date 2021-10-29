@@ -9,20 +9,20 @@
   <!-- Team CSS file -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/Equest.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/api.css' %}">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-  
-  <!-- css for API only -->
-
   <style>
-
-  @media screen and (max-width: 480px) {
-    #shareButton {
-      right: 2%;
-      bottom : 2%;
-      font-size: 9.5px;
+    #contentP {
+      padding-left: 8px; padding-right: 8px;
+    }
+    @media screen and (max-width:479px) {
+      #contentP {
+      padding-left: 11px; padding-right: 11px;
     }
     }
   </style>
+  
+  <!-- css for API only -->
+
+  
 
 
   <!-- Team JS file and plugins -->
@@ -82,23 +82,12 @@
               <div class="content">
                 <h2 class="content-title">{{x.title}} </h2>
                 <h6 class="my-1">({{x.category}})</h6>
-                <p class="my-1">{{x.content|truncatewords_html:20}}</p>
+                <p id="contentP" class="my-1">{{x.content|truncatewords_html:20}}</p>
                 <a href="{{x.get_absolute_url}}" class="button">Read More</a>
               </div>
             </div>
-            <!-- adding api  -->
-            <button id="shareButton" onclick="share(this)">
-              <i class="fas fa-share-alt"></i>
-              <i class="fas fa-times"></i>
-              <div style="width: 160px;" class="container">
-                <div class="addthis_inline_share_toolbox_x667"></div>  <!-- addthis tools plugin class --> 
-                
-                <!--for old users of AddThis-->
-                <div class="addthis_sharing_toolbox"></div>
-              </div>
-              
-            </button>
-          <!-- end of api  --> 
+ 
+             
           </div>
         </div>
           {% endfor %}
