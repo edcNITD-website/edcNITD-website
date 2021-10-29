@@ -9,7 +9,7 @@
   <!-- Team CSS file -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/Equest.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/api.css' %}">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"> -->
   
   <!-- css for API only -->
 
@@ -86,12 +86,14 @@
                 <a href="{{x.get_absolute_url}}" class="button">Read More</a>
               </div>
             </div>
+ 
             <!-- adding api  -->
             <button id="shareButton" onclick="share(this)">
               <i class="fas fa-share-alt"></i>
               <i class="fas fa-times"></i>
               <div style="width: 160px;" class="container">
-                <div class="addthis_inline_share_toolbox_x667"></div>  <!-- addthis tools plugin class --> 
+                <div class="addthis_inline_share_toolbox_x667"></div> 
+                 <!-- addthis tools plugin class --> 
                 
                 <!--for old users of AddThis-->
                 <div class="addthis_sharing_toolbox"></div>

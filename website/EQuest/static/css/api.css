@@ -12,7 +12,7 @@
       background: linear-gradient(135deg, var(--theme-color), var(--theme-color));  
        /* hsl(0, 100%, 30%), hsl(330, 100%, 40%)  */
     color: #fff;
-    box-shadow: 2px 3px 8px 2px var(--theme-color); 
+    /* box-shadow: 2px 3px 8px 2px var(--theme-color);  */
     cursor: pointer;
     transition: 0.3s;
     -webkit-tap-highlight-color: transparent;
