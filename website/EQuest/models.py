@@ -14,12 +14,16 @@ class Category(models.Model):
         return self.name
     def get_absolute_url(self):
         return reverse('post:post_by_category',args=[self.slug])
+
+    class Meta:
+        verbose_name_plural = 'Category'
+
 class Post(models.Model):
     title=models.CharField(max_length=100)
     content=models.TextField()
     date=models.DateTimeField(default=timezone.now)
     category=models.ForeignKey(Category,on_delete=models.CASCADE)
-    image=models.ImageField(blank=True, upload_to=None,default=None)
+    image=models.ImageField(blank=True, upload_to='equest/',default=None)
     class Meta:
         ordering=('-date',)
         

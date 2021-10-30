@@ -78,7 +78,9 @@
       </li>
         {%for c in categories%}
         <li class="active text-center">
+          {%if c.posts_count %}
             <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{{c.get_absolute_url}}"><span>{{c.name}}({{c.posts_count}})</span></a></a>
+          {%endif%}  
         </li>
         {%endfor%}
   </ul>
@@ -100,6 +102,8 @@
     <br>
     <div class="row">
       <div class="col-10 mx-auto text-center"><h1 style="font-weight: 700; font-size: 2.5rem; color: var(--theme-color);">{{post.title}}</h1></div>
+      <div class="grey-line"></div>
+      <div class="coloured-line"></div>
     </div>
   
     <div class="row">
