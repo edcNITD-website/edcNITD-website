@@ -34,7 +34,7 @@
 <!-- body  -->
  <!-- sidebar menu -->
 
- <div class="category-bar">
+ <div id="myP" class="category-bar">
       
   <h5 class="ct-title">CATEGORIES</h5>
   <ul>
@@ -84,12 +84,13 @@
               <div class="content">
                 <h2 class="content-title">{{x.title}} </h2>
                 <h6 class="my-1">({{x.category}})</h6>
-                <p id="contentP" class="my-1">{{x.content|truncatewords_html:20}}</p>
+                <p id="contentP" class="my-1">{{x.content|slice:85}}</p>
                 <a href="{{x.get_absolute_url}}" class="button">Read More</a>
               </div>
             </div>
  
              
+
           </div>
         </div>
           {% endfor %}
@@ -111,6 +112,7 @@
 <!-- Core theme JS-->
 <!-- <script defer type="text/javascript" src="{% static 'js/Equest.js' %}"></script> -->
 <script defer type="text/javascript" src="{% static 'js/api.js' %}"></script>
+
   
 
 {% endblock %}

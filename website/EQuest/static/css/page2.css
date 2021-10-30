@@ -28,8 +28,8 @@
 
 /* navigation *//* categories sidebar */
 .category-bar {
-    position: fixed;
-    z-index: 11;
+    position: absolute;
+    z-index: 13;
     left: -16em;
     top: 0;
     margin-top: 100px;
@@ -90,7 +90,8 @@
     width: 14em;
     list-style-type: none;
     margin: 0;
-    padding: 1em;
+    padding: 0em;
+    
   }
   
   .category-bar a:link,
