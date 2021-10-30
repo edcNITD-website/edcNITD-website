@@ -78,7 +78,9 @@
       </li>
         {%for c in categories%}
         <li class="active text-center">
+          {%if c.posts_count %}
             <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{{c.get_absolute_url}}"><span>{{c.name}}({{c.posts_count}})</span></a></a>
+          {%endif%}  
         </li>
         {%endfor%}
   </ul>
