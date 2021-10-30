@@ -12,39 +12,7 @@
  
   
   <!-- css for API only -->
-  <style>
-    
-    @media screen and (max-width: 767px) {
-    #shareButton {
-      bottom: -7%;
-      right: 80%;
-      font-size: 1.2rem;
-      left: 0;
-      margin-bottom: 30px;
-   
-    }
-    #shareButton:hover {
-      box-shadow: 4px 6px 16px 4px var(--theme-color);
-    }
-    #shareButton > .container {
-      width: 212px;
-    }
-    #pDiv {
-      margin-top: 25px;
-    }
-  }
-
-/* @media screen and (max-width: 360px) {
-  #shareButton {
-    margin-bottom: 35px;
-    position: fixed;
-    visibility: visible;
-} 
-#shareButton:hover {
-      box-shadow: 4px 6px 16px 4px var(--theme-color);
-    }
-} */
-  </style>
+  
 
 
   <!-- Team JS file and plugins -->
@@ -58,7 +26,7 @@
 
   <!-- title -->
   
-  <div class="container" style="padding-top: 0px;">
+  
 
 
 
@@ -67,7 +35,7 @@
   
      <!-- menu -->
  
-     <div class="category-bar">
+<div class="category-bar">
       
       <h5 class="ct-title">CATEGORIES</h5>
       <ul>
@@ -90,7 +58,7 @@
 
           
       
-<div class="article">
+<div class="article container" style="padding-top: 0px;">
 
 <br>
 <br>
@@ -100,7 +68,7 @@
   </div>
  
     <br>
-    <div class="row">
+    <div class="row my-3">
       <div class="col-10 mx-auto text-center"><h1 style="font-weight: 700; font-size: 2.5rem; color: var(--theme-color);">{{post.title}}</h1></div>
       <div class="grey-line"></div>
       <div class="coloured-line"></div>
@@ -109,7 +77,7 @@
     <div class="row">
       <div class="col-md-5 mx-auto" style="padding-left: 30px;">
         {%if post.image%}
-        <img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180" src="{{post.image.url}}" data-holder-rendered="true" style="height: auto; width: 100%; display: block;">
+        <img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180" src="{{post.image.url}}" data-holder-rendered="true" style="height: 100%; width: 100%; display: block;">
         {%else%}
     
         {%endif%}
@@ -122,24 +90,12 @@
         
         
       </div>
-       <!-- adding api  -->
-       <button id="shareButton" onclick="share(this)">
-        <i class="fa fa-share-alt" aria-hidden="true"></i>
-        <i class="fa fa-times" aria-hidden="true"></i>
-        <div class="container">
-          <div class="addthis_inline_share_toolbox"></div>  <!-- addthis tools plugin class --> 
-          
-          <!--for old users of AddThis-->
-          <div class="addthis_sharing_toolbox"></div>
-        </div>
-        
-      </button>
-    <!-- end of api  -->
+       
       </div>
     </div>
 
 
-    </div>
+    
 
      
   
