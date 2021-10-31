@@ -24,8 +24,8 @@ class Post(models.Model):
     date=models.DateTimeField(default=timezone.now)
     category=models.ForeignKey(Category,on_delete=models.CASCADE)
     image=models.ImageField(blank=True, upload_to='equest/',default=None)
-    # fblink=models.URLField(blank=True,default=None)
-    # instalink=models.URLField(blank=True,default=None)
+    fblink=models.URLField(blank=True,default=None)
+    instalink=models.URLField(blank=True,default=None)
     class Meta:
         ordering=('-date',)
         
