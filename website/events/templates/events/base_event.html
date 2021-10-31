@@ -84,16 +84,17 @@
 
                   <li {%if request.resolver_match.url_name == 'event_page' %}class="active" {% endif %}><a
                       href="{% url 'event_page' %}">Event Registrations</a></li>
-
-                      <li {%if request.resolver_match.url_name == 'EQuest' %}class="active"{% endif %}><a href="{% url 'post:post_list' %}">E-Quest</a></li>   
-
+                      
+                      
+                      <li {%if request.resolver_match.url_name  == 'post_list' or request.resolver_match.url_name  == 'post_detail' %}  class="active"{% endif %}><a href="{% url 'post:post_list' %}">E-Quest</a></li>  
+                      
                   <!--<li {%if request.resolver_match.url_name == 'innovationcell_page' %}class="active"{% endif %}><a href="{% url 'innovationcell_page' %}">Innovation Cell</a></li>-->
 
                   <li {%if request.resolver_match.url_name == 'team_page' %}class="active" {% endif %}><a
                       href="{% url 'team_page' %}">Our Team</a></li>
                   
 
-                  <li><a href="https://nitdgp.ac.in/iic/">IIC</a></li>
+                  <li><a href="https://nitdgp.ac.in/iic/" target="_blank">IIC</a></li>
                   <!--<li><a href="#footer">Contact Us</a></li>-->
 
                 </ul>
@@ -195,7 +196,7 @@
 
               <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'team_page' %}">Our Team</a></li>
 
-              <li><i class="ion-ios-arrow-right"></i> <a href="https://nitdgp.ac.in/iic/">IIC</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="https://nitdgp.ac.in/iic/" target="_blank">IIC</a></li>
             </ul>
 
           </div>
