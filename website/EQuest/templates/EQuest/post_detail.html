@@ -63,9 +63,10 @@
 <br>
 <br>
       <!-- back button -->
-  <div onclick="window.history.go(-1)" class="back-btn">
+  <!-- <div onclick="window.history.go(-1)" class="back-btn">
     <i class="fa fa-arrow-left" aria-hidden="true"><span> BACK</span></i>
-  </div>
+  </div> -->
+  <div onclick="window.history.go(-1)" class="back-btn"><div class="bk-btn-triangle"></div><div class="bk-btn-bar"></div></div>
  
     <br>
     <div class="row my-3">
@@ -75,7 +76,7 @@
     </div>
   
     <div class="row">
-      <div class="col-md-5 mx-auto" style="padding-left: 30px;">
+      <div class="col-md-5 mx-auto" style="padding-left: 30px; height: 65vh;">
         {%if post.image%}
         <img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180" src="{{post.image.url}}" data-holder-rendered="true" style="height: 100%; width: 100%; display: block;">
         {%else%}
@@ -93,7 +94,7 @@
        
       </div>
     </div>
-
+   
 
     
 
