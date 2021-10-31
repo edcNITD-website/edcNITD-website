@@ -9,16 +9,7 @@
   <!-- Team CSS file -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/Equest.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/api.css' %}">
-  <style>
-    #contentP {
-      padding-left: 8px; padding-right: 8px;
-    }
-    @media screen and (max-width:479px) {
-      #contentP {
-      padding-left: 11px; padding-right: 11px;
-    }
-    }
-  </style>
+  
   
   <!-- css for API only -->
 
@@ -33,7 +24,7 @@
 
 <!-- body  -->
  <!-- sidebar menu -->
-
+  
  <div id="myP" class="category-bar">
       
   <h5 class="ct-title">CATEGORIES</h5>
@@ -50,6 +41,7 @@
     {%endfor%}
 </ul>
 </div>
+
 
 
 
@@ -84,8 +76,8 @@
               <div class="content">
                 <h2 class="content-title">{{x.title}} </h2>
                 <h6 class="my-1">({{x.category}})</h6>
-                <p id="contentP" class="my-1">{{x.content|slice:85}}</p>
-                <a href="{{x.get_absolute_url}}" class="button">Read More</a>
+                <p id="contentP" class="my-1">{{x.content|slice:85}}...</p>
+                <a href="{{x.get_absolute_url}}" style="transform: translateY(2);" class="button">Read More</a>
               </div>
             </div>
  
@@ -112,6 +104,7 @@
 <!-- Core theme JS-->
 <!-- <script defer type="text/javascript" src="{% static 'js/Equest.js' %}"></script> -->
 <script defer type="text/javascript" src="{% static 'js/api.js' %}"></script>
+
 
   
 
