@@ -42,9 +42,11 @@
   }
   
   .ct-title{
+    
     text-align: center;
     color: var(--theme-color);
     padding: 2rem;
+    padding-bottom: 0.7rem !important;
     font-weight: bold;
   }
   .article
