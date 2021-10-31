@@ -147,26 +147,22 @@
   .back-btn{
     position: absolute;
     margin-left: 0.8rem;
-    /* color: rgba(0, 0, 0, 0.7); */
+    color: var(--theme-color);
     cursor: pointer;
     transition: 0.3s ease-in-out;
     font-family: 'Roboto', sans-serif;
-    font-size: 0.8rem;
-    height: 45px;
-  width: 45px;
-  background-color: var(--theme-color);
-  opacity: 0.9;
-  border-radius: 50%;
-  margin-top: 10px;
+    font-size: 1rem;
+    padding-top: 1rem;
+    
   }
   .back-btn:hover{
     transform: scale(1.2);
     opacity: 1;
-    box-shadow: var(--theme-color);
+    /* box-shadow: var(--theme-color); */
   }
   @media (min-width: 768px) {
     .back-btn{
-      padding-top: 0rem;
+      padding-top: 1rem;
     }
     .scrolling{
       height: 65vh;
@@ -174,24 +170,7 @@
   }
   }
   
-  .back-btn .bk-btn-triangle {
-    position: relative;
-    top: 10px;
-    left: 8.4px;
-    width: 0;
-    height: 0;
-    border-top: 13px solid transparent;
-    border-bottom: 13px solid transparent;
-    border-right: 13px solid white;
-  }
-  .back-btn .bk-btn-bar {
-    position: relative;
-    background-color: white;
-    height: 8.8px;
-    width: 13px;
-    top: -6.64px;
-    left: 20.88px;
-  }
+ 
 
   /* view button */
   .share {
@@ -214,12 +193,12 @@
      transition: opacity 0.3s ease-in-out;
      pointer-events: none;
    }
-   @media (max-width:769px) {
+   /* @media (max-width:769px) {
      .share span{
        transform: translateX(-25%);
 
      }
-   }
+   } */
  
    .share a {
      line-height: 40px;
@@ -240,10 +219,14 @@
      
    }
    .share a:nth-child(1):hover {
-     background-color: #8a3ab9;
+     transform: scale(1.2);
+     background-color: var(--theme-color);
+     color: white;
    }
    .share a:nth-child(2):hover {
-     background-color: #4267B2;
+    transform: scale(1.2);
+    background-color: var(--theme-color);
+     color: white;
    }
    .share a:nth-child(3):hover {
      background-color: #ea4335;
@@ -267,4 +250,8 @@
      font-size: 20px;
      visibility: visible;
    }
- 
+  @media screen and (max-width: 767) {
+    #pDiv {
+      margin-top: 2px;
+    }
+  }

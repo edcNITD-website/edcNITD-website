@@ -63,10 +63,10 @@
 <br>
 <br>
       <!-- back button -->
-  <!-- <div onclick="window.history.go(-1)" class="back-btn">
+  <div onclick="window.history.go(-1)" class="back-btn">
     <i class="fa fa-arrow-left" aria-hidden="true"><span> BACK</span></i>
-  </div> -->
-  <div onclick="window.history.go(-1)" class="back-btn"><div class="bk-btn-triangle"></div><div class="bk-btn-bar"></div></div>
+  </div>
+  <!-- <div onclick="window.history.go(-1)" class="back-btn"><div class="bk-btn-triangle"></div><div class="bk-btn-bar"></div></div> -->
  
     <br>
     <div class="row my-3">
@@ -111,9 +111,9 @@
           <div class="share">
             <span >Share</span>
             <nav>
-              <a href="#"><i class="fa fa-instagram"></i></a>
-              <a href="#"><i class="fa fa-facebook"></i></a>
-         
+              <a href="whatsapp://send?text=This is WhatsApp sharing example using link" 		data-action="share/whatsapp/share" 
+              target="_blank"><i class="fa fa-whatsapp"></i></a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank"><i class="fa fa-facebook"></i></a>
             </nav>
           </div>
         </div>
@@ -149,7 +149,7 @@
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
             <!-- Core theme JS-->
         
-            <script defer type="text/javascript" src="{% static 'js/api.js' %}"></script>
+            <!-- <script defer type="text/javascript" src="{% static 'js/api.js' %}"></script> -->
   
 
 {% endblock %}
