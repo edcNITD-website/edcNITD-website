@@ -7,7 +7,7 @@
 <section class="container internships">
     {% if companies %}
     <center>
-    <h2><span id="internship-header">{{active_pos}}</span>&nbsp;Internships</h2>
+    <h2 id="internship-header">{{active_pos}}</h2>
     </center>
     <br>
     <center><ul class="filter flex">
@@ -37,12 +37,11 @@
         {% if position == active_position %}
         <ul id="{{position}}_opportunities" class="active_position position_opp">
             {% for opportunity in opportunities %}
-
             <li class="available">
-                <h3>{{opportunity.name}}</h3>
-                <h4>at <span>{{opportunity.company}}</span></h4>
+                <h1>{{opportunity.name}}</h1>
+                <h6>at <span>{{opportunity.company}}</span></h6>
                 <br>
-                <a href="{% url 'sotm:view_opportunity' opportunity.id %}">View more</a>
+                <button><a class="view-more" href="{% url 'sotm:view_opportunity' opportunity.id %}">View more</a></button>
             </li>
             <br>
             {% endfor %}
@@ -52,8 +51,8 @@
             {% for opportunity in opportunities %}
 
             <li class="available">
-                <h3>{{opportunity.name}}</h3>
-                <h4>at <span>{{opportunity.company}}</span></h4>
+                <h1>{{opportunity.name}}</h1>
+                <h6>at <span>{{opportunity.company}}</span></h6>
                 <br>
                 <a href="{% url 'sotm:view_opportunity' opportunity.id %}">View more</a>
             </li>

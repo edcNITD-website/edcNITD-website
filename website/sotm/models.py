@@ -11,6 +11,13 @@ from django.utils.crypto import get_random_string
 # Create your models here.
 
 
+class AboutSec(models.Model):
+    heading = models.CharField('About-Heading', max_length=200)
+    content = models.TextField()
+
+    def __str__(self) -> str:
+        return self.heading
+
 class FAQ(models.Model):
     question = models.CharField('Question', max_length=200)
     answer = models.TextField()
@@ -54,7 +61,7 @@ class Company(models.Model):
     def new_registeration(self):
         # todo send email to edc regarding new registeration by the company
         send_mail(
-            subject="A new company has registered! Their name is "+self.company_name
+            subject="A new company has registered! Their name is "+self.company_name,
             message="Congratulations a new company has registered for SOTM, Its name is "+self.company_name+". Their email id is "+self.user.email + " Their phone number is "+self.company_phone+". Please verify the company and make the change to backend.",
             from_email=settings.EMAIL_HOST_USER,
             recipient_list=["mma.20u10180@btech.nitdgp.ac.in"],

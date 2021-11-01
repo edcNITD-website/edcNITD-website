@@ -40,6 +40,18 @@ body {
   scrollbar-width: none;  /* Firefox */
 }
 /* no scroll bar ended*/
+
+body ::-moz-selection {
+    /* Code for Firefox */
+    color: white;
+    background-color: var(--theme-color);
+}
+
+body ::selection {
+    color: white;
+    background-color: var(--theme-color);
+}
+
 .message-list{
     display: flex;
     flex-direction: column;
