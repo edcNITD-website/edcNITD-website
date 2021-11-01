@@ -12,6 +12,7 @@ from django.contrib import messages
 
 def sotm_home(request):
     context = {}
+    context['about'] = AboutSec.objects.all()
     context['hero_faqs'] = FAQ.objects.filter(is_hero=True)
     context['normal_faqs'] = FAQ.objects.filter(is_hero=False)
     verified_companies = Company.objects.filter(verified=True)

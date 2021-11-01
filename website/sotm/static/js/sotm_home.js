@@ -1,3 +1,20 @@
+//about
+function toggleSubAbout(element) {
+  id = element.id;
+  let content_element = document.getElementById(id + "-content");
+  let heading_element = document.getElementById(id + "-heading");
+  let sub_about_element = document.getElementById(id + "-sub_about");
+  if (element.innerHTML == "+") {
+    element.innerHTML = "-";
+  } else {
+    element.innerHTML = "+";
+  }
+  content_element.classList.toggle("active");
+  heading_element.classList.toggle("active");
+  sub_about_element.classList.toggle("active");
+}
+
+
 // faq
 function toggleAnswer(element) {
   let id = element.id;

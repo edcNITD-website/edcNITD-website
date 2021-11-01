@@ -50,7 +50,7 @@
                 <div class="container-about-content">
                     <div class="heading-about">
                         <span>
-                            <h1>About SOTM</h1>
+                            About SOTM
                         </span>
                     </div>
                     <div class="about-content">
@@ -70,61 +70,28 @@
             <!-- sub headings to about us -->
             <div class="col-sm-7">
                 <div class="timeline">
-                    <div class="timeline__event  animated fadeInUp delay-3s timeline__event--type1">
-
-                        <div class="timeline__event__content ">
-                            <div class="timeline__event__title">
-                                Who We Are?
-                            </div>
-                            <div class="timeline__event__description">
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut
-                                    aliquam ab
-                                    asperiores, accusamus iure veniam corporis incidunt reprehenderit accusantium id aut
-                                    architecto
-                                    harum quidem dolorem in!</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline__event animated fadeInUp delay-2s timeline__event--type2">
-
-                        <div class="timeline__event__content">
-                            <div class="timeline__event__title">
-                                What We Provide?
-                            </div>
-                            <div class="timeline__event__description">
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut
-                                    aliquam ab
-                                    asperiores, accusamus iure veniam corporis incidunt reprehenderit accusantium id aut
-                                    architecto
-                                    harum quidem dolorem in!</p>
-                            </div>
-                        </div>
-
-                </div>
-                    <div class="timeline__event animated fadeInUp delay-1s timeline__event--type3">
-                        <div class="timeline__event__content">
-                            <div class="timeline__event__title">
-                                Our vision
-                            </div>
-                            <div class="timeline__event__description">
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut
-                                    aliquam ab
-                                    asperiores, accusamus iure veniam corporis incidunt reprehenderit accusantium id aut
-                                    architecto
-                                    harum quidem dolorem in!</p>
-                            </div>
-                        </div>
-                    </div>
+                    {% for sub_about in about %}
+                    <li class="timeline__event" id="{{sub_about.id}}-sub_about">
+                        <ul class="timeline__event__content" id="{{sub_about.id}}-heading"  >
+                            <li class="timeline__event__title">
+                                {{ sub_about.heading }}
+                            </li>
+                            <li><button onclick="toggleSubAbout(this)" id="{{sub_about.id}}">-</button></li>
+                        </ul>
+                        <p class="timeline__event__description" id="{{sub_about.id}}-content" >{{ sub_about.content }}</p>
+                    </li>
+                    {% endfor %}
                   </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
+<br><br><br>
 <!-- ABOUT US SECTION ENDED -->
 
 <!-- internships ADDED -->
+
 <section id="internships" class="section-bg">
 
   <div class="container" data-aos="fade-up">
@@ -136,7 +103,7 @@
     </header>
 
     <div class="owl-carousel internships-carousel">
-
+    
       {% for opp in all_opportunities %}  
 
         <div class="testimonial-item">
@@ -163,7 +130,7 @@
 
   </div>
 </section> 
-
+<br><br><br>
     <!-- ======= End Speakers Section ======= -->
 
 <!-- INTERNSHIPS-VIEW STARTED -->
@@ -172,6 +139,7 @@
 <!-- INTERNSHIPS VIEW ADDED -->
 
 <!-- FAQs -->
+
 <section class="faqs">
     {% if hero_faqs or normal_faqs %}
     <center>
@@ -182,7 +150,7 @@
         <li class="faq active" id="{{faq.id}}-faq">
             <ul class="question active" id="{{faq.id}}-question">
                 <li>
-                    <h3>‣ {{faq.question}}</h3>
+                    <h3>‣{{faq.question}}</h3>
                 </li>
                 <li><button onclick="toggleAnswer(this)" id="{{faq.id}}">-</button></li>
             </ul>
