@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,100&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,100&family=Roboto:ital,wght@0,400;1,300&display=swap');
+
+.container{
+  text-align: center;
+  justify-items: center;
+  padding-top: 20px;
+  padding-left: 30px;
+} 
+
+
+  .team-title{
+    font-size: 45px;
+    margin-top: 50px;
+    color: var(--theme-color);
+    font-weight: 700;
+}
+
+.grey-line{
+    border-top: #ddd 1px solid;
+    height: 1px;
+    width: 120px;
+    margin-left: calc(50% - 60px);
+    z-index: -1;
+}
+
+.coloured-line{
+    border-top:var(--theme-color) 3px solid;
+    width: 40px;
+    margin-left: calc(50% - 20px);
+    margin-top: -2px;
+}
+  
+ /*card css */
+  .card {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  min-height: 7vh;
+  height: auto;
+  background: #fff;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.card .imgBx {
+  object-fit: cover;
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  float: left;
+}
+.card .imgBx img {
+  
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.card .details {
+  position: relative;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  box-sizing: border-box;
+  float: right;
+  justify-content: center;
+  align-items: center;
+}
+.card .details .content {
+  padding: 0.5rem 0.1rem;
+  box-sizing: border-box;
+}
+.card .details .content h2 {
+  color: var(--theme-color);
+  margin: 0;
+  padding: 0;
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  line-height: 0.85em;
+  font-weight: 600;
+}
+.card .details .content h6 {
+  font-family: 'Roboto', sans-serif;
+  text-transform: capitalize;
+  font-size: 0.6rem;
+}
+
+.card .details .content p {
+  font-size: 0.6rem;
+  padding-bottom: 5px;
+}
+
+.card .details .content a {
+  background-color: var(--theme-color);
+  font-size: 0.6rem;
+  display: inline-block;
+  text-decoration: none;
+  padding: 3px 7px;
+  border: 2px solid var(--theme-color);
+  color: white;
+  font-weight: 500;
+  z-index: 2;
+}
+.card .details .content a:hover {
+  background: #fff;
+  color: var(--theme-color);
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .card {
+    height: 20vh;
+  }
+  .card .details .content a{
+    position: absolute;
+    display: flex;
+    left: 33%;
+    bottom: 5%;
+  }
+}
+
+@media (min-width: 991px) {
+  .card {
+    height: 22vh;
+  }
+  /* .button {
+    position: calc(100%-20vh);
+  } */
+  .card .details .content a{
+    position: absolute;
+    display: flex;
+    left: 33%;
+    bottom: 5%;
+  }
+}
+/* @media (max-width: 1200px) {
+  .card {
+    width: 100%;
+  }
+}
+ 
+ @media (max-width: 768px) {
+  .card {
+    width: 100%;
+    
+  }
+  .card .imgBx {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  .card .details {
+    position: relative;
+    width: 100%;
+    height: 180px;
+  }
+}*/
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+    }
+    .card .imgBx {
+      position: relative;
+      width: 100%;
+      
+      
+    }  
+    .card .details{
+      width: 100%;
+      
+    }
+ 
+} 
+#footer{
+  position: relative;
+  z-index: 12;
+}
+.back-to-top{
+  z-index: 12;
+}
+
+/* navigation *//* categories sidebar */
+
+
+.category-bar {
+  z-index: 11;
+  position: fixed;
+  left: -16em;
+  top: 100px;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.9) ;
+  border-right: 50px solid rgba(0,0,0,0.1);
+  box-shadow: 4px 0 5px rgba(0,0,0,0.2);
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  
+}
+
+
+
+.ct-title{
+  
+  text-align: center;
+  color: var(--theme-color);
+  padding: 2rem;
+  padding-bottom: 0.7rem !important;
+  font-weight: bold;
+}
+.article
+{
+	z-index: 0;
+	-webkit-transform-origin: 0 50%;
+	-moz-transform-origin: 0 50%;
+	-ms-transform-origin: 0 50%;
+	-o-transform-origin: 0 50%;
+	transform-origin: 0 50%;
+}
+
+
+.article:after
+{
+	position: absolute;
+	content: ' ';
+	left: 100%;
+	top: 0;
+	right: 0;
+	bottom: 0;
+/*	background-image: -webkit-linear-gradient(right, rgba(0,0,0,0.2) 0%, transparent 100%);
+	background-image: -moz-linear-gradient(right, rgba(0,0,0,0.2) 0%, transparent 100%);
+	background-image: -ms-linear-gradient(right, rgba(0,0,0,0.2) 0%, transparent 100%);
+	background-image: -o-linear-gradient(right, rgba(0,0,0,0.2) 0%, transparent 100%);
+	background-image: linear-gradient(right, rgba(0,0,0,0.2) 0%, transparent 100%);
+	pointer-events: none;*/
+}
+
+.category-bar:after {
+  position: absolute;
+  content: " ";
+  width: 0;
+  height: 0;
+  right: -70px;
+  top: 50%;
+  border-width: 15px 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent rgba(0,0,0,0.9);
+}
+
+
+
+.category-bar ul {
+  width: 14em;
+  list-style-type: none;
+  margin: 0;
+  padding: 0em;
+  
+}
+
+.category-bar a:link,
+.category-bar a:visited {
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  line-height: 2.5em;
+  text-indent: 10px;
+  text-decoration: none;
+  color: var(--theme-color);
+  border-radius: 4px;
+  outline: 0 none;
+  text-transform: uppercase;
+}
+
+.category-bar a:hover,
+.category-bar a:focus {
+  color: #fff;
+  background-color: darken(#bada55, 20%);
+  text-shadow: 0 0 4px #fff;
+  box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.article,
+.article:after,
+.category-bar,
+.category-bar * {
+  -webkit-transition: all 600ms ease;
+  -moz-transition: all 600ms ease;
+  -ms-transition: all 600ms ease;
+  -o-transition: all 600ms ease;
+  transition: all 600ms ease;
+}
+
+.category-bar:hover {
+  left: 0;
+}
+
+.category-bar:hover ~ .article {
+  -webkit-transform: translateX(16em) perspective(600px) rotateY(10deg);
+  -moz-transform: translateX(16em) perspective(600px) rotateY(10deg);
+  -ms-transform: translateX(16em) perspective(600px) rotateY(10deg);
+  -o-transform: translateX(16em) perspective(600px) rotateY(10deg);
+  transform: translateX(16em) perspective(600px) rotateY(10deg);
+}
+
+.category-bar:hover ~ .article:after {
+  left: 60%;
+}
+
+#contentP {
+  padding-left: 8px; padding-right: 8px;
+  padding-top: 10px;
+}
+@media screen and (max-width:479px) {
+  #contentP {
+  padding-left: 11px; padding-right: 11px;
+}
+}
+
+
