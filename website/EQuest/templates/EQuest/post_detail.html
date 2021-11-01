@@ -76,7 +76,7 @@
     </div>
   
     <div class="row">
-      <div class="col-md-5 mx-auto" style="padding-left: 30px; height: 65vh;">
+      <div id="mobI" class="col-md-5 mx-auto" style="padding-left: 30px;">
         {%if post.image%}
         <img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180" src="{{post.image.url}}" data-holder-rendered="true" style="height: 100%; width: 100%; display: block;">
         {%else%}
@@ -85,7 +85,7 @@
       </div>
       
       <div id="pDiv" class="col-md-7 text-center scrolling mx-auto" style="padding-left: 30px;">
-        <p>
+        <p id="mobP" >
           {{post.content}}
         </p>
         

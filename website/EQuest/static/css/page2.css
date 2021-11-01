@@ -162,7 +162,7 @@
     opacity: 1;
     /* box-shadow: var(--theme-color); */
   }
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     .back-btn{
       padding-top: 1rem;
     }
@@ -195,12 +195,7 @@
      transition: opacity 0.3s ease-in-out;
      pointer-events: none;
    }
-   /* @media (max-width:769px) {
-     .share span{
-       transform: translateX(-25%);
-
-     }
-   } */
+   
  
    .share a {
      line-height: 40px;
@@ -252,8 +247,20 @@
      font-size: 20px;
      visibility: visible;
    }
-  @media screen and (max-width: 767) {
+  
+  #mobI {
+    height: 65vh;
+  }
+  @media (max-width:767px) {
+    
     #pDiv {
       margin-top: 2px;
     }
-  }
+    #mobP {
+      padding-top: 10px;
+    }
+    #mobI {
+      height: 59vh;
+    }
+  
+ }
