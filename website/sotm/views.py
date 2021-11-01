@@ -236,8 +236,8 @@ def internships(request):
     positions_dic['All_dsc'] = all_opportunities
     positions_dic['All_asc'] = list(reversed(all_opportunities))
     context['positions_dic'] = positions_dic
-    context['active_position'] = all_positions.first().name+'_asc'
-    context['active_pos'] = all_positions.first().name
+    context['active_position'] = 'All_asc'
+    context['active_pos'] = 'All'
     return render(request, 'sotm/internships.html', context)
 
 

@@ -10,6 +10,11 @@ from django.utils.crypto import get_random_string
 
 # Create your models here.
 
+def urlChecker(url_string) ->str:
+    if 'https://' not in url_string:
+        url_string = "https://"+url_string
+    return url_string
+
 
 class AboutSec(models.Model):
     heading = models.CharField('About-Heading', max_length=200)
@@ -87,6 +92,12 @@ class Company(models.Model):
         opportunities = Opportunity.objects.filter(company=self)
         return opportunities
 
+    def save(self):
+        self.facebook = urlChecker(self.facebook)
+        self.linkedin = urlChecker(self.linkedin)
+        self.website = urlChecker(self.website)
+        self.instagram = urlChecker(self.instagram)
+        super(Company, self).save()
 
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -102,6 +113,11 @@ class Student(models.Model):
     def __str__(self) -> str:
         return self.user.username
 
+    def save(self):
+        self.facebook = urlChecker(self.facebook)
+        self.linkedin = urlChecker(self.linkedin)
+        self.instagram = urlChecker(self.instagram)
+        super(Student, self).save()
 
 class Opportunity(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)

@@ -7,18 +7,18 @@
 <section class="container internships">
     {% if companies %}
     <center>
-    <h2 ><span id="internship-header">{{active_pos}}</span> Internships</h2>
+    <h2 id="internship_header"><span id="internship-header">{{active_pos}}</span> Internships</h2>
     </center>
     <br>
     <center><ul class="filter flex">
         <li>
             <label id="internships-position" for="position-filter">Internship Tags</label> <br>
             <select name="position-filter" id="position-filter">
+                <option value="All">All</option>
                 {% for position in positions %}
                 <option value="{{position}}">{{position}}
                 </option>
                 {% endfor %}
-                <option value="All">All</option>
             </select></li>
         <li>
 
