@@ -5,7 +5,6 @@
 
 
 
-
   <!-- Team CSS file -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/page2.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/api.css' %}">
@@ -111,9 +110,9 @@
           <div class="share">
             <span >Share</span>
             <nav>
-              <a href="whatsapp://send?text=This is WhatsApp sharing example using link" 		data-action="share/whatsapp/share" 
+              <a href="whatsapp://send?text=https://www.edcnitd.co.in{{post.get_absolute_url}}" 
               target="_blank"><i class="fa fa-whatsapp"></i></a>
-              <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank"><i class="fa fa-facebook"></i></a>
+              <a href="https://www.facebook.com/sharer.php?u=https://www.edcnitd.co.in{{post.get_absolute_url}}" target="_blank"><i class="fa fa-facebook"></i></a>
             </nav>
           </div>
         </div>
