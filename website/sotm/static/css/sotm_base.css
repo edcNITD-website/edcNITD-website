@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+
+:root {
+    --clr-bg-dark: #232931;
+    --theme-color: #4ECCA3;
+    --clr-text-light: #eee;
+    --clr-bg-light: #393e46;
+    --clr-bg-light-50 : hsl(217, 10%, 35%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--clr-bg-dark);
+    color: white;
+}
+
+/*no scroll-bar*/
+body
+{
+    overflow-y: scroll;
+    cursor: context-menu;
+    box-sizing: border-box;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+/* no scroll bar ended*/
+
+body ::-moz-selection {
+    /* Code for Firefox */
+    color: white;
+    background-color: var(--theme-color);
+}
+
+body ::selection {
+    color: white;
+    background-color: var(--theme-color);
+}
+
+.message-list{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    margin: 0.5rem auto;
+}
+.message-list li{
+    width: 90%;
+    max-width: 500px;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    color: rgb(255, 230, 230);
+    background-color: rgba(154, 163, 162, 0.363);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.message-list li.error{
+    background-color: rgba(163, 61, 61, 0.363);
+}
+.message-list li.info{
+    background-color: rgba(158, 158, 158, 0.363);
+}
+.message-list li.success{
+    background-color: rgba(59, 163, 41, 0.363);
+}
+.remove-btn{
+    margin: auto;
+}
+.remove-btn button{
+    margin: auto 0px;
+    padding: 0.275rem;
+    background-color: rgb(255, 230, 230);
+    border: none;
+    outline: none;
+    border-radius: 0.25rem;
+}

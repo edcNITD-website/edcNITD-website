@@ -25,6 +25,7 @@ urlpatterns = [
     path('esummit/',include('esummit.urls')),
     path('team/',include('team.urls')),
     path('web_team/',include('web_team.urls')),
+    path('sotm/',include('sotm.urls')),
     path('innovationcell/',include('innovationcell.urls')),
     path('EQuest/',include(('EQuest.urls'),namespace='post')),
 ]
