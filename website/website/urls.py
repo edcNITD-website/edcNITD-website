@@ -27,6 +27,7 @@ urlpatterns = [
     path('web_team/',include('web_team.urls')),
     path('sotm/',include('sotm.urls')),
     path('innovationcell/',include('innovationcell.urls')),
+    path('EQuest/',include(('EQuest.urls'),namespace='post')),
 ]
 
 if settings.DEBUG:

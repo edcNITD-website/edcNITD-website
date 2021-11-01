@@ -79,6 +79,8 @@ website/innovationcell/migrations/
 website/team/migrations/
 website/web_team/migrations/
 website/sotm/migrations/
+website/EQuest/migrations/
+
 
 # Media files
 media/

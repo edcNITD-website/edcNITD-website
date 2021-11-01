@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'web_team',
     'esummit',
     'sotm',
+    'EQuest',
 ]
 
 MIDDLEWARE = [
