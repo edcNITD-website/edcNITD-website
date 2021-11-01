@@ -24,11 +24,28 @@
 <script src="{% static 'js/sotm_theme_change.js' %}"></script>
 {% include 'sotm/snippets/sotm_navbar.html' %}
 <body>
+    {% if messages %}
+        <ul class="message-list">
+        {% for message in messages %}
+            <li>
+                <div class="text">
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                        <i class="icofont-info-circle"></i>&nbsp;Important: 
+                    {% endif %}
+                    {{ message }}
+                </div>
+                <div class="remove-btn">
+                    <button class="close-msg-btn" onclick="closeMsg(this)"><i class="icofont-close"></i></button>
+                </div>
+            {% endfor %}
+            </li>
+        </ul>
+    {% endif %}
     {% block content %}
     {% endblock %}
     
 <script src="{% static 'vendor/owl.carousel/owl.carousel.min.js' %}"></script>    
 </body>
 {% include 'sotm/snippets/sotm_footer.html' %}
-
+<script src="{% static 'js/sotm_base.js' %}"></script>
 </html>

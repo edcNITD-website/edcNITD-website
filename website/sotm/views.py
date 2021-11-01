@@ -5,7 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 from sotm.models import *
 from django.contrib.auth.models import AnonymousUser, User
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-
+from django.db import IntegrityError
+from django.contrib import messages
 # Create your views here.
 def sotm_home(request):
     context = {}
@@ -254,7 +255,11 @@ def sotm_register(request):
             user.username = request.POST.get('username')
             user.email = request.POST.get('email')
             user.set_password(request.POST.get('password1'))
-            user.save()
+            try:
+                user.save()
+            except IntegrityError:
+                messages.error(request,'Integrity Error, the username exists already, please use another username to register.')
+                return redirect('/sotm/register')
             student.user = user
             student.save()
             return redirect('/sotm/login')
@@ -264,7 +269,11 @@ def sotm_register(request):
             user.username = request.POST.get('username')
             user.email = request.POST.get('email')
             user.set_password(request.POST.get('password1'))
-            user.save()
+            try:
+                user.save()
+            except IntegrityError:
+                messages.error(request,'Integrity Error, the username exists already, please use another username to register.')
+                return redirect('/sotm/register')
             company.user = user
             company.company_name = request.POST.get('company_name')
             company.vision = request.POST.get('vision')
