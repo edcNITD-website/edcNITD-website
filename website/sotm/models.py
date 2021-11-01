@@ -135,8 +135,8 @@ class TemporaryLink(models.Model):
     def send(self):
         send_mail(
             subject="Change password request for Startup of the Month",
-            message="Change password request for Startup of the Month. The Link remains valid for 1 hour only. Please click on the link below to change you password 'http://localhost:8000/sotm/key/"+self.key+"/'",
-            html_message="Change password request for Startup of the Month. The Link remains valid for 1 hour only. Please click on the link below to change you password <br> <a href='http://localhost:8000/sotm/key/"+self.key+"/'>click here</a>",
+            message="Change password request for Startup of the Month. The Link remains valid for 1 hour only. Please click on the link below to change you password 'https://edcnitd.co.in/sotm/key/"+self.key+"/'",
+            html_message="Change password request for Startup of the Month. The Link remains valid for 1 hour only. Please click on the link below to change you password <br> <a href='https:/edcnitd.co.in/sotm/key/"+self.key+"/'>click here</a>",
             from_email=settings.EMAIL_HOST_USER,
             recipient_list=["mma.20u10180@btech.nitdgp.ac.in"],
         )
