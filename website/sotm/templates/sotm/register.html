@@ -21,7 +21,7 @@
                      </ul>
                  </div>
 
-                 <div class="startup">
+                 <div class="startup distrib">
                      <form action="" method="post" enctype="multipart/form-data">
                          <div class="form">
                              {% csrf_token %}
@@ -46,9 +46,11 @@
                                  </fieldset>
 
                                  <fieldset>
+
                                     <input type="text" name="phone" placeholder="Contact Number" maxlength="150"
                                         autofocus="" required="" id="id_phone">
                                 </fieldset>
+
 
                                  <fieldset>
                                      <input type="text" name="vision" placeholder="Vision of the Company"
@@ -98,30 +100,59 @@
                          <fieldset>
                              <label for="id_company_logo">Company Logo</label>
                              <br>
-                             <input type="file" name="company_logo" accept="image/*" id="id_company_logo">
+                             <input type="file" name="company_logo" accept="image/*" id="id_company_logo" required>
                          </fieldset>
                          <fieldset>
                              <input type="submit" value="Signup" class="cta-btn" name="company" id="submit-btn">
                          </fieldset>
                      </form>
                  </div>
-                 <div class="student">
+                 <div class="student distrib">
 
                      <form action="" method="post" enctype="multipart/form-data">
-                         {% csrf_token %}
-                         <fieldset>
-                             <input type="text" name="username" placeholder="Username" class="input" maxlength="150"
-                                 autofocus="" required="" id="id_username">
-                         </fieldset>
+                         <div class="form">
+                             {% csrf_token %}
+                             <div class="part-1 part">
+                                 <fieldset>
+                                     <input type="text" name="username" placeholder="Username" class="input"
+                                         maxlength="150" autofocus="" required="" id="id_username">
+                                 </fieldset>
 
-                         <fieldset>
-                             <input type="email" name="email" placeholder="E-mail" class="input" maxlength="254"
-                                 id="id_email">
-                         </fieldset>
+                                 <fieldset>
+                                     <input type="email" name="email" placeholder="E-mail" class="input" maxlength="254"
+                                         id="id_email">
+                                 </fieldset>
 
+                                 <fieldset>
+                                     <input type="password" name="password1" placeholder="Password" class="input"
+                                         autocomplete="new-password" required="" id="id_password1">
+                                 </fieldset>
+
+                             </div>
+
+                             <div class="part-2 part">
+
+                                 <fieldset>
+                                     <input type="text" name="facebook" placeholder="Facebook Account" maxlength="300"
+                                         id="id_facebook">
+                                 </fieldset>
+
+                                 <fieldset>
+                                     <input type="text" name="linkedin" placeholder="LinkedIn Account" maxlength="300"
+                                         id="id_linkedin">
+                                 </fieldset>
+
+                                 <fieldset>
+                                     <input type="text" name="instagram" placeholder="Instagram Account" maxlength="300"
+                                         id="id_instagram">
+                                 </fieldset>
+                             </div>
+                         </div>
+                         
                          <fieldset>
-                             <input type="password" name="password1" placeholder="Password" class="input"
-                                 autocomplete="new-password" required="" id="id_password1">
+                             <label for="id_studentdp">Display Picture</label>
+                             <br>
+                             <input type="file" name="studentdp" accept="image/*" id="id_studentdp" required>
                          </fieldset>
 
                          <fieldset>
