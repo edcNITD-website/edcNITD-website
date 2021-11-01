@@ -7,28 +7,30 @@ from django.contrib.auth.models import AnonymousUser, User
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 # Create your views here.
+
+
 def sotm_home(request):
     context = {}
     context['hero_faqs'] = FAQ.objects.filter(is_hero=True)
     context['normal_faqs'] = FAQ.objects.filter(is_hero=False)
     verified_companies = Company.objects.filter(verified=True)
     all_opportunities = []
-    count=0
+    count = 0
     for company in verified_companies:
         for opp in Opportunity.objects.filter(company=company):
-            count+=1
+            count += 1
             if count > 5:
                 break
             all_opportunities.append(opp)
     context['all_opportunities'] = all_opportunities
-    return render(request,'sotm/sotm_home.html',context)
+    return render(request, 'sotm/sotm_home.html', context)
 
 
 def sotm_companies(request):
     context = {}
     companies_per_page = 5
     verified_companies = Company.objects.filter(verified=True)
-    paginator_obj = Paginator(verified_companies,companies_per_page)
+    paginator_obj = Paginator(verified_companies, companies_per_page)
     pageNumber = request.GET.get('page')
     try:
         pageObj = paginator_obj.get_page(pageNumber)
@@ -41,21 +43,23 @@ def sotm_companies(request):
     context['owned_company'] = None
     for company in Company.objects.filter(verified=True):
         if company.user == request.user:
-            context['owned_company'] = company        
-    return render(request,'sotm/sotm_companies.html',context)
+            context['owned_company'] = company
+    return render(request, 'sotm/sotm_companies.html', context)
 
-def student_view(request,student_id):
-    student = get_object_or_404(Student,id=student_id)
+
+def student_view(request, student_id):
+    student = get_object_or_404(Student, id=student_id)
     context = {}
     if student.user == request.user:
         context['is_owner'] = True
     else:
         context['is_owner'] = False
     context['student'] = student
-    return render(request,'sotm/student_profile.html',context)
+    return render(request, 'sotm/student_profile.html', context)
 
-def company_view(request,company_id):
-    company = get_object_or_404(Company,id=company_id)
+
+def company_view(request, company_id):
+    company = get_object_or_404(Company, id=company_id)
     context = {}
     if company.user == request.user:
         context['is_owner'] = True
@@ -63,11 +67,12 @@ def company_view(request,company_id):
         context['is_owner'] = False
     context['company'] = company
     context['opportunities'] = company.get_opportunities()
-    return render(request,'sotm/company_view.html',context)
+    return render(request, 'sotm/company_view.html', context)
+
 
 @login_required
-def company_edit(request,company_id):
-    company = get_object_or_404(Company,id=company_id)
+def company_edit(request, company_id):
+    company = get_object_or_404(Company, id=company_id)
     context = {}
     if company.user == request.user:
         context['is_owner'] = True
@@ -92,11 +97,32 @@ def company_edit(request,company_id):
                 company.logo = request.FILES['company_logo']
         company.save()
         return redirect('/sotm/companies/profile')
-    return render(request,'sotm/company_edit.html',context)
+    return render(request, 'sotm/company_edit.html', context)
 
 @login_required
-def sotm_add_opportunity(request,company_id):
-    company = get_object_or_404(Company,id=company_id)
+def student_edit(request, student_id):
+    student = get_object_or_404(Student, id=student_id)
+    context = {}
+    if student.user == request.user:
+        context['is_owner'] = True
+    else:
+        context['is_owner'] = False
+    context['student'] = student
+    if request.method == 'POST':
+        student.facebook = request.POST.get('facebook')
+        student.linkedin = request.POST.get('linkedin')
+        student.instagram = request.POST.get('instagram')
+        if 'studentdp' in request.FILES:
+            if(request.FILES['studentdp'] is not None):
+                student.student_dp.delete()
+                student.student_dp = request.FILES['studentdp']
+        student.save()
+        return redirect('/sotm/student/profile')
+    return render(request, 'sotm/student_edit.html', context)
+
+@login_required
+def sotm_add_opportunity(request, company_id):
+    company = get_object_or_404(Company, id=company_id)
     context = {}
     positions = OpportunityTag.objects.all()
     context['positions'] = positions
@@ -119,11 +145,12 @@ def sotm_add_opportunity(request,company_id):
                 tag = OpportunityTag.objects.get(name=opp_tag)
                 opportunity.tags.add(tag)
             return redirect('/sotm/companies/profile')
-    return render(request,'sotm/add_opportunity.html',context)
+    return render(request, 'sotm/add_opportunity.html', context)
+
 
 @login_required
-def sotm_remove_opportunity(request,company_id):
-    company = get_object_or_404(Company,id=company_id)
+def sotm_remove_opportunity(request, company_id):
+    company = get_object_or_404(Company, id=company_id)
     context = {}
     positions = company.positions().all()
     context['positions'] = positions
@@ -134,18 +161,20 @@ def sotm_remove_opportunity(request,company_id):
     if request.method == 'POST':
         if request.user == company.user:
             company.save()
-            opportunity = Opportunity.objects.filter(company=company).filter(name=request.POST.get('position_name')).first()
+            opportunity = Opportunity.objects.filter(company=company).filter(
+                name=request.POST.get('position_name')).first()
             opportunity.delete()
             return redirect('/sotm/companies/profile')
-    
-    return render(request,'sotm/remove_opportunity.html',context)
+
+    return render(request, 'sotm/remove_opportunity.html', context)
+
 
 @login_required
-def edit_opportunity(request,company_id,opp_id):
-    company = get_object_or_404(Company,id=company_id)
-    opportunity = get_object_or_404(Opportunity,id=opp_id)
+def edit_opportunity(request, company_id, opp_id):
+    company = get_object_or_404(Company, id=company_id)
+    opportunity = get_object_or_404(Opportunity, id=opp_id)
     context = {}
-    context['company'] =company
+    context['company'] = company
     context['opportunity'] = opportunity
     context['positions'] = opportunity.tags.all()
     other_tags = OpportunityTag.objects.all().difference(opportunity.tags.all())
@@ -168,12 +197,22 @@ def edit_opportunity(request,company_id,opp_id):
                 opportunity.tags.add(tag)
             return HttpResponseRedirect('/sotm/companies/'+str(company.id))
     print(context)
-    return render(request,'sotm/edit_opportunity.html',context)
+    return render(request, 'sotm/edit_opportunity.html', context)
+
+
+@login_required
+def delete_opportunity(request, company_id, opp_id):
+    company = get_object_or_404(Company, id=company_id)
+    opportunity = get_object_or_404(Opportunity, id=opp_id)
+    if opportunity.company == company:
+        opportunity.delete()
+    return HttpResponseRedirect('/sotm/companies/'+str(company.id))
+
 
 def internships(request):
     context = {}
     all_positions = OpportunityTag.objects.all()
-    context['positions'] = all_positions # all the tags
+    context['positions'] = all_positions  # all the tags
     verified_companies = Company.objects.filter(verified=True)
     context['companies'] = verified_companies
     all_opportunities = []
@@ -187,25 +226,26 @@ def internships(request):
         for opp in all_opportunities:
             if position in opp.tags.all():
                 opp_list.append(opp)
-        positions_dic[position.name+'_dsc']=opp_list
-        opp_list =  list(reversed(opp_list))
-        positions_dic[position.name+'_asc']=opp_list
+        positions_dic[position.name+'_dsc'] = opp_list
+        opp_list = list(reversed(opp_list))
+        positions_dic[position.name+'_asc'] = opp_list
 
-        positions_dic[position.name]=opp_list
+        positions_dic[position.name] = opp_list
     positions_dic['All_dsc'] = all_opportunities
     positions_dic['All_asc'] = list(reversed(all_opportunities))
     context['positions_dic'] = positions_dic
     context['active_position'] = all_positions.first().name+'_asc'
     context['active_pos'] = all_positions.first().name
-    return render(request,'sotm/internships.html',context)
+    return render(request, 'sotm/internships.html', context)
 
-def opportunity_view(request,opp_id):
-    opportunity = get_object_or_404(Opportunity,id=opp_id)
+
+def opportunity_view(request, opp_id):
+    opportunity = get_object_or_404(Opportunity, id=opp_id)
     context = {}
     context['opportunity'] = opportunity
     student = None
     company = None
-    if request.user.is_authenticated :
+    if request.user.is_authenticated:
         student = Student.objects.filter(user=request.user).first()
         company = Company.objects.filter(user=request.user).first()
     if student != None:
@@ -221,11 +261,12 @@ def opportunity_view(request,opp_id):
             context['is_owner'] = False
     else:
         context['is_owner'] = False
-    return render(request,'sotm/view_opportunity.html',context)
+    return render(request, 'sotm/view_opportunity.html', context)
+
 
 @login_required
-def create_new_position(request,company_id):
-    company = get_object_or_404(Company,id=company_id)
+def create_new_position(request, company_id):
+    company = get_object_or_404(Company, id=company_id)
     context = {}
     positions = OpportunityTag.objects.all()
     context['positions'] = positions
@@ -244,18 +285,24 @@ def create_new_position(request,company_id):
                 tag.name = name
                 tag.save()
                 return HttpResponseRedirect('/sotm/companies/'+str(company.id))
-    return render(request,'sotm/sotm_create_position.html',context)
+    return render(request, 'sotm/sotm_create_position.html', context)
+
 
 def sotm_register(request):
     if request.method == 'POST':
         if 'student' in request.POST:
-            student= Student()
+            student = Student()
             user = User()
             user.username = request.POST.get('username')
             user.email = request.POST.get('email')
             user.set_password(request.POST.get('password1'))
             user.save()
             student.user = user
+            student.facebook = request.POST.get('facebook')
+            student.linkedin = request.POST.get('linkedin')
+            student.instagram = request.POST.get('instagram')
+            if(request.FILES['studentdp'] is not None):
+                student.student_dp = request.FILES['studentdp']
             student.save()
             return redirect('/sotm/login')
         elif 'company' in request.POST:
@@ -283,30 +330,33 @@ def sotm_register(request):
             company.new_registeration()
             return redirect('/sotm/login')
     context = {}
-    return render(request,'sotm/register.html',context)
+    return render(request, 'sotm/register.html', context)
+
 
 def sotm_login(request):
     if request.method == 'POST':
         if 'student' in request.POST:
             username = request.POST.get('username')
             password = request.POST.get('password')
-            user = authenticate(request,username=username,password=password)
+            user = authenticate(request, username=username, password=password)
             if user != None:
-                login(request,user)
+                login(request, user)
                 return redirect('/sotm/')
         elif 'company' in request.POST:
             username = request.POST.get('username')
             password = request.POST.get('password')
-            user = authenticate(request,username=username,password=password)
+            user = authenticate(request, username=username, password=password)
             if user != None:
-                login(request,user)
+                login(request, user)
                 return redirect('/sotm/')
-    return render(request,'sotm/login.html')
+    return render(request, 'sotm/login.html')
+
 
 @login_required
 def sotm_logout(request):
     logout(request)
     return redirect('/sotm/')
+
 
 @login_required
 def profile_view(request):
@@ -322,8 +372,8 @@ def profile_view(request):
             # context['company'] = company
             # context['opportunities'] = company.get_opportunities()
             # return render(request,'sotm/company_view.html',context)
-            return company_view(request,company.id)
+            return company_view(request, company.id)
     for student in students:
         if request.user == student.user:
-            return student_view(request,student.id)
+            return student_view(request, student.id)
     pass

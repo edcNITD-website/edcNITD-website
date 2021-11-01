@@ -149,24 +149,24 @@ fieldset {
   color: #fff;
 }
 
-.startup form .form {
+.distrib form .form {
   display: flex !important;
   flex-direction: row;
   margin: auto;
 }
 
 @media (min-width: 750px) {
-  .startup form .form .part-1 {
+  .distrib form .form .part-1 {
     padding-right: 2rem;
   }
 
-  .startup form .form .part-2 {
+  .distrib form .form .part-2 {
     padding-left: 2rem;
   }
 }
 
 @media (max-width: 800px) {
-  .startup form .form {
+  .distrib form .form {
     display: flex;
     flex-direction: column;
   }

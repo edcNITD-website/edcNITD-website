@@ -1,6 +1,6 @@
 {% extends 'sotm/sotm_base.html' %}
 {% load static %}
-{% block title %} Companies {% endblock %}
+{% block title %} Companies_{{company.company_name}} {% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/sotm_companies_profile.css' %}">
 <section class="company">
@@ -119,6 +119,7 @@
                                     {{company.founding_year}}
                                 </div>
                             </div>
+                            {% if is_owner %}
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
@@ -128,6 +129,7 @@
                                     {{company.company_phone}}
                                 </div>
                             </div>
+                            {% endif %}
                             {% if is_owner %}
                             <hr>
                             <div class="row">
@@ -182,13 +184,19 @@
                 <li class="col-lg-6 mb-3">
                     <div class="card opp-cards h-100">
                         <div class="card-body">
-                            <h4 class="content-head">{{opportunity.name}} </h4>
+                            <h4 class="content-head">{{opportunity.name}}
+                                <span class="float_right">
+                                {% if is_owner %}
+                                 <a class="social" href="{% url 'sotm:delete_opportunity' company.id opportunity.id %}"><i class="fas fa-trash-alt"></i></a>
+                                {% endif %}
+                            </span>
+                            </h4>
 
                             <span class="content mb-2">{{opportunity.description}}</span>
 
                             {% if user.is_authenticated %}
                             <br>
-                            {% if not is_owner %}
+                            {% if is_student %}
                             <a class="btn" href="{{opportunity.register_url}}">Register
                                 Here!</a>
                             {% endif %}

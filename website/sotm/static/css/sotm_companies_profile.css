@@ -75,6 +75,10 @@
   box-shadow: none !important;
 }
 
+.float_right {
+  float: right;
+}
+
 .tags{
   margin: auto;
   justify-content: center;
@@ -98,9 +102,9 @@
   flex-wrap: wrap;
 }
 
-.opp_list li:nth-child( odd ){
-  /* margin-right: 1px !important; */
-}
+/* .opp_list li:nth-child( odd ){
+  margin-right: 1px !important;
+} */
 
 .opp-cards{
   max-width: 628px !important;

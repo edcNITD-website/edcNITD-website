@@ -1,6 +1,6 @@
 {% extends 'sotm/sotm_base.html' %}
 {% load static %}
-{% block title %} Add position for company {{company.name}} {% endblock %}
+{% block title %} Add Internships {{company.name}} {% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/snippets/sotm_form.css' %}">
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -12,7 +12,7 @@
         <div class="container-form">
             <div class="total">
                 <p>Create Internships</p>
-                <div class="startup">
+                <div class="distrib">
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="form">
                             {% csrf_token %}
