@@ -20,4 +20,7 @@ urlpatterns = [
     path('register/',views.sotm_register,name='register'),
     path('login/',views.sotm_login,name='login'),
     path('logout/',views.sotm_logout,name='logout'),
+    path('forgotten_password/',views.forgotten_password,name='forgotten_password'),
+    path('key/<str:key_value>/',views.key,name='key_view'),
+    path('change_password/',views.change_password,name='change_password'),
 ]

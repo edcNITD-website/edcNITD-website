@@ -27,7 +27,18 @@
     {% if messages %}
         <ul class="message-list">
         {% for message in messages %}
-            <li>
+
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                    <li class="error">
+                {% endif %}
+
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                    <li class="info">
+                {% endif %}
+
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    <li class="success">
+                {% endif %}
                 <div class="text">
                     {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
                         <i class="icofont-info-circle"></i>&nbsp;Important: 

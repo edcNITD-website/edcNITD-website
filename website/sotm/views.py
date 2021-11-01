@@ -336,3 +336,51 @@ def profile_view(request):
         if request.user == student.user:
             return student_view(request,student.id)
     pass
+
+def forgotten_password(request):
+    if request.method == 'POST':
+        if 'submit' in request.POST:
+            email = request.POST['email']
+            email_list_students = list(Student.objects.values("user__email"))
+            email_list_companies = list(Company.objects.values("user__email"))
+            emails = email_list_companies+email_list_students
+            email_list = []
+            for email_obj in emails:
+                email_list.append(email_obj['user__email'])
+            if email in email_list:
+                # todo send email with link to reset password
+                link = TemporaryLink()
+                link.user = User.objects.get(email=email)
+                link.generate()
+                link.send()
+                messages.info(request,"Email has been sent to the given email id with a link to change the password.")
+                return redirect('/sotm/login')
+            else:
+                messages.error(request,"This email id hasn't been used to register yet")
+    return render(request,'sotm/forgotten_password.html')
+
+def key(request,key_value):
+    link = get_object_or_404(TemporaryLink,key=key_value)
+    difference = link.exp_timestamp - timezone.now()
+    print(difference)
+    if difference.seconds>=0:
+        # todo login the user and redirect to correct page
+        user = link.user
+        login(request,user)
+        
+        return redirect('/sotm/change_password')
+    else:
+        # todo error message saying the link has expired, please try again
+        messages.error(request,"Link has expired, try again")
+        return redirect('/sotm/forgotten_password/')
+
+@login_required    
+def change_password(request):
+    if request.method == 'POST':
+        if 'submit' in request.POST:
+            user = request.user
+            user.set_password(request.POST.get('password'))
+            user.save()
+            messages.success(request,"Password succesfully changed.")
+            return redirect('/sotm/')
+    return render(request,'sotm/change_password.html')
