@@ -91,7 +91,7 @@ class Company(models.Model):
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     student_dp = models.ImageField(
-        blank=True, upload_to='studentDp/', default=None)
+        blank=True, upload_to='studentDp/', default=None,null=True)
     facebook = models.CharField(
         max_length=200, null=True, blank=True, default=None)
     linkedin = models.CharField(

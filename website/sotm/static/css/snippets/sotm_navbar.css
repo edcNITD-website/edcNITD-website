@@ -131,7 +131,7 @@
     flex-direction: column;
     position: fixed;
     justify-content: start;
-    top: 95px;
+    top: 80px;
     background: rgba(0, 0, 0, 0.85);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
