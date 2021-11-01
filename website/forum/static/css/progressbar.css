@@ -1,0 +1,8 @@
+#bar{
+    margin-bottom: 1.2rem;
+    margin-left: 10%;
+    width: 0%;
+    max-width: 80%;
+    height: 4px;
+    background: var(--theme-color);
+  }
