@@ -1,0 +1,57 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Student Profile_{{student.user.username}} {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/sotm_companies.css' %}">
+{% if is_owner %}
+<section class="container py-4 companies">
+	<ul class="company_list">
+		<div class="postcard border blue">
+			<a class="postcard__img_link" href="#">
+				{% if student.student_dp.url %}
+				<img class="postcard__img rounded-circle" src="{{student.student_dp.url}}">
+				{% else %}
+				<img class="postcard__img rounded-circle" src="{% static 'images/default.png' %}">
+				{% endif %}
+			</a>
+			<div class="postcard__text">
+				<h1 class="postcard__title blue"><span class="content-head">{{student.user.username}}</span></h1>
+				<!-- <div class="postcard__subtitle small">
+					at <span class="content-head">{{student.user.username}}</span>
+				</div> -->
+
+				<div class="postcard__bar-ch"></div>
+				<div class="postcard__preview-txt-ch mt-2" style="word-wrap: break-word;"><i class="fas fa-envelope"></i> &ensp; {{student.user.email}}
+				</div>
+				
+
+				<ul class="postcard__tagbox">
+					<li class="msg-btn">
+						<a href="{% url 'sotm:student_edit' student.id %}"><i></i>Edit Profile</a>
+					</li>
+					<li class="follow-btn">
+						<a href="{% url 'sotm:change_password' %}">Reset Password</a>
+					</li>
+				</ul>
+			</div>
+			<div class="social_p">
+				<ul>
+					{% if student.facebook %}
+					<li class="facebook"><a href="{{student.facebook}}"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+					</li>
+					{% endif %}
+					{% if student.linkedin %}
+					<li class="linkedin"><a href="{{student.linkedin}}"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+					{% endif %}
+					{% if student.instagram %}
+					<li class="instagram"><a href="{{student.instagram}}"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+					{% endif %}
+					</li>
+				</ul>
+			</div>
+			<br>
+		</div>
+	</ul>
+</section>
+{% endif %}
+{% endblock %}

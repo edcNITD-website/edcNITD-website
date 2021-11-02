@@ -88,6 +88,7 @@
                       
                       <li {%if request.resolver_match.url_name  == 'post_list' or request.resolver_match.url_name  == 'post_detail' %}  class="active"{% endif %}><a href="{% url 'post:post_list' %}">E-Quest</a></li>  
                       
+                      <li {%if request.resolver_match.url_name == 'sotm_home' %}class="active" {% endif %}><a href="{% url 'sotm:sotm_home' %}">SOTM</a></li>
                   <!--<li {%if request.resolver_match.url_name == 'innovationcell_page' %}class="active"{% endif %}><a href="{% url 'innovationcell_page' %}">Innovation Cell</a></li>-->
 
                   <li {%if request.resolver_match.url_name == 'team_page' %}class="active" {% endif %}><a
@@ -193,6 +194,8 @@
               <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'event_page' %}">Event Registrations</a></li>
 
               <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'post:post_list' %}">E-Quest</a></li>
+  
+              <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'sotm:sotm_home' %}">Startup of the Month</a></li>
 
               <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'team_page' %}">Our Team</a></li>
 
