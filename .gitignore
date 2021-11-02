@@ -1,7 +1,7 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-
+secrets.py
 # C extensions
 *.so
 
@@ -78,7 +78,9 @@ website/forum/migrations/
 website/innovationcell/migrations/
 website/team/migrations/
 website/web_team/migrations/
+website/sotm/migrations/
 website/EQuest/migrations/
+
 
 # Media files
 media/
