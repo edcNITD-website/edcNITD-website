@@ -1,0 +1,39 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Login {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/snippets/sotm_form.css' %}">
+<section class="companies">
+    {% if user.is_authenticated %}
+    <h2>Logout first to login</h2>
+    {% else %}
+    <div class="container-form">
+        <form action="" method="post" class="total">
+            {% csrf_token %}
+            <p>Login</p>
+            <fieldset>
+                <input type="text" name="username" placeholder="Username" maxlength="150" autofocus="" required=""
+                    id="id_username">
+            </fieldset>
+
+            <fieldset>
+                <input type="password" name="password" placeholder="Password" autocomplete="new-password" required=""
+                    id="id_password">
+            </fieldset>
+
+            <fieldset>
+                <input type="submit" value="Login" class="cta-btn" name="company" id="submit-btn">
+            </fieldset>
+            <a href="{% url 'sotm:forgotten_password' %}">Forgotten Password?, click here</a>
+            <br>
+            <a href="{% url 'sotm:register' %}">New User? Register Here!</a>
+            <div class="drops">
+                <div class="drop drop-1"></div>
+                <div class="drop drop-4"></div>
+            </div>
+        </form>
+
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

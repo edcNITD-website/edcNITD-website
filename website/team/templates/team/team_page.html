@@ -4,18 +4,67 @@
 
 
   <!-- Team CSS file -->
-  <link rel="stylesheet" type="text/css" href="{% static "css/teams.css" %}">
-  <link rel="stylesheet" type="text/css" href="{% static "css/alumni.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/teams.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/alumni.css' %}">
+
 
   <!-- Team JS file and plugins -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer type="text/javascript" src="{% static 'js/alumni.js' %}"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script defer type="text/javascript" src="{% static 'js/alumni.js' %}"></script>
+   <script defer type="text/javascript" src="{% static 'js/snavbar.js' %}"></script>
+
+
+
+<!-- sub-navbar -->
+<div class="sub-nav">
+    <ul class="nav sub-nav-menu justify-content-center bg-dark fixed-top" style="margin-top: 90px;">
+        <li>
+            <button id="hamb">
+                <i class="fa fa-ellipsis-v" id="subnav-icon"></i>
+
+            </button>
+        </li>
+        <div id="visible">
+            <li class="subnav-item">
+                <a class="subnav-link" href="#team-type-ob">OFFICE BEARERS</a>
+            </li>
+            <li class="subnav-item">
+                <a class="subnav-link" href="#team-type-sc">SENIOR COORDINATORS</a>
+            </li>
+            <li class="subnav-item">
+                <a class="subnav-link" href="#team-type-jc">JUNIOR COORDINATORS</a>
+            </li>
+            <li class="subnav-item">
+                <a class="subnav-link" href="#alumni">ALUMNI</a>
+            </li>
+        </div>
+    </ul>
+</div>
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+
+<style>
+
+    a.morelink {
+        text-decoration: none;
+        outline: none;
+    }
+
+    .morecontent span {
+        display: none;
+
+    }
+</style>
+
+<!--our team-->
 
   <div class="container">
     <h1 class="team-title">Our Team</h1>
       <div class="grey-line"></div>
       <div class="coloured-line"></div>
-	<br>
+<!--	<br>-->
+
+      <div class="container" id="team-type-ob" style="margin-top: -80px;">
       <div class="year-heading">
         <div>OFFICE BEARERS</div>
       </div>
@@ -52,6 +101,12 @@
           </div>
         {%endfor%}
       </div>
+      </div>
+     </div>
+
+
+
+      <div class="container" id="team-type-sc">
       <div class="year-heading">
         <div>SENIOR COORDINATORS</div>
       </div>
@@ -84,7 +139,11 @@
           </div>
         {%endfor%}
       </div>
-      <div class="year-heading">
+
+     </div>
+
+        <div class="container" id="team-type-jc">
+        <div class="year-heading">
         <div>JUNIOR COORDINATORS</div>
       </div>
       <div class="grey-line"></div>
@@ -118,9 +177,11 @@
     </div>
   </div>
   </div>
+  </div>
+
 <!-- ALUMNI SECTION -->
-  
-    <div class="container" id ="alumni">
+    <div id ="alumni">
+    <div class="container" >
     <h1 class="team-title">Meet Our Alumni</h1>
     <div class="alumni-grey-line"></div>
     <div class="alumni-coloured-line" ></div>
@@ -132,7 +193,7 @@
         {% for year, alumni in alumni_dic.items %}
           {% if alumni %}
             {% if year == 2021 %}
-            <li class="year active_year year-btn" id= "{{year}}-year" title="{{year}}" onclick="showAlumni(this)"><span>{{year}}</span></li>  
+            <li class="year active_year year-btn" id= "{{year}}-year" title="{{year}}" onclick="showAlumni(this)"><span>{{year}}</span></li>
             {% else %}
             <li class="year year-btn" title="{{year}}" id= "{{year}}-year" onclick="showAlumni(this)"><span>{{year}}</span></li>
             {% endif %}
@@ -177,4 +238,7 @@
       </div>
     {% endfor %}
   </div>
+ </div>
+</div>
+
 {% endblock %}
