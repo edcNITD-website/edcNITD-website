@@ -94,56 +94,26 @@
   </div>
 </div>
 
-<!-- Swiper -->
+<!-- SLIDER -->
 <section>
   <div class="swiper-container">
       <div class="swiper-wrapper" style="height: 320px; width: 40%;">
+          {% for image in images%}
           <div class="swiper-slide">
               <div class="testimonialBox">
-                  
-                  <div class="content " >
-                      <img src="https://swiperjs.com/demos/images/nature-6.jpg" alt="">
-                  </div>
-              </div>
-          </div>
-          <div class="swiper-slide">
-              <div class="testimonialBox">
-                  
                   <div class="content" >
-                      <img src="https://swiperjs.com/demos/images/nature-5.jpg" alt="">
+                      <img src="{{image.images.url}}" alt="photo">
                   </div>
               </div>
           </div>
-          <div class="swiper-slide">
-              <div class="testimonialBox">
-                  
-                  <div class="content">
-                      <img src="https://swiperjs.com/demos/images/nature-4.jpg" alt="">
-                  </div>
-              </div>
-          </div>
-          <div class="swiper-slide">
-              <div class="testimonialBox">
-                  
-                  <div class="content" >
-                      <img src="https://swiperjs.com/demos/images/nature-3.jpg" alt="">
-                  </div>
-              </div>
-          </div>
-          <div class="swiper-slide">
-              <div class="testimonialBox">
-                  
-                  <div class="content">
-                      <img src="https://swiperjs.com/demos/images/nature-2.jpg" alt="">
-                  </div>
-              </div>
-          </div>
+          {% endfor %}
       </div>
-      <div class="swiper-pagination"></div>
+    <div class="swiper-pagination"></div>
     <div class="swiper-button-prev"></div>
-     <div class="swiper-button-next"></div>
+    <div class="swiper-button-next"></div>
   </div>
-      </section>
-      <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+</section>
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="{% static 'js/slider.js' %}"></script>
 {% endblock %} 

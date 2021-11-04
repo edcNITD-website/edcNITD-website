@@ -7,7 +7,7 @@ class Event(models.Model):
     about_event=models.TextField(max_length=2000)
     rules=models.TextField(max_length=2000,default="",blank=True,null=True)
     prizes=models.CharField(max_length=300,default="", blank=True,null=True)
-    poster=models.ImageField(upload_to=None, default="",blank=True,null=False)
+    poster=models.ImageField(upload_to='events/', default="",blank=True,null=False)
     start_date=models.DateTimeField(auto_now=False,auto_now_add=False,blank=True,null=True)
     end_date=models.DateTimeField(auto_now=False,auto_now_add=False,blank=True,null=True)
     registration_link=models.URLField(blank=True,null=True)
@@ -20,7 +20,7 @@ class Event(models.Model):
 
 class EventImages(models.Model):
     event=models.ForeignKey(Event, default=None, on_delete=models.CASCADE)
-    images=models.FileField(upload_to=None, default="",blank=True,null=False)
+    images=models.FileField(upload_to='events/', default="",blank=True,null=False)
 
     def __str__(self):
         return self.event.event_name
