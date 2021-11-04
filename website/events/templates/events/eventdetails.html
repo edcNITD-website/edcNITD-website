@@ -6,7 +6,8 @@
 <link href="{% static 'css/eventdetails.css' %}" rel="stylesheet">
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -93,73 +94,90 @@
   </div>
 </div>
 
-<!--SLIDER-->
-<!-- <section id="slider" class="container pad">
-  {% for p in images %}
-    <!-- <div class="text-center">
-        <img class="d-block w-100" src="{{p.images.url}}" alt="First slide">
-      </div> -->
-  <!-- {% endfor %}
-  <input type="radio" name="slider" id="s1">
-  <input type="radio" name="slider" id="s2">
-  <input type="radio" name="slider" id="s3" checked>
-  <input type="radio" name="slider" id="s4">
-  <input type="radio" name="slider" id="s5">
-
-  <label for="s1" id="slide1"> 
-    <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" alt=".."> 
-  </label>
-
-  <label for="s2" id="slide2"> 
-    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80" alt="..">
-  </label>
-
-  <label for="s3" id="slide3"> 
-    <img src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="..">
-  </label>
-
-  <label for="s4" id="slide4"> 
-    <img src="https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270" alt="..">
-  </label>
-
-  <label for="s5" id="slide5"> 
-    <img src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__480.jpg" alt=".."> 
-  </label>
-
-</section>-->
 <!-- Swiper -->
-<div class="swiper-container two">
-  <div class="swiper-wrapper">
-            <div class="swiper-slide">
-        <div class="slider-image">
-          <img src="//demo.xpeedstudio.com/wp/appscraft/demo2/wp-content/uploads/sites/2/2017/09/blue-screenshort-slider-img-5-1.png" alt="slide 1">
-        </div>
+<section>
+  <div class="swiper-container">
+      <div class="swiper-wrapper" style="height: 320px; width: 40%;">
+          <div class="swiper-slide">
+              <div class="testimonialBox">
+                  
+                  <div class="content " >
+                      <img src="https://swiperjs.com/demos/images/nature-6.jpg" alt="">
+                  </div>
+              </div>
+          </div>
+          <div class="swiper-slide">
+              <div class="testimonialBox">
+                  
+                  <div class="content" >
+                      <img src="https://swiperjs.com/demos/images/nature-5.jpg" alt="">
+                  </div>
+              </div>
+          </div>
+          <div class="swiper-slide">
+              <div class="testimonialBox">
+                  
+                  <div class="content">
+                      <img src="https://swiperjs.com/demos/images/nature-4.jpg" alt="">
+                  </div>
+              </div>
+          </div>
+          <div class="swiper-slide">
+              <div class="testimonialBox">
+                  
+                  <div class="content" >
+                      <img src="https://swiperjs.com/demos/images/nature-3.jpg" alt="">
+                  </div>
+              </div>
+          </div>
+          <div class="swiper-slide">
+              <div class="testimonialBox">
+                  
+                  <div class="content">
+                      <img src="https://swiperjs.com/demos/images/nature-2.jpg" alt="">
+                  </div>
+              </div>
+          </div>
       </div>
-            <div class="swiper-slide">
-        <div class="slider-image">
-          <img src="//demo.xpeedstudio.com/wp/appscraft/demo2/wp-content/uploads/sites/2/2017/09/blue-screenshort-slider-img-4-1.png" alt="slide 2">
-        </div>
-      </div>
-            <div class="swiper-slide">
-        <div class="slider-image">
-          <img src="//demo.xpeedstudio.com/wp/appscraft/demo2/wp-content/uploads/sites/2/2017/09/blue-screenshort-slider-img-2-1.png" alt="slide 3">
-        </div>
-      </div>
-            <div class="swiper-slide">
-        <div class="slider-image">
-          <img src="//demo.xpeedstudio.com/wp/appscraft/demo2/wp-content/uploads/sites/2/2017/09/blue-screenshort-slider-img-1-1.png" alt="slide 4">
-        </div>
-      </div>
-            <div class="swiper-slide">
-        <div class="slider-image">
-          <img src="//demo.xpeedstudio.com/wp/appscraft/demo2/wp-content/uploads/sites/2/2017/09/blue-screenshort-slider-img-1-1.png" alt="slide 5">
-        </div>
-      </div>
-          <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+     <div class="swiper-button-next"></div>
   </div>
-  <div class="swiper-pagination"></div>
-</div>
-<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-<script type="text/javascript" src="{% static 'js/slider.js' %}"></script>
+      </section>
+      <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
+
+<script>
+const swiper = new Swiper('.swiper-container', {
+effect: 'coverflow',
+centeredSlides: true,
+slidesPerView: "auto",
+loop: true,
+speed: 600,
+
+autoplay: {
+delay: 3000,
+  disableOnInteraction: false,
+},
+
+coverflowEffect: {
+rotate: 0,
+stretch: 0,
+depth: 100,
+modifier: 2,
+slideShadows: true,
+},
+
+pagination: {
+el: '.swiper-pagination',
+clickable: true,
+},
+
+navigation: {
+nextEl: '.swiper-button-next',
+prevEl: '.swiper-button-prev',
+},
+});
+
+        </script>
 {% endblock %} 
