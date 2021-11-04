@@ -1,0 +1,155 @@
+{% extends 'events/base_event.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+
+  <!-- Team CSS file -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/page2.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/api.css' %}">
+ 
+  
+  <!-- css for API only -->
+  
+
+
+  <!-- Team JS file and plugins -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+   
+
+
+<!-- body  -->
+
+
+  <!-- title -->
+  
+  
+
+
+
+
+  <!-- categories and posts -->
+  
+     <!-- menu -->
+ 
+<div class="category-bar">
+      
+      <h5 class="ct-title">CATEGORIES</h5>
+      <ul>
+      <li class="active text-center">
+
+        <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{%url "post:post_list" %}"><span>All({{count}})</i></a></a>
+
+      </li>
+        {%for c in categories%}
+        <li class="active text-center">
+          {%if c.posts_count %}
+            <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{{c.get_absolute_url}}"><span>{{c.name}}({{c.posts_count}})</span></a></a>
+          {%endif%}  
+        </li>
+        {%endfor%}
+  </ul>
+</div>
+
+
+
+          
+      
+<div class="article container" style="padding-top: 0px;">
+
+<br>
+<br>
+      <!-- back button -->
+  <div onclick="window.history.go(-1)" class="back-btn">
+    <i class="fa fa-arrow-left" aria-hidden="true"><span> BACK</span></i>
+  </div>
+  <!-- <div onclick="window.history.go(-1)" class="back-btn"><div class="bk-btn-triangle"></div><div class="bk-btn-bar"></div></div> -->
+ 
+    <br>
+    <div class="row my-3">
+      <div class="col-10 mx-auto text-center"><h1 style="font-weight: 700; font-size: 2.5rem; color: var(--theme-color);">{{post.title}}</h1></div>
+      <div class="grey-line"></div>
+      <div class="coloured-line"></div>
+    </div>
+  
+    <div class="row">
+      <div id="mobI" class="col-md-5 mx-auto" style="padding-left: 30px;">
+        {%if post.image%}
+        <img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180" src="{{post.image.url}}" data-holder-rendered="true" style="height: 100%; width: 100%; display: block;">
+        {%else%}
+    
+        {%endif%}
+      </div>
+      
+      <div id="pDiv" class="col-md-7 text-center scrolling mx-auto" style="padding-left: 30px;">
+        <p id="mobP" >
+          {{post.content}}
+        </p>
+        
+        
+      </div>
+       
+      </div>
+      <div class="row">
+        <div class="col-6 col-md-5 text-center d-flex justify-content-center mx-auto my-4">
+          <div class="share">
+            <span>View in</span>
+            <nav>
+              <a href="{{post.instalink}}" target="_blank"><i class="fa fa-instagram"></i></a>
+              <a href="{{post.fblink}}" target="_blank"><i class="fa fa-facebook"></i></a>
+         
+            </nav>
+          </div>
+        </div>
+      
+
+      
+        <div class="col-6 col-md-7 d-flex justify-content-center text-center mx-auto my-4">
+          <div class="share">
+            <span >Share</span>
+            <nav>
+              <a href="whatsapp://send?text=https://www.edcnitd.co.in{{post.get_absolute_url}}" 		data-action="share/whatsapp/share" 
+              target="_blank"><i class="fa fa-whatsapp"></i></a>
+              <a href="https://www.facebook.com/sharer.php?u=https://www.edcnitd.co.in{{post.get_absolute_url}}" target="_blank"><i class="fa fa-facebook"></i></a>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+    </div>
+   
+
+    
+
+     
+  
+
+  <!-- <link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+  crossorigin="anonymous"
+  /> -->
+  <link
+  href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap"
+  rel="stylesheet"
+  />
+  <link
+  href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap"
+  rel="stylesheet"
+  />
+ 
+    
+   
+
+            <!-- Bootstrap core JS-->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- Core theme JS-->
+        
+            <!-- <script defer type="text/javascript" src="{% static 'js/api.js' %}"></script> -->
+  
+
+{% endblock %}

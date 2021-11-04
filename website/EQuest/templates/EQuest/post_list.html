@@ -1,0 +1,112 @@
+{% extends 'events/base_event.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+
+  <!-- Team CSS file -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/Equest.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/api.css' %}">
+  
+  
+  <!-- css for API only -->
+
+  
+
+
+  <!-- Team JS file and plugins -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+  
+
+
+<!-- body  -->
+ <!-- sidebar menu -->
+  
+ <div id="myP" class="category-bar">
+      
+  <h5 class="ct-title">CATEGORIES</h5>
+
+  <ul>
+  <li class="active text-center">
+    <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{%url "post:post_list" %}"><span>All ({{count}})</span></a></a>
+  </li>
+    {%for c in categories%}
+    <li class="active text-center">
+      {%if c.posts_count %}
+        <a href="#" data-toggle="collapse" aria-expanded="false" ><a href="{{c.get_absolute_url}}"><span>{{c.name}} ({{c.posts_count}})</span></a></a>
+      {%endif%}  
+    </li>
+    {%endfor%}
+</ul>
+</div>
+
+
+
+
+<div class="container article">
+    
+    <!-- <div class="article"> -->
+
+      <!-- heading -->
+      <h1 class="team-title">E-QUEST</h1>
+      <div class="grey-line"></div>
+      <div class="coloured-line"></div>
+      <h2 class="tagline my-3" style="font-style: italic;">"Your weekly dose of quests"</h2>
+      
+      
+      
+    <br>
+    
+      <div class="row justify-content-center">
+       
+         <!-- one card -->
+         {%  for x in post  %}
+        <div class="col-10 col-lg-4 col-md-6">
+          <div class="card">
+            <div class="imgBx">
+              {%if x.image%}
+              <img src="{{x.image.url}}" alt="">
+              {%else%}
+   
+              {%endif%}
+            </div>
+            <div class="details">
+              <div class="content">
+                <h2 class="content-title">{{x.title}} </h2>
+                <h6 class="my-1">({{x.category}})</h6>
+                <p id="contentP" class="my-1">{{x.content|slice:115}}...</p>
+                <a href="{{x.get_absolute_url}}" style="transform: translateY(2);" class="button">Read More</a>
+              </div>
+            </div>
+ 
+             
+
+          </div>
+        </div>
+          {% endfor %}
+
+
+        
+
+        </div>
+         
+
+    </div>
+        
+    <!-- </div> -->
+
+
+
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<!-- <script defer type="text/javascript" src="{% static 'js/Equest.js' %}"></script> -->
+
+
+
+  
+
+{% endblock %}
