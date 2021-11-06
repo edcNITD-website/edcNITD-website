@@ -405,7 +405,30 @@ margin-top: -3px;
   border-top: 3px solid var(--theme-color);
   border-top-left-radius: 15px;
 }
-
+.card-time-right-bottom {
+  float: right;
+margin-right: calc(15% - 15px);
+margin-left: 15%;
+margin-top: -3px;
+  border-right: 3px solid var(--theme-color);
+  border-top: 3px solid var(--theme-color);
+  border-top-right-radius: 15px;
+}
+.bullet-time-right{
+  justify-content: right;
+  text-align: right;
+  padding: 4px 4px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #fff;
+  border: 5px solid var(--theme-color);
+  height: 25px;
+  z-index: 2;
+  width: 25px;
+  left: 100%;
+  transform: translateX(4125%);
+  
+}
 .bullet-time {
 
   padding: 4px 4px;
