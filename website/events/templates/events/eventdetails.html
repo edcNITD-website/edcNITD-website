@@ -20,17 +20,20 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 
 <!-- POSTER AND IMAGE-->
 <div class=" container">
   <header class="section-header">
-    <h3 class="event-name">{{event.event_name}}</h3>
+    <h3 class="event-name team-title" style="color: var(--theme-color);font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 48px !important;">{{event.event_name}}</h3>
   </header>
-  <div class="row justify-content-start clearfix" style="height: 0%;">
+  <div class="" style="height: 0%;">
     <div class="">
       <!-- <img class="poster" src="{{event.poster.url}}"> -->
     </div>
-    <div class=" col-lg-6 col-md-12 description clearfix">
+    <div class="" style="height: 0%;">
       <!-- <p class="text-desc"><i class="fa fa-pencil" aria-hidden="true"></i> Description:</p>
       <h1 class="mb-4 heading about-event">{{event.about_event}}</h1>
       <hr class="line">
@@ -45,7 +48,8 @@
 
 <!-- new code for poster-->
 
-<div class="poster_img">
+<div class="poster_img container">
+  
   <div class="eve_img_desc">
     <div class="eve_img clearfix"> <img class="poster-eve" src="{{event.poster.url}}"></div>
     <div class="eve_descrip clearfix">
@@ -121,8 +125,8 @@
 
 
 <!-- SLIDER -->
-<section>
-  <div class="swiper-container">
+<section class="section-slider-swiper" style="width: 100%; max-width: 100vw;">
+  <div class="swiper-container" >
       <div class="swiper-wrapper" style="height: 320px; width: 40%;">
           {% for image in images%}
           <div class="swiper-slide">
