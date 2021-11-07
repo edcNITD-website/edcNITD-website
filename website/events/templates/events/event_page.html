@@ -6,7 +6,6 @@
         <li>
             <button id="hamb">
                 <i class="fa fa-ellipsis-v" id="subnav-icon"></i>
-
             </button>
         </li>
         <div id="visible">
@@ -51,28 +50,20 @@
             {% for oe in oe %}
             <div class="col-md-4">
                 <section class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
-
                     <div class="container">
-
                         <div class="portfolio-details-container">
                             <div class="portfolio-details-carousel">
                                 <img src="{{ oe.poster.url }}" class="img-fluid" style="width: 300px; height: 200px; " alt="">
                             </div>
                         </div>
-
                         <div class="portfolio-description">
-                            <h2 style="font-size: 22px;">{{oe.event_name}}</h2>
+                            <h2 class="card-title-event">{{oe.event_name}}</h2>
                         </div>
                         <form action="{% url 'showevent' oe.id %}" method="POST" class="d-inline">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-success" style="width: 100px;">View Event</button>
+                            <button type="submit" class="btn btn-success btn-eve-eve">View Event</button>
                         </form>
-                    </div>
-                    {% if oe.registration_link%}
-                    <div class="text-center">
-                        <a href="{{oe.registration_link}}" target="blank" class="btn btn-primary stretched-link">Register in {{oe.event_name}}</a>
-                    </div>
-                    {%endif%}
+                        <button type="submit" class="btn btn-success btn-eve-reg"><a href="{{oe.registration_link}}"></a> Register Now</button>
                 </section>
             </div>
             {% endfor %}
@@ -154,18 +145,13 @@
                         </div>
 
                         <div class="portfolio-description">
-                            <h2 style="font-size: 22px;">{{ue.event_name}}</h2>
+                            <h2 class="card-title-event">{{ue.event_name}}</h2>
                         </div>
                         <form action="{% url 'showevent' ue.id %}" method="POST" class="d-inline">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-success" style="width: 100px;">View Event</button>
+                            <button type="submit" class="btn btn-success btn-eve-eve" >View Event</button>
                         </form>
-                    </div>
-                    {% if ue.registration_link%}
-                    <div class="text-center">
-                        <a href="{{ue.registration_link}}" target="blank" class="btn btn-primary stretched-link">Participate in {{ue.event_name}}</a>
-                    </div>
-                    {% endif %}
+                        <button type="submit" class="btn btn-success btn-eve-reg"><a href="{{ue.registration_link}}"></a> Register Now</button>
                 </section>
             </div>
             {% endfor %}
@@ -235,24 +221,18 @@
             <div class="col-md-4">
                 <section class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
                     <div class="container">
-
                         <div class="portfolio-details-container">
                             <div class="portfolio-details-carousel">
                                 <img src="{{ ae.poster.url }}" class="img-fluid" style="width: 300px; height: 200px; " alt="">
                             </div>
                         </div>
-                        
-                        
-                        
                         <div class="portfolio-description">
-                            <h2 style="font-size: 22px;font-size: 22px; margin-bottom: 1.2rem;margin-top:0;width: 100%; text-align: center;text-transform: capitalize;">{{ae.event_name}}</h2>
+                            <h2 class="card-title-event">{{ae.event_name}}</h2>
                         </div>
                         <form action="{% url 'showevent' ae.id %}" method="POST" class="d-inline">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-success"style="width: 75%; margin-bottom: 1rem; margin-left: 12.5%;background:var(--theme-color);">View Event</button>
+                            <button type="submit" class="btn btn-success btn-eve-eve">View Event</button>
                         </form>
-                        <button type="submit" class="btn btn-success" style="width: 75%;margin-left: 12.5%;margin-bottom: 1rem;background:var(--theme-color);"><a href="eventdetails.html"></a> Register Now</button>
-
                     </div>
                 </section>
             </div>
