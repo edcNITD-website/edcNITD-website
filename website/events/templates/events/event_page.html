@@ -63,7 +63,7 @@
                             {% csrf_token %}
                             <button type="submit" class="btn btn-success btn-eve-eve">View Event</button>
                         </form>
-                        <button type="submit" class="btn btn-success btn-eve-reg"><a href="{{oe.registration_link}}"></a> Register Now</button>
+                        <button type="submit" class="btn btn-success btn-eve-reg"><a href="{{oe.registration_link}}" target="blank">Register Now</a></button>
                 </section>
             </div>
             {% endfor %}
@@ -151,7 +151,7 @@
                             {% csrf_token %}
                             <button type="submit" class="btn btn-success btn-eve-eve" >View Event</button>
                         </form>
-                        <button type="submit" class="btn btn-success btn-eve-reg"><a href="{{ue.registration_link}}"></a> Register Now</button>
+                        <button type="submit" class="btn btn-success btn-eve-reg"><a href="{{ue.registration_link}}" target="blank">Register Now</a></button>
                 </section>
             </div>
             {% endfor %}

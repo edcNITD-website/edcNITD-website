@@ -58,6 +58,7 @@ def eventdetails(request, id):
     if request.method == "POST":
         event = Event.objects.get(pk=id)   
         images = EventImages.objects.filter(event=event) 
-        timeline = Timeline.objects.filter(event=event)     
-        context = {'event':event, 'images':images, 'timeline':timeline}
+        timeline = Timeline.objects.filter(event=event)
+        length = len(timeline)  
+        context = {'event':event, 'images':images, 'timeline':timeline, 'length': length}
         return render(request, 'events/eventdetails.html', context)

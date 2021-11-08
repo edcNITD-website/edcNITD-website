@@ -12,14 +12,14 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 
-<!-- POSTER AND IMAGE-->
+<!-- FLEX CONTAINER -->
 <div class="container">
   <header class="section-header">
     <h3 class="event-name team-title">{{event.event_name}}</h3>
   </header>
-  <div style="height: 0%;">
-</div> 
+  <div style="height: 0%;"></div> 
 
+<!-- POSTER AND IMAGE-->
 <div class="poster_img container">
   <div class="eve_img_desc">
     <div class="eve_img clearfix"> <img class="poster-eve" src="{{event.poster.url}}"></div>
@@ -37,63 +37,57 @@
   </div>
 </div>
 
-
-<!-- TIMELINE 2-->
-<!-- for odd-->
-<div class="wrapper-card">
-  <div class="card-time-left">
-    <div class="bullet-time"></div>
-    <div class="round-time-left"><i class="fa fa-check"></i></div>
-    <div class="text-time-left">
-      <h2 style="text-align: left;">Third Step - 2nd January 2021</h2>
-          <p style="text-align: left;">Aenean in fermentum anefficitur sodales. Etiam dapibus metus diam, malesuada cursus ligula dapibus non. Duis pellentesque hendrerit orci id congue.</p>
-    </div>
-  </div>
-</div>
+<!-- TIMELINE -->
+{% for rounds in timeline %}
+{% if forloop.counter|divisibleby:2 %}
+{% if forloop.counter != length %}
 <div class="wrapper-card">
   <div class="card-time-right">
     <div class="round-time-right" style="text-align: right; justify-content: right; margin-left: 100%;  transform: translate(-50%, 95%);"><i  class="fa fa-check"></i></div>
     <div class="text-time-right">
-      <h2 style="text-align: right;">Third Step - 2nd January 2021</h2>
-          <p style="text-align: right;">Aenean in fermentum anefficitur sodales. Etiam dapibus metus diam, malesuada cursus ligula dapibus non. Duis pellentesque hendrerit orci id congue.</p>
+      <h2 style="text-align: right;">{{rounds.title}} - {{rounds.date}}</h2>
+          <p style="text-align: right;">{{rounds.details}}</p>
     </div>
-  </div>  
-</div>
-<div class="wrapper-card">
-  <div class="card-time-left-top">
-    <div class="round-time-left"><i class="fa fa-check"></i></div>
-    <div class="text-time-left">
-      <h2 style="text-align: left;">Third Step - 2nd January 2021</h2>
-          <p style="text-align: left;">Aenean in fermentum anefficitur sodales. Etiam dapibus metus diam, malesuada cursus ligula dapibus non. Duis pellentesque hendrerit orci id congue.</p>
-    </div>
-    <div class="bullet-time"></div>
-  </div>
-</div>
-
-<!-- for even-->
-
-<div class="wrapper-card">
-  <div class="card-time-left">
-    <div class="bullet-time"></div>
-    <div class="round-time-left"><i class="fa fa-check"></i></div>
-    <div class="text-time-left">
-      <h2 style="text-align: left;">Third Step - 2nd January 2021</h2>
-          <p style="text-align: left;">Aenean in fermentum anefficitur sodales. Etiam dapibus metus diam, malesuada cursus ligula dapibus non. Duis pellentesque hendrerit orci id congue.</p>
-    </div>
-  </div>
-</div>
-
+  </div> 
+</div> 
+{% else %}
 <div class="wrapper-card">
   <div class="card-time-right-bottom">
     <div class="round-time-right" style="text-align: right; justify-content: right; margin-left: 100%;  transform: translate(-50%, 95%);" ><i class="fa fa-check"></i></div>
     <div class="text-time-right">
-      <h2 style="text-align: right;">Third Step - 2nd January 2021</h2>
-          <p style="text-align: right;">Aenean in fermentum anefficitur sodales. Etiam dapibus metus diam, malesuada cursus ligula dapibus non. Duis pellentesque hendrerit orci id congue.</p>
+      <h2 style="text-align: right;">{{rounds.title}} - {{rounds.date}}</h2>
+          <p style="text-align: right;">{{rounds.details}}</p>
     </div>
     <div class="bullet-time-right" style="text-align: right; justify-content: right; margin-left: 100%;  transform: translate(-45%, 95%);"></div>
   </div>
 </div>
-
+{% endif%}
+{% else %}
+<div class="wrapper-card">
+  {% if forloop.counter == 1 %}
+  <div class="card-time-left">
+    <div class="bullet-time"></div>
+    <div class="round-time-left"><i class="fa fa-check"></i></div>
+    <div class="text-time-left">
+      <h2 style="text-align: left;">{{rounds.title}} - {{rounds.date}}</h2>
+          <p style="text-align: left;">{{rounds.details}}</p>
+    </div>
+  </div>
+  {% else %}
+  <div class="card-time-left-top">
+    <div class="round-time-left"><i class="fa fa-check"></i></div>
+      <div class="text-time-left">
+        <h2 style="text-align: left;">{{rounds.title}} - {{rounds.date}}</h2>
+            <p style="text-align: left;">{{rounds.details}}</p>
+      </div>
+      {% if forloop.counter == length %}
+      <div class="bullet-time"></div>
+      {% endif %}
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+{% endfor%}
 
 <!-- SLIDER -->
 <section class="section-slider-swiper" style="width: 100%; max-width: 100vw;">
@@ -114,6 +108,9 @@
     <div class="swiper-button-next"></div>
   </div>
 </section>
+
+<!-- END OF CONTAINER -->
+</div>
 
 <!-- SCRIPTS -->
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
