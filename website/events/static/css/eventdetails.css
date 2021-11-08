@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Scada:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@600&display=swap');
+
 body
 {
   margin: 0%;
@@ -15,10 +16,10 @@ body
 }
 
 .event-name{
-  font-family: 'Scada', sans-serif;
+  color: var(--theme-color);
   font-size: 6rem !important;
   padding-top: 1rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .section-header h3::after {
