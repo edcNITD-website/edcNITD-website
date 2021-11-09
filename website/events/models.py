@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-import datetime
+from datetime import date
 
 class Event(models.Model):
     event_name=models.CharField(max_length=100)
@@ -37,6 +37,9 @@ class Timeline(models.Model):
     def __str__(self):
         return self.event.event_name + " " + self.title
 
+    @property
+    def is_past_due(self):
+        return date.today() > self.date()
     class Meta:
         verbose_name_plural = 'Timeline'
 
