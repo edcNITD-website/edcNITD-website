@@ -1,5 +1,6 @@
 {% extends 'events/base_event.html' %}
 {% load static %}
+{% load tz %}
 {% block content %}
 
 <!-- BOOTSTRAP CDN AND AUXILLARY CSS-->
@@ -27,8 +28,8 @@
       <p><i class="fa fa-pencil" aria-hidden="true"></i> Description:</p>
       <h1>{{event.about_event}}</h1>
       <hr>
-      <p><i class="fa fa-calendar" aria-hidden="true"></i> Registration Starts: <span class="">{{event.start_date|date:"d M, Y" }}</span></p>
-      <p><i class="fa fa-calendar" aria-hidden="true"></i> Registration Ends: <span class="">{{event.end_date|date:"d M, Y" }}</span></p>
+      <p><i class="fa fa-calendar" aria-hidden="true"></i> Registration Starts: <span class="">{{event.start_date|date:"d F Y, P" }}</span></p>
+      <p><i class="fa fa-calendar" aria-hidden="true"></i> Registration Ends: <span class="">{{event.end_date|date:"d F Y, P" }}</span></p>
       <p style="text-align: left;"><i class="fa fa-calendar" aria-hidden="true"></i> Prizes: <span class="date-calender">{{event.prizes}}</span></p>
       <div class="btn_eve" style="text-align: left; max-width: 100%; max-height: 100%; margin-top: 2rem; display: flex; justify-content: left;">
         <a class="btn btn-register" style="text-align: center;" href="{{event.registration_link}}" target="blank"><span class="btntext">PARTICIPATE</span></a>
@@ -46,9 +47,13 @@
 {% if forloop.counter != length %}
 <div class="wrapper-card">
   <div class="card-time-right">
-    <div class="round-time-right" style="text-align: right; justify-content: right; margin-left: 100%;  transform: translate(-50%, 95%);"><i  class="fa fa-check"></i></div>
+    {% if rounds.date %}
+    <div class="round-time-right timeline-right"><i class="fa fa-check"></i></div>
+    {% else %}
+    <div class="round-time-right-unchecked timeline-right"><i  class="fa fa-check"></i></div>
+    {% endif%}
     <div class="text-time-right">
-      <h2 style="text-align: right;">{{rounds.title}} - {{rounds.date}}</h2>
+      <h2 style="text-align: right;">{{rounds.title}} - {{rounds.date|date:"d F Y, P"}}</h2>
           <p style="text-align: right;">{{rounds.details}}</p>
     </div>
   </div> 
@@ -56,12 +61,12 @@
 {% else %}
 <div class="wrapper-card">
   <div class="card-time-right-bottom">
-    <div class="round-time-right" style="text-align: right; justify-content: right; margin-left: 100%;  transform: translate(-50%, 95%);" ><i class="fa fa-check"></i></div>
+    <div class="round-time-right timeline-right"><i class="fa fa-check"></i></div>
     <div class="text-time-right">
-      <h2 style="text-align: right;">{{rounds.title}} - {{rounds.date}}</h2>
+      <h2 style="text-align: right;">{{rounds.title}} - {{rounds.date|date:"d F Y, P"}}</h2>
           <p style="text-align: right;">{{rounds.details}}</p>
     </div>
-    <div class="bullet-time-right" style="text-align: right; justify-content: right; margin-left: 100%;  transform: translate(-45%, 95%);"></div>
+    <div class="bullet-time-right timeline-right"></div>
   </div>
 </div>
 {% endif%}
@@ -72,7 +77,7 @@
     <div class="bullet-time"></div>
     <div class="round-time-left"><i class="fa fa-check"></i></div>
     <div class="text-time-left">
-      <h2 style="text-align: left;">{{rounds.title}} - {{rounds.date}}</h2>
+      <h2 style="text-align: left;">{{rounds.title}} - {{rounds.date|date:"d F Y, P"}}</h2>
           <p style="text-align: left;">{{rounds.details}}</p>
     </div>
   </div>
@@ -84,7 +89,7 @@
   {% endif%}
     <div class="round-time-left"><i class="fa fa-check"></i></div>
       <div class="text-time-left">
-        <h2 style="text-align: left;">{{rounds.title}} - {{rounds.date}}</h2>
+        <h2 style="text-align: left;">{{rounds.title}} - {{rounds.date|date:"d F Y, P"}}</h2>
             <p style="text-align: left;">{{rounds.details}}</p>
       </div>
       {% if forloop.counter == length %}

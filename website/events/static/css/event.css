@@ -176,7 +176,7 @@
   margin-left: 12.5%; 
   background:var(--theme-color); 
   font-weight: 700; 
-  border: none;
+  border: 2px solid var(--theme-color);
 }
 
 .btn-eve-reg{
