@@ -31,13 +31,16 @@
       <p><i class="fa fa-calendar" aria-hidden="true"></i> Registration Ends: <span class="">{{event.end_date|date:"d M, Y" }}</span></p>
       <p style="text-align: left;"><i class="fa fa-calendar" aria-hidden="true"></i> Prizes: <span class="date-calender">{{event.prizes}}</span></p>
       <div class="btn_eve" style="text-align: left; max-width: 100%; max-height: 100%; margin-top: 2rem; display: flex; justify-content: left;">
-        <a class="btn btn-register" style="text-align: center;" href="{{event.registration_link}}"><span class="btntext">PARTICIPATE</span></a>
+        <a class="btn btn-register" style="text-align: center;" href="{{event.registration_link}}" target="blank"><span class="btntext">PARTICIPATE</span></a>
       </div> 
     </div>
   </div>
 </div>
 
 <!-- TIMELINE -->
+<header class="section-header">
+  <h3 style="z-index: 10;" id="oe">TIMELINE</h3>
+</header>
 {% for rounds in timeline %}
 {% if forloop.counter|divisibleby:2 %}
 {% if forloop.counter != length %}
@@ -74,7 +77,11 @@
     </div>
   </div>
   {% else %}
+  {% if forloop.counter == length %}
+  <div class="card-odd-last">
+  {% else %}
   <div class="card-time-left-top">
+  {% endif%}
     <div class="round-time-left"><i class="fa fa-check"></i></div>
       <div class="text-time-left">
         <h2 style="text-align: left;">{{rounds.title}} - {{rounds.date}}</h2>
@@ -90,6 +97,9 @@
 {% endfor%}
 
 <!-- SLIDER -->
+<header class="section-header">
+  <h3 style="z-index: 10;" id="oe">SLIDER</h3>
+</header>
 <section class="section-slider-swiper" style="width: 100%; max-width: 100vw;">
   <div class="swiper-container" >
       <div class="swiper-wrapper" style="height: 320px; width: 40%;">
