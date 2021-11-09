@@ -88,6 +88,7 @@
                       
                       <li {%if request.resolver_match.url_name  == 'post_list' or request.resolver_match.url_name  == 'post_detail' %}  class="active"{% endif %}><a href="{% url 'post:post_list' %}">E-Quest</a></li>  
                       
+                      <li {%if request.resolver_match.url_name == 'sotm_home' %}class="active" {% endif %}><a href="{% url 'sotm:sotm_home' %}">SOTM</a></li>
                   <!--<li {%if request.resolver_match.url_name == 'innovationcell_page' %}class="active"{% endif %}><a href="{% url 'innovationcell_page' %}">Innovation Cell</a></li>-->
 
                   <li {%if request.resolver_match.url_name == 'team_page' %}class="active" {% endif %}><a
@@ -125,12 +126,12 @@
 
           <div class="col-lg-3 footer-info">
 
-            <h3>Entrepreneurship Development Cell</h3>
+            <h3 style="text-align: center;">Entrepreneurship Development Cell</h3>
             <p style="border-left: 4px solid var(--theme-color); text-align:center;">NIT Durgapur</p>
             <br>
             <p style="text-align:center;">Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a
                 href="{% url 'web_team' %}">Web-Team </a></p>
-            <p style="text-align:center;">© 2021 EDC. All Rights Reserved.</p>
+            <p style="text-align:center;">© <span id="Auto_Year"></span> EDC. All Rights Reserved.</p>
           </div>
 
           <div class="col-lg-1">
@@ -193,6 +194,8 @@
               <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'event_page' %}">Event Registrations</a></li>
 
               <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'post:post_list' %}">E-Quest</a></li>
+  
+              <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'sotm:sotm_home' %}">Startup of the Month</a></li>
 
               <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'team_page' %}">Our Team</a></li>
 
@@ -266,6 +269,7 @@
   <script src="{% static 'js/main1.js' %}"></script>
   <script src="{% static 'js/back_to_top.js' %}"></script>
   <script src="{% static 'loader/loader.js' %}"></script>
+  <script src="{% static 'js/footer_event.js' %}"></script>
 
 </body>
 

@@ -1,0 +1,23 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Logout {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/sotm_companies.css' %}">
+<!-- FAQs -->
+<section class="companies">
+    <center><h2>Logout</h2></center>
+    {% if user.is_authenticated %}
+        <form action="" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <input type="submit" value="Logout" class="cta-btn" name="logout" id="logout-btn" >
+            </fieldset>
+        
+        </form>
+    {% else %}
+        <h2>Logout first to login</h2>
+    {% endif %}
+</section>
+<!-- Footer -->
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/snippets/sotm_navbar.css' %}">
+
+<div class="nav-wrapper" style="z-index:10;">
+        <nav class="navbar">
+                <a href="{% url 'home_page' %}" class="logo mr-auto"><img src="{%static 'img/logo.png' %}" alt=""
+                                class="img-fluid nav-logo"></a>
+                <div class="menu-toggle" id="mobile-menu" onclick="toggleMenu(this)">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                </div>
+                <ul class="nav no-search">
+                        <li class="nav-item"><a
+                                        {%if request.resolver_match.url_name == 'sotm_home' %}class="active-link"
+                                        {% endif %} href="{% url 'sotm:sotm_home' %}">Home</a></li>
+                        <li class="nav-item"><a
+                                        {%if request.resolver_match.url_name == 'companies' %}class="active-link"
+                                        {% endif %} href="{% url 'sotm:companies' %}">Startups</a></li>
+                        <li class="nav-item"><a
+                                        {%if request.resolver_match.url_name == 'internships' %}class="active-link"
+                                        {% endif %} href="{% url 'sotm:internships' %}">Internships</a></li>
+                        
+                        
+                        {% if user.is_authenticated %}
+                        <li class="nav-item"><a {%if request.resolver_match.url_name == 'profile_view' %}class="active-link" {% endif %}
+                                        href="{% url 'sotm:profile_view' %}">Profile</a></li>
+
+                        <li class="nav-item"><a {%if request.resolver_match.url_name == 'logout' %}class="active-link"
+                                        {% endif %} href="{% url 'sotm:logout' %}">Logout</a></li>
+                        {% else %}
+                        <li class="nav-item"><a {%if request.resolver_match.url_name == 'login' %}class="active-link"
+                                        {% endif %} href="{% url 'sotm:login' %}">Login</a></li>
+                        <li class="nav-item"><a {%if request.resolver_match.url_name == 'register' %}class="active-link"
+                                        {% endif %} href="{% url 'sotm:register' %}">Register</a></li>
+                        {% endif %}
+                        <li class="nav-item"><a
+                                        {%if request.resolver_match.url_name == 'home_page' %}class="active-link"
+                                        {% endif %} href="{% url 'home_page' %}">EDC</a></li>
+                </ul>
+        </nav>
+</div>
+<script src="{% static 'js/sotm_base.js' %}"></script>
