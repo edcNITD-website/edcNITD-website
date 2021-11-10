@@ -113,7 +113,7 @@
 
 .social i {
   font-size: 25px !important;
-  color: var(--theme-color) !important;
+  color: var(--theme-color);
   padding-right: 15px;
   text-align: center;
   transition: 0.3s;
@@ -128,7 +128,7 @@
 div .loader {
   width: 30px;
   height: 30px;
-  border-right: 4px solid var(--theme-color);
+  border-right: 4px solid var(--clr-loading);
   border-radius: 100%;
   animation: spinRight 1100ms linear infinite;
   margin-right: 10px;
@@ -142,7 +142,7 @@ div .loader:after {
   position: absolute;
   top: calc(50% - 8px);
   left: calc(50% - 8px);
-  border-left: 3px solid var(--theme-color);
+  border-left: 3px solid rgb(253, 234, 58);
   border-radius: 100%;
   animation: spinLeft 1500ms linear infinite;
 }
@@ -173,4 +173,8 @@ div .loader:after {
   to {
     transform: rotate(0deg);
   }
+}
+
+.fa-check-circle{
+  color: rgb(68, 255, 35) !important;
 }

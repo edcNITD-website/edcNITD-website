@@ -8,6 +8,8 @@
     --clr-text-light: #eee;
     --clr-bg-light: #393e46;
     --clr-bg-light-50 : hsl(217, 10%, 35%);
+    --clr-loading : rgb(71, 166, 255);
+    --clr-success : rgb(71, 255, 95);
 }
 
 * {

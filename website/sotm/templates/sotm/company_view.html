@@ -28,7 +28,9 @@
                         <div class="d-flex justify-content-between align-items-center flex-wrap social">
                             {% if company.verified %}
                             <h6 class="mb-0">Verified</h6>
-                            <i class="fas fa-check-square"></i>
+                            <span id="verified-tick">
+                                <i class="fas fa-check-circle"></i>
+                            </span>
                             {% else %}
                             <h6 class="mb-0">Verification in Progress</h6>
                             <!-- <div class="load"></div> -->
