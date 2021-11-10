@@ -9,6 +9,17 @@ from django.db import IntegrityError
 from django.contrib import messages
 # Create your views here.
 
+def get_students_list()->List:
+    all_students = []
+    for student in Student.objects.all():
+        all_students.append(student.user)
+    return all_students
+
+def get_companies_list()->List:
+    all_companies = []
+    for company in Company.objects.all():
+        all_companies.append(company.user)
+    return all_companies
 
 def sotm_home(request):
     context = {}
@@ -293,6 +304,15 @@ def create_new_position(request, company_id):
 def sotm_register(request):
     if request.method == 'POST':
         if 'student' in request.POST:
+            user_given_mail = request.POST.get('email')
+            is_unique = True
+            for u in User.objects.all():
+                if user_given_mail == u.email:
+                    is_unique = False
+            if not is_unique:
+                messages.error(request,"This email has been used already, please use another email id to register")
+                context = {}
+                return render(request, 'sotm/register.html', context)
             student = Student()
             user = User()
             user.username = request.POST.get('username')
@@ -310,8 +330,18 @@ def sotm_register(request):
             if(request.FILES['studentdp'] is not None):
                 student.student_dp = request.FILES['studentdp']
             student.save()
+            messages.info(request,user.username+' has successfully registered please proceed to login.')
             return redirect('/sotm/login')
         elif 'company' in request.POST:
+            user_given_mail = request.POST.get('email')
+            is_unique = True
+            for u in User.objects.all():
+                if user_given_mail == u.email:
+                    is_unique = False
+            if not is_unique:
+                messages.error(request,"This email has been used already, please use another email id to register")
+                context = {}
+                return render(request, 'sotm/register.html', context)
             company = Company()
             user = User()
             user.username = request.POST.get('username')
@@ -338,6 +368,7 @@ def sotm_register(request):
                 company.logo = request.FILES['company_logo']
             company.save()
             company.new_registeration()
+            messages.info(request,'Email has been sent to your registered email id with the details you have registered with. Please verify the details you have provided here as they will be used for verification purposes by our team.')
             return redirect('/sotm/login')
     context = {}
     return render(request, 'sotm/register.html', context)
@@ -351,21 +382,31 @@ def sotm_login(request):
             user = authenticate(request, username=username, password=password)
             if user != None:
                 login(request, user)
-                return redirect('/sotm/')
+                messages.success(request,"Successfully logged in.")    
+                if user in get_companies_list():
+                    return redirect('/sotm/companies/profile')
+                if user in get_students_list():
+                    return redirect('/sotm/student/profile')
         elif 'company' in request.POST:
             username = request.POST.get('username')
             password = request.POST.get('password')
             user = authenticate(request, username=username, password=password)
             if user != None:
                 login(request, user)
-                return redirect('/sotm/')
+                messages.success(request,"Successfully logged in.") 
+                if user in get_companies_list():
+                    return redirect('/sotm/companies/profile')
+                if user in get_students_list():
+                    return redirect('/sotm/student/profile')
     return render(request, 'sotm/login.html')
 
 
 @login_required
 def sotm_logout(request):
+    username = request.user.username
     logout(request)
-    return redirect('/sotm/')
+    messages.info(request,"logged out "+username)
+    return redirect('/sotm/login')
 
 
 @login_required
@@ -433,5 +474,8 @@ def change_password(request):
             user.set_password(request.POST.get('password'))
             user.save()
             messages.success(request,"Password succesfully changed.")
-            return redirect('/sotm/')
+            if user in get_companies_list():
+                return redirect('/sotm/companies/profile')
+            if user in get_students_list():
+                return redirect('/sotm/student/profile')
     return render(request,'sotm/change_password.html')

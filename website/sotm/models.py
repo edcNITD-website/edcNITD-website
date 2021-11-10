@@ -69,7 +69,14 @@ class Company(models.Model):
             subject="A new company has registered! Their name is "+self.company_name,
             message="Congratulations a new company has registered for SOTM, Its name is "+self.company_name+". Their email id is "+self.user.email + " Their phone number is "+self.company_phone+". Please verify the company and make the change to backend.",
             from_email=settings.EMAIL_HOST_USER,
-            recipient_list=["mma.20u10180@btech.nitdgp.ac.in"],
+            recipient_list=["edcnitd.official@gmail.com"],
+        )
+        # todo send email to company regarding their registeration
+        send_mail(
+            subject="Registeration in Startup of the Month, EDC NIT Durgapur",
+            message="Thank you for registering for startup of the month. Please verify the following details: Company name is "+self.company_name+". Your email id is "+self.user.email + " Registered phone number is "+self.company_phone+". Please wait till we verify your registeration after which you will be able to create internships on the website and have access to much more.",
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=[self.user.email],
         )
 
     def __str__(self) -> str:
@@ -154,5 +161,5 @@ class TemporaryLink(models.Model):
             message="Change password request for Startup of the Month. The Link remains valid for 1 hour only. Please click on the link below to change you password 'https://edcnitd.co.in/sotm/key/"+self.key+"/'",
             html_message="Change password request for Startup of the Month. The Link remains valid for 1 hour only. Please click on the link below to change you password <br> <a href='https:/edcnitd.co.in/sotm/key/"+self.key+"/'>click here</a>",
             from_email=settings.EMAIL_HOST_USER,
-            recipient_list=["mma.20u10180@btech.nitdgp.ac.in"],
+            recipient_list=[self.user.email],
         )
