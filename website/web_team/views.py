@@ -5,7 +5,7 @@ from .models import Contributors
 
 def web_team(request):
     context={
-        'contributors':Contributors.objects.all()
+        'contributors':Contributors.objects.all().order_by('name')
     }
     ordering=['date']
     return render(request,'web_team/web_team.html',context)
