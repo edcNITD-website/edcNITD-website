@@ -37,8 +37,10 @@
 }
 
 .navbar .nav-logo {
-  height: 70px !important;
+  height: 50px !important;
   margin-left: 25px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .navbar img {

@@ -1,6 +1,6 @@
 {% extends 'sotm/sotm_base.html' %}
 {% load static %}
-{% block title %} Startup Of the Month {% endblock %}
+{% block title %} Startup Of The Month {% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/sotm_home.css' %}">
 <!-- Carousel -->
@@ -55,83 +55,91 @@
                     </div>
                     <div class="about-content">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa magni nobis nisi, enim aperiam
-                            quod tempora corrupti quidem dolore tenetur quam ducimus facere fugiat architecto aliquid
+                            The Entrepreneurship Development Cell started its new initiative, "Start-Up of the Month",
+                            intending to promote the startup culture in the country. By providing a platform for young
+                            entrepreneurs to announce, market, expand, and develop their plan of action while providing
+                            a learning opportunity for the budding enthusiasts to learn of the same.</p> <p> Our initiative will
+                            bring successful StartUps of our alumni along with an opportunity to become a part of their
+                            journey! We aim to provide internship opportunities, helping students get practical exposure
+                            and a kickstart to their careers.
+
                         </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa magni nobis nisi, enim aperiam
+                        <!-- <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa magni nobis nisi, enim
+                            aperiam
                             quod tempora corrupti
                             quidem dolore tenetur quam ducimus facere fugiat architecto aliquid
-                        </p>
+                        </p> -->
                     </div>
                 </div>
-    
+
             </div>
             <!-- sub headings to about us -->
             <div class="col-sm-7">
                 <div class="timeline">
                     {% for sub_about in about %}
-                    <li class="timeline__event" id="{{sub_about.id}}-sub_about">
-                        <ul class="timeline__event__content" id="{{sub_about.id}}-heading"  >
+                    <li class="timeline__event" id="{{sub_about.id}}-sub_about" onclick="toggleSubAbout(document.getElementById('{{sub_about.id}}'))">
+                        <ul class="timeline__event__content" id="{{sub_about.id}}-heading">
                             <li class="timeline__event__title">
                                 {{ sub_about.heading }}
                             </li>
-                            <li><button onclick="toggleSubAbout(this)" id="{{sub_about.id}}">-</button></li>
+                            <li><button id="{{sub_about.id}}">+</button></li>
                         </ul>
-                        <p class="timeline__event__description" id="{{sub_about.id}}-content" >{{ sub_about.content }}</p>
+                        <p class="timeline__event__description" id="{{sub_about.id}}-content">{{ sub_about.content }}
+                        </p>
                     </li>
                     {% endfor %}
-                  </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
 </section>
-<br><br><br>
 <!-- ABOUT US SECTION ENDED -->
 
 <!-- internships ADDED -->
-
+<br>
 <section id="internships" class="section-bg">
 
-  <div class="container" data-aos="fade-up">
+    <div class="container" data-aos="fade-up">
 
-    <header class="section-header">
+        <header class="section-header">
 
-      <h1 style="text-align: center;">Internships</h1>
+            <h1 style="text-align: center;">Internships</h1>
 
-    </header>
+        </header>
 
-    <div class="owl-carousel internships-carousel">
-    
-      {% for opp in all_opportunities %}  
+        <div class="owl-carousel internships-carousel">
 
-        <div class="testimonial-item">
-            <center><img class="postcard__img rounded-circle" src="{{opp.company.logo.url}}" alt="{{company.name}}-image"></center>
+            {% for opp in all_opportunities %}
 
-            <h2>{{ opp.name }}</h2>
+            <div class="testimonial-item">
+                <center><img class="postcard__img rounded-circle" src="{{opp.company.logo.url}}"
+                        alt="{{company.name}}-image"></center>
 
-            <h4>at {{ opp.company.company_name }}</h4>
-            <p>
+                <h2>{{ opp.name }}</h2>
 
-            {{ opp.description|truncatechars:180 }}
+                <h4>at {{ opp.company.company_name }}</h4>
+                <p>
 
-            <br><br>
-            <a href="{% url 'sotm:view_opportunity' opp.id %}">View more</a>
+                    {{ opp.description|truncatechars:180 }}
 
-            </p>
+                    <br><br>
+                    <a href="{% url 'sotm:view_opportunity' opp.id %}">View more</a>
+
+                </p>
+
+            </div>
+            {% endfor %}
+
+
 
         </div>
-      {% endfor %}
-
-
 
     </div>
-
-  </div>
-</section> 
-<br><br><br>
-    <!-- ======= End Speakers Section ======= -->
+</section>
+<br>
+<!-- ======= End Speakers Section ======= -->
 
 <!-- INTERNSHIPS-VIEW STARTED -->
 
@@ -147,23 +155,23 @@
     </center>
     <ul class="faq-holder">
         {% for faq in hero_faqs %}
-        <li class="faq active" id="{{faq.id}}-faq">
+        <li class="faq active" id="{{faq.id}}-faq"  onclick="toggleAnswer(document.getElementById('{{faq.id}}-btn'))">
             <ul class="question active" id="{{faq.id}}-question">
                 <li>
                     <h3>‣{{faq.question}}</h3>
                 </li>
-                <li><button onclick="toggleAnswer(this)" id="{{faq.id}}">-</button></li>
+                <li><span  id="{{faq.id}}-btn">-</button></li>
             </ul>
             <p id="{{faq.id}}-answer" class="active">{{faq.answer}}</p>
         </li>
         {% endfor %}
         {% for faq in normal_faqs %}
-        <li class="faq" id="{{faq.id}}-faq">
+        <li class="faq" id="{{faq.id}}-faq" onclick="toggleAnswer(document.getElementById('{{faq.id}}-btn'))" >
             <ul class="question" id="{{faq.id}}-question">
                 <li>
                     <h3>‣ {{faq.question}}</h3>
                 </li>
-                <li><button onclick="toggleAnswer(this)" id="{{faq.id}}">+</button></li>
+                <li><span id="{{faq.id}}-btn">+</button></li>
             </ul>
             <p id="{{faq.id}}-answer">{{faq.answer}}</p>
         </li>

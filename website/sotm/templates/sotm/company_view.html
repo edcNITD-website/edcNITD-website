@@ -3,6 +3,12 @@
 {% block title %} Companies_{{company.company_name}} {% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/sotm_companies_profile.css' %}">
+<section class="back-section container mb-2">
+    <!-- back button -->
+  <div onclick="window.history.go(-1)" class="back-btn">
+    <i class="fa fa-arrow-left" aria-hidden="true"><span> BACK</span></i>
+  </div>
+</section>
 <section class="company">
     {% if company %}
     <div class="container">
@@ -15,12 +21,27 @@
                                 <img src="{{company.logo.url}}" alt="Admin" class="rounded-circle">
                                 <div class="mt-3 social">
                                     <h4>{{company.company_name}}
-                                    {% if is_owner %}
-                                    <a href="{% url 'sotm:company_edit' company.id %}"><i class="fas fa-edit"></i></a>
-                                    {% endif %}
-                                </h4>
+                                        {% if is_owner %}
+                                        <a href="{% url 'sotm:company_edit' company.id %}"><i
+                                                class="fas fa-edit"></i></a>
+                                        {% endif %}
+                                    </h4>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="card mt-3 p-3">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap social">
+                            {% if company.verified %}
+                            <h6 class="mb-0">Verified</h6>
+                            <span id="verified-tick">
+                                <i class="fas fa-check-circle"></i>
+                            </span>
+                            {% else %}
+                            <h6 class="mb-0">Verification in Progress</h6>
+                            <!-- <div class="load"></div> -->
+                            <div class="loader center"><span></span></div>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="card mt-3 p-3">
@@ -134,8 +155,15 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-12">
+                                    {% if company.verified %}
                                     <a class="btn" href="{% url 'sotm:add_position' company.id %}">Add Internships</a>
-                                    <a href="{% url 'sotm:create_position' company.id %}" class="btn">Create New Position</a>
+                                    <a href="{% url 'sotm:create_position' company.id %}" class="btn">Create New
+                                        Position</a>
+                                    {% else %}
+                                    <button class="btn" disabled>Add Internships</button>
+                                    <button class="btn" disabled>Create New
+                                        Position</button>
+                                    {% endif %}
                                     <a href="{% url 'sotm:change_password' %}" class="btn">Reset Password</a>
                                 </div>
                             </div>
@@ -187,10 +215,12 @@
                         <div class="card-body">
                             <h4 class="content-head">{{opportunity.name}}
                                 <span class="float_right">
-                                {% if is_owner %}
-                                 <a class="social" href="{% url 'sotm:delete_opportunity' company.id opportunity.id %}"><i class="fas fa-trash-alt"></i></a>
-                                {% endif %}
-                            </span>
+                                    {% if is_owner %}
+                                    <a class="social"
+                                        href="{% url 'sotm:delete_opportunity' company.id opportunity.id %}"><i
+                                            class="fas fa-trash-alt"></i></a>
+                                    {% endif %}
+                                </span>
                             </h4>
 
                             <span class="content mb-2">{{opportunity.description}}</span>
@@ -209,7 +239,8 @@
                             {% endif %}
 
                             {% if is_owner %}
-                            <a class="btn" href="{% url 'sotm:edit_opportunity' company.id opportunity.id %}">Edit Internship</a>
+                            <a class="btn" href="{% url 'sotm:edit_opportunity' company.id opportunity.id %}">Edit
+                                Internship</a>
                             {% endif %}
                         </div>
                     </div>
