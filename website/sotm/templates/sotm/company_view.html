@@ -3,6 +3,12 @@
 {% block title %} Companies_{{company.company_name}} {% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/sotm_companies_profile.css' %}">
+<section class="back-section container mb-2">
+    <!-- back button -->
+  <div onclick="window.history.go(-1)" class="back-btn">
+    <i class="fa fa-arrow-left" aria-hidden="true"><span> BACK</span></i>
+  </div>
+</section>
 <section class="company">
     {% if company %}
     <div class="container">

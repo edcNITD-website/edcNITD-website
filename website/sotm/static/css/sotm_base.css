@@ -98,3 +98,6 @@ body ::selection {
     outline: none;
     border-radius: 0.25rem;
 }
+.back-btn span{
+    font-family: "Montserrat", sans-serif;
+}
