@@ -3,6 +3,12 @@
 {% block title %} Internship_{{opportunity.name}} {% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/sotm_companies.css' %}">
+<section class="back-section container mb-2">
+    <!-- back button -->
+  <div onclick="window.history.go(-1)" class="back-btn">
+    <i class="fa fa-arrow-left" aria-hidden="true"><span> BACK</span></i>
+  </div>
+</section>
 <section class="container py-4 companies">
     <ul class="company_list">
         <div class="postcard dark blue">

@@ -6,6 +6,12 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
+<section class="back-section container mb-2">
+    <!-- back button -->
+  <div onclick="window.history.go(-1)" class="back-btn">
+    <i class="fa fa-arrow-left" aria-hidden="true"><span> BACK</span></i>
+  </div>
+</section>
 <section class="companies">
     {% if is_owner %}
     <div class="wrapper">
