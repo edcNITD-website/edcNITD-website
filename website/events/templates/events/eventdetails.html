@@ -47,13 +47,13 @@
 {% if forloop.counter != length %}
 <div class="wrapper-card">
   <div class="card-time-right">
-    {% if rounds.date %}
+    {% if rounds.is_past_due %}
     <div class="round-time-right timeline-right"><i class="fa fa-check"></i></div>
     {% else %}
-    <div class="round-time-right-unchecked timeline-right"><i  class="fa fa-check"></i></div>
+    <div class="round-time-right-unchecked timeline-right"><i class="fa fa-check"></i></div>
     {% endif%}
     <div class="text-time-right">
-      <h2 style="text-align: right;">{{rounds.title}} - {{rounds.date|date:"d F Y, P"}}</h2>
+      <h2 style="text-align: right;">{{rounds.title}} - {{rounds.date_event|date:"d F Y, P"}}</h2>
           <p style="text-align: right;">{{rounds.details}}</p>
     </div>
   </div> 
@@ -61,9 +61,13 @@
 {% else %}
 <div class="wrapper-card">
   <div class="card-time-right-bottom">
+    {% if rounds.is_past_due %}
     <div class="round-time-right timeline-right"><i class="fa fa-check"></i></div>
+    {% else %}
+    <div class="round-time-right-unchecked timeline-right"><i  class="fa fa-check"></i></div>
+    {% endif %}
     <div class="text-time-right">
-      <h2 style="text-align: right;">{{rounds.title}} - {{rounds.date|date:"d F Y, P"}}</h2>
+      <h2 style="text-align: right;">{{rounds.title}} - {{rounds.date_event|date:"d F Y, P"}}</h2>
           <p style="text-align: right;">{{rounds.details}}</p>
     </div>
     <div class="bullet-time-right timeline-right"></div>
@@ -75,9 +79,13 @@
   {% if forloop.counter == 1 %}
   <div class="card-time-left">
     <div class="bullet-time"></div>
-    <div class="round-time-left"><i class="fa fa-check"></i></div>
+     {% if rounds.is_past_due %}
+       <div class="round-time-left"><i class="fa fa-check"></i></div>
+     {% else %}
+       <div class="round-time-left-unchecked"><i class="fa fa-check"></i></div>
+     {% endif %}
     <div class="text-time-left">
-      <h2 style="text-align: left;">{{rounds.title}} - {{rounds.date|date:"d F Y, P"}}</h2>
+      <h2 style="text-align: left;">{{rounds.title}} - {{rounds.date_event|date:"d F Y, P"}}</h2>
           <p style="text-align: left;">{{rounds.details}}</p>
     </div>
   </div>
@@ -87,9 +95,13 @@
   {% else %}
   <div class="card-time-left-top">
   {% endif%}
-    <div class="round-time-left"><i class="fa fa-check"></i></div>
+     {% if rounds.is_past_due %}
+     <div class="round-time-left"><i class="fa fa-check"></i></div>
+     {% else %}
+     <div class="round-time-left-unchecked"><i class="fa fa-check"></i></div>
+     {% endif %}
       <div class="text-time-left">
-        <h2 style="text-align: left;">{{rounds.title}} - {{rounds.date|date:"d F Y, P"}}</h2>
+        <h2 style="text-align: left;">{{rounds.title}} - {{rounds.date_event|date:"d F Y, P"}}</h2>
             <p style="text-align: left;">{{rounds.details}}</p>
       </div>
       {% if forloop.counter == length %}
