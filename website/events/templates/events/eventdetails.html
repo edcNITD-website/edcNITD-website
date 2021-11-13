@@ -12,6 +12,64 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+<!-- <style>
+ .pop-window {
+  width: 600px;
+  z-index: 999;
+  background: #fff;
+  margin: 0 auto;
+  border: 2px solid #cdcdcd;
+  padding: 20px;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.overlay {
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.7);
+  height: max-content;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: #000;
+  cursor: pointer;
+}
+
+button {
+  border: none;
+  padding: 10px 20px;
+  background: #ff7259;
+  display: block;
+  margin: 0 auto;
+}
+
+button a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s all;
+}
+
+button:hover {
+  background: #e5593f;
+  transition: 0.5s all;
+}
+</style> -->
 
 <!-- FLEX CONTAINER -->
 <div class="container">
@@ -30,7 +88,13 @@
       <hr>
       <p><i class="fa fa-calendar" aria-hidden="true"></i> Registration Starts: <span class="">{{event.start_date|date:"d F Y, P" }}</span></p>
       <p><i class="fa fa-calendar" aria-hidden="true"></i> Registration Ends: <span class="">{{event.end_date|date:"d F Y, P" }}</span></p>
-      <p style="text-align: left;"><i class="fa fa-calendar" aria-hidden="true"></i> Prizes: <span class="date-calender">{{event.prizes}}</span></p>
+      <!-- <button><a href="#">Prizes</a></button>
+      <div class="pop-window">
+        <div class="inner">
+            <h2>PRIZES</h2>
+            <p>{{event.prizes}}</p>
+        </div>
+      </div> -->
       <div class="btn_eve" style="text-align: left; max-width: 100%; max-height: 100%; margin-top: 2rem; display: flex; justify-content: left;">
         <a class="btn btn-register" style="text-align: center;" href="{{event.registration_link}}" target="blank"><span class="btntext">PARTICIPATE</span></a>
       </div> 
@@ -118,9 +182,13 @@
   <h3 style="z-index: 10;" id="oe">SLIDER</h3>
 </header>
 <main class="main">
-  <div class="container">
-    <div class="swiper-container ">
-      <div class="swiper-wrapper ">
+  <div class="container container-slider-glade">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <!-- {% if number == 1 %}
+        {% elif number == 3 %}
+        {% else %}
+        {% endif %} -->
         {% for image in images %}
         <div class="swiper-slide">
           <div class="card-image">
@@ -150,4 +218,32 @@
 <!-- SCRIPTS -->
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="{% static 'js/slider.js' %}"></script>
+
+<!-- <script>
+  $(document).ready(function() {
+
+var $overlay = $('<div class="overlay"></div>');
+var $href = $('this').attr('href');
+var $popup = $('.pop-window');
+
+$('<div class="close">x</div>').appendTo($popup);
+$popup.hide();
+
+$('a').click(function(e) {
+  e.preventDefault();
+  $overlay.fadeIn(800).appendTo('body');
+  $popup.delay(800).slideDown();
+});
+
+$overlay.click(function() {
+  $overlay.delay(800).fadeOut();
+  $popup.slideUp();
+});
+
+$('.close').click(function() {
+  $popup.slideUp();
+  $overlay.delay(800).fadeOut();
+});
+});
+</script> -->
 {% endblock %} 
