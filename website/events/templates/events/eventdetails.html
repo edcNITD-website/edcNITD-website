@@ -117,24 +117,32 @@
 <header class="section-header">
   <h3 style="z-index: 10;" id="oe">SLIDER</h3>
 </header>
-<section class="section-slider-swiper" style="width: 100%; max-width: 100vw;">
-  <div class="swiper-container" >
-      <div class="swiper-wrapper" style="height: 320px; width: 40%;">
-          {% for image in images%}
-          <div class="swiper-slide">
-              <div class="testimonialBox">
-                  <div class="content" >
-                      <img src="{{image.images.url}}" alt="photo">
-                  </div>
-              </div>
+<main class="main">
+  <div class="container">
+    <div class="swiper-container ">
+      <div class="swiper-wrapper ">
+        {% for image in images %}
+        <div class="swiper-slide">
+          <div class="card-image">
+            <img src="{{image.images.url}}" alt="Photo">
           </div>
-          {% endfor %}
+        </div>
+        {% endfor %}
       </div>
+    </div>
+    <!-- Add Pagination -->
     <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <!-- Add Scrollbar -->
+    <div class="but">
+      <div class="swiper-button-next">
+        <i class=" arrow-icon"></i>
+      </div>
+      <div class="swiper-button-prev">
+        <i class=" arrow-icon"></i>
+      </div>
+    </div>
   </div>
-</section>
+</main>
 
 <!-- END OF CONTAINER -->
 </div>
