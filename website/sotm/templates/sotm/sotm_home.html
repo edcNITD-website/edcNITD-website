@@ -7,43 +7,40 @@
 <div class="slider" style="z-index:5;">
     <div class="slide current">
         <div class="content">
-            <h1>Slide One</h1>
+            <h1>About Us</h1>
             <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit hic
-                maxime, voluptatibus labore doloremque vero!
+                Know where it all began, the ideologies we stand upon and what we envision to be our mission and vision. 
             </p>
-            <a class="btn" target="__blank" href="#">Go To Somewhere</a>
+            <a class="btn" target="_self" href="./#about-section-content">Learn more about us</a>
         </div>
     </div>
     <div class="slide">
         <div class="content">
-            <h1>Slide Two</h1>
+            <h1>Startups</h1>
             <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit hic
-                maxime, voluptatibus labore doloremque vero!
+                Check out the driving force of this initiative, the startups themselves, which represent the striving efforts of our alumni. 
             </p>
-            <a class="btn" target="__blank" href="#">Go To Somewhere</a>
+            <a class="btn" target="__blank" href="{% url 'sotm:companies' %}">View startups</a>
         </div>
     </div>
     <div class="slide">
         <div class="content">
-            <h1>Slide Three</h1>
+            <h1>Internships</h1>
             <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit hic
-                maxime, voluptatibus labore doloremque vero!
+                Explore internships and apply for suitable roles, taking a step towards network building, upskilling and kick-starting your career.
             </p>
-            <a class="btn" target="__blank" href="#">Go To Somewhere</a>
+            <a class="btn" target="__blank" href="{% url 'sotm:internships' %}">View Internships</a>
         </div>
     </div>
 
-    <div class="buttons" style="z-index:5;">
+    <div class="buttons" style="z-index:999;">
         <button id="prev"><i class="fas fa-arrow-left"></i></button>
         <button id="next"><i class="fas fa-arrow-right"></i></button>
     </div>
 </div>
 
 <!-- ABOUT US SECTION -->
-<section class="About-Us">
+<section class="About-Us" id="about-section-content">
     <div class="container">
         <div class="row align-center">
             <div class="col-sm-5 about-us">
