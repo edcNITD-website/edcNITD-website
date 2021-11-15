@@ -7,6 +7,8 @@ from django.db.models.expressions import Random
 from website import settings
 from django.utils import timezone
 from django.utils.crypto import get_random_string
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 # Create your models here.
 
@@ -65,16 +67,24 @@ class Company(models.Model):
 
     def new_registeration(self):
         # todo send email to edc regarding new registeration by the company
+        subject = "A new company has registered! Their name is "+self.company_name
+        html_message = render_to_string('sotm/email_to_edc_registeration.html',context={'company':self})
+        plain_message = strip_tags(html_message)
         send_mail(
-            subject="A new company has registered! Their name is "+self.company_name,
-            message="Congratulations a new company has registered for SOTM, Its name is "+self.company_name+". Their email id is "+self.user.email + " Their phone number is "+self.company_phone+". Please verify the company and make the change to backend.",
+            subject=subject,
+            message=plain_message,
+            html_message=html_message,
             from_email=settings.EMAIL_HOST_USER,
             recipient_list=["edcnitd.official@gmail.com"],
         )
         # todo send email to company regarding their registeration
+        subject = "Registeration in Startup of the Month, EDC NIT Durgapur"
+        html_message = render_to_string('sotm/email_to_company_registeration.html',context={'company':self})
+        plain_message = strip_tags(html_message)
         send_mail(
-            subject="Registeration in Startup of the Month, EDC NIT Durgapur",
-            message="Thank you for registering for startup of the month. Please verify the following details: Company name is "+self.company_name+". Your email id is "+self.user.email + " Registered phone number is "+self.company_phone+". Please wait till we verify your registeration after which you will be able to create internships on the website and have access to much more.",
+            subject=subject,
+            message=plain_message,
+            html_message=html_message,
             from_email=settings.EMAIL_HOST_USER,
             recipient_list=[self.user.email],
         )
