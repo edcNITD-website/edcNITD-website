@@ -169,3 +169,33 @@
     padding-top: 190px;
   }
 }
+
+.btn-eve-eve{
+  width: 75%; 
+  margin-bottom: 1rem; 
+  margin-left: 12.5%; 
+  background:var(--theme-color); 
+  font-weight: 700; 
+  border: 2px solid var(--theme-color);
+}
+
+.btn-eve-reg{
+  width: 75%;
+  margin-left: 12.5%;
+  margin-bottom: 1rem; 
+  color:var(--theme-color); 
+  background: white; 
+  font-weight: 700; 
+  border: 2px solid var(--theme-color)
+}
+
+.card-title-event{
+  font-size: 22px !important; 
+  margin-bottom: 1.2rem !important;
+  margin-top:0 !important;
+  width: 100% !important; 
+  text-align: center !important;
+  text-transform: capitalize;
+  word-wrap: break-word;
+  color: rgb(107, 100, 100);
+}

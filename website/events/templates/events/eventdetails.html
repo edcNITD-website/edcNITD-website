@@ -1,0 +1,249 @@
+{% extends 'events/base_event.html' %}
+{% load static %}
+{% load tz %}
+{% block content %}
+
+<!-- BOOTSTRAP CDN AND AUXILLARY CSS-->
+<link href="{% static 'css/eventdetails.css' %}" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+<!-- <style>
+ .pop-window {
+  width: 600px;
+  z-index: 999;
+  background: #fff;
+  margin: 0 auto;
+  border: 2px solid #cdcdcd;
+  padding: 20px;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.overlay {
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.7);
+  height: max-content;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: #000;
+  cursor: pointer;
+}
+
+button {
+  border: none;
+  padding: 10px 20px;
+  background: #ff7259;
+  display: block;
+  margin: 0 auto;
+}
+
+button a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s all;
+}
+
+button:hover {
+  background: #e5593f;
+  transition: 0.5s all;
+}
+</style> -->
+
+<!-- FLEX CONTAINER -->
+<div class="container">
+  <header class="section-header">
+    <h3 class="event-name team-title">{{event.event_name}}</h3>
+  </header>
+  <div style="height: 0%;"></div> 
+
+<!-- POSTER AND IMAGE-->
+<div class="poster_img container">
+  <div class="eve_img_desc">
+    <div class="eve_img clearfix"> <img class="poster-eve" src="{{event.poster.url}}"></div>
+    <div class="eve_descrip clearfix">
+      <p><i class="fa fa-pencil" aria-hidden="true"></i> Description:</p>
+      <h1>{{event.about_event}}</h1>
+      <hr>
+      <p><i class="fa fa-calendar" aria-hidden="true"></i> Registration Starts: <span class="">{{event.start_date|date:"d F Y, P" }}</span></p>
+      <p><i class="fa fa-calendar" aria-hidden="true"></i> Registration Ends: <span class="">{{event.end_date|date:"d F Y, P" }}</span></p>
+      <!-- <button><a href="#">Prizes</a></button>
+      <div class="pop-window">
+        <div class="inner">
+            <h2>PRIZES</h2>
+            <p>{{event.prizes}}</p>
+        </div>
+      </div> -->
+      <div class="btn_eve" style="text-align: left; max-width: 100%; max-height: 100%; margin-top: 2rem; display: flex; justify-content: left;">
+        <a class="btn btn-register" style="text-align: center;" href="{{event.registration_link}}" target="blank"><span class="btntext">PARTICIPATE</span></a>
+      </div> 
+    </div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<header class="section-header">
+  <h3 style="z-index: 10;" id="oe">TIMELINE</h3>
+</header>
+{% for rounds in timeline %}
+{% if forloop.counter|divisibleby:2 %}
+{% if forloop.counter != length %}
+<div class="wrapper-card">
+  <div class="card-time-right">
+    {% if rounds.is_past_due %}
+    <div class="round-time-right timeline-right"><i class="fa fa-check"></i></div>
+    {% else %}
+    <div class="round-time-right-unchecked timeline-right"><i class="fa fa-check"></i></div>
+    {% endif%}
+    <div class="text-time-right">
+      <h2 style="text-align: right;">{{rounds.title}} - {{rounds.date_event|date:"d F Y, P"}}</h2>
+          <p style="text-align: right;">{{rounds.details}}</p>
+    </div>
+  </div> 
+</div> 
+{% else %}
+<div class="wrapper-card">
+  <div class="card-time-right-bottom">
+    {% if rounds.is_past_due %}
+    <div class="round-time-right timeline-right"><i class="fa fa-check"></i></div>
+    {% else %}
+    <div class="round-time-right-unchecked timeline-right"><i  class="fa fa-check"></i></div>
+    {% endif %}
+    <div class="text-time-right">
+      <h2 style="text-align: right;">{{rounds.title}} - {{rounds.date_event|date:"d F Y, P"}}</h2>
+          <p style="text-align: right;">{{rounds.details}}</p>
+    </div>
+    <div class="bullet-time-right timeline-right"></div>
+  </div>
+</div>
+{% endif%}
+{% else %}
+<div class="wrapper-card">
+  {% if forloop.counter == 1 %}
+  <div class="card-time-left">
+    <div class="bullet-time"></div>
+     {% if rounds.is_past_due %}
+       <div class="round-time-left"><i class="fa fa-check"></i></div>
+     {% else %}
+       <div class="round-time-left-unchecked"><i class="fa fa-check"></i></div>
+     {% endif %}
+    <div class="text-time-left">
+      <h2 style="text-align: left;">{{rounds.title}} - {{rounds.date_event|date:"d F Y, P"}}</h2>
+          <p style="text-align: left;">{{rounds.details}}</p>
+    </div>
+  </div>
+  {% else %}
+  {% if forloop.counter == length %}
+  <div class="card-odd-last">
+  {% else %}
+  <div class="card-time-left-top">
+  {% endif%}
+     {% if rounds.is_past_due %}
+     <div class="round-time-left"><i class="fa fa-check"></i></div>
+     {% else %}
+     <div class="round-time-left-unchecked"><i class="fa fa-check"></i></div>
+     {% endif %}
+      <div class="text-time-left">
+        <h2 style="text-align: left;">{{rounds.title}} - {{rounds.date_event|date:"d F Y, P"}}</h2>
+            <p style="text-align: left;">{{rounds.details}}</p>
+      </div>
+      {% if forloop.counter == length %}
+      <div class="bullet-time"></div>
+      {% endif %}
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+{% endfor%}
+
+<!-- SLIDER -->
+<header class="section-header">
+  <h3 style="z-index: 10;" id="oe">SLIDER</h3>
+</header>
+<main class="main">
+  <div class="container container-slider-glade">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <!-- {% if number == 1 %}
+        {% elif number == 3 %}
+        {% else %}
+        {% endif %} -->
+        {% for image in images %}
+        <div class="swiper-slide">
+          <div class="card-image">
+            <img src="{{image.images.url}}" alt="Photo">
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Scrollbar -->
+    <div class="but">
+      <div class="swiper-button-next">
+        <i class=" arrow-icon"></i>
+      </div>
+      <div class="swiper-button-prev">
+        <i class=" arrow-icon"></i>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- END OF CONTAINER -->
+</div>
+
+<!-- SCRIPTS -->
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script src="{% static 'js/slider.js' %}"></script>
+
+<!-- <script>
+  $(document).ready(function() {
+
+var $overlay = $('<div class="overlay"></div>');
+var $href = $('this').attr('href');
+var $popup = $('.pop-window');
+
+$('<div class="close">x</div>').appendTo($popup);
+$popup.hide();
+
+$('a').click(function(e) {
+  e.preventDefault();
+  $overlay.fadeIn(800).appendTo('body');
+  $popup.delay(800).slideDown();
+});
+
+$overlay.click(function() {
+  $overlay.delay(800).fadeOut();
+  $popup.slideUp();
+});
+
+$('.close').click(function() {
+  $popup.slideUp();
+  $overlay.delay(800).fadeOut();
+});
+});
+</script> -->
+{% endblock %} 
