@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-from datetime import date
+from datetime import date, datetime, tzinfo
+import pytz
 
 class Event(models.Model):
     event_name=models.CharField(max_length=100)
@@ -31,7 +32,7 @@ class EventImages(models.Model):
 class Timeline(models.Model):
     event=models.ForeignKey(Event, default=None, on_delete=models.CASCADE)
     title=models.CharField(max_length=300)
-    date=models.DateTimeField(auto_now=False, auto_now_add=False, blank=True, null=True)
+    date_event=models.DateTimeField(auto_now=False, auto_now_add=False, blank=True, null=True)
     details=models.CharField(max_length=300)
 
     def __str__(self):
@@ -39,7 +40,9 @@ class Timeline(models.Model):
 
     @property
     def is_past_due(self):
-        return date.today() > self.date()
+        tz = pytz.timezone('UTC')
+        date_check = datetime.now(tz)
+        return date_check > self.date_event
     class Meta:
         verbose_name_plural = 'Timeline'
 

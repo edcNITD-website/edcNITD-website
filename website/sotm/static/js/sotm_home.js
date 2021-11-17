@@ -1,5 +1,6 @@
 //about
 function toggleSubAbout(element) {
+  console.log(element);
   id = element.id;
   let content_element = document.getElementById(id + "-content");
   let heading_element = document.getElementById(id + "-heading");
@@ -17,7 +18,8 @@ function toggleSubAbout(element) {
 
 // faq
 function toggleAnswer(element) {
-  let id = element.id;
+  let id = element.id.split('-')[0];
+  console.log(element.id);
   let answer_element = document.getElementById(id + "-answer");
   let question_element = document.getElementById(id + "-question");
   let faq_element = document.getElementById(id + "-faq");

@@ -7,6 +7,12 @@
   margin: 6rem 3rem 4rem 3rem;
 }
 
+@media screen and (max-width: 700px) {
+  .container-form{
+    margin: 1rem;
+  }
+}
+
 .total {
   padding: 0.5em 2rem 3em 2rem;
   height: auto;

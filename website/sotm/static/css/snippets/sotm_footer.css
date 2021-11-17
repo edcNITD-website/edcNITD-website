@@ -6,14 +6,14 @@
 }
 #footer {
   background: var(--clr-bg-dark);
-  padding: 0 0 30px 0;
+  padding: 0;
   color: #eee;
   font-size: 14px;
 }
 
 #footer .footer-top {
   background: var(--clr-bg-dark);
-  padding: 60px 0 30px 0;
+  /* padding: 60px 0 30px 0; */
 }
 
 #footer .footer-top .footer-info {

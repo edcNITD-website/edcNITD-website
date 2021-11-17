@@ -259,3 +259,9 @@
 .year-alumni-holder.batch-visible{
     display: block;
 }
+
+@media screen and (min-width: 1200px) {
+    #padder {
+        max-width: 1500px;
+    }
+}

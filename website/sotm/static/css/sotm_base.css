@@ -8,6 +8,8 @@
     --clr-text-light: #eee;
     --clr-bg-light: #393e46;
     --clr-bg-light-50 : hsl(217, 10%, 35%);
+    --clr-loading : rgb(71, 166, 255);
+    --clr-success : rgb(71, 255, 95);
 }
 
 * {
@@ -70,20 +72,23 @@ body ::selection {
     background-color: rgba(154, 163, 162, 0.363);
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     gap: 0.5rem;
 }
+.message-list .text{
+    margin: auto;
+
+}
 .message-list li.error{
-    background-color: rgba(163, 61, 61, 0.363);
+    background-color: rgba(255, 94, 94, 0.849);
+    color: black;
 }
 .message-list li.info{
     background-color: rgba(158, 158, 158, 0.363);
 }
 .message-list li.success{
-    background-color: rgba(59, 163, 41, 0.363);
-}
-.remove-btn{
-    margin: auto;
+    background-color: rgba(170, 255, 144, 0.781);
+    color: black;
 }
 .remove-btn button{
     margin: auto 0px;
@@ -92,4 +97,7 @@ body ::selection {
     border: none;
     outline: none;
     border-radius: 0.25rem;
+}
+.back-btn span{
+    font-family: "Montserrat", sans-serif;
 }
