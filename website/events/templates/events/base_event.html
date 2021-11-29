@@ -82,7 +82,7 @@
                   <li {%if request.resolver_match.url_name == 'esummit_page' %}class="active" {% endif %}><a
                       href="{% url 'esummit_page' %}">E-Summit'21</a></li>
 
-                  <li {%if request.resolver_match.url_name == 'event_page' %}class="active" {% endif %}><a
+                  <li {%if request.resolver_match.url_name == 'event_page' or request.resolver_match.url_name == 'showevent'%}class="active" {% endif %}><a
                       href="{% url 'event_page' %}">Event Registrations</a></li>
                       
                       
