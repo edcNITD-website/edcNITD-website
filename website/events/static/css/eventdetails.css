@@ -172,8 +172,8 @@ img{
   height: 88%;
   justify-content: flex-end;
   align-items: center;
-  width: auto;
-  max-width: fit-content;
+  width: 100%;
+  
   padding-left: 10PX;
   padding-right: 10px;
   padding: 1rem;
@@ -240,9 +240,8 @@ img{
   .eve_img{
     display: flex;
       align-items: center;
-      height: auto;
-      width: 80% !important;
-      max-width: fit-content;
+      height: 100%;
+      
       margin-right: 10px;
       margin-left: 10px; 
   }
@@ -539,6 +538,31 @@ img{
   top: 50%;
   transform: translate(-50%, 95%);
   padding: 16px 20px;
+}
+
+.back-btn{
+  position: absolute;
+  margin-left: 0.8rem;
+  color: var(--theme-color);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  padding-top: 1rem;
+  font-size: 3rem;
+  
+}
+.back-btn:hover{
+  cursor: pointer;
+  transform: scale(1.2);
+  opacity: 1;
+  /* box-shadow: var(--theme-color); */
+}
+@media (min-width: 769px) {
+  .back-btn{
+    padding-top: 1rem;
+  }
+  
 }
 
 /*SLIDER*/

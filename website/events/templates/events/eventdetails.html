@@ -72,14 +72,18 @@ button:hover {
 </style> -->
 
 <!-- FLEX CONTAINER -->
+
 <div class="container">
   <header class="section-header">
     <h3 class="event-name team-title">{{event.event_name}}</h3>
   </header>
+  
   <div style="height: 0%;"></div> 
-
+  <div onclick="window.history.go(-1)" class="back-btn">
+    <i style="font-size: 2rem;" class="fa fa-arrow-left" aria-hidden="true"><span> BACK</span></i>
+  </div>
 <!-- POSTER AND IMAGE-->
-<div class="poster_img container">
+<div class="poster_img container" style="margin-top: 3rem;">
   <div class="eve_img_desc">
     <div class="eve_img clearfix"> <img class="poster-eve" src="{{event.poster.url}}"></div>
     <div class="eve_descrip clearfix">

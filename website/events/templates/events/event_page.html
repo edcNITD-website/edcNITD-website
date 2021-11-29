@@ -60,11 +60,13 @@
                             </div>
                         </div>
                         <div class="portfolio-description">
-                            <h2 class="card-title-event">{{oe.event_name}}</h2>
+                            <h2 class="card-title-event" id="event-name" style="white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;">{{oe.event_name}}</h2>
                         </div>
                         <form action="{% url 'showevent' oe.id %}" method="POST" class="d-inline">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-success btn-eve-eve">View Event</button>
+                            <button type="submit" class="btn btn-success btn-eve-eve">View event</button>
                         </form>
                         <button type="submit" class="btn btn-success btn-eve-reg"><a href="{{oe.registration_link}}" target="blank">Register Now</a></button>
                 </section>
@@ -324,4 +326,43 @@
     }
 </script>
 <script src="{% static 'js/subnavbar.js' %}"></script>
+<script>
+checkFontSize();
+
+
+function checkFontSize() {
+  var elems = document.querySelectorAll("#event-name");
+  
+  [].forEach.call(elems, function(el) {
+    scaleFontSize(el);
+  });  
+
+}
+
+function scaleFontSize(element) {
+ 
+    // We only want to scale down long text, so first we reset
+    // font-size to 100%
+    element.style.fontSize = "100%";
+  
+    // Now we chceck if the content is wider than parent
+    // If so, then reduce letter spacing a tiny bit, maybe it's enough
+    if (element.scrollWidth > element.clientWidth) {
+        element.style.letterSpacing = "-0.05em";
+    }
+  
+    // We check the content width oncemore and if it still doesn't fit
+    // then we reduce font size by 80%, but also reset letter spacing to 0 for legibility.
+    if (element.scrollWidth > element.clientWidth) {
+        element.style.letterSpacing = "0";
+        element.style.fontSize = "80%";
+    }
+  
+    if (element.scrollWidth > element.clientWidth) {
+        element.style.letterSpacing = "0";
+        element.style.fontSize = "70%";
+    }
+    // Text which is still longer will get truncated by the CSS rule ellipsis
+  
+}</script>
 {% endblock %}
