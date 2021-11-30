@@ -539,27 +539,25 @@ img{
   transform: translate(-50%, 95%);
   padding: 16px 20px;
 }
-
-.back-btn{
-  position: absolute;
+/***** button *****/
+.back-btn-eve{
   margin-left: 0.8rem;
   color: var(--theme-color);
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   padding-top: 1rem;
   font-size: 3rem;
-  
+  transition: 0.5s;
 }
-.back-btn:hover{
+.back-btn-eve:hover {
   cursor: pointer;
-  transform: scale(1.2);
+  /* transform: scale(1.2); */
   opacity: 1;
+  transform: translateY(5px);
   /* box-shadow: var(--theme-color); */
 }
 @media (min-width: 769px) {
-  .back-btn{
+  .back-btn-eve{
     padding-top: 1rem;
   }
   
