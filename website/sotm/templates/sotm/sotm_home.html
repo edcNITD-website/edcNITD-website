@@ -9,7 +9,7 @@
         <div class="content">
             <h1>About Us</h1>
             <p>
-                Know where it all began, the ideologies we stand upon and what we envision to be our mission and vision. 
+                Know where it all began, the ideologies we stand upon and what we envision to be our mission and vision.
             </p>
             <a class="btn" target="_self" href="./#about-section-content">Learn more about us</a>
         </div>
@@ -18,7 +18,8 @@
         <div class="content">
             <h1>Startups</h1>
             <p>
-                Check out the driving force of this initiative, the startups themselves, which represent the striving efforts of our alumni. 
+                Check out the driving force of this initiative, the startups themselves, which represent the striving
+                efforts of our alumni.
             </p>
             <a class="btn" target="__blank" href="{% url 'sotm:companies' %}">View startups</a>
         </div>
@@ -27,7 +28,8 @@
         <div class="content">
             <h1>Internships</h1>
             <p>
-                Explore internships and apply for suitable roles, taking a step towards network building, upskilling and kick-starting your career.
+                Explore internships and apply for suitable roles, taking a step towards network building, upskilling and
+                kick-starting your career.
             </p>
             <a class="btn" target="__blank" href="{% url 'sotm:internships' %}">View Internships</a>
         </div>
@@ -55,7 +57,8 @@
                             The Entrepreneurship Development Cell started its new initiative, "Start-Up of the Month",
                             intending to promote the startup culture in the country. By providing a platform for young
                             entrepreneurs to announce, market, expand, and develop their plan of action while providing
-                            a learning opportunity for the budding enthusiasts to learn of the same.</p> <p> Our initiative will
+                            a learning opportunity for the budding enthusiasts to learn of the same.</p>
+                        <p> Our initiative will
                             bring successful StartUps of our alumni along with an opportunity to become a part of their
                             journey! We aim to provide internship opportunities, helping students get practical exposure
                             and a kickstart to their careers.
@@ -75,7 +78,8 @@
             <div class="col-sm-7">
                 <div class="timeline">
                     {% for sub_about in about %}
-                    <li class="timeline__event" id="{{sub_about.id}}-sub_about" onclick="toggleSubAbout(document.getElementById('{{sub_about.id}}'))">
+                    <li class="timeline__event" id="{{sub_about.id}}-sub_about"
+                        onclick="toggleSubAbout(document.getElementById('{{sub_about.id}}'))">
                         <ul class="timeline__event__content" id="{{sub_about.id}}-heading">
                             <li class="timeline__event__title">
                                 {{ sub_about.heading }}
@@ -96,6 +100,7 @@
 
 <!-- internships ADDED -->
 <br>
+{% if opp %}
 <section id="internships" class="section-bg">
 
     <div class="container" data-aos="fade-up">
@@ -133,8 +138,11 @@
 
         </div>
 
+
+
     </div>
 </section>
+{% endif %}
 <br>
 <!-- ======= End Speakers Section ======= -->
 
@@ -152,18 +160,18 @@
     </center>
     <ul class="faq-holder">
         {% for faq in hero_faqs %}
-        <li class="faq active" id="{{faq.id}}-faq"  onclick="toggleAnswer(document.getElementById('{{faq.id}}-btn'))">
+        <li class="faq active" id="{{faq.id}}-faq" onclick="toggleAnswer(document.getElementById('{{faq.id}}-btn'))">
             <ul class="question active" id="{{faq.id}}-question">
                 <li>
                     <h3>‣{{faq.question}}</h3>
                 </li>
-                <li><span  id="{{faq.id}}-btn">-</button></li>
+                <li><span id="{{faq.id}}-btn">-</button></li>
             </ul>
             <p id="{{faq.id}}-answer" class="active">{{faq.answer}}</p>
         </li>
         {% endfor %}
         {% for faq in normal_faqs %}
-        <li class="faq" id="{{faq.id}}-faq" onclick="toggleAnswer(document.getElementById('{{faq.id}}-btn'))" >
+        <li class="faq" id="{{faq.id}}-faq" onclick="toggleAnswer(document.getElementById('{{faq.id}}-btn'))">
             <ul class="question" id="{{faq.id}}-question">
                 <li>
                     <h3>‣ {{faq.question}}</h3>
