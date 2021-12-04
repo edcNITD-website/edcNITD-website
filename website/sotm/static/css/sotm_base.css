@@ -132,3 +132,8 @@ body ::selection {
     max-width: 250px;
   }
 }
+
+.required:after {
+  content: " *";
+  color: #ce3434;
+}
