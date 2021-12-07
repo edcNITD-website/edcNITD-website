@@ -2,6 +2,11 @@
   font-family: "Montserrat", sans-serif !important;
   font-size: 16px;
   color: #ffffff;
+  padding-bottom: 1.5rem;
+}
+
+.companies .container {
+  padding-top: 1.5rem;
 }
 
 .company_list {
