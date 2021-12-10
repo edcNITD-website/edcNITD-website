@@ -23,7 +23,7 @@ class Post(models.Model):
     content=models.TextField()
     date=models.DateTimeField(default=timezone.now)
     category=models.ForeignKey(Category,on_delete=models.CASCADE)
-    image=models.ImageField(blank=True, upload_to='equest/',default=None)
+    image=models.ImageField(blank=True)
     fblink=models.URLField(blank=True,default=None)
     instalink=models.URLField(blank=True,default=None)
     class Meta:
@@ -33,3 +33,10 @@ class Post(models.Model):
         return self.title
     def get_absolute_url(self):
         return reverse('post:post_detail',args=[self.id,])
+
+class PostImage(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    images = models.ImageField(blank=True, upload_to='equest/',default=None)
+
+    def __str__(self):
+        return self.post.title
