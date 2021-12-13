@@ -1,6 +1,4 @@
-{% extends 'events/base_event.html' %}
-{% load static %}
-{% block content %}
+{% extends 'events/base_event.html' %} {% load static %} {% block content %}
 
 <!-- jQuery plugins  -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -11,7 +9,6 @@
         <li>
             <button id="hamb">
                 <i class="fa fa-ellipsis-v" id="subnav-icon"></i>
-
             </button>
         </li>
         <div id="visible">
@@ -34,10 +31,9 @@
         text-decoration: none;
         outline: none;
     }
-
+    
     .morecontent span {
         display: none;
-
     }
 </style>
 
@@ -56,39 +52,30 @@
         <div class="row">
             {% for oe in oe %}
             <div class="col-md-4">
-                <section
-                    class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
-
+                <section class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
                     <div class="container">
-
                         <div class="portfolio-details-container">
                             <div class="portfolio-details-carousel">
-                                <img src="{{ oe.image.url }}" class="img-fluid" style="width: 300px; height: 200px; "
-                                    alt="">
+                                <img src="{{ oe.poster.url }}" class="img-fluid" style="width: 300px; height: 200px; " alt="">
                             </div>
                         </div>
-
                         <div class="portfolio-description">
-                            <h2 style="font-size: 22px;">{{oe.event_name}}</h2>
-                            <p class="pop">
-                                {{oe.about_event}}
-                            </p>
+                            <h2 class="card-title-event" id="event-name" style="white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;font-size: calc(4vw + 4vh + 2vmin);">{{oe.event_name}}</h2>
                         </div>
-                    </div>
-                    {% if oe.registration_link%}
-                    <div class="text-center">
-                        <a href="{{oe.registration_link}}" target="blank"
-                            class="btn btn-primary stretched-link">Register in {{oe.event_name}}</a>
-                    </div>
-                    {%endif%}
+                        <form action="{% url 'showevent' oe.id %}" method="POST" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-success btn-eve-eve">View event</button>
+                        </form>
+                        <button type="submit" class="btn btn-success btn-eve-reg"><a href="{{oe.registration_link}}" target="blank">Register Now</a></button>
                 </section>
             </div>
             {% endfor %}
         </div>
         {%else%}
         <div class="default_display">
-            <p class="event_font">Next Event will be <span
-                    style="color: var(--theme-color);font-size: 29px;font-weight: 600;">LIVE</span> in:</p>
+            <p class="event_font">Next Event will be <span style="color: var(--theme-color);font-size: 29px;font-weight: 600;">LIVE</span> in:</p>
             <div id="countdown">
                 <div class="contain">
                     <svg width="150px" height="150px" viewBox="0 0 150 150">
@@ -153,38 +140,32 @@
         <div class="row">
             {% for ue in ue %}
             <div class="col-md-4">
-                <section
-                    class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
+                <section class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
                     <div class="container">
 
                         <div class="portfolio-details-container">
                             <div class="portfolio-details-carousel">
-                                <img src="{{ ue.image.url }}" class="img-fluid" style="width: 300px; height: 200px; "
-                                    alt="">
+                                <img src="{{ ue.poster.url }}" class="img-fluid" style="width: 300px; height: 200px; " alt="">
                             </div>
                         </div>
 
                         <div class="portfolio-description">
-                            <h2 style="font-size: 22px;">{{ue.event_name}}</h2>
-                            <p class="pop">
-                                {{ue.about_event}}
-                            </p>
+                            <h2 class="card-title-event" id="event-name" style="white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;font-size: calc(4vw + 4vh + 2vmin);">{{ue.event_name}}</h2>
                         </div>
-                    </div>
-                    {% if ue.registration_link%}
-                    <div class="text-center">
-                        <a href="{{ue.registration_link}}" target="blank"
-                            class="btn btn-primary stretched-link">Participate in {{ue.event_name}}</a>
-                    </div>
-                    {% endif %}
+                        <form action="{% url 'showevent' ue.id %}" method="POST" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-success btn-eve-eve" >View Event</button>
+                        </form>
+                        <button type="submit" class="btn btn-success btn-eve-reg"><a href="{{ue.registration_link}}" target="blank">Register Now</a></button>
                 </section>
             </div>
             {% endfor %}
         </div>
         {%else%}
         <div class="default_display">
-            <p class="event_font">Next Event <span
-                    style="color: var(--theme-color);font-size: 29px;font-weight: 600;">REGISTRATION</span> starts in:</p>
+            <p class="event_font">Next Event <span style="color: var(--theme-color);font-size: 29px;font-weight: 600;">REGISTRATION</span> starts in:</p>
             <div id="countdown">
                 <div class="contain">
                     <svg width="150px" height="150px" viewBox="0 0 150 150">
@@ -245,23 +226,23 @@
         <div class="row">
             {% for ae in ae %}
             <div class="col-md-4">
-                <section
-                    class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
+                <section class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
                     <div class="container">
-
                         <div class="portfolio-details-container">
                             <div class="portfolio-details-carousel">
-                                <img src="{{ ae.image.url }}" class="img-fluid" style="width: 300px; height: 200px; "
-                                    alt="">
+                                <img src="{{ ae.poster.url }}" class="img-fluid" style="width: 300px; height: 200px; " alt="">
                             </div>
                         </div>
-
                         <div class="portfolio-description">
-                            <h2 style="font-size: 22px;">{{ae.event_name}}</h2>
-                            <p class="pop">
-                                {{ae.about_event}}
-                            </p>
+                            <h2 class="card-title-event" id="event-name" style="white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            font-size: calc(4vw + 4vh + 2vmin);">{{ae.event_name}}</h2>
                         </div>
+                        <form action="{% url 'showevent' ae.id %}" method="POST" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-success btn-eve-eve">View Event</button>
+                        </form>
                     </div>
                 </section>
             </div>
@@ -285,7 +266,7 @@
         countDown1 = new Date(eventday1).getTime(),
         countDown2 = new Date(eventday2).getTime();
     if (timer.oe == 0) {
-        let x = setInterval(function () {
+        let x = setInterval(function() {
             let now = new Date().getTime(),
                 distance2 = countDown2 - now;
             (document.getElementById("oedays").innerText = Math.floor(
@@ -316,7 +297,7 @@
         }, 0);
     }
     if (timer.ue == 0) {
-        let y = setInterval(function () {
+        let y = setInterval(function() {
             let now = new Date().getTime(),
                 distance1 = countDown1 - now;
 
@@ -350,4 +331,22 @@
     }
 </script>
 <script src="{% static 'js/subnavbar.js' %}"></script>
+<script>
+checkFontSize();
+
+
+function scaleFontSize(element) {
+    var container = document.getElementById(element);
+
+    // Reset font-size to 100% to begin
+    container.style.fontSize = "100%";
+
+    // Check if the text is wider than its container,
+    // if so then reduce font-size
+    if (container.scrollWidth > container.clientWidth) {
+        container.style.fontSize = "70%";
+    }
+}
+scaleFontSize("event-name");
+</script>
 {% endblock %}
