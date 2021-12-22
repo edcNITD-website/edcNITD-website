@@ -1,0 +1,59 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Student Profile Edit_{{student.user.username}} {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/snippets/sotm_form.css' %}">
+<section class="back-section container mb-2">
+    <!-- back button -->
+  <div onclick="window.history.go(-1)" class="back-btn">
+    <i class="fa fa-arrow-left" aria-hidden="true"><span> BACK</span></i>
+  </div>
+</section>
+<section class="companies">
+    {% if is_owner %}
+    <div class="container-form">
+        <form action="" method="post" class="total" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>Edit Details</p>
+            <fieldset>
+                <label for="facebook">Facebook</label>
+                <br>
+                <input type="text" name="facebook" maxlength="300" value="{{student.facebook}}"
+                    id="id_facebook">
+            </fieldset>
+
+            <fieldset>
+                <label for="linkedin">Linkedin</label>
+                <br>
+                <input type="text" name="linkedin" maxlength="300" value="{{student.linkedin}}"
+                    id="id_linkedin">
+            </fieldset>
+
+            <fieldset>
+                <label for="instagram">Instagram</label>
+                <br>
+                <input type="text" name="instagram" maxlength="300" value="{{student.instagram}}"
+                    id="id_instagram">
+            </fieldset>
+
+            <fieldset>
+                <label for="id_studentdp">Display Picture</label>
+                <br>
+                <input type="file" name="studentdp" accept="image/*" id="id_studentdp"
+                    value="{{student.image.url}}">
+            </fieldset>
+
+            <fieldset>
+                <input type="submit" value="Save changes" class="cta-btn" name="student" id="submit-btn">
+            </fieldset>
+
+            <div class="drops">
+                <div class="drop drop-1"></div>
+                <div class="drop drop-4"></div>
+            </div>
+        </form>
+
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

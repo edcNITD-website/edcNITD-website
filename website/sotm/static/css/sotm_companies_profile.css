@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap");
+
+.main-body {
+  padding: 5px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.main-body .btn {
+  background-color: var(--theme-color);
+  color: white;
+  margin-top: 14px;
+}
+
+.main-body .btn:hover {
+  background-color: white;
+  color: var(--theme-color);
+}
+
+.card {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: var(--clr-bg-light-50);
+  border-radius: 15px;
+}
+
+.content-head {
+  color: var(--theme-color) !important;
+}
+
+.content {
+  padding: 4px;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1rem;
+}
+
+.card-body img {
+  height: 150px;
+  width: 150px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.gutters-sm {
+  margin-right: -8px;
+  margin-left: -8px;
+}
+
+.gutters-sm > .col,
+.gutters-sm > [class*="col-"] {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+.mb-3,
+.my-3 {
+  margin-bottom: 1rem !important;
+}
+
+.h-100 {
+  height: 100% !important;
+}
+
+.shadow-none {
+  box-shadow: none !important;
+}
+
+.float_right {
+  float: right;
+}
+
+.tags {
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tags li {
+  background-color: var(--theme-color);
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  border-radius: 500px;
+}
+.opp_list {
+  padding: 0 !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* .opp_list li:nth-child( odd ){
+  margin-right: 1px !important;
+} */
+
+.opp-cards {
+  max-width: 628px !important;
+  margin-bottom: 2px !important;
+}
+
+.social i {
+  font-size: 25px !important;
+  color: var(--theme-color);
+  padding-right: 15px;
+  text-align: center;
+  transition: 0.3s;
+  width: 35px;
+}
+
+.social i:hover {
+  color: white !important;
+  transition: 0.3s;
+}
+
+div .loader {
+  width: 30px;
+  height: 30px;
+  border-right: 4px solid var(--clr-loading);
+  border-radius: 100%;
+  animation: spinRight 1100ms linear infinite;
+  margin-right: 10px;
+}
+div .loader:before,
+div .loader:after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  display: block;
+  position: absolute;
+  top: calc(50% - 8px);
+  left: calc(50% - 8px);
+  border-left: 3px solid rgb(253, 234, 58);
+  border-radius: 100%;
+  animation: spinLeft 1500ms linear infinite;
+}
+
+/* div .loader:after {
+  width: 1vmax;
+  height: 1vmax;
+  top: calc(50% - 0.5vmax);
+  left: calc(50% - 0.5vmax);
+  border: 0;
+  border-right: 2px solid var(--clr-bg-light);
+  animation: none;
+} */
+
+@keyframes spinLeft {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(720deg);
+  }
+}
+
+@keyframes spinRight {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.fa-check-circle{
+  color: rgb(68, 255, 35) !important;
+}

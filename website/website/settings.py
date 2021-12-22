@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'events',
     'web_team',
     'esummit',
+    'sotm',
     'EQuest',
 ]
 
@@ -120,7 +121,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+LOGIN_URL = '/sotm/login/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
@@ -131,9 +132,21 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'events/static'),
     os.path.join(BASE_DIR, 'team/static'),
     os.path.join(BASE_DIR, 'web_team/static'),
+    os.path.join(BASE_DIR, 'sotm/static'),
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 MEDIA_URL='/media/'
+try:
+    from . import secrets
+except:
+    from . import secrets_default as secrets
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.getenv('EMAIL',secrets.email)
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD',secrets.email_password)

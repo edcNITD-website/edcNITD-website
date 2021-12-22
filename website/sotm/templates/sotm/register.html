@@ -1,0 +1,184 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Company Registeration Form {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/snippets/sotm_form.css' %}">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<section class="companies">
+    {% if user.is_authenticated %}
+    <h2>Logout first to login</h2>
+    {% else %}
+
+    <div class="wrapper">
+        <div class="container-form">
+            <div class="total">
+                <p>Register</p>
+                <div class="tabs">
+                    <ul>
+                        <li class="startup_li">Startup</li>
+                        <li class="student_li">Student</li>
+                    </ul>
+                </div>
+
+                <div class="startup distrib">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <div class="form">
+                            {% csrf_token %}
+                            <div class="part-1 part">
+                                <fieldset>
+                                    <label for="username" class="required">Username</label>
+                                    <input type="text" name="username" maxlength="150" autofocus="" required=""
+                                        id="id_username">
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="email" class="required">Email</label>
+                                    <input type="email" name="email" maxlength="254" id="id_email">
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="password1" class="required">Password</label>
+                                    <input type="password" name="password1" autocomplete="new-password" required=""
+                                        id="id_password1">
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="company_name" class="required">Company Name</label>
+                                    <input type="text" name="company_name" maxlength="150" autofocus="" required=""
+                                        id="id_company_name">
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="phone" class="required">Contact Number</label>
+                                    <input type="text" name="phone" maxlength="150" autofocus="" required=""
+                                        id="id_phone">
+                                </fieldset>
+
+
+                                <fieldset>
+                                    <label for="vision" class="required">Vision of the Company</label>
+                                    <input type="text" name="vision" maxlength="150" autofocus="" required=""
+                                        id="id_vision">
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="domain" class="required">Domain of the Company</label>
+                                    <input type="text" name="domain" maxlength="150" autofocus="" required=""
+                                        id="id_domain">
+                                </fieldset>
+
+                            </div>
+
+                            <div class="part-2 part">
+
+                                <fieldset>
+                                    <label for="founders" class="required">Founders</label>
+                                    <input type="text" name="founders" maxlength="150" autofocus="" required=""
+                                        id="id_founders">
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="founding_year" class="required">Founding Year</label>
+                                    <input type="number" name="founding_year" autofocus="" required=""
+                                        id="id_founding_year">
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="website">Website Link</label>
+                                    <input type="text" name="website" maxlength="300" id="id_website">
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="facebook">Facebook Account</label>
+                                    <input type="text" name="facebook" maxlength="300" id="id_facebook">
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="linkedin">LinkedIn Account</label>
+                                    <input type="text" name="linkedin" maxlength="300" id="id_linkedin">
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="instagram">Instagram Account</label>
+                                    <input type="text" name="instagram" maxlength="300" id="id_instagram">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <fieldset>
+                            <label for="id_company_logo" class="required">Company Logo</label>
+                            <br>
+                            <input type="file" name="company_logo" accept="image/*" id="id_company_logo" required>
+                        </fieldset>
+                        <fieldset>
+                            <input type="submit" value="Signup" class="cta-btn" name="company" id="submit-btn">
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="student distrib">
+
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <div class="form">
+                            {% csrf_token %}
+                            <div class="part-1 part">
+                                <fieldset>
+                                    <label for="username" class="required">Username</label>
+                                    <input type="text" name="username" class="input" maxlength="150" autofocus=""
+                                        required="" id="id_username">
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="email" class="required">E-mail</label>
+                                    <input type="email" name="email" class="input" maxlength="254" id="id_email">
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="password1" class="required">Password</label>
+                                    <input type="password" name="password1" class="input" autocomplete="new-password"
+                                        required="" id="id_password1">
+                                </fieldset>
+
+                            </div>
+
+                            <div class="part-2 part">
+
+                                <fieldset>
+                                    <label for="facebook">Facebook Account</label>
+                                    <input type="text" name="facebook" maxlength="300" id="id_facebook">
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="linkedin">LinkedIn Account</label>
+                                    <input type="text" name="linkedin" maxlength="300" id="id_linkedin">
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="instagram">Instagram Account</label>
+                                    <input type="text" name="instagram" maxlength="300" id="id_instagram">
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <fieldset>
+                            <label for="id_studentdp">Display Picture</label>
+                            <br>
+                            <input type="file" name="studentdp" accept="image/*" id="id_studentdp" required>
+                        </fieldset>
+
+                        <fieldset>
+                            <input type="submit" value="Signup" class="cta-btn" name="student" id="submit-btn">
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="drops">
+                    <div class="drop drop-1"></div>
+                    <div class="drop drop-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</section>
+<script src="{% static '/js/register.js' %}"></script>
+
+{% endblock %}

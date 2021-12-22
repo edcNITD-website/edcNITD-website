@@ -1,0 +1,123 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Edit Internships {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/snippets/sotm_form.css' %}">
+<!-- FAQs -->
+<section class="back-section container mb-2">
+    <!-- back button -->
+  <div onclick="window.history.go(-1)" class="back-btn">
+    <i class="fa fa-arrow-left" aria-hidden="true"><span> BACK</span></i>
+  </div>
+</section>
+<section class="companies">
+    <!-- <center>
+        <h2>Edit Company</h2>
+    </center> -->
+    {% if is_owner %}
+    <div class="wrapper">
+        <div class="container-form">
+            <div class="total">
+                <p>Edit Company Details</p>
+                <div class="distrib">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <div class="form">
+                            {% csrf_token %}
+                            <div class="part-1">
+                                <fieldset>
+                                    <label for="company_name">Company Name</label>
+                                    <br>
+                                    <input type="text" name="company_name" maxlength="150" autofocus=""
+                                        value="{{company.company_name}}" required="" id="id_company_name">
+                                </fieldset>
+
+
+                                <fieldset>
+                                    <label for="phone">Phone Number</label>
+                                    <br>
+                                    <input type="text" name="phone" placeholder="Company Name" maxlength="150"
+                                        autofocus="" required="" id="id_phone" value="{{company.company_phone}}">
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="vision">Vision of the Company</label>
+                                    <br>
+                                    <textarea name="vision" rows="5" id="id_vision"
+                                        class="extra">{{company.vision}}</textarea>
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="domain">Domain of the Company</label>
+                                    <br>
+                                    <input type="text" name="domain" maxlength="150" value="{{company.domain}}"
+                                        autofocus="" required="" id="id_domain">
+                                </fieldset>
+                                <fieldset>
+                                    <label for="username">Founders</label>
+                                    <br>
+                                    <input type="text" name="founders" maxlength="150" value="{{company.founders}}"
+                                        autofocus="" required="" id="id_founders">
+                                </fieldset>
+                            </div>
+                            <div class="part-2">
+                                <fieldset>
+                                    <label for="username">Founding_year</label>
+                                    <br>
+                                    <input type="number" name="founding_year" autofocus=""
+                                        value="{{company.founding_year}}" required="" id="id_founding_year">
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="website">Website</label>
+                                    <br>
+                                    <input type="text" name="website" maxlength="300" value="{{company.website}}"
+                                        id="id_website">
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="facebook">Facebook</label>
+                                    <br>
+                                    <input type="text" name="facebook" maxlength="300" value="{{company.facebook}}"
+                                        id="id_facebook">
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="linkedin">Linkedin</label>
+                                    <br>
+                                    <input type="text" name="linkedin" maxlength="300" value="{{company.linkedin}}"
+                                        id="id_linkedin">
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="instagram">Instagram</label>
+                                    <br>
+                                    <input type="text" name="instagram" maxlength="300" value="{{company.instagram}}"
+                                        id="id_instagram">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <fieldset>
+                            <label for="id_company_logo">Company Logo</label>
+                            <br>
+                            <input type="file" name="company_logo" accept="image/*" id="id_company_logo"
+                                value="{{company.image.url}}">
+                        </fieldset>
+                        <fieldset>
+                            <input type="submit" value="Save changes" class="cta-btn" name="company" id="submit-btn">
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="drops">
+                    <div class="drop drop-1"></div>
+                    <div class="drop drop-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <h2>You are not the owner of this startup please login with the correct account</h2>
+    {% endif %}
+</section>
+<!-- Footer -->
+
+{% endblock %}

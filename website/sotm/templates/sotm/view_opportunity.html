@@ -1,0 +1,54 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Internship_{{opportunity.name}} {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/sotm_companies.css' %}">
+<section class="back-section container mb-2">
+    <!-- back button -->
+  <div onclick="window.history.go(-1)" class="back-btn">
+    <i class="fa fa-arrow-left" aria-hidden="true"><span> BACK</span></i>
+  </div>
+</section>
+<section class="container py-4 companies">
+    <ul class="company_list">
+        <div class="postcard dark blue">
+            <a class="postcard__img_link" href="#">
+                <img class="postcard__img rounded-circle" src="{{opportunity.company.logo.url}}">
+            </a>
+            <div class="postcard__text">
+                <h1 class="postcard__title blue"><span class="content-head">{{opportunity.name}}</span></h1>
+                <div class="postcard__subtitle small">
+                    at <span class="content-head">{{opportunity.company}}</span>
+                </div>
+
+                <div class="postcard__bar"></div>
+                <div class="postcard__preview-txt-ch">{{opportunity.description}}</div>
+                <div class="mt-3">
+                    <ul class="tags">
+                        {% for tag in opportunity.tags.all %}
+                            <li>{{tag.name}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <ul class="postcard__tagbox">
+                    <li class="tag__item play blue">
+                        <a href="{% url 'sotm:company_view' opportunity.company.id %}"><i></i>Company
+                            Details</a>
+                    </li>
+                    {% if is_student %}
+                    <li class="tag__item play blue">
+                        <a href="{{opportunity.register_url}}">Register link</a>
+                    </li>
+                    {% endif %}
+
+                </ul>
+            </div>
+            <br>
+        </div>
+    </ul>
+</section>
+
+
+<script src="{% static 'js/sotm_home.js' %}"></script>
+{% endblock %}

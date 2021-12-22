@@ -1,0 +1,133 @@
+.internships .container {
+  margin-top: 50px !important;
+}
+
+.internships-heading {
+  padding-top: 50px;
+  font-weight: 500 !important;
+  font-size: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 30px;
+}
+
+.filter {
+  margin-bottom: 40px;
+  padding: 0 !important;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px auto;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#internship_header {
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 48px !important;
+  font-weight: 350 !important;
+  text-transform: uppercase;
+}
+
+#internships-position,
+#order-s {
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#position-filter,
+#internships-order {
+  color: white;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--theme-color);
+  outline: none;
+  border: none !important;
+}
+
+#position-filter option {
+  text-align: center;
+}
+
+.active_position {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  text-align: center;
+  margin: 1em auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+}
+
+.available {
+  margin: 0 auto;
+  font-family: "Roboto" !important;
+  border-radius: 10px;
+  font-weight: 500px;
+  padding: 10px;
+  padding-left: 20px;
+  width: 50%;
+  min-width: 285px;
+  max-width: 400px;
+  margin: 10px;
+  min-height: 180px !important;
+  /* background-image: linear-gradient(
+    to right,
+    rgba(39, 39, 39, 0.582),
+    rgba(39, 39, 39, 0.411)
+  ); */
+  /* box-shadow: inset 0 0 40px rgba(90, 90, 90, 0.5); */
+  background-color: #e4e4e4;
+  border: 4px solid white;
+  color: black;
+  transition: 0.3s all ease-in-out;
+}
+
+.available:hover {
+  transition: 0.3s all ease-in-out;
+  background: transparent !important;
+  border: 4px solid var(--theme-color);
+  color: white;
+}
+
+.available h1 {
+  font-family: "Montserrat", sans-serif;
+  line-height: 1;
+  font-weight: bold;
+}
+
+.available h6 span {
+  font-weight: 600;
+  margin-bottom: 10px;
+  transition: 0.3s all ease-in-out;
+}
+
+.available a {
+  color: white;
+  font-weight: 600;
+  align-content: center;
+  text-decoration: none;
+  border-radius: 0.5em;
+  padding: 0.3em;
+  background-color: var(--theme-color);
+  border: none !important;
+  outline: none !important;
+  transition: 0.3s all ease-in-out;
+  padding: 4px !important;
+}
+
+.available a:hover {
+  transition: 0.3s all ease-in-out;
+  background-color: white;
+  color: var(--theme-color);
+}
+
+.available button {
+  border: none !important;
+  outline: none !important;
+  background: var(--theme-color);
+  border-radius: 10px;
+  padding: 5px;
+}

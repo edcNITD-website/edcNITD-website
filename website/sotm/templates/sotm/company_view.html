@@ -1,0 +1,260 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Companies_{{company.company_name}} {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/sotm_companies_profile.css' %}">
+<section class="back-section container mb-2">
+    <!-- back button -->
+  <div onclick="window.history.go(-1)" class="back-btn">
+    <i class="fa fa-arrow-left" aria-hidden="true"><span> BACK</span></i>
+  </div>
+</section>
+<section class="company">
+    {% if company %}
+    <div class="container">
+        <div class="main-body">
+            <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="{{company.logo.url}}" alt="Admin" class="rounded-circle">
+                                <div class="mt-3 social">
+                                    <h4>{{company.company_name}}
+                                        {% if is_owner %}
+                                        <a href="{% url 'sotm:company_edit' company.id %}"><i
+                                                class="fas fa-edit"></i></a>
+                                        {% endif %}
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if is_owner %}
+                        <div class="card mt-3 p-3">
+                            <div class="d-flex justify-content-between align-items-center flex-wrap social">
+                                {% if company.verified %}
+                                <h6 class="mb-0">Verified</h6>
+                                <span id="verified-tick">
+                                    <i class="fas fa-check-circle"></i>
+                                </span>
+                                {% else %}
+                                <h6 class="mb-0">Verification in Progress</h6>
+                                <!-- <div class="load"></div> -->
+                                <div class="loader center"><span></span></div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="card mt-3 p-3">
+                        <ul class="list-group list-group-flush social">
+                            <li class="d-flex justify-content-between align-items-center flex-wrap">
+
+                                <h6 class="mb-0">Website</h6>
+                                <a target="_blank" href="{{company.website}}"><i class="fas fa-globe"></i></a>
+                            </li>
+                            <hr>
+                            <li class="d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0">Facebook</h6>
+                                <a target="_blank" href="{{company.facebook}}"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <hr>
+                            <li class="d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0">LinkedIn</h6>
+                                <a target="_blank" href="{{company.linkedin}}"><i class="fab fa-linkedin-in"></i></a>
+                            </li>
+                            <hr>
+                            <li class="d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0">Instagram</h6>
+                                <a target="_blank" href="{{company.instagram}}"><i class="fab fa-instagram"></i></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <!-- {% if company.positions %}
+                    <div class="card mt-3 p-3">
+                        <h4>Positions</h4>
+                        <ul class="list-group list-group-flush">
+                            {% for position in company.positions.all %}
+                            <li class="d-flex flex-wrap">
+                                <hr>
+                                <h5 class="mt-2 mr-2">>></h5>
+                                <h6 class="m-2 content-head">
+                                    {{position}}</h6>
+                            </li>
+                            {% if is_owner %}
+                            <div class="row">
+                                <div class="col">
+                                    <a class="btn" href="{% url 'sotm:create_position' company.id %}">Add</a>
+                                    <a class="btn" href="{% url 'sotm:remove_position' company.id %}">Remove</a>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %} -->
+                </div>
+                <div class="col-md-8">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0 content-head">Company Name</h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    {{company.company_name}}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0 content-head">Company Vision</h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    {{company.vision}}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0 content-head">Domain</h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    {{company.domain}}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0 content-head">Founders</h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    {{company.founders}}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0 content-head">Founding Year</h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    {{company.founding_year}}
+                                </div>
+                            </div>
+                            {% if is_owner %}
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0 content-head">Contact Number</h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    {{company.company_phone}}
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% if is_owner %}
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    {% if company.verified %}
+                                    <a class="btn" href="{% url 'sotm:add_position' company.id %}">Add Internships</a>
+                                    <a href="{% url 'sotm:create_position' company.id %}" class="btn">Create New
+                                        Position</a>
+                                    {% else %}
+                                    <button class="btn" disabled>Add Internships</button>
+                                    <button class="btn" disabled>Create New
+                                        Position</button>
+                                    {% endif %}
+                                    <a href="{% url 'sotm:change_password' %}" class="btn">Reset Password</a>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+
+                    <!--                     <div class="row gutters-sm">
+                        {% if opportunities %}
+                        {% for opportunity in opportunities %}
+                        <div class="col-lg-6 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h4 class="content-head">{{opportunity.name}}</h4>
+
+                                    <span>{{opportunity.description|truncatechars:100}}</span>
+
+                                    {% if user.is_authenticated %}
+                                    <br>
+                                    <a class="btn" href="{{opportunity.register_url}}">Register
+                                        Here!</a>
+                                    <a class="btn" href="{% url 'sotm:view_opportunity' opportunity.id %}">View
+                                        Details
+                                        Here</a>
+                                    {% else %}
+                                    <h6 class="mt-4">login to view more!</h6>
+                                    {% endif %}
+
+                                    {% if is_owner %}
+                                    <a class="btn"
+                                        href="{% url 'sotm:edit_opportunity' company.id opportunity.id %}">Edit</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div> -->
+
+
+                </div>
+            </div>
+            {% if opportunities %}
+            <ul class="opp_list">
+                {% for opportunity in opportunities %}
+                <li class="col-lg-6 mb-3">
+                    <div class="card opp-cards h-100">
+                        <div class="card-body">
+                            <h4 class="content-head">{{opportunity.name}}
+                                <span class="float_right">
+                                    {% if is_owner %}
+                                    <a class="social"
+                                        href="{% url 'sotm:delete_opportunity' company.id opportunity.id %}"><i
+                                            class="fas fa-trash-alt"></i></a>
+                                    {% endif %}
+                                </span>
+                            </h4>
+
+                            <span class="content mb-2">{{opportunity.description}}</span>
+
+                            {% if user.is_authenticated %}
+                            <br>
+                            {% if is_student %}
+                            <a class="btn" href="{{opportunity.register_url}}">Register
+                                Here!</a>
+                            {% endif %}
+                            <a class="btn" href="{% url 'sotm:view_opportunity' opportunity.id %}">View
+                                Details
+                                Here</a>
+                            {% else %}
+                            <h6 class="mt-4 content-head">login to view more!</h6>
+                            {% endif %}
+
+                            {% if is_owner %}
+                            <a class="btn" href="{% url 'sotm:edit_opportunity' company.id opportunity.id %}">Edit
+                                Internship</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+</section>
+<!-- Footer -->
+
+<script src="{% static 'js/sotm_home.js' %}"></script>
+{% endblock %}

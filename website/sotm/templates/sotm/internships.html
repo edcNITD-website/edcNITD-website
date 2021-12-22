@@ -1,0 +1,95 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Internships {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/sotm_internships.css' %}">
+<!-- FAQs -->
+<section class="internships">
+    {% if companies and positions %}
+    <div class="container">
+        <center>
+            <h2 id="internship_header"><span id="internship-header">{{active_pos}}</span> Internships</h2>
+        </center>
+        <br>
+        <center>
+            <ul class="filter flex">
+                <li>
+                    <label id="internships-position" for="position-filter">Internship Tags</label> <br>
+                    <select name="position-filter" id="position-filter">
+                        <option value="All">All</option>
+                        {% for position in positions %}
+                        <option value="{{position}}">{{position}}
+                        </option>
+                        {% endfor %}
+                    </select></li>
+                <li>
+
+                    <label id="order-s" for="internships-order">Order By</label> <br>
+                    <select name="internships-order" id="internships-order">
+                        <option class="op-order" value="asc" selected>Recent first</option>
+                        <option class="op-order" value="dsc">Earliest First</option>
+                    </select></li>
+                </li>
+            </ul>
+        </center>
+
+        <div class="opportunities">
+            <br>
+
+            {% for position,opportunities in positions_dic.items %}
+            {% if position == active_position %}
+            <ul id="{{position}}_opportunities" class="active_position position_opp">
+                {% for opportunity in opportunities %}
+                <li class="available">
+                    <h1>{{opportunity.name}}</h1>
+                    <h6>at <span>{{opportunity.company}}</span></h6>
+                    <br>
+                    <button><a class="view-more" href="{% url 'sotm:view_opportunity' opportunity.id %}">View
+                            more</a></button>
+                </li>
+                <br>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <ul id="{{position}}_opportunities" class="position_opp">
+                {% for opportunity in opportunities %}
+
+                <li class="available">
+                    <h1>{{opportunity.name}}</h1>
+                    <h6>at <span>{{opportunity.company}}</span></h6>
+                    <br>
+                    <a href="{% url 'sotm:view_opportunity' opportunity.id %}">View more</a>
+                </li>
+                <br>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <div class="empty">
+        <div class="division">
+            <img class="empty_img" src="{% static 'images/empty.png' %}" alt="">
+        </div>
+        <div class="division">
+            <h4>Drop By <span class="empty_text">AGAIN</span> Soon!</h4>
+        </div>
+    </div>
+    {% endif%}
+</section>
+<!-- Footer -->
+
+<script src="{% static 'js/sotm_home.js' %}"></script>
+<script src="{% static 'js/internships.js' %}"></script>
+
+<style>
+    .position_opp {
+        display: none;
+    }
+
+    .position_opp.active_position {
+        display: block;
+    }
+</style>
+{% endblock %}

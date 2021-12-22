@@ -1,0 +1,92 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Startups {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/sotm_companies.css' %}">
+<!-- FAQs -->
+<section class="companies">
+    {% if company_list %}
+    <div class="container">
+        <h1 class="h1 text-center" id="pageHeaderTitle">STARTUPS</h1>
+
+        <ul class="company_list">
+
+            {% for company in company_list %}
+            <div class="postcard dark blue">
+
+                {% if company.logo %}
+                <a class="postcard__img_link" href="#">
+                    <img class="postcard__img rounded-circle" src="{{company.logo.url}}" alt="{{company.name}}-image">
+                </a>
+                {% endif %}
+                <div class="postcard__text">
+                    <h1 class="postcard__title blue">{{company.company_name}}</h1>
+                    <div class="postcard__subtitle small">
+                        Founded in {{company.founding_year}}
+                    </div>
+
+                    <div class="postcard__bar"></div>
+                    <div class="postcard__preview-txt">{{company.vision}}</div>
+                    <!-- <h4>Domain: {{company.domain}}</h4>
+                <h4>{% if company.positions %}
+                        {% for position in company.positions.all %}
+                            {{position}}
+                        {% endfor %}
+                    {% endif %}
+                </h4>
+                <h4>{{company.founders}}</h4> -->
+
+                    <ul class="postcard__tagbox">
+                        <li class="tag__item play blue">
+                            <a href="{% url 'sotm:company_view' company.id %}"><i></i>View Startup</a>
+                        </li>
+                        {% if company == owned_company %}
+                        <li class="tag__item play blue">
+                            <a href="{% url 'sotm:company_edit' company.id %}">Edit</a>
+                        </li>
+                        {% endif %}
+
+                    </ul>
+                </div>
+                <br>
+
+            </div>
+            {% endfor %}
+        </ul>
+
+        <!-- Final Pagination -->
+        <center>
+            <div class="paginator">
+
+                {%if company_list.has_previous %} {# whether the previous page exists #}
+
+                <a href="?page={{company_list.previous_page_number}}" class="paginator-btn"> &lt;</a>
+                {# link to the prev page #}
+                {% else %}
+                <a href="#" class="paginator-btn disable">
+                    <</a> {# link to the prev page #} {% endif %} &ensp; <!-- <span id="current-page">
+                        {{company_list.number}}</span> {# the current page number #} -->
+                        {%if company_list.has_next %} {# whether the next page exists #}
+                        <a href="?page={{company_list.next_page_number}}" class="paginator-btn"> ></a>
+                        {# link to the next page #}
+                        {% else %}
+                        <a href="#" class="paginator-btn disable"> ></a> {# link to the prev page #}
+                        {% endif %}
+            </div>
+        </center>
+    </div>
+    {% else %}
+    <div class="empty">
+        <div class="division">
+            <img class="empty_img" src="{% static 'images/empty.png' %}" alt="">
+        </div>
+        <div class="division">
+            <h4>Drop By <span class="empty_text">AGAIN</span> Soon!</h4>
+        </div>
+    </div>
+    {% endif%}
+</section>
+<!-- Footer -->
+
+<script src="{% static 'js/sotm_home.js' %}"></script>
+{% endblock %}

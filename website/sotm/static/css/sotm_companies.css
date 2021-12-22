@@ -1,0 +1,416 @@
+.companies {
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 16px;
+  color: #ffffff;
+  padding-bottom: 1.5rem;
+}
+
+.companies .container {
+  padding-top: 1.5rem;
+}
+
+.company_list {
+  padding-left: 0 !important;
+}
+
+.postcard__tagbox a,
+a:hover {
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  -webkit-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+}
+
+#pageHeaderTitle {
+  margin: 2rem 0;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 3rem;
+  color: #fff !important;
+  font-weight: 300;
+}
+
+/* Cards */
+.postcard {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-shadow: 0 4px 21px -12px rgba(53, 53, 53, 0.719);
+  box-shadow: 0 4px 21px -12px rgba(53, 53, 53, 0.719);
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin: 0 0 2rem 0;
+  padding: 0 1rem 0 1rem;
+  overflow: hidden;
+  position: relative;
+  color: #ffffff;
+  /* -webkit-filter: blur(7px); */
+}
+
+.postcard.dark {
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#0b19a8),
+    to(#5e5e5e)
+  );
+  background-image: linear-gradient(to right, #242430, #5e5e5e);
+
+  /* Add the blur effect */
+}
+
+.postcard.border {
+  border: 2px solid white;
+}
+
+.postcard h1,
+.postcard .h1 {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.postcard .small {
+  font-size: 80%;
+  font-weight: 500;
+}
+
+.postcard .postcard__title {
+  font-family: "Roboto", sans-serif !important;
+  font-size: 1.75rem;
+  font-weight: 600 !important;
+}
+
+.postcard .postcard__img {
+  height: 160px;
+  width: 160px;
+  margin: 2rem auto;
+  /* margin-right: 2rem;
+  margin-left: 2rem; */
+  -o-object-fit: cover;
+  object-fit: cover;
+  position: relative;
+}
+
+.postcard .postcard__img_link {
+  display: contents;
+}
+
+.postcard .postcard__bar {
+  width: 50px;
+  height: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  background-color: #424242;
+  -webkit-transition: width 0.2s ease;
+  transition: width 0.2s ease;
+}
+
+.postcard .postcard__bar-ch {
+  width: 50px;
+  height: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #424242;
+  -webkit-transition: width 0.2s ease;
+  transition: width 0.2s ease;
+}
+
+.postcard .postcard__text {
+  padding: 1rem;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.postcard .postcard__preview-txt {
+  font-family: "Roboto", cursive !important;
+  font-weight: 500 !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: justify;
+  height: 100%;
+}
+
+.postcard .postcard__preview-txt-ch {
+  /* font-family: "Roboto", cursive !important;
+  font-weight: 500 !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: justify; */
+  height: 100%;
+  display: flex;
+}
+
+.postcard .postcard__tagbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  /* display: flex; */
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  font-size: 14px;
+  margin: 20px 0 0 0;
+  padding: 0;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.postcard .postcard__tagbox .tag__item {
+  font-style: "Roboto", sans-serif !important;
+  font-weight: lighter !important;
+  font-size: 18px;
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.542);
+  border-radius: 10px;
+  padding: 3.5px 11px;
+  margin: 0 5px 5px 0;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.postcard:hover .postcard__bar,
+.postcard:hover .postcard__bar-ch {
+  width: 150px;
+}
+
+@media screen and (min-width: 769px) {
+  .postcard {
+    -ms-flex-wrap: inherit;
+    flex-wrap: inherit;
+  }
+
+  .postcard .postcard__title {
+    font-size: 2rem;
+  }
+
+  .postcard .postcard__tagbox {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+  }
+
+  .postcard .postcard__img {
+    max-width: 300px;
+    max-height: 100%;
+    -webkit-transition: -webkit-transform 0.3s ease;
+    transition: -webkit-transform 0.3s ease;
+    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  }
+
+  .postcard .postcard__text {
+    padding: 1.2rem;
+    width: 100%;
+  }
+
+  .postcard:hover .postcard__img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  .postcard .postcard__img {
+    margin-right: 2rem;
+    margin-left: 2rem;
+  }
+
+  .postcard:nth-child(2n + 0) {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+  }
+
+  .postcard:nth-child(2n + 1) {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+
+  .social_p {
+    width: 90px;
+    padding-top: 15px;
+  }
+
+  .social_p ul li {
+    margin: 0 0 10px 0 !important;
+  }
+
+  .social_p ul li .fab {
+    margin-top: 15px !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .postcard__text {
+    padding: 2rem 3.5rem;
+  }
+  .social_p {
+    width: 80px;
+  }
+}
+
+/* COLORS */
+.postcard .postcard__tagbox .blue.play:hover {
+  background: var(--theme-color);
+}
+
+.blue .postcard__title:hover {
+  color: var(--theme-color);
+}
+
+.blue .postcard__bar,
+.blue .postcard__bar-ch {
+  background-color: var(--theme-color);
+}
+
+/* PAGINATOR STYLING */
+
+.paginator {
+  font-size: 20px;
+  font-weight: bold;
+  /* background-color: var(--theme-color); */
+  text-align: center;
+  justify-content: center;
+}
+
+.arrow-change {
+  padding: 0rem;
+}
+
+.paginator-btn {
+  font-family: "Comfortaa", cursive !important;
+  text-align: center !important;
+  justify-content: center;
+  font-size: 40px;
+  background-color: var(--theme-color);
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px !important;
+  padding: 5px !important;
+}
+
+.tags {
+  margin: auto;
+  align-items: center;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tags li {
+  background-color: var(--theme-color);
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  border-radius: 500px;
+}
+
+.social_p ul {
+  margin-left: -15px;
+}
+
+.social_p ul li {
+  margin: 0 30px 20px 0;
+  /* text-align: center; */
+  cursor: pointer;
+  float: left;
+  transition: all 0.5s ease;
+}
+
+.social_p ul li .fab {
+  color: #d8e2dc;
+  margin-top: 20px;
+  transition: all 0.5s ease;
+  font-size: 30px;
+}
+
+.social_p ul li:hover .fa-facebook {
+  color: #3b5998;
+  text-shadow: 0 0 15px #3b5998;
+  transition: all 0.5s ease;
+}
+
+.social_p ul li:hover .fa-linkedin {
+  color: #0e76a8;
+  text-shadow: 0 0 15px #0e76a8;
+  transition: all 0.5s ease;
+}
+
+.social_p ul li:hover .fa-instagram {
+  color: #bc2a8d;
+  text-shadow: 0 0 15px #bc2a8d;
+  transition: all 0.5s ease;
+}
+
+.postcard__preview-txt-ch .fa-envelope {
+  color: #d8e2dc;
+  transition: all 0.5s ease;
+  font-size: 30px;
+}
+
+.fa-envelope:hover {
+  color: var(--theme-color);
+  text-shadow: 0 0 15px var(--theme-color);
+  transition: all 0.5s ease;
+}
+
+.msg-btn {
+  background: var(--theme-color);
+  color: var(--clr-bg-dark);
+}
+.msg-btn,
+.follow-btn {
+  color: var(--theme-color);
+  border: 1px solid var(--theme-color);
+  padding: 10px 7px;
+  color: var(--clr-bg-dark);
+  border-radius: 3px;
+  font-family: Montserrat, sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+}
+.msg-btn:hover {
+  background: transparent;
+  color: var(--theme-color);
+}
+.follow-btn {
+  margin-left: 10px;
+  background: transparent;
+  color: var(--theme-color);
+}
+.follow-btn:hover {
+  background: var(--theme-color);
+  color: var(--clr-bg-dark);
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 380px) {
+  /* .follow-btn {
+    margin: 10px 0 0 0;
+  } */
+
+  /* .msg-btn,
+.follow-btn {
+  padding: 10px 1px;
+  color: var(--clr-bg-dark);
+} */
+}

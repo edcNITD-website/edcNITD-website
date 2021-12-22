@@ -1,0 +1,78 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Add Internships {{company.name}} {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/snippets/sotm_form.css' %}">
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+<section class="back-section container mb-2">
+    <!-- back button -->
+  <div onclick="window.history.go(-1)" class="back-btn">
+    <i class="fa fa-arrow-left" aria-hidden="true"><span> BACK</span></i>
+  </div>
+</section>
+<section class="companies">
+    {% if is_owner %}
+    <div class="wrapper">
+        <div class="container-form">
+            <div class="total">
+                <p>Create Internships</p>
+                <div class="distrib">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <div class="form">
+                            {% csrf_token %}
+                            <div class="part-1">
+                                <fieldset>
+                                    <label for="name">Name</label>
+                                    <br>
+                                    <input type="text" name="name" placeholder="" maxlength="300" id="name">
+                                </fieldset>
+
+
+                                <fieldset>
+                                    <label for="id_position_description">Internship Description</label>
+                                    <br>
+                                    <textarea name="description" placeholder="Internship Description"
+                                        id="id_position_description"></textarea>
+                                </fieldset>
+
+                            </div>
+                            <div class="part-2">
+                                <fieldset>
+                                    <label for="registeration_url">Registeration Url</label>
+                                    <br>
+                                    <input type="text" name="registeration_url" placeholder="" maxlength="300" id="id_uregisteration_url">
+                                </fieldset>
+
+                                <fieldset>
+                                    <label>Select Tags related to the position</label>
+                                    <br>
+                                    <select name="position_name" id="id_position_name" multiple="multiple">
+                                        {% for position in positions %}
+                                        <option value="{{position.name}}">{{position.name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </fieldset>
+
+                                
+                            </div>
+                        </div>
+                        <fieldset>
+                            <input type="submit" value="Create Internship" class="cta-btn" name="add_position" id="submit-btn">
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="drops">
+                    <div class="drop drop-1"></div>
+                    <div class="drop drop-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <h3>You are not registered as the owner of this company</h3>
+    {% endif %}
+</section>
+<script src="{% static '/js/sotm_form.js' %}"></script>
+{% endblock %}

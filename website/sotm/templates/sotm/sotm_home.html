@@ -1,0 +1,193 @@
+{% extends 'sotm/sotm_base.html' %}
+{% load static %}
+{% block title %} Startup Of The Month {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/sotm_home.css' %}">
+<!-- Carousel -->
+<div class="slider" style="z-index:5;">
+    <div class="slide current">
+        <div class="content">
+            <h1>About Us</h1>
+            <p>
+                Know where it all began, the ideologies we stand upon and what we envision to be our mission and vision.
+            </p>
+            <a class="btn" target="_self" href="./#about-section-content">Learn more about us</a>
+        </div>
+    </div>
+    <div class="slide">
+        <div class="content">
+            <h1>Startups</h1>
+            <p>
+                Check out the driving force of this initiative, the startups themselves, which represent the striving
+                efforts of our alumni.
+            </p>
+            <a class="btn" target="__blank" href="{% url 'sotm:companies' %}">View startups</a>
+        </div>
+    </div>
+    <div class="slide">
+        <div class="content">
+            <h1>Internships</h1>
+            <p>
+                Explore internships and apply for suitable roles, taking a step towards network building, upskilling and
+                kick-starting your career.
+            </p>
+            <a class="btn" target="__blank" href="{% url 'sotm:internships' %}">View Internships</a>
+        </div>
+    </div>
+
+    <div class="buttons" style="z-index:999;">
+        <button id="prev"><i class="fas fa-arrow-left"></i></button>
+        <button id="next"><i class="fas fa-arrow-right"></i></button>
+    </div>
+</div>
+
+<!-- ABOUT US SECTION -->
+<section class="About-Us" id="about-section-content">
+    <div class="container">
+        <div class="row align-center">
+            <div class="col-sm-5 about-us">
+                <div class="container-about-content">
+                    <div class="heading-about">
+                        <span>
+                            About SOTM
+                        </span>
+                    </div>
+                    <div class="about-content">
+                        <p>
+                            The Entrepreneurship Development Cell started its new initiative, "Start-Up of the Month",
+                            intending to promote the startup culture in the country. By providing a platform for young
+                            entrepreneurs to announce, market, expand, and develop their plan of action while providing
+                            a learning opportunity for the budding enthusiasts to learn of the same.</p>
+                        <p> Our initiative will
+                            bring successful StartUps of our alumni along with an opportunity to become a part of their
+                            journey! We aim to provide internship opportunities, helping students get practical exposure
+                            and a kickstart to their careers.
+
+                        </p>
+                        <!-- <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa magni nobis nisi, enim
+                            aperiam
+                            quod tempora corrupti
+                            quidem dolore tenetur quam ducimus facere fugiat architecto aliquid
+                        </p> -->
+                    </div>
+                </div>
+
+            </div>
+            <!-- sub headings to about us -->
+            <div class="col-sm-7">
+                <div class="timeline">
+                    {% for sub_about in about %}
+                    <li class="timeline__event" id="{{sub_about.id}}-sub_about"
+                        onclick="toggleSubAbout(document.getElementById('{{sub_about.id}}'))">
+                        <ul class="timeline__event__content" id="{{sub_about.id}}-heading">
+                            <li class="timeline__event__title">
+                                {{ sub_about.heading }}
+                            </li>
+                            <li><button id="{{sub_about.id}}">+</button></li>
+                        </ul>
+                        <p class="timeline__event__description" id="{{sub_about.id}}-content">{{ sub_about.content }}
+                        </p>
+                    </li>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<!-- ABOUT US SECTION ENDED -->
+
+<!-- internships ADDED -->
+<br>
+{% if opp %}
+<section id="internships" class="section-bg">
+
+    <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+
+            <h1 style="text-align: center;">Internships</h1>
+
+        </header>
+
+        <div class="owl-carousel internships-carousel">
+
+            {% for opp in all_opportunities %}
+
+            <div class="testimonial-item">
+                <center><img class="postcard__img rounded-circle" src="{{opp.company.logo.url}}"
+                        alt="{{company.name}}-image"></center>
+
+                <h2>{{ opp.name }}</h2>
+
+                <h4>at {{ opp.company.company_name }}</h4>
+                <p>
+
+                    {{ opp.description|truncatechars:180 }}
+
+                    <br><br>
+                    <a href="{% url 'sotm:view_opportunity' opp.id %}">View more</a>
+
+                </p>
+
+            </div>
+            {% endfor %}
+
+
+
+        </div>
+
+
+
+    </div>
+</section>
+{% endif %}
+<br>
+<!-- ======= End Speakers Section ======= -->
+
+<!-- INTERNSHIPS-VIEW STARTED -->
+
+
+<!-- INTERNSHIPS VIEW ADDED -->
+
+<!-- FAQs -->
+
+<section class="faqs">
+    {% if hero_faqs or normal_faqs %}
+    <center>
+        <h1 id="faq-heading">FAQs</h1>
+    </center>
+    <ul class="faq-holder">
+        {% for faq in hero_faqs %}
+        <li class="faq active" id="{{faq.id}}-faq" onclick="toggleAnswer(document.getElementById('{{faq.id}}-btn'))">
+            <ul class="question active" id="{{faq.id}}-question">
+                <li>
+                    <h3>‣{{faq.question}}</h3>
+                </li>
+                <li><span id="{{faq.id}}-btn">-</button></li>
+            </ul>
+            <p id="{{faq.id}}-answer" class="active">{{faq.answer}}</p>
+        </li>
+        {% endfor %}
+        {% for faq in normal_faqs %}
+        <li class="faq" id="{{faq.id}}-faq" onclick="toggleAnswer(document.getElementById('{{faq.id}}-btn'))">
+            <ul class="question" id="{{faq.id}}-question">
+                <li>
+                    <h3>‣ {{faq.question}}</h3>
+                </li>
+                <li><span id="{{faq.id}}-btn">+</button></li>
+            </ul>
+            <p id="{{faq.id}}-answer">{{faq.answer}}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <h2>No FAQs found</h2>
+    {% endif %}
+</section>
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="{% static 'js/sotm_home.js' %}"></script>
+{% endblock %}
