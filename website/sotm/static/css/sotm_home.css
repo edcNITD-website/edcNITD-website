@@ -3,7 +3,7 @@
   margin-top: -90px;
   position: relative;
   overflow: hidden;
-  height: 100vh;
+  height: calc(100vh + 30px);
   width: 100%;
 }
 
@@ -12,7 +12,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100%);
   opacity: 0;
   transition: opacity 0.4s ease-in-out;
 }
@@ -24,17 +24,21 @@
 .slide .content {
   position: absolute;
   bottom: 70px;
-  left: -600px;
-  opacity: 0;
+  left: -585px;
   width: 600px;
   color: white;
   padding: 25px;
-  background-image: linear-gradient(to right,
-      rgba(39, 39, 39, 0.582),
-      rgba(39, 39, 39, 0.411));
+  background-image: linear-gradient(
+    to right,
+    rgba(39, 39, 39, 0.582),
+    rgba(39, 39, 39, 0.411)
+  );
   box-shadow: inset 0 0 40px rgba(90, 90, 90, 0.5);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
+}
+.slide .content {
+  z-index: 4;
 }
 
 .slide .content h1 {
@@ -97,13 +101,16 @@
 .slide.current .btn:hover {
   color: var(--theme-color) !important;
   background-color: white !important;
+  cursor: pointer;
 }
 
 @media (max-width: 500px) {
   .slide .content {
-    bottom: -300px;
+    bottom: -280px;
     left: 0;
-    width: 100%;
+    width: 90%;
+    right: 0;
+    margin: auto;
   }
 
   .slide.current .content {
@@ -114,27 +121,33 @@
 /* Backgorund Images */
 
 .slide:first-child {
-  background: radial-gradient(circle,
+  background: radial-gradient(
+      circle,
       rgba(255, 255, 255, 0) 0%,
-      rgba(0, 0, 0, 0.65) 50%,
-      rgba(0, 0, 0, 0.75) 100%),
-    url("https://source.unsplash.com/ggZuL3BTSJU/1600x900") no-repeat center top/cover;
+      rgba(0, 0, 0, 0.25) 60%,
+      rgba(0, 0, 0, 0.55) 100%
+    ),
+    url("../images/MainSotmTheme.png") no-repeat center top/cover;
 }
 
 .slide:nth-child(2) {
-  background: radial-gradient(circle,
+  background: radial-gradient(
+      circle,
       rgba(255, 255, 255, 0) 0%,
-      rgba(0, 0, 0, 0.65) 50%,
-      rgba(0, 0, 0, 0.75) 100%),
-    url("https://source.unsplash.com/yXpA_eCbtzI/1600x900") no-repeat center top/cover;
+      rgba(0, 0, 0, 0.25) 60%,
+      rgba(0, 0, 0, 0.55) 100%
+    ),
+    url("../images/SotmStartup.png") no-repeat center top/cover;
 }
 
 .slide:nth-child(3) {
-  background: radial-gradient(circle,
+  background: radial-gradient(
+      circle,
       rgba(255, 255, 255, 0) 0%,
-      rgba(0, 0, 0, 0.65) 50%,
-      rgba(0, 0, 0, 0.75) 100%),
-    url("https://source.unsplash.com/TMOeGZw9NY4/1600x900") no-repeat center center/cover;
+      rgba(0, 0, 0, 0.25) 60%,
+      rgba(0, 0, 0, 0.55) 100%
+    ),
+    url("../images/internship.png") no-repeat center center/cover;
 }
 
 /* ABOUT US SECTION STARTED */
@@ -153,25 +166,30 @@
   color: white;
 }
 
-.heading-about span {
+.heading-about {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 65px;
+  text-align: center;
+  margin: auto;
   text-decoration: underline;
   color: var(--theme-color);
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1700px) {
   .heading-about span {
     font-size: 50px;
   }
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 1000px) {
   .heading-about span {
     font-size: 30px;
     font-weight: 500;
     margin-bottom: 10px !important;
+  }
+  .about-content {
+    text-align: center;
   }
 }
 
@@ -192,15 +210,17 @@ h2 {
   display: flex;
   flex-direction: column;
   margin: 5% auto;
+  margin-top: 120px;
 }
 
 .timeline__event {
-  background-image: linear-gradient(to right,
-      var(--clr-bg-light-50),
-      rgba(39, 39, 39, 0.411));
+  background-image: linear-gradient(
+    to right,
+    var(--clr-bg-light-50),
+    rgba(39, 39, 39, 0.411)
+  );
   box-shadow: inset 0 0 40px rgba(90, 90, 90, 0.5);
   margin-bottom: 10px;
-  ;
   position: relative;
   border-radius: 8px;
 }
@@ -255,6 +275,11 @@ h2 {
   }
 }
 
+@media (max-width: 576px) {
+  .timeline {
+    margin-top: 2rem;
+  }
+}
 /* ABOUT US SECTION ENDED */
 
 /* internships Section
