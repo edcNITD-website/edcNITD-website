@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email to company on registeration</title>
+</head>
+<body>
+    <h3>Congratulations!</h3>
+    <p>A new company has registered for Start-up of the Month.</p>
+    <h3>The company’s details are as follows: </h3> 
+    <ul>
+        <li>Company's Name : {{company.company_name}}</li>
+        <li>Company's Vision : {{company.vision}}</li>
+        <li>The domain of the Company : {{company.domain}}</li>
+        <li>Founder(s) of the Company : {{company.founders}}</li>
+        <li>Founding Year : {{company.founding_year}}</li>
+        <li>Contact Number : {{company.company_phone}}</li>
+        <li>Company Email Id : {{company.user.email}}</li>
+        <li>Company Website is : {{company.website}}</li>
+        <li>Company's Facebook account link is : {{company.facebook}}</li>
+        <li>Company's Instagram account is : {{company.instagram}}</li>
+        <li>Company's Linkedin is' : {{company.linkedin}}</li>
+    </ul>
+    <p>
+        Please verify the company and its details, and duly forward the required changes to the back-end team.
+        <br>
+        Thank you! 
+    </p>
+</body>
+</html>
