@@ -4,7 +4,7 @@ __pycache__/
 secrets.py
 # C extensions
 *.so
-
+node_modules/
 # Distribution / packaging
 bin/
 build/
