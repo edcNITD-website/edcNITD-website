@@ -10,17 +10,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <!-- CSS FIles -->
     <link rel="stylesheet" href="{% static 'css/campus_ambassador/tailwind.css' %}">
     <link rel="stylesheet" href="{% static 'css/campus_ambassador/base.css' %}">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
     {% block head %}
     {% endblock %}
 </head>
 <!-- background  -->
-
-<body class="text-slate-100 bg-slate-900">
-    {% include 'campus_ambassador/navbar.html' %}
-    <div class="-z-10 fixed t-0 r-0 min-w-full bg-gradient-to-tr dark:bg-gradient-to-tr min-h-screen f from-slate-900 via-gray-800 to-sky-900 backdrop-blur-md blur-xla">
+{% include 'campus_ambassador/navbar.html' %}
+<body class="text-slate-100 bg-slate-300 dark:bg-slate-600">
+    
+    <div class="-z-10 fixed t-0 r-0 min-w-full bg-gradient-to-tr min-h-screen from-indigo-100 via-indigo-400 to-purple-200 dark:from-indigo-900 dark:via-gray-900 dark:to-emerald-900 backdrop-blur-md blur-xl">
     </div>
     
     {% block content %}

@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+    /* note View Box acts as the conatiner where content is displayed */
+    .view-box{
+        @apply w-4/5 max-w-screen-xl mx-auto my-auto;
+    }
+    /* note skew block applies a skew background to any container */
+    .skew-block{
+        width: 100%;
+        min-height: 100vh;
+        padding-bottom: 4rem;
+        padding-top: 4rem;
+        clip-path: polygon(0 0, 100% 8%,100% 95%, 0 100%);
+    }
+}
