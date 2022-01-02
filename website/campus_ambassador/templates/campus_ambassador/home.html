@@ -8,7 +8,141 @@ Home
 <link rel="stylesheet" href="{% static 'css/campus_ambassador/home.css' %}">
 {% endblock %}
 {% block content %}
-<div class="grid place-items-center min-h-[90vh]">
-    <h1 class="text-center md:text-left text-4xl font-extrabold text-slate-50">Opportunity to <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500" >Learn</span> of a Lifetime</h1>
+<div class="view-box">
+    <div class="grid place-items-center py-[15vh] min-h-[100vh] grid-cols-1 lg:grid-cols-5">
+        <div class="col-span-3 flex flex-col gap-2">
+
+            <h1 class="text-center lg:text-left text-4xl lg:text-5xl font-extrabold dark:text-slate-50 text-slate-800 mx-auto">
+                Opportunity to <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-700 dark:from-purple-500 dark:to-blue-500" >Learn</span> of a Lifetime
+            </h1>
+            <h2 class="text-center lg:text-left text-base lg:text-xl font-medium dark:font-light text-slate-900 dark:text-slate-200 my-3">
+                Access to network with the entrepreneurial youth of the nation. 
+            </h2>
+            <a href="#" class="bg-gradient-to-r mb-4 from-blue-800 dark:from-blue-400 to-purple-500 font-semibold rounded py-2 px-4 mx-auto">Join Us Now! <span class="hidden lg:inline">As a campus ambassador</span></a>
+        </div>
+        <div class="col-span-1 lg:col-span-2 max-h-[50vh]">
+            <img src="{% static 'image/campus_ambassador/ambassador.png' %}" alt="image" class=" h-[50vh] lg:h-[70vh]">
+        </div>
+    </div>
+</div>
+
+<!-- about section -->
+<div class="skew-block bg-gradient-to-br from-fuchsia-600 to-indigo-600 min-h-screen grid place-items-center">
+    <div class="view-box  grid place-items-center grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="col-span-1">
+            <h2 class="text-2xl font-bold my-2">About Campus Ambassador</h2>
+            <br>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo nulla eum tempore illo eveniet sequi reprehenderit libero vel odio fuga. Sunt maxime aliquid, perferendis incidunt ad repellendus ut iusto dolor eos expedita quia consectetur nostrum fugiat nisi asperiores adipisci, earum, itaque quos? Enim qui dicta quas atque ex libero id?</p>
+        </div>
+        <div class="col-span-1 max-h-[50vh]">a
+            <img src="{% static 'image/campus_ambassador/about_team.svg' %}" alt="image" class=" h-[40vh] lg:h-[60vh]">
+        </div>
+    </div>
+</div>
+<!-- incentive section -->
+<div class="view-box min-h-screen grid grid-cols-1 place-items-center scroll-mt-8" id="incentives">
+    <h2 class="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-700 dark:from-purple-500 dark:to-blue-500 text-4xl text-center font-bold col-span-1" >Incentives</h2>
+    <ul class="flex flex-row col-span-1 gap-4 md:gap-8 flex-wrap justify-center pt-[25px] md:pt-0 text-sm">
+        {% if incentives %}
+        {% for incentive in incentives %}
+            <li class="bg-gray-200 max-w-xs text-slate-900 flex flex-col gap-0 rounded-md px-4 pt-4 pb-[-25px]">
+                <div class="circle w-[50px] h-[50px] top-[-25px] md:w-[100px] md:h-[100px] md:top-[-50px] bg-violet-500 relative left-0 right-0 mx-auto rounded-full grid place-items-center">
+                    <i class="fas fa-2x hidden md:block {{incentive.icon_class}}" style="color: ivory;"></i>
+                    <i class="fas fa md:hidden {{incentive.icon_class}}" style="color: ivory;"></i>
+                </div>
+                <div class="text-center relative left-0  top-[-25px] md:top-[-50px] right-0 mx-auto my-auto">
+                    <h3 class="font-bold text-lg">{{incentive.title}}</h3>
+                    <p>{{incentive.content}}</p>
+                </div>
+            </li>
+        {% endfor %}
+        {% else %}
+            <h2 class="text-lg">No incentives added yet.</h2>
+        {% endif %}
+    </ul>
+</div>
+<!-- responsiblities section  -->
+<div class="skew-block bg-gradient-to-b from-blue-400 to-emerald-500 pb-[20vh] sm:pb-[10vh]" id="responsibilities">
+    <div class="view-box grid place-items-center h-full">
+        <h2 class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-900 to-orange-900 text-4xl text-center font-bold col-span-1 pt-[8vh] sm:pt-0" >Responsiblities</h2>
+        <ul class="flex flex-row flex-wrap justify-center gap-4 mt-4 text-sm">
+            {% if responsibilities %}
+            {% for responsibility in responsibilities %}
+                <li class="flex flex-col justify-center text-center max-w-xs w-full ">
+                    <img src="{{responsibility.img_url}}" alt="image" class=" rounded-md mb-4 mx-auto sm:mx-8 aspect-square object-cover max-w-[70vw] sm:max-w-xs">
+                    <div class="bg-slate-200 text-slate-900 rounded-md px-2 py-4">
+
+                        <h2 class="text-xl font-bold">{{responsibility.title}}</h2>
+                        <p class="">{{responsibility.content}}</p>
+                    </div>
+                </li>
+            {% endfor %}
+            {% else %}
+                <h3>No responsibilities added yet.</h3>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+<!-- Timeline -->
+<div class="view-box min-h-screen flex flex-col justify-center">
+    <h2 class="text-3xl mx-auto font-bold">TimeLine</h2>
+    {% if timeline %}
+        <ul id="timelinevents" class="flex flex-col gap-4 justify-center mt-6">
+            {% for event in timeline %}
+                <li class="w-full flex odd:flex-row-reverse even:flex-row justify-center gap-4 overflow-visible col-span-1 max-w-screen-md mx-auto text-xs sm:text-sm md:text-base">
+                    <div class="rounded-full text-slate-50 bg-indigo-500 w-12 h-12 grid place-items-center flex-shrink-0 my-auto ">
+                        {% if event.completed %}
+                            <div class="text-center">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        {% else %}
+                            <div class="text-center w-8/10 my-auto">
+                                <img src="{% static 'image/campus_ambassador/loader.gif' %}" alt="gif" class="object-contain w-8">
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class=" px-2 py-2 rounded-md text-center bg-slate-200 text-slate-900">
+
+                        <h3 class="font-semibold">{{event.title}} | {{event.deadline}} </h3>
+                        <p>{{event.content}}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+     <h2 class="text-xl font-semibold">No timeline added</h2>
+    {% endif %}
+</div>
+<!-- faq section -->
+<div class="skew-block bg-indigo-500">
+    <div class="view-box flex flex-col justify-center">
+        <div class="text-3xl text-center font-bold">
+            <h2>FAQs</h2>
+        </div>
+        <div class="">
+            <ul class="mt-4 flex flex-col gap-4">
+            {% if active_faqs %}
+
+                {% for faq in active_faqs %}
+                    <details open>
+                        <summary>{{faq.title}}</summary>
+                        <p>{{faq.content}}</p>
+                    </details>
+                {% endfor %}
+            {% else %}
+                <h3>No FAQs added</h3>
+            {% endif %}
+            {% if faqs %}
+                {% for faq in faqs %}
+                    <details>
+                        <summary>{{faq.title}}</summary>
+                        <p>{{faq.content}}</p>
+                    </details>
+                {% endfor %}
+            {% else %}
+                <h3>No FAQs added</h3>
+            {% endif %}
+        </div>
+    </div>
 </div>
 {% endblock %}
