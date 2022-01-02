@@ -1,0 +1,28 @@
+{% extends 'campus_ambassador/base.html' %}
+{% load static %}
+{% block title %}
+Login
+{% endblock %}
+{% block head %}
+<!-- <link rel="stylesheet" href="{% static 'css/campus_ambassador/home.css' %}"> -->
+{% endblock %}
+{% block content %}
+<div class="view-box">
+    <div class="flex flex-col justify-center py-[15vh] min-h-[100vh] gap-4">
+        {% if user.is_authenticated %}
+            <h1 class="text-xl font-bold mx-auto text-center">Logout first to login</h1>
+        {% else %}
+            <h1 class="text-3xl font-bold mx-auto text-center">Login</h1>
+            <div class="bg-slate-400 w-full max-w-sm px-4 py-4 rounded-lg  mx-auto text-slate-900">
+                <form action="" method="post" class="flex w-full flex-col justify-center gap-4">
+                    {% csrf_token %}
+                    <input type="text" name="username" id="username_id" placeholder="Username" class="rounded-md border-none">
+                    <input type="password" name="password" id="password_id" placeholder="Password" class="rounded-md border-none">
+                    <input type="submit" name="login" id="login_id" value="Login" class="red-btn font-bold mx-auto">
+                </form>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

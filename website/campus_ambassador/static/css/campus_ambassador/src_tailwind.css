@@ -15,4 +15,12 @@
         padding-top: 4rem;
         clip-path: polygon(0 0, 100% 8%,100% 95%, 0 100%);
     }
+
+    .red-btn{
+        @apply rounded-md bg-gradient-to-bl from-rose-600 to-amber-500 w-fit px-4 py-2 text-slate-50 font-bold cursor-pointer;
+    }
+
+    .nav-item{
+        @apply px-3 hover:underline hover:underline-offset-4 hover:decoration-sky-300 py-2 rounded;
+    }
 }

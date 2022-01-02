@@ -1,0 +1,30 @@
+{% extends 'campus_ambassador/base.html' %}
+{% load static %}
+{% block title %}
+Register
+{% endblock %}
+{% block head %}
+<!-- <link rel="stylesheet" href="{% static 'css/campus_ambassador/home.css' %}"> -->
+{% endblock %}
+{% block content %}
+<div class="view-box">
+    <div class="flex flex-col justify-center py-[15vh] min-h-[100vh] gap-4">
+        <h1 class="text-3xl font-bold mx-auto text-center">Register</h1>
+        <div class="bg-slate-400 w-full max-w-sm px-4 py-4 rounded-lg  mx-auto text-slate-900">
+            <form action="" method="post" class="flex w-full flex-col justify-center gap-4">
+                {% csrf_token %}
+                <input type="text" name="username" id="username_id" placeholder="Username" class="rounded-md border-none">
+                <input type="email" name="email" id="email_id" placeholder="Email" class="rounded-md border-none">
+                <input type="password" name="password" id="password_id" placeholder="Password" class="rounded-md border-none">
+                <input type="text" name="college" id="college_id" placeholder="College Name" class="rounded-md border-none">
+                <input type="text" name="phone" id="phone_id" placeholder="Phone Number" class="rounded-md border-none">
+                <input type="text" name="facebook" id="facebook_id" placeholder="Facebook Link" class="rounded-md border-none">
+                <input type="text" name="linkedin" id="linkedin_id" placeholder="Linkedin Link" class="rounded-md border-none">
+                <input type="text" name="Instagram" id="instagram_id" placeholder="Instagram Link" class="rounded-md border-none">
+                <input type="submit" name="register" id="login_id" value="Register" class="red-btn mx-auto">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
