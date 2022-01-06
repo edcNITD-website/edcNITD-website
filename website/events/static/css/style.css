@@ -1789,3 +1789,8 @@ section {
   font-size: 13px;
   color: #ddd;
 }
+
+.dropdown-menu a {
+  color: black;
+}
+
