@@ -7,7 +7,7 @@
 
   <!-- Team CSS file -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/page2.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/api.css' %}">
+  <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/api.css' %}"> -->
  
   
   <!-- css for API only -->
@@ -123,7 +123,7 @@
         <div class="col-6 col-md-5 text-center d-flex justify-content-center mx-auto my-4"
         style="padding-left: 30px;">
           <div class="share">
-            <span>View in</span>
+            <span id="view_in">View in</span>
             <nav>
               <a href="{{post.instalink}}" target="_blank"><i class="fa fa-instagram"></i></a>
               <a href="{{post.fblink}}" target="_blank"><i class="fa fa-facebook"></i></a>
@@ -177,6 +177,6 @@
             <!-- Core theme JS-->
         
             <!-- <script defer type="text/javascript" src="{% static 'js/api.js' %}"></script> -->
-  
+            
 
 {% endblock %}
