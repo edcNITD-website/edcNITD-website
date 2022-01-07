@@ -31,7 +31,29 @@
     margin-left: calc(50% - 20px);
     margin-top: -2px;
 }
-  
+    /* scrollbar css */
+    .category-bar{
+      overflow-x: hidden;
+      overflow-y: scroll;
+    } 
+    .category-bar::-webkit-scrollbar {
+      width: 10px;
+
+      
+    }
+    .category-bar::-webkit-scrollbar-track {
+      background-color:rgba(0, 0, 0, 0.95);
+    }
+    .category-bar::-webkit-scrollbar-thumb {
+      background: var(--theme-color);
+      height: 20px;
+      border-radius: 5px;
+    }
+    /* .category-bar::-webkit-scrollbar-thumb:hover {
+      
+    } */
+    
+
  /*card css */
   .card {
   z-index: 1;
