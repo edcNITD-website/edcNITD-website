@@ -8,6 +8,7 @@
 .ps-timeline-sec .container {
   position: relative;
 }
+
 @media screen and (max-width: 767px) {
   .ps-timeline-sec .container ol:before {
     background: var(--theme-color);
@@ -43,7 +44,8 @@
     width: inherit !important;
   }
   .ps-timeline-sec .container ol.ps-timeline li:nth-child(2) .img-handler-bot img {
-    width: 70px;
+    margin: 0 auto !important;
+    width: 80% !important;
   }
   .ps-timeline-sec .container ol.ps-timeline li:last-child {
     margin: 0;
@@ -51,18 +53,34 @@
     height: 120px;
   }
   .ps-timeline-sec .container ol.ps-timeline li:last-child .img-handler-bot {
-    bottom: 40px !important;
+    /* bottom: 40px !important;
     width: 40% !important;
     margin-left: 25px !important;
-    margin-top: 0 !important;
+    margin-top: 0 !important; */
+    position: absolute !important;
+    bottom: 50px !important;
+    width: 30% !important;
+    float: left !important;
+    margin-left: 35px !important;
+    margin-bottom: 0 !important;
   }
   .ps-timeline-sec .container ol.ps-timeline li:last-child .img-handler-bot img {
-    width: 100%;
+    margin: 0 auto !important;
+    width: 80% !important;
   }
   .ps-timeline-sec .container ol.ps-timeline li:last-child .ps-top {
-    margin-bottom: 0 !important;
+    /* margin-bottom: 0 !important;
     top: 20px;
-    width: 50% !important;
+    width: 50% !important; */
+    position: absolute;
+    margin-top: 0px;
+  }
+  .ps-timeline-sec .container ol.ps-timeline li .ps-top {
+    /* position: absolute;
+    bottom: 0;
+    margin-bottom: 100px; */
+    position: absolute;
+    margin-top: 0px;
   }
   .ps-timeline-sec .container ol.ps-timeline li span {
     left: 0 !important;
@@ -80,6 +98,12 @@
     content: none !important;
   }
   .ps-timeline-sec .container ol.ps-timeline li .img-handler-top {
+    /* position: absolute !important;
+    bottom: 150px !important;
+    width: 30% !important;
+    float: left !important;
+    margin-left: 35px !important;
+    margin-bottom: 0 !important; */
     position: absolute !important;
     bottom: 150px !important;
     width: 30% !important;
@@ -92,8 +116,14 @@
     width: 80% !important;
   }
   .ps-timeline-sec .container ol.ps-timeline li .img-handler-bot {
-    position: absolute !important;
+    /* position: absolute !important;
     bottom: 115px !important;
+    width: 30% !important;
+    float: left !important;
+    margin-left: 35px !important;
+    margin-bottom: 0 !important; */
+    position: absolute !important;
+    bottom: 150px !important;
     width: 30% !important;
     float: left !important;
     margin-left: 35px !important;
@@ -166,6 +196,7 @@
   position: absolute;
   top: -26px;
   left: 50%;
+  line-height: 2.5;
 }
 .ps-timeline-sec .container ol.ps-timeline li span.ps-sp-top:before {
   content: "";
@@ -232,13 +263,33 @@
   text-align: center;
   width: 80%;
   margin: 0 auto;
+  
 }
 .ps-timeline-sec .container ol.ps-timeline li .ps-top {
   position: absolute;
   bottom: 0;
   margin-bottom: 100px;
+  /* position: absolute;
+  margin-top: 0px; */
 }
 .ps-timeline-sec .container ol.ps-timeline li .ps-bot {
   position: absolute;
-  margin-top: 35px;
+  margin-top: 0px;
+}
+@media (min-width: 992px) {
+  .ps-timeline-sec .container ol.ps-timeline li .img-handler-top {
+    width: 56%;
+    left: 23%;
+  }
+  .ps-timeline-sec .container ol.ps-timeline li .img-handler-bot {
+    width: 56%;
+    left: 23%;
+  }
+}
+@media (min-width: 767px) and (max-width: 990px) {
+  .ps-timeline-sec .container ol.ps-timeline li p {
+    font-size: 0.9rem;
+    
+  }
+
 }
