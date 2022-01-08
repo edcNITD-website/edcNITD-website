@@ -850,7 +850,7 @@ img{
   transform: translateY(5px);
   /* box-shadow: var(--theme-color); */
 }
-@media (min-width: 769px) {
+@media (min-width: 770px) {
   .back-btn-eve{
     padding-top: 1rem;
   }
