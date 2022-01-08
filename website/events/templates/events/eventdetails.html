@@ -32,7 +32,7 @@
     <div class="eve_img clearfix"> <img class="poster-eve" src="{{event.poster.url}}"></div>
       <div class="eve_descrip clearfix">
         <p><i class="fa fa-paper-plane" aria-hidden="true"></i> Description:</p>
-        <h1>{{event.about_event}}</h1>
+        <h1 class="about-event">{{event.about_event}}</h1>
         <hr>
       {% if event in ue or event in oe %}
         <p><i class="fa fa-calendar" aria-hidden="true"></i> Registration Starts: <span class="date-calender">{{event.start_date|date:"d F Y, P" }}</span></p>
@@ -44,12 +44,18 @@
         <div class="btn_eve" style="text-align: center; max-height: 100%; margin-top: 2rem; display: flex; justify-content: center;">
       {% if event in ue or event in oe %}
           <a class="btn btn-register" style="text-align: center;" href="{{event.registration_link}}" target="blank"><span class="btntext">PARTICIPATE</span></a>
-      {% else %}
-          <a class="btn btn-register-all" style="text-align: center;"><span class="btntext">REGISTRATION CLOSED</span></a>
-      {% endif %}
-          <button type="button" class="btn btn-register-prizes" style="margin-left: 20px;" data-toggle="modal" data-target="#exampleModalCenter">
+          {% if event.prizes %}
+          <div class="prize">
+            <button type="button" class="btn btn-register-prizes" style="margin-left: 20px;" data-toggle="modal" data-title="View Prizes" data-target="#exampleModalCenter">
+              <i class="fa fa-trophy"></i>
+            </button>
+          </div>
+          {% elif event.prizes == "" %}
+          <button type="button" class="btn btn-register-prizes-muted" style="margin-left: 20px;" data-toggle="modal" data-target="#exampleModalCenter">
             <i class="fa fa-trophy"></i>
           </button>
+          {% endif %}
+      {% endif %}
         </div> 
       </div>
     </div>
@@ -57,6 +63,7 @@
 </div>
 
 <!-- PRIZE MODAL -->
+{% if event.prizes %}
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -72,6 +79,7 @@
     </div>
   </div>
 </div>
+{% endif %}
 
 <!-- TIMELINE -->
 <header class="section-header">
@@ -152,7 +160,7 @@
 
 <!-- SLIDER -->
 <header class="section-header">
-  <h3 style="z-index: 10;" id="oe">SLIDER</h3>
+  <h3 style="z-index: 10;" id="oe">GLIMPSES</h3>
 </header>
 <main class="main">
   <div class="container container-slider-glade">
@@ -168,9 +176,9 @@
         {% endfor %}
       </div>
     </div>
-    <!-- Add Pagination -->
+    <!-- Added Pagination -->
     <div class="swiper-pagination"></div>
-    <!-- Add Scrollbar -->
+    <!-- Added Scrollbar -->
     <div class="but">
       <div class="swiper-button-next">
         <i class=" arrow-icon"></i>
