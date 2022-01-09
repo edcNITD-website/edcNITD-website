@@ -80,9 +80,6 @@
                   <li {%if request.resolver_match.url_name == 'home_page' %}class="active" {% endif %}><a
                       href="{%url 'home_page' %}">Home</a></li>
 
-                  <li {%if request.resolver_match.url_name == 'event_page' %}class="active" {% endif %}><a
-                      href="{% url 'event_page' %}">Event Registrations</a></li>
-
                   <div class="dropdown1">
                     <button class="btn1">E-Summit
                       <i class="fa fa-caret-down"></i>
@@ -93,6 +90,9 @@
                       {% endfor %}
                     </div>
                   </div>
+
+                  <li {%if request.resolver_match.url_name == 'event_page' %}class="active" {% endif %}><a
+                    href="{% url 'event_page' %}">Event Registrations</a></li>
 
                   <li
                     {%if request.resolver_match.url_name  == 'post_list' or request.resolver_match.url_name  == 'post_detail' %}
