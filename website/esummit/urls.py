@@ -18,5 +18,5 @@ from django.urls import path,include
 from .import views
 
 urlpatterns = [
-    path('',views.esummit, name='esummit_page'),
+    path('<int:year_id>/',views.esummit, name='esummit_page'),
 ]
