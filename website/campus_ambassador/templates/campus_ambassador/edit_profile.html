@@ -1,0 +1,51 @@
+{% extends 'campus_ambassador/base.html' %}
+{% load static %}
+{% block title %}Edit 
+{{request.user}}'s Profile
+{% endblock %}
+{% block head %}
+<!-- <link rel="stylesheet" href="{% static 'css/campus_ambassador/home.css' %}"> -->
+{% endblock %}
+{% block content %}
+<div class="view-box">
+    <div class="flex flex-col justify-center py-[15vh] min-h-[100vh] gap-4">
+        <h1 class="text-3xl font-bold mx-auto text-center">Edit Profile</h1>
+        <div class="bg-slate-400 w-full max-w-sm px-4 py-4 rounded-lg  mx-auto text-slate-900">
+            {% if is_ambassador %}
+            <form action="" method="post" class="flex w-full flex-col justify-center gap-4">
+                {% csrf_token %}
+                <input type="text" name="firstname" id="firstname_id" placeholder="Firstname" value="{{amb.user.first_name}}" class="rounded-md border-none">
+                <input type="text" name="lastname" id="lastname_id" placeholder="Lastname" class="rounded-md border-none" value="{{amb.user.last_name}}">
+                <input type="text" name="college" id="college_id" placeholder="College Name" class="rounded-md border-none" value="{{amb.college}}">
+                <input type="text" name="phone" id="phone_id" placeholder="Phone Number" class="rounded-md border-none" value="{{amb.phone}}">
+                {% if amb.facebook %}
+                    <input type="text" name="facebook" id="facebook_id" placeholder="facebook Link" class="rounded-md border-none" value="{{amb.facebook}}">
+                {% else %}
+                    <input type="text" name="facebook" id="facebook_id" placeholder="facebook Link" class="rounded-md border-none">
+                {% endif %}
+                {% if amb.linkedin %}
+                    <input type="text" name="linkedin" id="linkedin_id" placeholder="Linkedin Link" class="rounded-md border-none" value="{{amb.linkedin}}">
+                {% else %}
+                    <input type="text" name="linkedin" id="linkedin_id" placeholder="Linkedin Link" class="rounded-md border-none">
+                {% endif %}
+                {% if amb.instagram %}
+                    <input type="text" name="instagram" id="instagram_id" placeholder="instagram Link" class="rounded-md border-none" value="{{amb.instagram}}">
+                {% else %}
+                    <input type="text" name="instagram" id="instagram_id" placeholder="instagram Link" class="rounded-md border-none">
+                {% endif %}
+                <input type="submit" name="edit_amb" id="login_id" value="Save Profile" class="red-btn mx-auto">
+            </form>
+            {% elif is_moderator %}
+            <form action="" method="post" class="flex w-full flex-col justify-center gap-4">
+                {% csrf_token %}
+                <input type="text" name="firstname" id="firstname_id" placeholder="Firstname" value="{{mod.user.first_name}}" class="rounded-md border-none">
+                <input type="text" name="lastname" id="lastname_id" placeholder="Lastname" class="rounded-md border-none" value="{{mod.user.last_name}}">
+                <input type="text" name="phone" id="phone_id" placeholder="Phone Number" class="rounded-md border-none" value="{{mod.phone}}">
+                <input type="submit" name="edit_mod" id="login_id" value="Save Profile" class="red-btn mx-auto">
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

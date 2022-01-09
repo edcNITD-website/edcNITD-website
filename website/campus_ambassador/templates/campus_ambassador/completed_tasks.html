@@ -1,0 +1,43 @@
+{% extends 'campus_ambassador/base.html' %}
+{% load static %}
+{% block title %}
+Completed Task Requests
+{% endblock %}
+{% block head %}
+<!-- <link rel="stylesheet" href="{% static 'css/campus_ambassador/home.css' %}"> -->
+{% endblock %}
+{% block content %}
+{% if is_moderator %}
+    <div class="view-box pt-[14vh]">
+        <h2 class="text-2xl font-bold">Completed Completion Requests</h2>
+        {% if requests %}
+            <ul class="flex flex-col gap-2 justify-center mt-4">
+            {% for req in requests %}
+                <li class="bg-slate-300 text-slate-800 px-2 py-4 rounded-md">
+                    <h2>Subtask : {{req.subtask.title}}</h2>
+                    <h3>Unique_id : {{req.unique_id}}</h3>
+                    <h2>By {{req.ambassador.user.username}}</h2>
+                    <div class="my-4 text-center">
+                        <a href="{% url 'cap:manage_stcr' req.id %}">Manage Subtask</a>
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+            <center>
+                {%if requests.has_previous %} {# whether the previous page exists #}
+                    <a href="?page={{requests.previous_page_number}}" class="paginator-btn"><</a> {# link to the prev page #}
+                {% else %}
+                    <a href="#" class="paginator-btn hidden"><</a> {# link to the prev page #}
+                {% endif %}
+                <span id="current-page">{{requests.number}}</span>
+                   
+                {%if requests.has_next %} {# whether the next page exists #}
+                    <a href="?page={{requests.next_page_number}}" class="paginator-btn">></a> {# link to the next page #}
+                {% else %}
+                    <a href="#" class="paginator-btn hidden">></a> {# link to the prev page #}
+                {% endif %}
+            </center>
+        {% endif %}
+    </div>
+{% endif %}
+{% endblock %}

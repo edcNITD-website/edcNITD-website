@@ -1,16 +1,105 @@
 {% extends 'campus_ambassador/base.html' %}
 {% load static %}
 {% block title %}
-Register
+{{request.user}}'s Profile
 {% endblock %}
 {% block head %}
 <!-- <link rel="stylesheet" href="{% static 'css/campus_ambassador/home.css' %}"> -->
 {% endblock %}
 {% block content %}
 <div class="view-box">
-    <div class="grid place-items-center py-[15vh] min-h-[100vh] grid-cols-1 lg:grid-cols-5">
-        <h1>Prfile</h1>
-    </div>
-</div>
+    {% if is_ambassador %}
+        <div class="grid place-items-stretch lg:grid-cols-2 pt-[15vh] gap-4 md:gap-8">
+            <!-- Profile Section -->
+            <div class="bg-slate-200 text-slate-900 px-3 py-4 rounded-lg w-full flex flex-col justify-center">
 
+                <h1>Profile</h1>
+                <h2>Username : {{request.user.username}}</h2>
+                <h2>First Name : {{request.user.first_name}}</h2>
+                <h2>Last Name : {{request.user.last_name}}</h2>
+                <h2>User Details</h2>
+                <h3>{{user_details.college}}</h3>
+                <h3>{{user_details.phone}}</h3>
+                <h3>Unique Code : {{user_details.unique_code}}</h3>
+                <h3>{{user_details.score}}</h3>
+                <h3>{{user_details.facebook}}</h3>
+                <h3>{{user_details.linkedin}}</h3>
+                <h3>{{user_details.instagram}}</h3>
+                <div class="flex justify-center"><a href="{% url 'cap:edit_profile' %}" class="bg-gradient-to-r from-blue-500 to-purple-600 text-slate-50 font-bold px-4 py-2 rounded-full">Edit Profile</a></div>
+            </div>
+            <div class="bg-slate-200 text-slate-900 px-3 py-4 rounded-lg w-full">
+                <div class="flex flex-col mx-auto justify-center text-center">
+                    <h4>Score</h4>
+                    <h4 class="text-4xl font-bold">{{amb.score}}</h4>
+                </div>
+                <h2>Current Task</h2>
+                <h3 class="font-semibold">{{amb.get_current_subtask.index}} | {{amb.get_current_task.title}}</h3>
+                <p>{{amb.get_current_task.description}}</p>
+                <h2>Current Sub Task</h2>
+                <div class="">
+                    <h3 class="font-semibold pl-8">{{amb.get_current_subtask.title}}</h3>
+                    <p class="pl-8">{{amb.get_current_subtask.description}}</p>
+                    <div class="w-full my-4 flex flex-wrap gap-4 justify-center">
+                        <a class="mx-auto px-4 py-2 font-semibold bg-gradient-to-l from-indigo-600 to-red-500 text-slate-50 rounded-full" href="{{amb.get_current_subtask.submission_url}}">Submit Task Now</a>
+                        <a class="mx-auto px-4 py-2 font-semibold bg-gradient-to-l from-indigo-600 to-emerald-500 text-slate-50 rounded-full" href="{% url 'cap:create_stcr_request' amb.get_current_subtask.id%}">Create Completion Request</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% elif is_moderator %}
+        <div class="grid place-items-stretch  pt-[15vh] gap-4 md:gap-8">
+            <!-- Profile Section -->
+            <div class="bg-slate-200 text-slate-900 px-3 py-4 rounded-lg w-full flex flex-col justify-center">
+                <h1>Profile</h1>
+                <h2>Username : {{request.user.username}}</h2>
+                <h2>First Name : {{request.user.first_name}}</h2>
+                <h2>Last Name : {{request.user.last_name}}</h2>
+                <h3>{{user_details.college}}</h3>
+                <h3>{{user_details.phone}}</h3>
+                <h3>Unique Code : {{user_details.unique_code}}</h3>
+                <h3>{{user_details.score}}</h3>
+                <h3>{{user_details.facebook}}</h3>
+                <h3>{{user_details.linkedin}}</h3>
+                <h3>{{user_details.instagram}}</h3>
+                <div class="flex justify-center flex-wrap gap-4">
+                    <a href="{% url 'cap:edit_profile' %}" class="bg-gradient-to-r from-blue-500 to-purple-600 text-slate-50 font-bold px-4 py-2 rounded-full">Edit Profile</a>
+                    <a href="{% url 'cap:pending_stcr' %}" class="bg-gradient-to-r from-blue-500 to-purple-600 text-slate-50 font-bold px-4 py-2 rounded-full">View Pending Requests</a>
+                    <a href="{% url 'cap:completed_stcr' %}" class="bg-gradient-to-r from-blue-500 to-purple-600 text-slate-50 font-bold px-4 py-2 rounded-full">View Completed Requests</a>
+                </div>
+            </div>
+    {% elif is_staff %}
+        <h2>Is Staff</h2>
+    {% endif %}
+</div>
+{% if is_ambassador %}
+<div class="view-box mt-4">
+    <h2 class="text-2xl font-bold">Completion Requests</h2>
+    <h3 class="text-lg font-semibold">Pending</h3>
+    <!-- Pending Subtask Requests -->
+    {% if pending_stcr %}
+        <ul>
+            {% for req in pending_stcr %}
+                <li>
+                    <h2>Subtask : {{req.subtask.title}}</h2>
+                    <h3>Unique_id : {{req.unique_id}}</h3>
+                    
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <h3 class="text-lg font-semibold">Accepted Requests</h3>
+    <!-- Completed Subtask Requests -->
+    {% if completed_stcr %}
+        <ul>
+            {% for req in completed_stcr %}
+                <li>
+                    <h2>Subtask : {{req.subtask.title}}</h2>
+                    <h3>Unique_id : {{req.unique_id}}</h3>
+                    
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+{% endif %}
 {% endblock %}
