@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Members
+from esummit.models import Year_Detail
 from django.utils import timezone
 from datetime import date
 # Create your views here.
@@ -54,4 +55,14 @@ def team(request):
         year_list.append(year)
     max_year = max(year_list)
     context['max_alumni_year'] = max_year
+    
+    year = Year_Detail.objects.all().order_by("-year")
+    context['years'] = year
+    max_year=0
+    max_id=0
+    for y in Year_Detail.objects.all():
+        if(y.year>max_year):
+            max_year=y.year
+            max_id=y.id
+    context['latest'] = max_id
     return render(request,'team/team_page.html',context)
