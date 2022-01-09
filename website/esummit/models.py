@@ -4,6 +4,9 @@ from django.db import models
 
 class Year_Detail(models.Model):
     year = models.IntegerField()
+    year_img = models.ImageField(
+        blank=True, upload_to='esummitYear/', default=None)
+    year_desc = models.TextField(default="")
     
     def __str__(self) -> str:
         return str(self.year)

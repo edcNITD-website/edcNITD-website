@@ -48,6 +48,7 @@
     position: relative;
     box-shadow: none;
     padding-left: 20px;
+    background-color: transparent !important;
   }
   #dropdown_menu a {
     text-align: left;

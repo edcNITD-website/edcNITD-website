@@ -200,10 +200,10 @@
         {% for year in years %}
         <li>
           <div class="img-handler-top">
-            <img class="img-responsive" style="border-radius: 50%;" width="100%" src="https://scontent.frdp1-1.fna.fbcdn.net/v/t39.30808-6/269917764_313508687451982_7343910843183920139_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=730e14&_nc_ohc=rss6MIkgjGoAX87OdZN&_nc_ht=scontent.frdp1-1.fna&oh=00_AT-TtCoRWd-1E6OBkqouREhHg9G6epEPKgY0n5u3LgVz-Q&oe=61DC92C8" alt="" />
+            <img class="img-responsive" style="border-radius: 50%;" width="100%" src="{{year.year_img.url}}" alt="" />
           </div>
           <div class="ps-bot">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni illum reiciendis modi architecto minus laborum.</p>
+            <p>{{year.year_desc}}</p>
           </div>
           <span style="font-size: 1em;" class="ps-sp-top"> <a href="#">{{year.year}}</a></span>
         </li>
