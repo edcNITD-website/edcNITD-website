@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import*
+from esummit.models import Year_Detail
 import datetime
 from json import dumps
 from django.utils.timezone import utc   
@@ -51,5 +52,15 @@ def event(request):
                      'ue':ue_count,
                     },default=str)
     context={'ue':upcoming_event,'oe':ongoing_event,'ae':all_event,'ae_count':ae_count,'ue_count':ue_count ,'oe_count':oe_count,'timer':timerJSON}
+    
+    year = Year_Detail.objects.all().order_by("-year")
+    context['years'] = year
+    max_year=0
+    max_id=0
+    for y in Year_Detail.objects.all():
+        if(y.year>max_year):
+            max_year=y.year
+            max_id=y.id
+    context['latest'] = max_id
 
     return render(request,'events/event_page.html', context)
