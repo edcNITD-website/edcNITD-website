@@ -59,6 +59,7 @@
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
   <link href="{% static 'loader/loader.css' %}" rel="stylesheet">
   <link href="{% static 'css/progressbar.css' %}" rel="stylesheet">
+  <!-- <link href="{% static 'css/dropdown.css' %}" rel="stylesheet"> -->
 
 
 
@@ -98,6 +99,7 @@
 
               <li {%if request.resolver_match.url_name == 'esummit_page' %}class="active"{% endif %}><a href="{% url 'esummit_page' %}">E-Summit'21</a></li>
 
+            
              <li {%if request.resolver_match.url_name == 'event_page' %}class="active"{% endif %}><a href="{% url 'event_page' %}">Event Registrations</a></li>
 
              <li {%if request.resolver_match.url_name == 'EQuest' %} or request.resolver_match.url_name  == 'post_detail' %}class="active"{% endif %}><a href="{% url 'post:post_list' %}">E-Quest</a></li> 
