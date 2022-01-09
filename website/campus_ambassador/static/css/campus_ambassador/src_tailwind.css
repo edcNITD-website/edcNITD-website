@@ -21,6 +21,10 @@
     }
 
     .nav-item{
-        @apply px-3 hover:underline hover:underline-offset-4 hover:decoration-sky-300 py-2 rounded;
+        @apply px-3 hover:underline hover:underline-offset-4 hover:decoration-sky-300 py-2 rounded text-slate-800 dark:text-slate-50;
+    }
+
+    .nav-item.scroll{
+        @apply text-stone-50;
     }
 }

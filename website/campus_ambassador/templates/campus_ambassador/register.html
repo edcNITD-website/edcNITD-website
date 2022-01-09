@@ -14,13 +14,15 @@ Register
             <form action="" method="post" class="flex w-full flex-col justify-center gap-4">
                 {% csrf_token %}
                 <input type="text" name="username" id="username_id" placeholder="Username" class="rounded-md border-none">
+                <input type="text" name="firstname" id="firstname_id" placeholder="Firstname" class="rounded-md border-none">
+                <input type="text" name="lastname" id="lastname_id" placeholder="Lastname" class="rounded-md border-none">
                 <input type="email" name="email" id="email_id" placeholder="Email" class="rounded-md border-none">
                 <input type="password" name="password" id="password_id" placeholder="Password" class="rounded-md border-none">
                 <input type="text" name="college" id="college_id" placeholder="College Name" class="rounded-md border-none">
                 <input type="text" name="phone" id="phone_id" placeholder="Phone Number" class="rounded-md border-none">
                 <input type="text" name="facebook" id="facebook_id" placeholder="Facebook Link" class="rounded-md border-none">
                 <input type="text" name="linkedin" id="linkedin_id" placeholder="Linkedin Link" class="rounded-md border-none">
-                <input type="text" name="Instagram" id="instagram_id" placeholder="Instagram Link" class="rounded-md border-none">
+                <input type="text" name="instagram" id="instagram_id" placeholder="Instagram Link" class="rounded-md border-none">
                 <input type="submit" name="register" id="login_id" value="Register" class="red-btn mx-auto">
             </form>
         </div>

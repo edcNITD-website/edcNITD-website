@@ -9,6 +9,7 @@
         <li><a href="{% url 'home_page' %}" class="nav-item">EDC</a></li>
         <li><a href="{% url 'cap:cap_home_page' %}#incentives" class="nav-item">Incentives</a></li>
         {% if user.is_authenticated %}
+          <li><a href="{% url 'cap:profile' %}" class="px-3 bg-gradient-to-l from-emerald-400 to-red-400 nav-item">Profile</a></li>
           <li><a href="{% url 'cap:logout' %}" class="px-3  bg-gradient-to-r from-blue-400 to-purple-500 nav-item">Logout</a></li>
         {% else %}
           <li><a href="{% url 'cap:register' %}" class="px-3 bg-gradient-to-l from-emerald-400 to-red-400 nav-item">Register</a></li>
