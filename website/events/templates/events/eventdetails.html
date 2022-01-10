@@ -14,6 +14,9 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins&display=swap" rel="stylesheet">
 
 <!-- FLEX CONTAINER -->
 
@@ -29,17 +32,17 @@
 <!-- POSTER AND IMAGE-->
 <div class="poster_img container" style="margin-top: 3rem;">
   <div class="eve_img_desc">
-    <div class="eve_img clearfix"> <img class="poster-eve" src="{{event.poster.url}}"></div>
+    <div class="eve_img clearfix" > <img class="poster-eve" src="{{event.poster.url}}"></div>
       <div class="eve_descrip clearfix">
-        <p><i class="fa fa-paper-plane" aria-hidden="true"></i> Description:</p>
+        <p class="title-header"><i class="fa fa-paper-plane" aria-hidden="true"></i> Description:</p>
         <h1 class="about-event">{{event.about_event}}</h1>
         <hr>
       {% if event in ue or event in oe %}
-        <p><i class="fa fa-calendar" aria-hidden="true"></i> Registration Starts: <span class="date-calender">{{event.start_date|date:"d F Y, P" }}</span></p>
-        <p><i class="fa fa-calendar" aria-hidden="true"></i> Registration Ends: <span class="date-calender">{{event.end_date|date:"d F Y, P" }}</span></p>
+        <p class="title-header"><i class="fa fa-calendar" aria-hidden="true"></i> Registration Starts: <span class="date-calender"><strong>{{event.start_date|date:"d F Y, P" }}</strong></span></p>
+        <p class="title-header"><i class="fa fa-calendar" aria-hidden="true"></i> Registration Ends: <span class="date-calender"><strong>{{event.end_date|date:"d F Y, P" }}</strong></span></p>
       {% else %}
-        <p><i class="fa fa-calendar" aria-hidden="true"></i> Registration Starts: <span class="date-calender">WILL BE NOTIFIED LATER</span></p>
-        <p><i class="fa fa-calendar" aria-hidden="true"></i> Registration Ends: <span class="date-calender">WILL BE NOTIFIED LATER</span></p>
+        <p class="title-header"><i class="fa fa-calendar" aria-hidden="true"></i> Registration Starts: <span class="date-calender"><strong>WILL BE NOTIFIED LATER</strong></span></p>
+        <p class="title-header"><i class="fa fa-calendar" aria-hidden="true"></i> Registration Ends: <span class="date-calender"><strong>WILL BE NOTIFIED LATER</strong></span></p>
       {% endif %}
         <div class="btn_eve" style="text-align: center; max-height: 100%; margin-top: 2rem; display: flex; justify-content: center;">
       {% if event in ue or event in oe %}
@@ -163,9 +166,8 @@
   <h3 style="z-index: 10;" id="oe">GLIMPSES</h3>
 </header>
 <main class="main">
-  <div class="container container-slider-glade">
+  <div class="container container-sl container-slider-glade">
     <div class="swiper-container">
-      <div id="bar"></div>
       <div class="swiper-wrapper">
         {% for image in images %}
         <div class="swiper-slide">
@@ -198,6 +200,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script src="{% static 'js/bar.js' %}"></script>
 {% if number == 3 %}
 <script src="{% static 'js/slider-sub.js' %}"></script>
 {% elif number == 1 %}

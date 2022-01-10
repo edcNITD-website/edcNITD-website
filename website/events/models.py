@@ -5,7 +5,7 @@ import pytz
 
 class Event(models.Model):
     event_name=models.CharField(max_length=100)
-    about_event=models.TextField(max_length=1200)
+    about_event=models.TextField(max_length=1050)
     prizes=models.TextField(max_length=1000,default="",blank=True,null=True)
     poster=models.ImageField(upload_to='events/', default="",blank=True,null=False)
     start_date=models.DateTimeField(auto_now=False,auto_now_add=False,blank=True,null=True)

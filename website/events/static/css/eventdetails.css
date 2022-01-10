@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Scada:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
 
 /* POSTER */
 body{
@@ -44,20 +45,20 @@ body{
   width: 100%;
   max-width: 100vw;
   justify-content: center;
-  margin-top: 1rem;
-  padding:0%
+  margin-top: 3rem;
 }
 
 .about-event{
-  font-size: 2.3rem !important;
+  font-size: 2rem !important;
   font-weight: 100 !important;
+  font-family: 'Prompt', sans-serif;
 }
 
 .date-calender{
   text-align: center;
-  font-family: 'Scada', sans-serif;
+  font-family: 'Prompt', sans-serif;
   font-weight: 350;
-  font-size: 2.3rem;
+  font-size: 2rem;
   color: black;
 }
 
@@ -72,7 +73,13 @@ body{
   position: relative;
   width: 100%;
 }
-  
+
+@media screen and (max-width: 700px) {
+  .poster_img .eve_img_desc .eve_descrip p {
+    text-align: center !important;
+  }
+}
+
 @media screen and (min-width: 700px) {
   .justify-content-start {
     padding: 0 2rem;
@@ -131,56 +138,66 @@ img{
 
 .eve_img_desc{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 85vh;
-  transform: translateX(-1.5%);
+    justify-content: space-between;
+    align-items: center;
+    /* height: 85%; */
+    height: max-content;
+    width: 100%;
+    max-width: 100vw;
+    transform: translateX(-1.5%);
+    margin-top: 2rem;
 }
 
+
 .eve_descrip{
-  display: flex;
-  align-items:flex-start;
-  width: 50%;
-  flex-direction:column;
-  padding-left: 4rem;
-  padding-top: 0;
-  padding-bottom: 0%;
-  margin-left: 10px;
-  margin-right:20px;
-  text-align: left;
+    display: flex;
+    flex-direction: column !important;
+    align-items: flex-start;
+    width: 50%;
+    height: max-content;
+    max-width: 50vw;
+    flex-direction: column;
+    padding-left: 4rem;
+    padding-bottom: 0%;
+    margin-left: 10px;
+    margin-right: 20px;
+    text-align: left;
 }
 
 .eve_img {
   display: flex;
-  flex: 1;
-  height: 88%;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  padding-left: 10PX;
-  padding-right: 10px;
-  padding: 1rem;
-  padding-top: 4.5rem;
-  margin-left: 3rem;
+    flex: 1;
+    height: 88%;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding-left: 10PX;
+    padding-right: 10px;
+    padding: 1rem;
+    padding-top: 4.5rem;
+    margin-left: 3rem;
 }
 
 .poster_img .eve_img_desc .eve_descrip p{
-  font-size: 25px !important;
+  font-size: 2.2rem !important;
   color: var(--theme-color);
   text-shadow: 0 2px 1px #adb5bd00;
-  font-family: 'Scada', sans-serif;
-  font-size: 1.4rem; 
+  font-family: 'Poppins', sans-serif;
   text-align: left;
   text-transform: initial;
+  font-weight: 800;
 }
 
 .poster_img .eve_img_desc .eve_descrip h1{
   text-align: left;
   font-size: 24px;
-  font-weight: 550;
-  font-family: 'Scada', sans-serif;
+  font-family: 'Prompt', sans-serif;
   color:black;
   text-transform: initial;
+}
+
+.title-header{
+  font-family: 'Poppins', sans-serif;
 }
 
 .clearfix::after {
@@ -319,6 +336,7 @@ img{
     justify-content: center;
     align-items: center;
     width: 100%;
+    max-width: 100vw;
     padding: 4rem;
     padding-bottom: 0%;
     margin-left: 10px;
@@ -415,20 +433,17 @@ img{
 }
 
 .container-slider-glade {
-  max-width: 75vw !important;
-  width: 100%;
+  max-width: 1vw !important;
+  width: 50%;
   padding: 4rem 2rem !important;
-  margin: 0 auto;
   align-items: center !important;
 }
 
 .swiper-container{
-  width: 80%;
   height: 50%; 
   padding: 0 !important;
   overflow:hidden !important;
   align-items: center !important;
-  margin-left: 8.75vw;
 }
 
 .swiper-wrapper {
@@ -441,7 +456,7 @@ img{
   box-sizing: content-box;
 }
 
-.main .container .swiper-container .swiper-wrapper .swiper-slide .card-image {
+.main .container-sl .swiper-container .swiper-wrapper .swiper-slide .card-image {
   background: #fff;
   border: none;
   outline: none;
@@ -449,14 +464,14 @@ img{
   border-radius: 2px;
 }
 
-.main .container .swiper-container .swiper-wrapper .swiper-slide .card-image img {
+.main .container-sl .swiper-container .swiper-wrapper .swiper-slide .card-image img {
   display: block;
   position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .swiper-pagination-bullets{
@@ -472,7 +487,7 @@ img{
   background-color: var(--theme-color) !important;
 }
 
-.main .container .swiper-container .swiper-button-next, .main .container .swiper-container .swiper-button-prev {
+.main .container-sl .swiper-container .swiper-button-next, .main .container-sl .swiper-container .swiper-button-prev {
   background-image: none;
   background-size: 0;
   background-repeat: no-repeat;
@@ -480,7 +495,7 @@ img{
   margin-top: -1rem;
 }
 
-.main .container .swiper-container .swiper-button-next .arrow-icon, .main .container .swiper-container .swiper-button-prev .arrow-icon {
+.main .container-sl .swiper-container .swiper-button-next .arrow-icon, .main .container-sl .swiper-container .swiper-button-prev .arrow-icon {
   font-size: 2rem;
   color: #fff;
 }
@@ -709,14 +724,14 @@ img{
 }
 
 .text-time-left p{
-  font-size: 17px;
-  font-family: "Open Sans", sans-serif;
+  font-size: 2rem;
+  font-family: 'Prompt', sans-serif;
   color: #444444;
 }
 
 .text-time-right p{
-  font-size: 17px;
-  font-family: "Open Sans", sans-serif;
+  font-size: 2rem;
+  font-family: 'Prompt', sans-serif;
   color: #444444;
 }
 
@@ -725,7 +740,7 @@ img{
   color: rgba(0, 0, 0, 0.7);
   font-weight: 600;
   text-shadow: 0 1px 0px #adb5bd;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Prompt', sans-serif;
   font-size: 1.4rem;
 }
 
@@ -734,7 +749,7 @@ img{
   color: rgba(0, 0, 0, 0.7);
   font-weight: 600;
   text-shadow: 0 1px 0px #adb5bd;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Prompt', sans-serif;
   font-size: 1.4rem;
 }
 .card-odd-last{
@@ -850,7 +865,7 @@ img{
   transform: translateY(5px);
   /* box-shadow: var(--theme-color); */
 }
-@media (min-width: 770px) {
+@media (min-width: 769px) {
   .back-btn-eve{
     padding-top: 1rem;
   }
