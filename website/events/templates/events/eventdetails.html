@@ -50,12 +50,12 @@
           {% if event.prizes %}
           <div class="prize">
             <button type="button" class="btn btn-register-prizes" style="margin-left: 20px;" data-toggle="modal" data-title="View Prizes" data-target="#exampleModalCenter">
-              <i class="fa fa-trophy"></i>
+              <i class="toto fa fa-trophy"></i>
             </button>
           </div>
           {% elif event.prizes == "" %}
           <button type="button" class="btn btn-register-prizes-muted" style="margin-left: 20px;" data-toggle="modal" data-target="#exampleModalCenter">
-            <i class="fa fa-trophy"></i>
+            <i class="toto fa fa-trophy"></i>
           </button>
           {% endif %}
       {% endif %}
@@ -165,32 +165,38 @@
 <header class="section-header">
   <h3 style="z-index: 10;" id="oe">GLIMPSES</h3>
 </header>
-<main class="main">
-  <div class="container container-sl container-slider-glade">
+<div class="main">
+  <div class="container container-slider-glade">
     <div class="swiper-container">
       <div class="swiper-wrapper">
         {% for image in images %}
         <div class="swiper-slide">
           <div class="card-image">
-            <img src="{{image.images.url}}" alt="Photo">
+            {% if number == 1%}
+            <img class="one-image" src="{{image.images.url}}" alt="Photo">
+            {% elif number == 3 %}
+            <img class="three-image" src="{{image.images.url}}" alt="Photo">
+            {% else %}
+            <img class="five-image" src="{{image.images.url}}" alt="Photo">
+            {% endif %}
           </div>
         </div>
         {% endfor %}
       </div>
     </div>
     <!-- Added Pagination -->
-    <div class="swiper-pagination"></div>
+    <div class="swiper-pagination" style="width: 100vw; left: -12.5%;right: 0; margin: 0%;"></div>
     <!-- Added Scrollbar -->
-    <div class="but">
-      <div class="swiper-button-next">
-        <i class=" arrow-icon"></i>
+    <div class="but" >
+      <div class="swiper-button-next" style="transform: scale(0.8);">
+        <i class=" arrow-icon" style="transform: scale(0.65);"></i>
       </div>
-      <div class="swiper-button-prev">
-        <i class=" arrow-icon"></i>
+      <div class="swiper-button-prev" style="transform: scale(0.8);">
+        <i class=" arrow-icon" style="transform: scale(0.65);"></i>
       </div>
     </div>
   </div>
-</main>
+</div>
 
 <!-- END OF CONTAINER -->
 </div>
