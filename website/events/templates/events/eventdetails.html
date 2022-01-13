@@ -46,7 +46,7 @@
       {% endif %}
         <div class="btn_eve" style="text-align: center; max-height: 100%; margin-top: 2rem; display: flex; justify-content: center;">
       {% if event in ue or event in oe %}
-          <a class="btn btn-register" style="text-align: center;" href="{{event.registration_link}}" target="blank"><span class="btntext">PARTICIPATE</span></a>
+          <a class="btn btn-register" style="text-align:center; " href="{{event.registration_link}}" target="blank"><span class="btntext">PARTICIPATE</span></a>
           {% if event.prizes %}
           <div class="prize">
             <button type="button" class="btn btn-register-prizes" style="margin-left: 20px;" data-toggle="modal" data-title="View Prizes" data-target="#exampleModalCenter">
@@ -85,7 +85,7 @@
 {% endif %}
 
 <!-- TIMELINE -->
-<header class="section-header">
+<header class="section-header timeline">
   <h3 style="z-index: 10;" id="oe">TIMELINE</h3>
 </header>
 <div class="container">
@@ -162,7 +162,7 @@
 </div>
 
 <!-- SLIDER -->
-<header class="section-header">
+<header class="section-header glipmses">
   <h3 style="z-index: 10;" id="oe">GLIMPSES</h3>
 </header>
 <div class="main">
@@ -185,14 +185,14 @@
       </div>
     </div>
     <!-- Added Pagination -->
-    <div class="swiper-pagination" style="width: 100vw; left: -12.5%;right: 0; margin: 0%;"></div>
+    <div class="swiper-pagination" style="width: 100vw;right: 0; margin: 0%; height: 50px; padding-top: 3.5rem;"></div>
     <!-- Added Scrollbar -->
     <div class="but" >
-      <div class="swiper-button-next" style="transform: scale(0.8);">
-        <i class=" arrow-icon" style="transform: scale(0.65);"></i>
+      <div class="swiper-button-next" style="transform: scale(0.65);">
+        <i class="arrow-icon" style="transform: scale(0.6);"></i>
       </div>
-      <div class="swiper-button-prev" style="transform: scale(0.8);">
-        <i class=" arrow-icon" style="transform: scale(0.65);"></i>
+      <div class="swiper-button-prev" style="transform: scale(0.65);">
+        <i class=" arrow-icon" style="transform: scale(0.6);"></i>
       </div>
     </div>
   </div>
