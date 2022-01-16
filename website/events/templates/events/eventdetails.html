@@ -38,11 +38,11 @@
         <h1 class="about-event">{{event.about_event}}</h1>
         <hr>
       {% if event in ue or event in oe %}
-        <p class="title-header"><i class="fa fa-calendar" aria-hidden="true"></i> Registration Starts: <span class="date-calender"><strong>{{event.start_date|date:"d F Y, P" }}</strong></span></p>
-        <p class="title-header"><i class="fa fa-calendar" aria-hidden="true"></i> Registration Ends: <span class="date-calender"><strong>{{event.end_date|date:"d F Y, P" }}</strong></span></p>
+        <p class="title-header"><i class="fa fa-calendar" aria-hidden="true"></i> Registration Starts:<span id="break1"></span> <span class="date-calender"><strong>{{event.start_date|date:"d F Y, P" }}</strong></span></p>
+        <p class="title-header"><i class="fa fa-calendar" aria-hidden="true"></i> Registration Ends:<span id="break2"></span> <span class="date-calender"><strong>{{event.end_date|date:"d F Y, P" }}</strong></span></p>
       {% else %}
-        <p class="title-header"><i class="fa fa-calendar" aria-hidden="true"></i> Registration Starts: <span class="date-calender"><strong>WILL BE NOTIFIED LATER</strong></span></p>
-        <p class="title-header"><i class="fa fa-calendar" aria-hidden="true"></i> Registration Ends: <span class="date-calender"><strong>WILL BE NOTIFIED LATER</strong></span></p>
+        <p class="title-header"><i class="fa fa-calendar" aria-hidden="true"></i> Registration Starts:<span id="break1"></span> <span class="date-calender"><strong>WILL BE NOTIFIED LATER</strong></span></p>
+        <p class="title-header"><i class="fa fa-calendar" aria-hidden="true"></i> Registration Ends:<span id="break2"></span> <span class="date-calender"><strong>WILL BE NOTIFIED LATER</strong></span></p>
       {% endif %}
         <div class="btn_eve" style="text-align: center; max-height: 100%; margin-top: 2rem; display: flex; justify-content: center;">
       {% if event in ue or event in oe %}
@@ -85,7 +85,7 @@
 {% endif %}
 
 <!-- TIMELINE -->
-<header class="section-header timeline">
+<header class="section-header pad-top timeline">
   <h3 style="z-index: 10;" id="oe">TIMELINE</h3>
 </header>
 <div class="container">
@@ -111,7 +111,7 @@
     {% if rounds.is_past_due %}
     <div class="round-time-right timeline-right"><i class="fa fa-check"></i></div>
     {% else %}
-    <div class="round-time-right-unchecked timeline-right"><i  class="fa fa-check"></i></div>
+    <div class="round-time-right-unchecked timeline-right"><i class="fa fa-check"></i></div>
     {% endif %}
     <div class="text-time-right">
       <h2 style="text-align: right;">{{rounds.title}} - {{rounds.date_event|date:"d F Y, P"}}</h2>
@@ -162,7 +162,7 @@
 </div>
 
 <!-- SLIDER -->
-<header class="section-header glipmses">
+<header class="section-header pad-top glipmses">
   <h3 style="z-index: 10;" id="oe">GLIMPSES</h3>
 </header>
 <div class="main">
@@ -206,7 +206,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-<script src="{% static 'js/bar.js' %}"></script>
+<script src="{% static 'js/break.js' %}"></script>
 {% if number == 3 %}
 <script src="{% static 'js/slider-sub.js' %}"></script>
 {% elif number == 1 %}
