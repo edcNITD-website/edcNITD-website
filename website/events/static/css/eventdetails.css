@@ -45,6 +45,7 @@ body{
   width: 100%;
   max-width: 100vw;
   justify-content: center;
+  margin-top: 3rem;
   margin-bottom: 3rem;
 }
 
@@ -1539,7 +1540,7 @@ timeline{
   }
   
   .section-header{
-    margin-top: -3rem;
+    margin-top: 0rem;
   }
   .timeline{
     margin-top: 10vh;
@@ -1581,6 +1582,7 @@ timeline{
   
     /* margin-left: 7.5% !important; */
   }
+
   .card-image{
     transform: scale(1.25) translateX(-22px);
   }
