@@ -778,6 +778,7 @@ img{
     bottom: 0;
     width: 100% !important;
     height: 210px !important;
+    object-fit: fill;
   }
 }
 
@@ -1577,14 +1578,7 @@ timeline{
 @media (max-width: 600px) 
 {
   .swiper-container{
-    
     padding-right: 0rem !important;
-  
-    /* margin-left: 7.5% !important; */
-  }
-
-  .card-image{
-    transform: scale(1.25) translateX(-22px);
   }
 }
 @media screen and (max-width: 1730px) and (min-width: 1630px)
