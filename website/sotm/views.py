@@ -8,7 +8,22 @@ from django.contrib.auth.models import AnonymousUser, User
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db import IntegrityError
 from django.contrib import messages
+from esummit.models import Year_Detail
 # Create your views here.
+
+def esummit(request):
+    year = Year_Detail.objects.all().order_by("-year")
+    context = {}
+    context['years'] = year
+    max_year=0
+    max_id=0
+    for y in Year_Detail.objects.all():
+        if(y.year>max_year):
+            max_year=y.year
+            max_id=y.id
+    context['latest'] = max_id
+    return render(request,'sotm/sotm_base.html',context)
+
 
 def get_students_list()->List:
     all_students = []
