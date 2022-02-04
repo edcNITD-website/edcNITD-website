@@ -173,6 +173,29 @@
   }
   
  
+   /* scrollbar css */
+   .category-bar{
+    overflow-x: hidden;
+    overflow-y: scroll;
+  } 
+  .category-bar::-webkit-scrollbar {
+    width: 10px;
+
+    
+  }
+  .category-bar::-webkit-scrollbar-track {
+    background-color:rgba(0, 0, 0, 0.95);
+  }
+  .category-bar::-webkit-scrollbar-thumb {
+    background: var(--theme-color);
+    height: 20px;
+    border-radius: 5px;
+  }
+  /* .category-bar::-webkit-scrollbar-thumb:hover {
+    
+  } */
+  
+
 
   /* view button */
   .share {
@@ -247,6 +270,32 @@
      font-size: 20px;
      visibility: visible;
    }
+   /* .share:active span, .share.active span {
+    visibility: hidden;
+    opacity: 0;
+  }
+  .share:active a, .share.active a {
+    border-radius: 50%;
+    margin: 0 10px;
+   
+    font-size: 20px;
+    visibility: visible;
+  } */
+  
+   /* @media (min-width: 810px) {
+    .share:hover span, .share.hover span {
+      visibility: hidden;
+      opacity: 0;
+    }
+    .share:hover a, .share.hover a {
+      border-radius: 50%;
+      margin: 0 10px;
+     
+      font-size: 20px;
+      visibility: visible;
+    }
+   } */
+   
   
   #mobI {
     height: 65vh;
