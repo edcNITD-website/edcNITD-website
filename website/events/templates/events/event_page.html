@@ -56,13 +56,11 @@
                     <div class="container">
                         <div class="portfolio-details-container">
                             <div class="portfolio-details-carousel">
-                                <img src="{{ oe.poster.url }}" class="img-fluid" style="width: 300px; height: 200px; " alt="">
+                                <img src="{{ oe.image.url }}" class="img-fluid" style="width: 300px; height: 200px; " alt="">
                             </div>
                         </div>
                         <div class="portfolio-description">
-                            <h2 class="card-title-event" id="event-name" style="white-space: nowrap;
-                            overflow: hidden;
-                            text-overflow: ellipsis;font-size: calc(4vw + 4vh + 2vmin);">{{oe.event_name}}</h2>
+                            <h2 class="card-title-event" id="event-name">{{oe.event_name}}</h2>
                         </div>
                         <form action="{% url 'showevent' oe.id %}" method="POST" class="d-inline">
                             {% csrf_token %}
@@ -145,14 +143,12 @@
 
                         <div class="portfolio-details-container">
                             <div class="portfolio-details-carousel">
-                                <img src="{{ ue.poster.url }}" class="img-fluid" style="width: 300px; height: 200px; " alt="">
+                                <img src="{{ ue.image.url }}" class="img-fluid" style="width: 300px; height: 200px; " alt="">
                             </div>
                         </div>
 
                         <div class="portfolio-description">
-                            <h2 class="card-title-event" id="event-name" style="white-space: nowrap;
-                            overflow: hidden;
-                            text-overflow: ellipsis;font-size: calc(4vw + 4vh + 2vmin);">{{ue.event_name}}</h2>
+                            <h2 class="card-title-event" id="event-name">{{ue.event_name}}</h2>
                         </div>
                         <form action="{% url 'showevent' ue.id %}" method="POST" class="d-inline">
                             {% csrf_token %}
@@ -230,14 +226,11 @@
                     <div class="container">
                         <div class="portfolio-details-container">
                             <div class="portfolio-details-carousel">
-                                <img src="{{ ae.poster.url }}" class="img-fluid" style="width: 300px; height: 200px; " alt="">
+                                <img src="{{ ae.image.url }}" class="img-fluid" style="width: 300px; height: 200px; " alt="">
                             </div>
                         </div>
                         <div class="portfolio-description">
-                            <h2 class="card-title-event" id="event-name" style="white-space: nowrap;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                            font-size: calc(4vw + 4vh + 2vmin);">{{ae.event_name}}</h2>
+                            <h2 class="card-title-event" id="event-name">{{ae.event_name}}</h2>
                         </div>
                         <form action="{% url 'showevent' ae.id %}" method="POST" class="d-inline">
                             {% csrf_token %}
@@ -331,22 +324,4 @@
     }
 </script>
 <script src="{% static 'js/subnavbar.js' %}"></script>
-<script>
-checkFontSize();
-
-
-function scaleFontSize(element) {
-    var container = document.getElementById(element);
-
-    // Reset font-size to 100% to begin
-    container.style.fontSize = "100%";
-
-    // Check if the text is wider than its container,
-    // if so then reduce font-size
-    if (container.scrollWidth > container.clientWidth) {
-        container.style.fontSize = "70%";
-    }
-}
-scaleFontSize("event-name");
-</script>
 {% endblock %}

@@ -21,18 +21,18 @@
 <!-- FLEX CONTAINER -->
 
 <div class="container">
-  <div class="container" style="margin-top: 2rem;"><div onclick="window.history.go(-1)" class="back-btn-eve">
+  <div class="container" id="upper-head"><div onclick="window.history.go(-1)" class="back-btn-eve">
     <i class="fa fa-arrow-left" aria-hidden="true"><span> BACK</span></i>
   </div></div>
   <header class="section-header">
-    <h3 class="event-name team-title" style="font-family: 'Montserrat', sans-serif;">{{event.event_name}}</h3>
+    <h3 class="event-name team-title" style="font-family: 'Montserrat', sans-serif;" id="team-header-text">{{event.event_name}}</h3>
   </header>
   <div style="height: 0%;"></div> 
   
 <!-- POSTER AND IMAGE-->
 <div class="poster_img container" style="margin-top: 3rem;">
   <div class="eve_img_desc">
-    <div class="eve_img clearfix" > <img class="poster-eve" src="{{event.poster.url}}"></div>
+    <div class="eve_img clearfix" > <img class="poster-eve" src="{{event.image.url}}"></div>
       <div class="eve_descrip clearfix">
         <p class="title-header"><i class="fa fa-paper-plane" aria-hidden="true"></i> Description:</p>
         <h1 class="about-event">{{event.about_event}}</h1>
@@ -47,17 +47,19 @@
         <div class="btn_eve" style="text-align: center; max-height: 100%; margin-top: 2rem; display: flex; justify-content: center;">
       {% if event in ue or event in oe %}
           <a class="btn btn-register" style="text-align:center; " href="{{event.registration_link}}" target="blank"><span class="btntext">PARTICIPATE</span></a>
-          {% if event.prizes %}
+          {% for prize in prize %}
+          {% if prize.prizes %}
           <div class="prize">
             <button type="button" class="btn btn-register-prizes" style="margin-left: 20px;" data-toggle="modal" data-title="View Prizes" data-target="#exampleModalCenter">
               <i class="toto fa fa-trophy"></i>
             </button>
           </div>
-          {% elif event.prizes == "" %}
+          {% elif prize.prizes == "" %}
           <button type="button" class="btn btn-register-prizes-muted" style="margin-left: 20px;" data-toggle="modal" data-target="#exampleModalCenter">
             <i class="toto fa fa-trophy"></i>
           </button>
           {% endif %}
+          {% endfor %}
       {% endif %}
         </div> 
       </div>
@@ -66,7 +68,8 @@
 </div>
 
 <!-- PRIZE MODAL -->
-{% if event.prizes %}
+{% for prize in prize %}
+{% if prize.prizes %}
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -77,12 +80,13 @@
         </button>
       </div>
       <div class="modal-body">
-      {{event.prizes}}
+      {{prize.prizes}}
       </div>
     </div>
   </div>
 </div>
 {% endif %}
+{% endfor %}
 
 <!-- TIMELINE -->
 <header class="section-header pad-top timeline">

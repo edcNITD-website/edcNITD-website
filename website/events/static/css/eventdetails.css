@@ -26,6 +26,7 @@ body{
 
 .team-title{
   color: var(--theme-color) !important;
+  word-break: break-word;
 }
 
 .section-header h3::after {
@@ -1343,15 +1344,17 @@ img{
 .back-btn-eve{
   margin-left: 0.8rem;
   color: #000000c7;
-    text-shadow: 1.5px 2px 1.5px rgb(0 0 0 / 30%);
-    transform: scale(0.88);
+  text-shadow: 1.5px 2px 1.5px rgb(0 0 0 / 30%);
   font-family: 'Roboto', sans-serif;
   padding-top: 1rem;
   font-size: 2rem;
   transition: 0.5s;
 }
 
-
+.back-btn-eve:hover{
+  color: var(--theme-color);
+  text-shadow: none;
+}
 
 @media (min-width: 1150px) {
   .back-btn-eve{
@@ -1360,17 +1363,19 @@ img{
   .back-btn-eve:hover {
     cursor: pointer;
     opacity: 1;
-  transform: translateY(63px) translateX(-0.5%) ;
+    color: var(--theme-color);
+    text-shadow: none;
   }
 }
 @media (max-width: 1149px) {
   .back-btn-eve{
-    transform: translateX(6.5%);
+    transform: translateX(1.5%);
   }
   .back-btn-eve:hover {
    cursor: pointer;
    opacity: 1;
-  transform: translateY(5px) translateX(6.5%);
+   color: var(--theme-color);
+   text-shadow: none;
   }
 }
 @media (max-width: 900px) {
@@ -1380,7 +1385,8 @@ img{
   .back-btn-eve:hover {
    cursor: pointer;
    opacity: 1;
-  transform: translateY(5px) translateX(1%);
+   color: var(--theme-color);
+   text-shadow: none;
   }
 }
 @media (max-width: 640px) {
@@ -1390,7 +1396,8 @@ img{
   .back-btn-eve:hover {
    cursor: pointer;
    opacity: 1;
-  transform: translateY(5px) translateX(0%);
+   color: var(--theme-color);
+   text-shadow: none;
   }
 }
 
@@ -1402,7 +1409,8 @@ img{
   .back-btn-eve:hover {
    cursor: pointer;
    opacity: 1;
-  transform: translateY(5px) translateX(-2%);
+   color: var(--theme-color);
+   text-shadow: none;
   }
 }
 
@@ -1535,11 +1543,7 @@ timeline{
   margin-top: 5rem;
 }
 @media (min-width: 1150px) 
-{
-  .back-btn-eve{
-    transform: translateY(calc(108px - 1.8rem - 35px)) translateX(-0.5%); 
-  }
-  
+{ 
   .section-header{
     margin-top: 0rem;
   }

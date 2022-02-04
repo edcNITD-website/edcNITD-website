@@ -179,7 +179,16 @@
   border: 2px solid var(--theme-color);
 }
 
-.btn-eve-reg{
+.btn-eve-eve::after{
+  width: 75%; 
+  margin-bottom: 1rem; 
+  margin-left: 12.5%; 
+  background:var(--theme-color); 
+  font-weight: 700; 
+  border: 2px solid var(--theme-color);
+}
+
+.btn-eve-eve:hover{
   width: 75%;
   margin-left: 12.5%;
   margin-bottom: 1rem; 
@@ -188,6 +197,52 @@
   font-weight: 700; 
   border: 2px solid var(--theme-color)
 }
+
+.btn-eve-reg{
+  width: 75%;
+  margin-left: 12.5%;
+  margin-bottom: 1rem; 
+  color:var(--theme-color); 
+  background: white; 
+  font-weight: 700; 
+  border: 2px solid var(--theme-color);
+  padding: 0;
+  height: 40px;
+}
+
+.btn-eve-reg::after{
+  width: 75%;
+  margin-left: 12.5%;
+  margin-bottom: 1rem; 
+  color:var(--theme-color); 
+  background: white; 
+  font-weight: 700; 
+  border: 2px solid var(--theme-color);
+  padding: 0;
+  height: 40px;
+}
+
+.btn-eve-reg:hover{
+  width: 75%; 
+  margin-bottom: 1rem; 
+  margin-left: 12.5%; 
+  background:var(--theme-color); 
+  font-weight: 700; 
+  border: 2px solid var(--theme-color);
+  color: white !important;
+  padding: 0;
+  height: 40px;
+}
+
+.btn-eve-reg a {
+  display: block;
+  padding: 7px 7px;
+}
+
+.btn-eve-reg a:hover{
+  color: white;
+}
+
 
 .card-title-event{
   font-size: 22px !important; 

@@ -59,6 +59,7 @@ def eventdetails(request, id):
         event = Event.objects.get(pk=id)   
         images = EventImages.objects.filter(event=event) 
         timeline = Timeline.objects.filter(event=event)
+        prize = Prize.objects.filter(event=event)
 
         length = len(timeline) 
         number_of_images = len(images)
@@ -68,5 +69,5 @@ def eventdetails(request, id):
         ongoing_event=Event.objects.filter(start_date__lte=now,end_date__gte=now)
         upcoming_event=Event.objects.filter(start_date__gt=now,start_date__lte=now+tdelta).exclude(start_date__lte=now,end_date__gte=now)
 
-        context = {'event':event, 'images':images, 'timeline':timeline, 'length':length, 'number':number_of_images, 'ue':upcoming_event, 'oe':ongoing_event}
+        context = {'event':event, 'images':images, 'timeline':timeline, 'prize': prize,'length':length, 'number':number_of_images, 'ue':upcoming_event, 'oe':ongoing_event}
         return render(request, 'events/eventdetails.html', context)

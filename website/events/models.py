@@ -6,8 +6,7 @@ import pytz
 class Event(models.Model):
     event_name=models.CharField(max_length=100)
     about_event=models.TextField(max_length=1200)
-    prizes=models.TextField(max_length=1000,default="",blank=True,null=True)
-    poster=models.ImageField(upload_to='events/', default="",blank=True,null=False)
+    image=models.ImageField(upload_to='events/', default="",blank=True,null=False)
     start_date=models.DateTimeField(auto_now=False,auto_now_add=False,blank=True,null=True)
     end_date=models.DateTimeField(auto_now=False,auto_now_add=False,blank=True,null=True)
     registration_link=models.URLField(blank=True,null=True)
@@ -46,3 +45,9 @@ class Timeline(models.Model):
         verbose_name_plural = 'Timeline'
         ordering=('date_event',)
 
+class Prize(models.Model):
+    event=models.OneToOneField(Event, default=None, on_delete=models.CASCADE, primary_key=True)
+    prizes=models.TextField(max_length=1000,default="",blank=True,null=True)
+
+    def __str__(self):
+        return self.event.event_name

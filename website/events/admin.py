@@ -9,3 +9,6 @@ admin.site.register(event_images)
 
 timeline_details=[Timeline]
 admin.site.register(timeline_details)
+
+prize_details=[Prize]
+admin.site.register(prize_details)
