@@ -89,6 +89,7 @@
 {% endfor %}
 
 <!-- TIMELINE -->
+{% if timeline %}
 <header class="section-header pad-top timeline">
   <h3 style="z-index: 10;" id="oe">TIMELINE</h3>
 </header>
@@ -163,9 +164,11 @@
 </div>
 {% endif %}
 {% endfor%}
+{% endif %}
 </div>
 
 <!-- SLIDER -->
+{% if images %}
 <header class="section-header pad-top glipmses">
   <h3 style="z-index: 10;" id="oe">GLIMPSES</h3>
 </header>
@@ -201,7 +204,7 @@
     </div>
   </div>
 </div>
-
+{% endif %}
 <!-- END OF CONTAINER -->
 </div>
 
