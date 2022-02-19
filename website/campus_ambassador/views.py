@@ -157,6 +157,11 @@ def profile(request):
             'code':201,
             'msg':'Task found',
         }
+        if cur_task!=None:
+            timeleft = cur_task.end_date - timezone.now()
+            context['secs_left'] = timeleft.seconds
+            if context['secs_left'] > 100:
+                context['secs_left'] -= 100
         if cur_task == None:
             next_task = Task.objects.filter(start_date__gte=timezone.now(),end_date__gte=timezone.now()).order_by('-start_date')
             if next_task.count() == 0:
@@ -176,6 +181,10 @@ def profile(request):
                     'code': 204,
                     'msg':'No active task, but task is upcoming on '+str(next_task.start_date),
                 }
+                timeleft = next_task.start_date - timezone.now()
+                context['secs_left'] = timeleft.seconds
+                if context['secs_left'] > 100:
+                    context['secs_left'] -= 100
                 # no task exists for now
     # show next amb program if cur program start date > amb_campaign_end_date
     # show amb program has come to an end for cur_program = none

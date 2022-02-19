@@ -14,7 +14,6 @@
             <div class="bg-slate-200 text-slate-900 px-3 py-4 rounded-lg w-full flex flex-col justify-center">
                 <h2 class="text-center">{{user_details.campaign}}</h2>
                 <h1>Profile</h1>
-    
                 <h2>Username : {{request.user.username}}</h2>
                 <h2>First Name : {{request.user.first_name}}</h2>
                 <h2>Last Name : {{request.user.last_name}}</h2>
@@ -38,6 +37,16 @@
                     <h2>Current Task : {{amb.get_current_task.number}}</h2>
                     <h3 class="font-semibold">{{amb.get_current_task.number}} | {{amb.get_current_task.title}}</h3>
                     <p>{{amb.get_current_task.description}}</p>
+                    <div class="hidden"><h4 id="secs-left">{{secs_left}}</h4></div>
+                    <div class="">
+                        <h1>Time Left: </h1>
+                        <ul class="flex gap-2 justify-around w-fit mx-auto">
+                            <li class="bg-stone-800 text-stone-50 font-semibold p-3 rounded-md" id="out_days">00</li>
+                            <li class="bg-stone-800 text-stone-50 font-semibold p-3 rounded-md" id="out_hrs">00</li>
+                            <li class="bg-stone-800 text-stone-50 font-semibold p-3 rounded-md" id="out_mins">00</li>
+                            <li class="bg-stone-800 text-stone-50 font-semibold p-3 rounded-md" id="out_secs">00</li>
+                        </ul>
+                    </div>
                     {% for subtask in amb.get_all_current_subtasks %}
                         <div class="">
                             <h3 class="font-semibold pl-8">{{subtask.task.number}}.{{subtask.number}} | {{subtask.title}}</h3>
@@ -78,4 +87,5 @@
         <h2>Is Staff</h2>
     {% endif %}
 </div>
+<script src="{% static 'js/campus_ambassador/timer.js' %}"></script>
 {% endblock %}
