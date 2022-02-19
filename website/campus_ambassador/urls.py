@@ -10,8 +10,7 @@ urlpatterns = [
     path("logout/",cap_logout,name="logout"),
     path("profile/",profile,name='profile'),
     path("profile/edit",edit_profile,name='edit_profile'),
-    path("create_stcr_request/<int:subtask_id>",create_request,name='create_stcr_request'),
-    path("pending/",pending_stcr,name='pending_stcr'),
-    path("manage_stcr/<int:stcr_id>",manage_stcr,name='manage_stcr'),
-    path("completed/",completed_stcr,name='completed_stcr'),
+    path('score_task/',score_task,name='score_task'),
+    path('subtask_completed/<str:amb_uid>',completed_subtask,name='subtask_completed'),
+    path('remove_subtask_completed/<str:amb_uid>',remove_comp_subtask,name='remove_completed_subtask'),
 ]
