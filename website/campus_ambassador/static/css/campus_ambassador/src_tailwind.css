@@ -27,4 +27,16 @@
     .nav-item.scroll{
         @apply text-stone-50;
     }
+
+    .table-head-cell{
+        @apply text-sm p-3 font-semibold tracking-wide text-left;
+    }
+
+    .table-cell{
+        @apply text-sm p-3 tracking-wide text-left;
+    }
+
+    .paginator-btn{
+        @apply bg-slate-100 text-slate-800 font-bold px-2 py-1 rounded-sm shadow-md 
+    }
 }

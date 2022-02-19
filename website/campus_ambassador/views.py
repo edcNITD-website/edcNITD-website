@@ -1,3 +1,4 @@
+from operator import truediv
 from django.shortcuts import render
 from campus_ambassador.models import *
 from django.contrib.auth import authenticate, login, logout
@@ -7,13 +8,21 @@ from django.db import IntegrityError
 from django.contrib.auth.decorators import login_required
 import uuid
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
-import math
+import json
 # Create your views here.
 # utitlity functions
 def calc_precedence(index):
     precedence = 0
     precedence = int(index.split('-')[0])*1000+int(index.split('-')[1])
     return precedence
+
+def current_campaign():
+    campaigns =  Campaign.objects.filter(start_date__lte=timezone.now(),end_date__gte=timezone.now())
+    if campaigns.count() == 0 : 
+        result = None
+    else:
+        result = campaigns[0]
+    return result
 
 def get_ambassadors_list()->list:
     ambassador_list = []
@@ -30,6 +39,7 @@ def get_moderators_list()->list:
 def prepareContext(request,context)->dict :
     user = request.user
     context['is_staff'] = request.user.is_staff
+    context['cur_campaign'] = current_campaign()
     context['is_ambassador'] = user in get_ambassadors_list()
     context['is_moderator'] = user in get_moderators_list()
     if context['is_ambassador']:
@@ -97,6 +107,7 @@ def register(request):
             amb.instagram = request.POST.get('instagram')
             amb.unique_code = uuid.uuid4().hex[:8]
             print(amb)
+            amb.campaign = context['cur_campaign']
             amb.save()
             return redirect('/cap/login')
     return render(request,'campus_ambassador/register.html',context)
@@ -109,12 +120,6 @@ def edit_profile(request):
         if context['is_ambassador']:
             if 'edit_amb' in request.POST:
                 amb= context['amb']
-                user = amb.user
-                user.first_name = request.POST.get('firstname')
-                user.last_name = request.POST.get('lastname')
-                user.save()
-                amb.college = request.POST.get('college')
-                amb.phone = request.POST.get('phone')
                 amb.facebook = request.POST.get('facebook')
                 amb.linkedin = request.POST.get('linkedin')
                 amb.instagram = request.POST.get('instagram')
@@ -143,10 +148,53 @@ def cap_logout(request):
 def profile(request):
     context = {}
     context = prepareContext(request,context)
+    context['program_has_ended'] = False
+    context['next_campaign_exits'] = False
+    if context['is_ambassador']:
+        amb = context['amb']
+        cur_task = amb.get_current_task
+        context['status']={
+            'code':201,
+            'msg':'Task found',
+        }
+        if cur_task!=None:
+            timeleft = cur_task.end_date - timezone.now()
+            context['secs_left'] = timeleft.seconds
+            if context['secs_left'] > 100:
+                context['secs_left'] -= 100
+        if cur_task == None:
+            next_task = Task.objects.filter(start_date__gte=timezone.now(),end_date__gte=timezone.now()).order_by('-start_date')
+            if next_task.count() == 0:
+                # finished all the tasks
+                
+                # show end of tasks and to standby for announcements of results
+                context['status'] = {
+                    'code': 202,
+                    'msg':'Tasks for the campaign ambassador program have reached a close. Please look out for announcemet of results in your mails soon.',
+                }
+            else:
+                # store next_task__start_date
+                # send this via context to user
+                next_task = next_task[0]
+                context['next_start_date'] = next_task.start_date
+                context['status'] = {
+                    'code': 204,
+                    'msg':'No active task, but task is upcoming on '+str(next_task.start_date),
+                }
+                timeleft = next_task.start_date - timezone.now()
+                context['secs_left'] = timeleft.seconds
+                if context['secs_left'] > 100:
+                    context['secs_left'] -= 100
+                # no task exists for now
+    # show next amb program if cur program start date > amb_campaign_end_date
+    # show amb program has come to an end for cur_program = none
+    if context['cur_campaign'] == None:
+        context['program_has_ended'] = True
+    if 'amb' in context:
+        if context['cur_campaign'].start_date > context['amb'].campaign.end_date:
+            context['next_campaign_exits'] = True    
     if context['is_ambassador']:
         context['user_details'] = Ambassador.objects.get(user=request.user)
-        context['pending_stcr'] = SubTaskCompletionRequest.objects.filter(ambassador=context['amb'],completed=False).order_by('-creation_date')
-        context['completed_stcr'] = SubTaskCompletionRequest.objects.filter(ambassador=context['amb'],completed=True).order_by('-creation_date')
     elif context['is_moderator']:
         context['user_details'] = CAPModerator.objects.get(user=request.user)
     else:
@@ -154,123 +202,93 @@ def profile(request):
     return render(request,'campus_ambassador/profile.html',context)
 
 @login_required
-def create_request(request,subtask_id):
+def score_task(request):
     context = {}
     context = prepareContext(request,context)
-    subtask = get_object_or_404(SubTask,id=subtask_id)
-    all_stcr = SubTaskCompletionRequest.objects.all()
-    for stcr in all_stcr:
-        if stcr.ambassador == context['amb']:
-            if stcr.subtask == subtask:
-                return redirect('/cap/profile')
-    if context['is_ambassador']:
-        stcr_request = SubTaskCompletionRequest()
-        stcr_request.ambassador = context['amb']
-        stcr_request.subtask = subtask
-        stcr_request.unique_id = uuid.uuid4().hex[:8]
-        stcr_request.save()
-        print("Request created with id "+stcr_request.unique_id)
-    return redirect('/cap/profile')
+    all_cur_ambassadors = Ambassador.objects.filter(campaign=context['cur_campaign'])
+    all_subtasks = []
+    for task in Task.objects.filter(campaign=context['cur_campaign']).order_by('number'):
+        subtasks = SubTask.objects.filter(task=task).order_by('number')
+        for st in subtasks:
+            all_subtasks.append(st)
+    context['subtasks'] = all_subtasks
+    amb_per_page = 10
+    paginator_obj = Paginator(all_cur_ambassadors, amb_per_page)
+    page_num = request.GET.get('page_num')
+    try:
+        pageObj = paginator_obj.get_page(page_num)
+    except PageNotAnInteger:
+        pageObj = paginator_obj.get_page(1)
+    except EmptyPage:
+        pageObj = paginator_obj.get_page(paginator_obj.num_pages)
+    context['page_num'] = page_num
+    context['ambassadors'] = pageObj
+    return render(request,'campus_ambassador/score_task.html',context)
 
-# Moderator views
-def all_tasks(request):
+# scoring views
+@login_required
+def completed_subtask(request,amb_uid):
     context = {}
     context = prepareContext(request,context)
-    tasks = None
-    if context['is_moderator'] or context['is_staff']:
-        tasks = Task.objects.all().order_by('number')
-    context['tasks'] = tasks
-    return render(request,'campus_ambassador/all_tasks.html',context)
-
-def has_higher_precedence_subtask(current_task):
-    current_precedence = calc_precedence(current_task)
-    result = {}
-    subtasks = SubTask.objects.all()
-    result['exists'] = False
-    for subtask in subtasks:
-        if subtask.precedence > current_precedence:
-            result['exists'] = True
-            result['next_subtask'] = subtask.index
-    
-    return result
+    subtask = '1.1'
+    next_url = '/cap/score_task/'
+    id = 0
+    if 'subtask' in request.GET:
+        subtask= request.GET.get('subtask')
+    if 'page_num' in request.GET:
+        if request.GET.get('page_num')!='':
+            next_url+='?page_num='+request.GET.get('page_num')
+    if 'id' in request.GET:
+        id = request.GET.get('id')
+    # completed_subtask = SubtaskCompleted()
+    task_num = subtask.split('.')[0]
+    subtask_num = subtask.split('.')[1]
+    task = Task.objects.get(campaign=context['cur_campaign'],number= task_num)
+    subtask = SubTask.objects.filter(task=task,number=subtask_num)
+    if(subtask.count()!=0):
+        subtask = subtask[0]
+    amb = Ambassador.objects.get(id=id)
+    amb.subtasks_completed += str(subtask.id)+'|'
+    amb.score += subtask.score
+    amb.save()
+    return redirect(next_url)
 
 @login_required
-def manage_stcr(request,stcr_id):
+def remove_comp_subtask(request,amb_uid):
     context = {}
     context = prepareContext(request,context)
-    if context['is_moderator']:
-        stcr = get_object_or_404(SubTaskCompletionRequest,id=stcr_id)
-        context['stcr_request'] = stcr
-        if request.method=='POST':
-            if 'delete' in request.POST:
-                stcr.ambassador.score -= stcr.score_allotted
-                stcr.ambassador.save()
-                stcr.delete()
-                return redirect('/cap/profile')
-            if 'save_stcr' in request.POST:
-                if int(request.POST.get('score'))  <= stcr.subtask.score:
-                    if calc_precedence(stcr.ambassador.current_task) > stcr.subtask.precedence :
-                        stcr.ambassador.score += int(request.POST.get('score'))-stcr.score_allotted
-                        stcr.ambassador.save()
-                        stcr.score_allotted = request.POST.get('score')
-                    else:
-                        stcr.ambassador.score += int(request.POST.get('score'))-stcr.score_allotted
-                        if has_higher_precedence_subtask(stcr.ambassador.current_task)['exists']:
-                            stcr.ambassador.current_task = has_higher_precedence_subtask(stcr.ambassador.current_task)['next_subtask']
-                        stcr.ambassador.save()
-                        stcr.score_allotted = request.POST.get('score')
-                    stcr.score_allotted = request.POST.get('score')
-                    stcr.completed = request.POST.get('completed')=='on'
-                    stcr.save()
-            return redirect('/cap/profile')
-    else:
-        return redirect('/cap/profile')
-    return render(request,'campus_ambassador/manage_stcr.html',context)
+    subtask = '1.1'
+    next_url = '/cap/score_task/'
+    id = 0
+    if 'subtask' in request.GET:
+        subtask= request.GET.get('subtask')
+    if 'page_num' in request.GET:
+        if request.GET.get('page_num')!='':
+            next_url+='?page_num='+request.GET.get('page_num')
+    if 'id' in request.GET:
+        id = request.GET.get('id')
+    task_num = subtask.split('.')[0]
+    subtask_num = subtask.split('.')[1]
+    task = Task.objects.get(campaign=context['cur_campaign'],number= task_num)
+    subtask = SubTask.objects.filter(task=task,number=subtask_num)
+    if(subtask.count()!=0):
+        subtask = subtask[0]
+    amb = Ambassador.objects.get(id=id)
+    print(subtask.id)
+    new_subtask_list = ''
+    for st in amb.get_all_subtasks:
+        # print(st.id)
+        if st.completed:
+            if st.id ==subtask.id:
+                amb.score -= subtask.score
+                continue
+            else:
+                new_subtask_list+=str(st.id)+'|'
+    amb.subtasks_completed = new_subtask_list
+    print(new_subtask_list)
+    amb.save()
+    return redirect(next_url)
 
-@login_required
-def pending_stcr(request):
-    context = {}
-    context = prepareContext(request,context)
-    if context['is_moderator']:
-        all_pending = SubTaskCompletionRequest.objects.filter(completed=False).order_by('-creation_date')
-        task_per_page = 5
-        paginatorObject = Paginator(all_pending, task_per_page)
-        context['last_page'] = math.ceil(all_pending.count()/task_per_page)
-        context['before_last_page'] = math.ceil(all_pending.count()/task_per_page)-1
-        pageNumber = request.GET.get('page')
-        try:
-            pageObj = paginatorObject.get_page(pageNumber)
-        except PageNotAnInteger:
-            pageObj = paginatorObject.get_page(1)
-        except EmptyPage:
-            pageObj = paginatorObject.get_page(paginatorObject.num_pages)
-        context['requests']=pageObj
-    else:
-        return redirect('/cap/profile')
-    print(pageObj.number)
-    return render(request,'campus_ambassador/pending.html',context)
-
-@login_required
-def completed_stcr(request):
-    context = {}
-    context = prepareContext(request,context)
-    if context['is_moderator']:
-        all_completed = SubTaskCompletionRequest.objects.filter(completed=True).order_by('-creation_date')
-        task_per_page = 5
-        paginatorObject = Paginator(all_completed, task_per_page)
-        context['last_page'] = math.ceil(all_completed.count()/task_per_page)
-        context['before_last_page'] = math.ceil(all_completed.count()/task_per_page)-1
-        pageNumber = request.GET.get('page')
-        try:
-            pageObj = paginatorObject.get_page(pageNumber)
-        except PageNotAnInteger:
-            pageObj = paginatorObject.get_page(1)
-        except EmptyPage:
-            pageObj = paginatorObject.get_page(paginatorObject.num_pages)
-        context['requests']=pageObj
-    else:
-        return redirect('/cap/profile')
-    return render(request,'campus_ambassador/completed_tasks.html',context)
 def all_ambassadors(request):
     context = {}
     return render(request,'campus_ambassador/home.html',context)
