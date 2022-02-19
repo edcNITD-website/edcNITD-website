@@ -137,12 +137,6 @@ class Ambassador(models.Model):
         all_subtasks = SubTask.objects.filter(task=self.get_current_task).order_by('number')
         return all_subtasks
 
-class SubtaskCompleted(models.Model):
-    ambassador = models.ForeignKey(Ambassador,on_delete=models.CASCADE)
-    subtask_id = models.CharField(max_length=100)
-    
-    def __str__(self) -> str:
-        return self.ambassador.user.username +'|'+ self.subtask_id
 
 class CAPModerator(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)

@@ -37,7 +37,7 @@
                                         {% if not st.completed %}
                                             <a href="{% url 'cap:subtask_completed' amb.unique_code %}?subtask={{st.index}}&id={{amb.id}}&page_num={{page_num}}">Mark Complete</a>
                                         {% else %}
-                                            <a href="{% url 'cap:remove_completed_subtask' amb.unique_code %}?subtask={{st.index}}&id={{amb.id}}&page={{page_num}}">Undo Complete</a>
+                                            <a href="{% url 'cap:remove_completed_subtask' amb.unique_code %}?subtask={{st.index}}&id={{amb.id}}&page_num={{page_num}}">Undo Complete</a>
                                         {% endif %}
                                     </td>
                                 {% endfor %}

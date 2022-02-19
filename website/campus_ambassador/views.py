@@ -196,7 +196,6 @@ def profile(request):
 def score_task(request):
     context = {}
     context = prepareContext(request,context)
-    # all_cur_ambassadors_dict = Ambassador.objects.filter(campaign=context['cur_campaign']).values()
     all_cur_ambassadors = Ambassador.objects.filter(campaign=context['cur_campaign'])
     all_subtasks = []
     for task in Task.objects.filter(campaign=context['cur_campaign']).order_by('number'):
@@ -204,7 +203,17 @@ def score_task(request):
         for st in subtasks:
             all_subtasks.append(st)
     context['subtasks'] = all_subtasks
-    context['ambassadors'] = all_cur_ambassadors 
+    amb_per_page = 10
+    paginator_obj = Paginator(all_cur_ambassadors, amb_per_page)
+    page_num = request.GET.get('page_num')
+    try:
+        pageObj = paginator_obj.get_page(page_num)
+    except PageNotAnInteger:
+        pageObj = paginator_obj.get_page(1)
+    except EmptyPage:
+        pageObj = paginator_obj.get_page(paginator_obj.num_pages)
+    context['page_num'] = page_num
+    context['ambassadors'] = pageObj
     return render(request,'campus_ambassador/score_task.html',context)
 
 # scoring views
@@ -219,7 +228,7 @@ def completed_subtask(request,amb_uid):
         subtask= request.GET.get('subtask')
     if 'page_num' in request.GET:
         if request.GET.get('page_num')!='':
-            next_url+='?page='+request.GET.get('page_num')
+            next_url+='?page_num='+request.GET.get('page_num')
     if 'id' in request.GET:
         id = request.GET.get('id')
     # completed_subtask = SubtaskCompleted()
@@ -246,7 +255,7 @@ def remove_comp_subtask(request,amb_uid):
         subtask= request.GET.get('subtask')
     if 'page_num' in request.GET:
         if request.GET.get('page_num')!='':
-            next_url+='?page='+request.GET.get('page_num')
+            next_url+='?page_num='+request.GET.get('page_num')
     if 'id' in request.GET:
         id = request.GET.get('id')
     task_num = subtask.split('.')[0]
