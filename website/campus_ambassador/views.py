@@ -295,5 +295,17 @@ def all_ambassadors(request):
 
 # Ambasssador and Moderator views
 def leaderboard(request):
-    context = {}
-    return render(request,'campus_ambassador/home.html',context)
+    ambassadors = Ambassador.objects.all().order_by('-score')
+    current_rank = 0
+    
+    for ambassador in ambassadors:
+            current_rank += 1
+            ambassador.rank = current_rank
+    return render(request,'campus_ambassador/leaderboard.html',{'ambassadors': ambassadors,
+                                                                'current_rank': current_rank, 
+                                                                })
+
+
+def task_list(request):
+    context={}
+    return render(request,'campus_ambassador/task_list.html',context)

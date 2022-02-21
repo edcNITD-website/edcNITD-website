@@ -18,19 +18,20 @@ Home
             <h2 class="text-center lg:text-left text-base lg:text-xl font-medium dark:font-light text-slate-900 dark:text-slate-200 my-3">
                 Access to network with the entrepreneurial youth of the nation. 
             </h2>
-            <a href="#" class="bg-gradient-to-r mb-4 from-blue-800 dark:from-blue-400 to-purple-500 font-semibold rounded py-2 px-4 mx-auto">Join Us Now! <span class="hidden lg:inline">As a campus ambassador</span></a>
+            <a href="#" class="bg-gradient-to-r mb-4 from-blue-900 to-purple-700 font-semibold rounded py-2 px-4 mx-auto">Join Us Now! <span class="hidden lg:inline">As a campus ambassador</span></a>
         </div>
         <div class="col-span-1 lg:col-span-2 max-h-[50vh]">
-            <img src="{% static 'image/campus_ambassador/ambassador.png' %}" alt="image" class=" h-[50vh] lg:h-[70vh]">
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_2juopw8b.json"  background="transparent"  speed="1"  style="width: 400px; height: 400px;"  loop  autoplay></lottie-player>
         </div>
     </div>
 </div>
 
 <!-- about section -->
-<div class="skew-block bg-gradient-to-br from-fuchsia-600 to-indigo-600 min-h-screen grid place-items-center">
+<div class="skew-block text-slate-900 bg-gradient-to-br from-blue-200 to-blue-400 min-h-screen grid place-items-center">
     <div class="view-box  grid place-items-center grid-cols-1 lg:grid-cols-2 gap-4">
         <div class="col-span-1">
-            <h2 class="text-2xl font-bold my-2">About Campus Ambassador</h2>
+            <h2 class="text-3xl bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-stone-700 font-bold my-2">About Campus Ambassador</h2>
             <br>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo nulla eum tempore illo eveniet sequi reprehenderit libero vel odio fuga. Sunt maxime aliquid, perferendis incidunt ad repellendus ut iusto dolor eos expedita quia consectetur nostrum fugiat nisi asperiores adipisci, earum, itaque quos? Enim qui dicta quas atque ex libero id?</p>
         </div>
@@ -40,13 +41,13 @@ Home
     </div>
 </div>
 <!-- incentive section -->
-<div class="view-box min-h-screen grid grid-cols-1 place-items-center scroll-mt-8" id="incentives">
-    <h2 class="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-700 dark:from-purple-500 dark:to-blue-500 text-4xl text-center font-bold col-span-1" >Incentives</h2>
+<div class="view-box min-h-screen grid grid-cols-1 place-items-center py-6 scroll-mt-8" id="incentives">
+    <h2 class="bg-clip-text text-transparent bg-gradient-to-tr from-purple-600 to-blue-700 dark:from-purple-500 dark:to-blue-500 text-4xl text-center font-bold col-span-1" >Incentives</h2>
     <ul class="flex flex-row col-span-1 gap-4 md:gap-8 flex-wrap justify-center pt-[25px] md:pt-0 text-sm">
         {% if incentives %}
         {% for incentive in incentives %}
-            <li class="bg-gray-200 max-w-xs text-slate-900 flex flex-col gap-0 rounded-md px-4 pt-4 pb-[-25px]">
-                <div class="circle w-[50px] h-[50px] top-[-25px] md:w-[100px] md:h-[100px] md:top-[-50px] bg-violet-500 relative left-0 right-0 mx-auto rounded-full grid place-items-center">
+            <li class="bg-slate-200 max-w-xs text-slate-900 flex flex-col gap-0 rounded-md px-4 pt-4 pb-[-25px]">
+                <div class="circle w-[50px] h-[50px] top-[-25px] md:w-[80px] md:h-[80px] md:top-[-50px] bg-blue-500 relative left-0 right-0 mx-auto rounded-full grid place-items-center">
                     <i class="fas fa-2x hidden md:block {{incentive.icon_class}}" style="color: ivory;"></i>
                     <i class="fas fa md:hidden {{incentive.icon_class}}" style="color: ivory;"></i>
                 </div>
@@ -62,8 +63,8 @@ Home
     </ul>
 </div>
 <!-- responsiblities section  -->
-<div class="skew-block bg-gradient-to-b from-blue-400 to-emerald-500 pb-[20vh] sm:pb-[10vh]" id="responsibilities">
-    <div class="view-box grid place-items-center h-full">
+<div class="skew-block text-slate-900 bg-gradient-to-br from-blue-200 to-blue-400 pb-[15vh] sm:pb-[10vh]" id="responsibilities">
+    <!-- <div class="view-box grid place-items-center h-full">
         <h2 class="bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-stone-900 text-4xl text-center font-bold col-span-1 pt-[8vh] sm:pt-0" >Responsiblities</h2>
         <ul class="flex flex-row flex-wrap justify-center gap-4 mt-4 text-sm">
             {% if responsibilities %}
@@ -81,11 +82,40 @@ Home
                 <h3>No responsibilities added yet.</h3>
             {% endif %}
         </ul>
-    </div>
+    </div> -->
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-6 mx-auto">
+          <div class="text-center mb-20">
+            <h2 class="bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to-stone-700 text-4xl text-center font-bold col-span-1 pt-[8vh] sm:pt-0" >Responsiblities</h2>
+            <!-- <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug.</p> -->
+          </div>
+          <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+         
+            {% if responsibilities %}
+            {% for responsibility in responsibilities %}
+            <div class="p-2 sm:w-1/2 w-full">
+              <div class="bg-slate-200 rounded flex p-4 h-full items-center">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                  <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                  <path d="M22 4L12 14.01l-3-3"></path>
+                </svg>
+                <span class="title-font font-medium">{{responsibility.content}}</span>
+              </div>
+            </div>
+            {% endfor %}
+            {% else %}
+                <h3>No responsibilities added yet.</h3>
+            {% endif %}
+            
+            
+          </div>
+          <!-- <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button> -->
+        </div>
+      </section>
 </div>
 <!-- Timeline -->
 <div class="view-box min-h-screen flex flex-col justify-center">
-    <h2 class="text-3xl mx-auto font-bold">TimeLine</h2>
+    <h2 class="bg-clip-text text-transparent bg-gradient-to-br from-purple-600 to-blue-700 dark:from-purple-500 dark:to-blue-500 text-4xl text-center font-bold col-span-1" >Timeline</h2>
     {% if timeline %}
         <ul id="timelinevents" class="flex flex-col gap-4 justify-center mt-6">
             {% for event in timeline %}
@@ -101,7 +131,7 @@ Home
                             </div>
                         {% endif %}
                     </div>
-                    <div class=" px-2 py-2 rounded-md text-center bg-slate-200 text-slate-900">
+                    <div class="p-4 rounded-md text-center bg-slate-200 text-slate-900">
 
                         <h3 class="font-semibold">{{event.title}} | {{event.deadline}} </h3>
                         <p>{{event.content}}</p>
@@ -114,12 +144,12 @@ Home
     {% endif %}
 </div>
 <!-- faq section -->
-<div class="skew-block bg-indigo-500">
+<div class="skew-block text-slate-900 bg-gradient-to-tr from-blue-200 to-blue-400">
     <div class="view-box flex flex-col justify-center">
         <div class="text-3xl text-center font-bold">
-            <h2>FAQs</h2>
+            <h2 class="bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to-stone-700 text-4xl text-center font-bold col-span-1 pt-[8vh] sm:pt-0" >FAQs</h2>
         </div>
-        <div class="">
+        <div class="text-lg">
             <ul class="mt-4 flex flex-col gap-4">
             {% if active_faqs %}
 
