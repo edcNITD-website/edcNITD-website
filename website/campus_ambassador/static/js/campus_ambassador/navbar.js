@@ -6,15 +6,11 @@ function toggleMenu() {
 
 $(window).scroll(function() {
     if ($(this).scrollTop() > 100) {
-        $('#navbar').addClass('bg-gradient-to-r');
-        $('#navbar').addClass('from-blue-900');
-        $('#navbar').addClass('to-fuchsia-900');
+        $('#navbar').addClass('bg-slate-900');
         $('.nav-item').addClass('scroll');
         
     } else {
-        $('#navbar').removeClass('bg-gradient-to-r');
-        $('#navbar').removeClass('from-blue-900');
-        $('#navbar').removeClass('to-fuchsia-900');
+        $('#navbar').removeClass('bg-slate-900');
         $('.nav-item').removeClass('scroll');
     }
   });

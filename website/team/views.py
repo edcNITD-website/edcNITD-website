@@ -12,6 +12,9 @@ def team(request):
     # images=[member.image for member in members]
     positions=[member.position for member in Members.objects.all()]
     year = timezone.now().date().year
+    if timezone.now().date().month < 6:
+        year -= 1
+    
     third_year= Members.objects.filter(passing_out_date__gte=timezone.now().date()).filter(passing_out_date__year = year + 2).order_by('name')
     second_year=Members.objects.filter(passing_out_date__gte=timezone.now().date()).filter(passing_out_date__year = year + 3).order_by('name')
 
@@ -54,4 +57,5 @@ def team(request):
         year_list.append(year)
     max_year = max(year_list)
     context['max_alumni_year'] = max_year
+    print(max_year)
     return render(request,'team/team_page.html',context)

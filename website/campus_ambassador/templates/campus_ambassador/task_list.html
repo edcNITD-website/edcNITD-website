@@ -1,0 +1,53 @@
+{% extends 'campus_ambassador/base.html' %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" href="{% static 'css/campus_ambassador/home.css' %}">
+{% endblock %}
+{% block content %}
+<div class="view-box py-[15vh]">
+    <div class="grid grid-col-1 bg-gradient-to-r from-slate-900 to-slate-700 hover:shadow-2xl shadow px-4 rounded-lg">
+        <div class="flex flex-col mx-auto justify-center  py-2">
+            <h3 class="text-2xl font-bold text-center">TASK ONE</h3>
+            <p class="text-lg ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi aliquid nihil ratione sit explicabo quia?</p>
+        </div>
+        <br><hr>
+        <div class="px-3 grid md:grid-cols-1 mx-auto">
+            <div class="py-4">
+                <h3>Sub Task 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores ratione consequatur repudiandae odio fugiat facilis non aspernatur at quo nemo ipsa, sed eaque, perspiciatis similique amet adipisci quaerat, ea minima! Id commodi maxime pariatur ex, ullam magni illo officia ducimus..</p>
+            </div>
+            <div class="py-4">
+                <h4>Max Score: 10 </h4>
+            </div>
+            <div class="py-4">
+                <h4>Time Left: </h4>
+            </div>
+        </div>
+        <div class="w-full my-4 flex flex-wrap gap-4 justify-center">
+            <a class="mx-auto px-4 py-2 font-semibold bg-black hover:bg-slate-200 hover:text-black text-slate-50 rounded-full" href="#">Submit Task Now</a>
+            <!-- <a class="mx-auto px-4 py-2 font-semibold bg-gradient-to-l from-indigo-600 to-emerald-500 text-slate-50 rounded-full" href="#">Create Completion Request</a> -->
+        </div>
+        <hr>
+        <div class="px-3 grid grid-cols-1 mx-auto">
+            <div class="py-4">
+                <h3>Sub Task 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores ratione consequatur repudiandae odio fugiat facilis non aspernatur at quo nemo ipsa, sed eaque, perspiciatis similique amet adipisci quaerat, ea minima! Id commodi maxime pariatur ex, ullam magni illo officia ducimus..</p>
+            </div>
+            <div class="py-4">
+                <h4>Max Score: 10 </h4>
+            </div>
+            <div class="py-4">
+                <h4>Time Left: </h4>
+            </div>
+        </div>
+        <div class="w-full my-4 flex flex-wrap gap-4 justify-center">
+            <a class="mx-auto px-4 py-2 font-semibold bg-black hover:bg-slate-200 hover:text-black text-slate-50 rounded-full" href="#">Submit Task Now</a>
+            <!-- <a class="mx-auto px-4 py-2 font-semibold bg-gradient-to-l from-indigo-600 to-emerald-500 text-slate-50 rounded-full" href="#">Create Completion Request</a> -->
+        </div>
+    </div>
+</div>
+{% endblock %}

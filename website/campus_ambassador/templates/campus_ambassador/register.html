@@ -11,26 +11,28 @@ Register
     <div class="flex flex-col justify-center py-[15vh] min-h-[100vh] gap-4">
         <h1 class="text-3xl font-bold mx-auto text-center">Register</h1>
         {% if cur_campaign != None %}
-            <div class="bg-slate-400 w-full max-w-sm px-4 py-4 rounded-lg  mx-auto text-slate-900">
-                <form action="" method="post" class="flex w-full flex-col justify-center gap-4">
-                    {% csrf_token %}
-                    <input type="text" name="username" id="username_id" placeholder="Username" class="rounded-md border-none">
-                    <input type="text" name="firstname" id="firstname_id" placeholder="Firstname" class="rounded-md border-none">
-                    <input type="text" name="lastname" id="lastname_id" placeholder="Lastname" class="rounded-md border-none">
-                    <input type="email" name="email" id="email_id" placeholder="Email" class="rounded-md border-none">
-                    <input type="password" name="password" id="password_id" placeholder="Password" class="rounded-md border-none">
-                    <input type="text" name="college" id="college_id" placeholder="College Name" class="rounded-md border-none">
-                    <input type="text" name="phone" id="phone_id" placeholder="Phone Number" class="rounded-md border-none">
-                    <input type="text" name="facebook" id="facebook_id" placeholder="Facebook Link" class="rounded-md border-none">
-                    <input type="text" name="linkedin" id="linkedin_id" placeholder="Linkedin Link" class="rounded-md border-none">
-                    <input type="text" name="instagram" id="instagram_id" placeholder="Instagram Link" class="rounded-md border-none">
-                    <input type="submit" name="register" id="login_id" value="Register" class="red-btn mx-auto">
-                </form>
-            </div>
+        <div class="bg-slate-800 shadow-2xl w-full max-w-2xl px-4 py-4 rounded-lg items-center mx-auto text-slate-900">
+            <form action="" method="post" class="flex w-full flex-col justify-center gap-4">
+                {% csrf_token %}
+                <div class="grid p-4 gap-6 grid-cols-2">
+                <input type="text" name="username" id="username_id" placeholder="Username*" class="rounded-md bg-slate-300 border-none">
+                <input type="text" name="firstname" id="firstname_id" placeholder="Firstname*" class="rounded-md bg-slate-300 border-none">
+                <input type="text" name="lastname" id="lastname_id" placeholder="Lastname*" class="rounded-md bg-slate-300 border-none">
+                <input type="email" name="email" id="email_id" placeholder="Email*" class="rounded-md bg-slate-300 border-none">
+                <input type="password" name="password" id="password_id" placeholder="Password*" class="rounded-md bg-slate-300 border-none">
+                <input type="text" name="college" id="college_id" placeholder="College Name*" class="rounded-md bg-slate-300 border-none">
+                <input type="text" name="phone" id="phone_id" placeholder="Phone Number*" class="rounded-md bg-slate-300 border-none">
+                <input type="text" name="facebook" id="facebook_id" placeholder="Facebook Link" class="rounded-md bg-slate-300 border-none">
+                <input type="text" name="linkedin" id="linkedin_id" placeholder="Linkedin Link" class="rounded-md bg-slate-300 border-none">
+                <input type="text" name="instagram" id="instagram_id" placeholder="Instagram Link" class="rounded-md bg-slate-300 border-none">
+                <input type="submit" name="register" id="login_id" value="Register" class="text-slate-50 bg-indigo-500 border-0 py-2 px-8 w-fit focus:outline-none hover:bg-indigo-300 rounded text-lg">
+                </div>
+               
+            </form>
+        </div>
         {% else %}
             <h2 class="text-center">Registerations are closed</h2>
         {% endif %}
     </div>
 </div>
-
 {% endblock %}

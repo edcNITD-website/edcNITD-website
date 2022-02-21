@@ -1,0 +1,40 @@
+{% extends 'campus_ambassador/base.html' %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" href="{% static 'css/campus_ambassador/home.css' %}">
+<!-- <link rel="stylesheet" href="leaderboard.css"> -->
+{% endblock %}
+{% block content %}
+<div class="view-box py-[14vh] grid place-self-center">
+    <h2 class="text-center text-4xl bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-700 dark:from-purple-500 dark:to-blue-500 font-bold">LEADERBOARD</h2>
+
+    <table class="table-auto bg-gradient-to-r from-slate-900 to-slate-700" style="margin-top: 5%;">
+        <thead>
+        <tr class="text-center">
+            <th class="py-1 border border-slate-500">Rank</th>
+            <th class="py-1 border border-slate-500">Ambassador</th>
+            <th class="py-1 border border-slate-500">Points</th>
+            <th class="py-1 border border-slate-500">College</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if ambassadors %}
+        {% for ambassador in ambassadors %}
+        <tr class="text-center">
+            <td class="py-1 border border-slate-500">{{ambassador.rank}}</td>
+            <td class="py-1 border border-slate-500">{{ambassador.user}}</td>
+            <td class="py-1 border border-slate-500">{{ambassador.score}}</td>
+            <td class="py-1 border border-slate-500">{{ambassador.college}}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </tbody>
+    </table>
+
+</div>
+   
+{% endblock %}
