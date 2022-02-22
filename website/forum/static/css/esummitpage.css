@@ -595,3 +595,13 @@
   left: 0;
   border: 2px solid #fff;
 }
+
+.iframe-container{
+  width: 50%;
+}
+
+@media screen and (max-width: 840px) {
+  .iframe-container{
+    width: 90%;
+  }
+}

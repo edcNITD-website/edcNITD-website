@@ -42,7 +42,8 @@
 
               </p>
 
-              <a href="#{{slider.btn_link}}" class="btn-get-started scrollto animate__animated animate__fadeInUp">{{slider.btn_content}}</a>
+              <a href="#{{slider.btn_link}}"
+                class="btn-get-started scrollto animate__animated animate__fadeInUp">{{slider.btn_content}}</a>
 
             </div>
 
@@ -67,7 +68,8 @@
 
               </p>
 
-              <a href="#{{slider.btn_link}}" class="btn-get-started scrollto animate__animated animate__fadeInUp">{{slider.btn_content}}</a>
+              <a href="#{{slider.btn_link}}"
+                class="btn-get-started scrollto animate__animated animate__fadeInUp">{{slider.btn_content}}</a>
 
             </div>
 
@@ -186,63 +188,19 @@
 
       </header>
     </div>
+    {% if year.yt_link %}
+    <div class="container iframe-container" data-aos="fade-up">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe src="{{year.yt_link}}" title="YouTube video player">
+        </iframe>
+      </div>
+    </div>
+    {% endif %}
+
+
 
   </section>
   <!-- End About Us Section -->
-
-  <!-- timeline section  -->
-  <section style="background:#f7f7f7;" id="roadmap">
-    <div class="container ps-timeline-sec" id="roadmap1" data-aos="fade-up">
-  <!-- newly added -->
-  <!-- <section style="width: auto; padding-top: 0px; padding-bottom: 0px;" class="ps-timeline-sec"> -->
-    <div  class="container">
-      <ol class="ps-timeline">
-        {% for year in years %}
-        <li>
-          <div class="img-handler-top">
-            <img class="img-responsive" style="border-radius: 50%;" width="100%" src="{{year.year_img.url}}" alt="" />
-          </div>
-          <div class="ps-bot">
-            <p>{{year.year_desc}}</p>
-          </div>
-          <span style="font-size: 1em;" class="ps-sp-top"> <a href="#">{{year.year}}</a></span>
-        </li>
-        {% endfor %}
-        <!-- <li>
-          <div class="img-handler-bot">
-            <img class="img-responsive" style="border-radius: 50%;" width="100%" src="https://scontent.frdp1-1.fna.fbcdn.net/v/t39.30808-6/269917764_313508687451982_7343910843183920139_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=730e14&_nc_ohc=rss6MIkgjGoAX87OdZN&_nc_ht=scontent.frdp1-1.fna&oh=00_AT-TtCoRWd-1E6OBkqouREhHg9G6epEPKgY0n5u3LgVz-Q&oe=61DC92C8" alt="" />
-          </div>
-          <div class="ps-top">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae distinctio enim, exercitationem minus magnam laudantium!</p>
-          </div>
-          <span style="font-size: 1em; bottom: 0%;" class="ps-sp-bot"> <a href="#">2020</a></span>
-        </li>
-        <li>
-          <div class="img-handler-top">
-            <img class="img-responsive" style="border-radius: 50%;" width="100%" src="https://scontent.frdp1-1.fna.fbcdn.net/v/t39.30808-6/269917764_313508687451982_7343910843183920139_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=730e14&_nc_ohc=rss6MIkgjGoAX87OdZN&_nc_ht=scontent.frdp1-1.fna&oh=00_AT-TtCoRWd-1E6OBkqouREhHg9G6epEPKgY0n5u3LgVz-Q&oe=61DC92C8" alt="" />
-          </div>
-          <div class="ps-bot">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium fugiat iste sed alias perspiciatis quaerat!</p>
-          </div>
-          <span style="font-size: 1em;" class="ps-sp-top"> <a href="#">2019</a> </span>
-        </li>
-        <li>
-          <div class="img-handler-bot">
-            <img class="img-responsive" style="border-radius: 50%;" width="100%" src="https://scontent.frdp1-1.fna.fbcdn.net/v/t39.30808-6/269917764_313508687451982_7343910843183920139_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=730e14&_nc_ohc=rss6MIkgjGoAX87OdZN&_nc_ht=scontent.frdp1-1.fna&oh=00_AT-TtCoRWd-1E6OBkqouREhHg9G6epEPKgY0n5u3LgVz-Q&oe=61DC92C8" alt="" />
-          </div>
-          <div class="ps-top">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum explicabo consequuntur sapiente accusamus quis quia?</p>
-          </div>
-          <span style="font-size: 1em;" class="ps-sp-bot"> <a href="#">2018</a></span>
-        </li> -->
-      </ol>
-    </div>
-  <!-- </section> -->
-  <!-- ended here -->
-    </div>
-    <br><br>
-  </section>
-  <!-- end of timeline -->
 
 
   <!-- ======= Events Section ======= -->
@@ -267,8 +225,8 @@
       <div class="container">
         <div class="row">
           {% for event in events %}
-          <div class="col-sm" data-aos="fade-up">
-
+          <div class="col-lg-4 col-md-6 col-xs-12" data-aos="fade-up">
+            
             <div class="card" style="padding: auto;">
               <div class="card__head">
                 <div class="card__image"><img class="card-img-top" style="width: 100%; height: 100%;"
@@ -285,13 +243,14 @@
               </div>
               <div class="card__border"></div>
             </div>
-
+            
           </div>
           {% endfor %}
+
         </div>
         <br>
         <a href="{% url 'event_page' %}" class="btn-get-started scrollto animate__animated animate__fadeInUp"
-          style="position: absolute; right: 10px;">View all E-SUMMIT'21 Events <i class="fa fa-arrow-right"></i></a>
+          style="position: absolute; right: 10px;">View all E-SUMMIT Events <i class="fa fa-arrow-right"></i></a>
       </div>
     </div>
 
@@ -301,6 +260,48 @@
 
   <!-- End Events Section -->
 
+  <!-- ======= Campus Ambassador Section START======= -->
+
+  <section id="cap-top" class="fluid-container cap-top" style=" background:var(--theme-color);">
+    <div class="card_content in">
+
+      <div class="fluid-container inner_content_card row">
+        <div class="col-md-6">
+          <div class="lines">
+            <p>CAMPUS AMBASSADOR PROGRAM</p>
+          </div>
+
+          <div class=" anime_bord cap-content-box">
+            <hr />
+            <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime eligendi accusamus inventore, ea
+              repellendus fuga est laboriosam, laborum qui deserunt nihil magnam sit repudiandae explicabo! Ad
+              repellendus, pariatur voluptatum repellat magni quibusdam animi itaque laudantium, provident labore error
+              molestiae eveniet minima cupiditate quis, obcaecati ab fugiat optio eius commodi laboriosam voluptates
+              natus! Officia eveniet, voluptas quaerat accusamus vero officiis exercitationem.</h6>
+          </div>
+
+          <div class="button-wrapper slide-border">
+            <div class="button8div"></div>
+            <input class="button8" type="button" name="button7" value="Apply Now" />
+          </div>
+
+        </div>
+
+        <div class="col-md-6 image_place">
+          <div class="cap-image-vector">
+            <img src="{% static 'img/capAmb.svg' %}" class="capAmb_img" alt="">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </section>
+
+  <!-- ======= Campus Ambassador Section END======= -->
+
 
   <!-- ======= Speakers Section ======= -->
 
@@ -309,7 +310,7 @@
 
       <header class="section-header">
 
-        <h3>Past Speakers</h3>
+        <h3>Speakers</h3>
 
       </header>
       <div id="bar"></div>
@@ -374,50 +375,12 @@
 
 
       </div>
-      <!-- Add Pagination -->
       <div class="swiper-pagination"></div>
     </div>
+
   </div>
 
-  <br>
 
-<!-- ======= Campus Ambassador Section START======= -->
-
-  <section id="cap-top" class="fluid-container cap-top" style=" background:var(--theme-color);">
-    <div class="card_content in">
-
-      <div class="fluid-container inner_content_card row">
-        <div class="col-md-6">
-          <div class="lines">
-            <p>CAMPUS AMBASSADOR PROGRAM</p>
-          </div>
-          
-          <div class=" anime_bord cap-content-box">
-            <hr/>
-              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime eligendi accusamus inventore, ea repellendus fuga est laboriosam, laborum qui deserunt nihil magnam sit repudiandae explicabo! Ad repellendus, pariatur voluptatum repellat magni quibusdam animi itaque laudantium, provident labore error molestiae eveniet minima cupiditate quis, obcaecati ab fugiat optio eius commodi laboriosam voluptates natus! Officia eveniet, voluptas quaerat accusamus vero officiis exercitationem.</h6>
-          </div>
-          
-          <div class="button-wrapper slide-border">
-              <div class="button8div"></div>
-              <input class="button8" type="button" name="button7" value="Apply Now"/>
-          </div>
-          
-        </div>
-
-        <div class="col-md-6 image_place">
-          <div class="cap-image-vector">
-            <img src="{% static 'img/capAmb.svg' %}"  class="capAmb_img" alt="">
-          </div>
-        </div>
-
-      </div>
-      
-    </div>
-
-  
-  </section>
-
-<!-- ======= Campus Ambassador Section END======= -->
 
   <!-- ======= Sponsor Section ======= -->
   <section id="testimonials" class="">
