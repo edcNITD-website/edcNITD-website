@@ -33,6 +33,7 @@ def post_list(request,category_slug=None):
                                                    'count':count,
                                                    'years' :year,
                                                    'latest' :max_id, 
+                                                   'latest_year' :max_year%100,
                                                  })
 
 def post_detail(request,id):

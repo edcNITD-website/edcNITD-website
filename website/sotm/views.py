@@ -21,6 +21,7 @@ def esummit(request):
         if(y.year>max_year):
             max_year=y.year
             max_id=y.id
+    context['latest_year'] = max_year%100
     context['latest'] = max_id
     return render(request,'sotm/sotm_base.html',context)
 

@@ -19,5 +19,6 @@ def web_team(request):
             max_year=y.year
             max_id=y.id
     context['latest'] = max_id
+    context['latest_year'] = max_year%100
     return render(request,'web_team/web_team.html',context)
 
