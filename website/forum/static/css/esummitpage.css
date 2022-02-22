@@ -397,9 +397,9 @@
   font-size: 38px !important;
   font-weight: 600 !important;
   -webkit-font-smoothing: antialiased; 
-   font-size: 24px;
    color: #eee;
    text-align: center;
+   font-family: 'Montserrat' !important;
 }
 
 .lines {
@@ -414,7 +414,7 @@
   width: 100%;
   height: 3px;
   z-index: 1;
-  background: #3A4945;
+  background: var(--theme-color);
   position: absolute;
   -webkit-transform: scale3d(0, 1, 1);
   transform: scale3d(0, 1, 1);
@@ -444,7 +444,7 @@
 
 .lines p {
   transition: 0.4s;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.7px;
 }
 
 .lines:hover p {
@@ -538,15 +538,34 @@
 }
 
 .capAmb_img{
-  min-height: 300px !important;
-  min-width: auto !important;
+  /* max-height: 300px !important;
+  min-width: auto !important; */
   max-height: 350px !important;
   max-width: auto !important;
+  margin: 0 auto 0 auto !important;
 }
+
+@media screen and (max-width:450px){
+
+  .capAmb_img{
+    height: 300px;
+    width: auto;
+  }
+}
+
+@media screen and (max-width:370px) {
+
+  .capAmb_img {
+    height: 280px;
+    width: auto;
+  }
+}
+
 
 
 .button-wrapper {
   margin-left: 4px !important;
+  margin-bottom: 10px !important;
   position: relative;
   display: inline-block;
 }
@@ -568,11 +587,14 @@
   border-radius: 2px;
   font-size: 20px;
   font-weight: 700;
-  text-decoration: underline;
+  text-decoration: none;
   color: var(--theme-color);
-  transition: 300ms;
-  opacity: 1;
+  transition: 300ms all ease-in-out;
   z-index: 1;
+}
+
+.button8:hover{
+  transition: 0.3s all ease-in-out;
 }
 
 .button8div {
