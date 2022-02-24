@@ -12,7 +12,7 @@ Home
     <div class="grid place-items-center py-[15vh] min-h-[100vh] grid-cols-1 lg:grid-cols-5">
         <div class="col-span-3 flex flex-col gap-2">
 
-            <h1 class="text-center lg:text-left text-4xl lg:text-5xl font-extrabold dark:text-slate-50 text-slate-800 mx-auto">
+            <h1 class="text-center lg:text-left text-4xl lg:text-5xl font-extrabold font-montserrat dark:text-slate-50 text-slate-800 mx-auto">
                 Opportunity to <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-700 dark:from-purple-500 dark:to-blue-500" >Learn</span> of a Lifetime
             </h1>
             <h2 class="text-center lg:text-left text-base lg:text-xl font-medium dark:font-light text-slate-900 dark:text-slate-200 my-3">
@@ -31,7 +31,7 @@ Home
 <div class="skew-block text-slate-900 bg-gradient-to-br from-blue-200 to-blue-400 min-h-screen grid place-items-center">
     <div class="view-box  grid place-items-center grid-cols-1 lg:grid-cols-2 gap-4">
         <div class="col-span-1">
-            <h2 class="text-3xl bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-stone-700 font-bold my-2">About Campus Ambassador</h2>
+            <h2 class="text-3xl bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-stone-700 font-bold my-2 font-montserrat">About Campus Ambassador</h2>
             <br>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo nulla eum tempore illo eveniet sequi reprehenderit libero vel odio fuga. Sunt maxime aliquid, perferendis incidunt ad repellendus ut iusto dolor eos expedita quia consectetur nostrum fugiat nisi asperiores adipisci, earum, itaque quos? Enim qui dicta quas atque ex libero id?</p>
         </div>
@@ -42,7 +42,7 @@ Home
 </div>
 <!-- incentive section -->
 <div class="view-box min-h-screen grid grid-cols-1 place-items-center py-6 scroll-mt-8" id="incentives">
-    <h2 class="bg-clip-text text-transparent bg-gradient-to-tr from-purple-600 to-blue-700 dark:from-purple-500 dark:to-blue-500 text-4xl text-center font-bold col-span-1" >Incentives</h2>
+    <h2 class="bg-clip-text text-transparent bg-gradient-to-tr from-purple-600 to-blue-700 dark:from-purple-500 dark:to-blue-500 text-4xl text-center font-bold col-span-1 font-montserrat" >Incentives</h2>
     <ul class="flex flex-row col-span-1 gap-4 md:gap-8 flex-wrap justify-center pt-[25px] md:pt-0 text-sm">
         {% if incentives %}
         {% for incentive in incentives %}
@@ -64,29 +64,10 @@ Home
 </div>
 <!-- responsiblities section  -->
 <div class="skew-block text-slate-900 bg-gradient-to-br from-blue-200 to-blue-400 pb-[15vh] sm:pb-[10vh]" id="responsibilities">
-    <!-- <div class="view-box grid place-items-center h-full">
-        <h2 class="bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-stone-900 text-4xl text-center font-bold col-span-1 pt-[8vh] sm:pt-0" >Responsiblities</h2>
-        <ul class="flex flex-row flex-wrap justify-center gap-4 mt-4 text-sm">
-            {% if responsibilities %}
-            {% for responsibility in responsibilities %}
-                <li class="flex flex-col justify-center text-center max-w-xs w-full ">
-                    <img src="{{responsibility.img_url}}" alt="image" class=" rounded-md mb-4 mx-auto sm:mx-8 aspect-square object-cover max-w-[70vw] sm:max-w-xs">
-                    <div class="bg-slate-200 text-slate-900 rounded-md px-2 py-4">
-
-                        <h2 class="text-xl font-bold">{{responsibility.title}}</h2>
-                        <p class="">{{responsibility.content}}</p>
-                    </div>
-                </li>
-            {% endfor %}
-            {% else %}
-                <h3>No responsibilities added yet.</h3>
-            {% endif %}
-        </ul>
-    </div> -->
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-6 mx-auto">
           <div class="text-center mb-20">
-            <h2 class="bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to-stone-700 text-4xl text-center font-bold col-span-1 pt-[8vh] sm:pt-0" >Responsiblities</h2>
+            <h2 class="bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to-stone-700 text-3xl text-center font-bold col-span-1 pt-[8vh] sm:pt-0 font-montserrat" >Responsiblities</h2>
             <!-- <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug.</p> -->
           </div>
           <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
@@ -114,8 +95,8 @@ Home
       </section>
 </div>
 <!-- Timeline -->
-<div class="view-box min-h-screen flex flex-col justify-center">
-    <h2 class="bg-clip-text text-transparent bg-gradient-to-br from-purple-600 to-blue-700 dark:from-purple-500 dark:to-blue-500 text-4xl text-center font-bold col-span-1" >Timeline</h2>
+<div class="view-box min-h-screen flex flex-col justify-start pt-16">
+    <h2 class="bg-clip-text text-transparent bg-gradient-to-br from-purple-600 to-blue-700 dark:from-purple-500 dark:to-blue-500 text-4xl text-center font-bold col-span-1 font-montserrat" >Timeline</h2>
     {% if timeline %}
         <ul id="timelinevents" class="flex flex-col gap-4 justify-center mt-6">
             {% for event in timeline %}
@@ -133,7 +114,7 @@ Home
                     </div>
                     <div class="p-4 rounded-md text-center bg-slate-200 text-slate-900">
 
-                        <h3 class="font-semibold">{{event.title}} | {{event.deadline}} </h3>
+                        <h3 class="font-semibold">{{event.title}} | {{event.deadline|date:'d F, Y'}} </h3>
                         <p>{{event.content}}</p>
                     </div>
                 </li>
@@ -147,7 +128,7 @@ Home
 <div class="skew-block text-slate-900 bg-gradient-to-tr from-blue-200 to-blue-400">
     <div class="view-box flex flex-col justify-center">
         <div class="text-3xl text-center font-bold">
-            <h2 class="bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to-stone-700 text-4xl text-center font-bold col-span-1 pt-[8vh] sm:pt-0" >FAQs</h2>
+            <h2 class="bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to-stone-700 text-4xl text-center font-bold col-span-1 pt-[8vh] sm:pt-0 font-montserrat" >FAQs</h2>
         </div>
         <div class="text-lg">
             <ul class="mt-4 flex flex-col gap-4">

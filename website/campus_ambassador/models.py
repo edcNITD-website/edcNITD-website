@@ -88,7 +88,7 @@ class Ambassador(models.Model):
     college = models.CharField(max_length=200)
     phone = models.CharField(max_length=15)
     completed_prog = models.BooleanField(default=False)
-    unique_code = models.CharField(max_length=8,default=uuid.uuid4().hex[:8])
+    unique_code = models.CharField(max_length=20,default=uuid.uuid4().hex[:8])
     score = models.IntegerField(default=0)
     subtasks_completed = models.TextField(default='',blank=True)
     facebook = models.CharField(

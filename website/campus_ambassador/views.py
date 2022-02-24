@@ -11,10 +11,6 @@ from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 import json
 # Create your views here.
 # utitlity functions
-def calc_precedence(index):
-    precedence = 0
-    precedence = int(index.split('-')[0])*1000+int(index.split('-')[1])
-    return precedence
 
 def current_campaign():
     campaigns =  Campaign.objects.filter(start_date__lte=timezone.now(),end_date__gte=timezone.now())
@@ -23,6 +19,17 @@ def current_campaign():
     else:
         result = campaigns[0]
     return result
+
+def generate_amb_code():
+    amb_count = Ambassador.objects.all().count()
+    new_amb_count = amb_count+1
+    str_amb_count = str(new_amb_count)
+    if len(str_amb_count)==1:
+        str_amb_count = '00'+str_amb_count
+    if len(str_amb_count)==2:
+        str_amb_count = '0'+str_amb_count
+    new_amb_code = 'cap_nitd_'+str_amb_count
+    return new_amb_code
 
 def get_ambassadors_list()->list:
     ambassador_list = []
@@ -105,8 +112,7 @@ def register(request):
             amb.facebook = request.POST.get('facebook')
             amb.linkedin = request.POST.get('linkedin')
             amb.instagram = request.POST.get('instagram')
-            amb.unique_code = uuid.uuid4().hex[:8]
-            print(amb)
+            amb.unique_code = generate_amb_code()
             amb.campaign = context['cur_campaign']
             amb.save()
             return redirect('/cap/login')
@@ -205,7 +211,7 @@ def profile(request):
 def score_task(request):
     context = {}
     context = prepareContext(request,context)
-    all_cur_ambassadors = Ambassador.objects.filter(campaign=context['cur_campaign'])
+    all_cur_ambassadors = Ambassador.objects.filter(campaign=context['cur_campaign']).order_by('unique_code')
     all_subtasks = []
     for task in Task.objects.filter(campaign=context['cur_campaign']).order_by('number'):
         subtasks = SubTask.objects.filter(task=task).order_by('number')
