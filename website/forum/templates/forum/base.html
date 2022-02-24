@@ -96,7 +96,6 @@
             <nav class="nav-menu d-none d-lg-block">
 
               <ul>
-
                 <li {%if request.resolver_match.url_name == 'home_page' %}class="active" {% endif %}><a
                     href="{% url 'home_page' %}">Home</a></li>
 
@@ -112,7 +111,7 @@
                 </div>
 
                 <li {%if request.resolver_match.url_name == 'event_page' %}class="active" {% endif %}><a
-                    href="{% url 'event_page' %}">Event Registrations</a></li>
+                    href="{% url 'event_page' %}">Events</a></li>
 
                 <li {%if request.resolver_match.url_name == 'EQuest' %} or
                   request.resolver_match.url_name=='post_detail' %}class="active" {% endif %}><a

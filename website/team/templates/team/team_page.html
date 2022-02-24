@@ -192,7 +192,7 @@
       <ul class="year-list">
         {% for year, alumni in alumni_dic.items %}
           {% if alumni %}
-            {% if year == 2021 %}
+            {% if year == max_alumni_year %}
             <li class="year active_year year-btn" id= "{{year}}-year" title="{{year}}" onclick="showAlumni(this)"><span>{{year}}</span></li>
             {% else %}
             <li class="year year-btn" title="{{year}}" id= "{{year}}-year" onclick="showAlumni(this)"><span>{{year}}</span></li>
