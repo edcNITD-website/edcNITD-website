@@ -130,30 +130,28 @@ Home
         <div class="text-3xl text-center font-bold">
             <h2 class="bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to-stone-700 text-4xl text-center font-bold col-span-1 pt-[8vh] sm:pt-0 font-montserrat" >FAQs</h2>
         </div>
-        <div class="text-lg">
-            <ul class="mt-4 flex flex-col gap-4">
-            {% if active_faqs %}
-
-                {% for faq in active_faqs %}
-                    <details open>
-                        <summary>{{faq.title}}</summary>
-                        <p>{{faq.content}}</p>
-                    </details>
-                {% endfor %}
-            {% else %}
-                <h3>No FAQs added</h3>
-            {% endif %}
-            {% if faqs %}
-                {% for faq in faqs %}
-                    <details>
-                        <summary>{{faq.title}}</summary>
-                        <p>{{faq.content}}</p>
-                    </details>
-                {% endfor %}
-            {% else %}
-                <h3>No FAQs added</h3>
-            {% endif %}
-        </div>
+        <div class="w-full">
+        {% if active_faqs %}
+            <ul class="c-faqs">
+            {% for faq in active_faqs %}
+                <li class="c-faq c-faq--active">
+                    <span class="c-faq__title">{{faq.title}}</span>
+                    <div class="c-faq__answer">{{faq.content}}</div>
+                </li>
+            {% endfor %}
+        {% endif %}
+        {% if faqs %}
+            {% for faq in faqs %}
+                <li class="c-faq">
+                    <span class="c-faq__title">{{faq.title}}</span>
+                    <div class="c-faq__answer">{{faq.content}}</div>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <h3>No FAQs added</h3>
+        {% endif %}
     </div>
 </div>
+<script src="{% static 'js/campus_ambassador/faqs.js'%}"></script>
 {% endblock %}
