@@ -4,10 +4,22 @@
 
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
- 
+  <link href="{% static 'css/timeline.css' %}" rel="stylesheet">
  
  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous"></script>
+ <!-- <link rel="stylesheet" type="text/css" href="slick/slick-theme.min.css"> original link -->
+ <!-- <link rel="stylesheet" type="text/css" href="slick/accessible-slick-theme.min.css"> -->
+
+ <!-- <script type="text/javascript" src="slick/slick.min.js"></script> -->
+ <!-- <script src="{% static 'js/esummitpage1.js' %}"></script>
+ <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
+    <!-- <script src="{% static 'js/esummitpage1.js' %}"></script> -->
+  
+ 
+
   <section id="intro">
 
     <div class="intro-container">
@@ -183,6 +195,144 @@
 
     </section>
     <!-- End About Us Section -->
+
+    <!-- timeline section  -->
+    <section style="background:#f7f7f7;" id="roadmap">
+      <div style="padding-top: 0px;" class="container ps-timeline-sec" id="roadmap1" data-aos="fade-up">
+    <!-- newly added -->
+  <!-- <section style="width: auto; padding-top: 0px; padding-bottom: 0px;" class="ps-timeline-sec"> -->
+    <section class="timeline-carousel">
+      <!-- <div class="container">
+         <div class="row">
+            <div class="col-8 offset-2 text-center mb-5">
+               <h1>Horizontal timeline</h1>
+               <p class="lead text-muted">Below is a concept of a horizontal timeline slider. You can drag the slides or click on the previous and next buttons.</p>
+               <p><a class="text-white" target="_blank" href="https://codepen.io/davidbiek/pen/BaWYWME">Bootstrap 5 version</a></p>
+            </div>
+         </div>
+      </div> -->
+      <div class="timeline-carousel__item-wrapper" data-js="timeline-carousel">
+   
+         <!--Timeline item-->
+         <div class="timeline-carousel__item" style="width: 75%;">
+            <div class="timeline-carousel__image">
+               <div class="media-wrapper media-wrapper--overlay" style="background: url('https://scontent.frdp1-1.fna.fbcdn.net/v/t39.30808-6/274461587_350377790431738_9175793229721353960_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_ohc=igHGXjRKgKIAX9QeRON&_nc_ht=scontent.frdp1-1.fna&oh=00_AT-w0ZS-xBCHEFM9NGnXZ-pJm3lq9UtkczUIiKBGWcmxQg&oe=621B99E2') center center; background-size:cover;"></div>
+            </div>
+            <div class="timeline-carousel__item-inner">
+               <span class="year">2022</span>
+               <span class="month">Eget felis eget nunc lobortis mattis</span>
+               <p>Eget felis eget nunc lobortis mattis aliquam fauci</p>
+               <a href="#" class="read-more">Read more</a>
+            </div>
+         </div>
+         <!--/Timeline item-->
+   
+         <!--Timeline item-->
+         <div class="timeline-carousel__item" style="width: 75%;">
+            <div class="timeline-carousel__image">
+               <div class="media-wrapper media-wrapper--overlay" style="background: url('https://scontent.frdp1-1.fna.fbcdn.net/v/t39.30808-6/274461587_350377790431738_9175793229721353960_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_ohc=igHGXjRKgKIAX9QeRON&_nc_ht=scontent.frdp1-1.fna&oh=00_AT-w0ZS-xBCHEFM9NGnXZ-pJm3lq9UtkczUIiKBGWcmxQg&oe=621B99E2') center center; background-size:cover;"></div>
+            </div>
+            <div class="timeline-carousel__item-inner">
+               <span class="year">2021</span>
+               <span class="month">Tristique magna sit amet</span>
+               <p>Tristique magna sit amet purus gravida quis blandit turpis.</p>
+               <a href="#" class="read-more">Read more</a>
+            </div>
+         </div>
+         <!--/Timeline item-->
+   
+         <!--Timeline item-->
+         <div class="timeline-carousel__item" style="width: 75%;">
+            <div class="timeline-carousel__image">
+               <div class="media-wrapper media-wrapper--overlay" style="background: url('https://scontent.frdp1-1.fna.fbcdn.net/v/t39.30808-6/274461587_350377790431738_9175793229721353960_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_ohc=igHGXjRKgKIAX9QeRON&_nc_ht=scontent.frdp1-1.fna&oh=00_AT-w0ZS-xBCHEFM9NGnXZ-pJm3lq9UtkczUIiKBGWcmxQg&oe=621B99E2') center center; background-size:cover;"></div>
+            </div>
+            <div class="timeline-carousel__item-inner">
+               <span class="year">2020</span>
+               <span class="month">Mauris pellentesque pulvinar pellentesque habitant</span>
+               <p>Mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus </p>
+               <a href="#" class="read-more">Read more</a>
+            </div>
+         </div>
+         <!--/Timeline item-->
+   
+         <!--Timeline item-->
+         <div class="timeline-carousel__item" style="width: 75%;">
+            <div class="timeline-carousel__image">
+               <div class="media-wrapper media-wrapper--overlay" style="background: url('https://scontent.frdp1-1.fna.fbcdn.net/v/t39.30808-6/274461587_350377790431738_9175793229721353960_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_ohc=igHGXjRKgKIAX9QeRON&_nc_ht=scontent.frdp1-1.fna&oh=00_AT-w0ZS-xBCHEFM9NGnXZ-pJm3lq9UtkczUIiKBGWcmxQg&oe=621B99E2') center center; background-size:cover;"></div>
+            </div>
+            <div class="timeline-carousel__item-inner">
+               <span class="year">2019</span>
+               <span class="month">Cum sociis natoque penatibus</span>
+               <p>Cum sociis natoque penatibus et magnis dis. Interdum velit laoreet id donec ultrices tincidunt arcu non. Lorem sed risus ultricies tristique. Dui vivamus arcu felis bibendum ut. Tortor id aliquet lectus proin nibh nisl condimentum id.</p>
+               <a href="#" class="read-more">Read more</a>
+            </div>
+         </div>
+         <!--/Timeline item-->
+   
+          <!--Timeline item-->
+         <div class="timeline-carousel__item" style="width: 75%;">
+            <div class="timeline-carousel__image">
+               <div class="media-wrapper media-wrapper--overlay" style="background: url('https://scontent.frdp1-1.fna.fbcdn.net/v/t39.30808-6/274461587_350377790431738_9175793229721353960_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_ohc=igHGXjRKgKIAX9QeRON&_nc_ht=scontent.frdp1-1.fna&oh=00_AT-w0ZS-xBCHEFM9NGnXZ-pJm3lq9UtkczUIiKBGWcmxQg&oe=621B99E2') center center; background-size:cover;"></div>
+            </div>
+            <div class="timeline-carousel__item-inner">
+               <span class="year">2019</span>
+               <span class="month">Cum sociis natoque penatibus</span>
+               <p>Cum sociis natoque penatibus et magnis dis. Interdum velit laoreet id donec ultrices tincidunt arcu non. Lorem sed risus ultricies tristique. Dui vivamus arcu felis bibendum ut. Tortor id aliquet lectus proin nibh nisl condimentum id.</p>
+               <a href="#" class="read-more">Read more</a>
+            </div>
+         </div>
+         <!--/Timeline item-->
+   
+         <!--Timeline item-->
+         <div class="timeline-carousel__item" style="width: 75%;">
+            <div class="timeline-carousel__image">
+               <div class="media-wrapper media-wrapper--overlay" style="background: url('https://scontent.frdp1-1.fna.fbcdn.net/v/t39.30808-6/274461587_350377790431738_9175793229721353960_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_ohc=igHGXjRKgKIAX9QeRON&_nc_ht=scontent.frdp1-1.fna&oh=00_AT-w0ZS-xBCHEFM9NGnXZ-pJm3lq9UtkczUIiKBGWcmxQg&oe=621B99E2') center center; background-size:cover;"></div>
+            </div>
+            <div class="timeline-carousel__item-inner">
+               <span class="year">2018</span>
+               <span class="month">Id nibh tortor id aliquet</span>
+               <p>Nunc eget lorem dolor sed viverra. Id nibh tortor id aliquet. Sed blandit libero volutpat sed cras. Fermentum posuere urna nec tincidunt praesent. Id ornare arcu odio ut sem nulla pharetra diam.</p>
+               <a href="#" class="read-more">Read more</a>
+            </div>
+         </div>
+         <!--/Timeline item-->
+   
+         <!--Timeline item-->
+         <div class="timeline-carousel__item" style="width: 75%;">
+            <div class="timeline-carousel__image">
+               <div class="media-wrapper media-wrapper--overlay" style="background: url('https://scontent.frdp1-1.fna.fbcdn.net/v/t39.30808-6/274461587_350377790431738_9175793229721353960_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_ohc=igHGXjRKgKIAX9QeRON&_nc_ht=scontent.frdp1-1.fna&oh=00_AT-w0ZS-xBCHEFM9NGnXZ-pJm3lq9UtkczUIiKBGWcmxQg&oe=621B99E2') center center; background-size:cover;"></div>
+            </div>
+            <div class="timeline-carousel__item-inner">
+               <span class="year">2017</span>
+               <span class="month">Pulvinar neque laoreet suspendisse</span>
+               <p>Pulvinar neque laoreet suspendisse interdum consectetur. Libero volutpat sed cras ornare. Ac auctor augue mauris augue.</p>
+               <a href="#" class="read-more">Read more</a>
+            </div>
+         </div>
+         <!--/Timeline item-->
+   
+         <!--Timeline item-->
+         <div class="timeline-carousel__item" style="width: 75%;">
+            <div class="timeline-carousel__image">
+               <div class="media-wrapper media-wrapper--overlay" style="background: url('https://scontent.frdp1-1.fna.fbcdn.net/v/t39.30808-6/274461587_350377790431738_9175793229721353960_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_ohc=igHGXjRKgKIAX9QeRON&_nc_ht=scontent.frdp1-1.fna&oh=00_AT-w0ZS-xBCHEFM9NGnXZ-pJm3lq9UtkczUIiKBGWcmxQg&oe=621B99E2') center center; background-size:cover;"></div>
+            </div>
+            <div class="timeline-carousel__item-inner">
+               <span class="year">2015</span>
+               <span class="month">Egestas quis ipsum</span>
+               <p>Non odio euismod lacinia at. Egestas quis ipsum suspendisse ultrices gravida. Dui nunc mattis enim ut tellus elementum sagittis vitae. Lectus quam id leo in vitae turpis massa sed elementum. Ridiculus mus mauris vitae ultricies leo integer malesuada. Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus./p>
+                  <a href="#" class="read-more">Read more</a>
+            </div>
+         </div>
+         <!--/Timeline item-->
+   
+      </div>
+   </section>
+  <!-- </section> -->
+  <!-- ended here -->
+    </div>
+    <br><br>
+  </section>
+  <!-- end of timeline -->
 
 
     <!-- ======= Events Section ======= -->
@@ -499,6 +649,8 @@
 
     </div>
     </section>
-      
+    <script src="{% static 'js/timeline.js' %}"></script>
+
   </main>
+
   {% endblock %}
