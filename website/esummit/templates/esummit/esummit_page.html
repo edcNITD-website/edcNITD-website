@@ -212,23 +212,24 @@
          </div>
       </div> -->
       <div class="timeline-carousel__item-wrapper" data-js="timeline-carousel">
-   
+        {% for year in years %}
          <!--Timeline item-->
          <div class="timeline-carousel__item" style="width: 75%;">
             <div class="timeline-carousel__image">
-               <div class="media-wrapper media-wrapper--overlay" style="background: url('https://scontent.frdp1-1.fna.fbcdn.net/v/t39.30808-6/274461587_350377790431738_9175793229721353960_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_ohc=igHGXjRKgKIAX9QeRON&_nc_ht=scontent.frdp1-1.fna&oh=00_AT-w0ZS-xBCHEFM9NGnXZ-pJm3lq9UtkczUIiKBGWcmxQg&oe=621B99E2') center center; background-size:cover;"></div>
+               <div class="media-wrapper media-wrapper--overlay" style="background: url('{{year.year_img.url}}') center center; background-size:cover;"></div>
             </div>
             <div class="timeline-carousel__item-inner">
-               <span class="year">2022</span>
+               <span class="year">{{year.year}}</span>
                <span class="month">Eget felis eget nunc lobortis mattis</span>
-               <p>Eget felis eget nunc lobortis mattis aliquam fauci</p>
+               <p>{{year.year_desc}}</p>
                <a href="#" class="read-more">Read more</a>
             </div>
          </div>
          <!--/Timeline item-->
+         {% endfor %}
    
          <!--Timeline item-->
-         <div class="timeline-carousel__item" style="width: 75%;">
+         <!-- <div class="timeline-carousel__item" style="width: 75%;">
             <div class="timeline-carousel__image">
                <div class="media-wrapper media-wrapper--overlay" style="background: url('https://scontent.frdp1-1.fna.fbcdn.net/v/t39.30808-6/274461587_350377790431738_9175793229721353960_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_ohc=igHGXjRKgKIAX9QeRON&_nc_ht=scontent.frdp1-1.fna&oh=00_AT-w0ZS-xBCHEFM9NGnXZ-pJm3lq9UtkczUIiKBGWcmxQg&oe=621B99E2') center center; background-size:cover;"></div>
             </div>
@@ -238,11 +239,11 @@
                <p>Tristique magna sit amet purus gravida quis blandit turpis.</p>
                <a href="#" class="read-more">Read more</a>
             </div>
-         </div>
+         </div> -->
          <!--/Timeline item-->
    
          <!--Timeline item-->
-         <div class="timeline-carousel__item" style="width: 75%;">
+         <!-- <div class="timeline-carousel__item" style="width: 75%;">
             <div class="timeline-carousel__image">
                <div class="media-wrapper media-wrapper--overlay" style="background: url('https://scontent.frdp1-1.fna.fbcdn.net/v/t39.30808-6/274461587_350377790431738_9175793229721353960_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_ohc=igHGXjRKgKIAX9QeRON&_nc_ht=scontent.frdp1-1.fna&oh=00_AT-w0ZS-xBCHEFM9NGnXZ-pJm3lq9UtkczUIiKBGWcmxQg&oe=621B99E2') center center; background-size:cover;"></div>
             </div>
@@ -252,78 +253,14 @@
                <p>Mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus </p>
                <a href="#" class="read-more">Read more</a>
             </div>
-         </div>
+         </div> -->
          <!--/Timeline item-->
    
-         <!--Timeline item-->
-         <div class="timeline-carousel__item" style="width: 75%;">
-            <div class="timeline-carousel__image">
-               <div class="media-wrapper media-wrapper--overlay" style="background: url('https://scontent.frdp1-1.fna.fbcdn.net/v/t39.30808-6/274461587_350377790431738_9175793229721353960_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_ohc=igHGXjRKgKIAX9QeRON&_nc_ht=scontent.frdp1-1.fna&oh=00_AT-w0ZS-xBCHEFM9NGnXZ-pJm3lq9UtkczUIiKBGWcmxQg&oe=621B99E2') center center; background-size:cover;"></div>
-            </div>
-            <div class="timeline-carousel__item-inner">
-               <span class="year">2019</span>
-               <span class="month">Cum sociis natoque penatibus</span>
-               <p>Cum sociis natoque penatibus et magnis dis. Interdum velit laoreet id donec ultrices tincidunt arcu non. Lorem sed risus ultricies tristique. Dui vivamus arcu felis bibendum ut. Tortor id aliquet lectus proin nibh nisl condimentum id.</p>
-               <a href="#" class="read-more">Read more</a>
-            </div>
-         </div>
-         <!--/Timeline item-->
+        
    
-          <!--Timeline item-->
-         <div class="timeline-carousel__item" style="width: 75%;">
-            <div class="timeline-carousel__image">
-               <div class="media-wrapper media-wrapper--overlay" style="background: url('https://scontent.frdp1-1.fna.fbcdn.net/v/t39.30808-6/274461587_350377790431738_9175793229721353960_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_ohc=igHGXjRKgKIAX9QeRON&_nc_ht=scontent.frdp1-1.fna&oh=00_AT-w0ZS-xBCHEFM9NGnXZ-pJm3lq9UtkczUIiKBGWcmxQg&oe=621B99E2') center center; background-size:cover;"></div>
-            </div>
-            <div class="timeline-carousel__item-inner">
-               <span class="year">2019</span>
-               <span class="month">Cum sociis natoque penatibus</span>
-               <p>Cum sociis natoque penatibus et magnis dis. Interdum velit laoreet id donec ultrices tincidunt arcu non. Lorem sed risus ultricies tristique. Dui vivamus arcu felis bibendum ut. Tortor id aliquet lectus proin nibh nisl condimentum id.</p>
-               <a href="#" class="read-more">Read more</a>
-            </div>
-         </div>
-         <!--/Timeline item-->
+         
    
-         <!--Timeline item-->
-         <div class="timeline-carousel__item" style="width: 75%;">
-            <div class="timeline-carousel__image">
-               <div class="media-wrapper media-wrapper--overlay" style="background: url('https://scontent.frdp1-1.fna.fbcdn.net/v/t39.30808-6/274461587_350377790431738_9175793229721353960_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_ohc=igHGXjRKgKIAX9QeRON&_nc_ht=scontent.frdp1-1.fna&oh=00_AT-w0ZS-xBCHEFM9NGnXZ-pJm3lq9UtkczUIiKBGWcmxQg&oe=621B99E2') center center; background-size:cover;"></div>
-            </div>
-            <div class="timeline-carousel__item-inner">
-               <span class="year">2018</span>
-               <span class="month">Id nibh tortor id aliquet</span>
-               <p>Nunc eget lorem dolor sed viverra. Id nibh tortor id aliquet. Sed blandit libero volutpat sed cras. Fermentum posuere urna nec tincidunt praesent. Id ornare arcu odio ut sem nulla pharetra diam.</p>
-               <a href="#" class="read-more">Read more</a>
-            </div>
-         </div>
-         <!--/Timeline item-->
-   
-         <!--Timeline item-->
-         <div class="timeline-carousel__item" style="width: 75%;">
-            <div class="timeline-carousel__image">
-               <div class="media-wrapper media-wrapper--overlay" style="background: url('https://scontent.frdp1-1.fna.fbcdn.net/v/t39.30808-6/274461587_350377790431738_9175793229721353960_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_ohc=igHGXjRKgKIAX9QeRON&_nc_ht=scontent.frdp1-1.fna&oh=00_AT-w0ZS-xBCHEFM9NGnXZ-pJm3lq9UtkczUIiKBGWcmxQg&oe=621B99E2') center center; background-size:cover;"></div>
-            </div>
-            <div class="timeline-carousel__item-inner">
-               <span class="year">2017</span>
-               <span class="month">Pulvinar neque laoreet suspendisse</span>
-               <p>Pulvinar neque laoreet suspendisse interdum consectetur. Libero volutpat sed cras ornare. Ac auctor augue mauris augue.</p>
-               <a href="#" class="read-more">Read more</a>
-            </div>
-         </div>
-         <!--/Timeline item-->
-   
-         <!--Timeline item-->
-         <div class="timeline-carousel__item" style="width: 75%;">
-            <div class="timeline-carousel__image">
-               <div class="media-wrapper media-wrapper--overlay" style="background: url('https://scontent.frdp1-1.fna.fbcdn.net/v/t39.30808-6/274461587_350377790431738_9175793229721353960_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_ohc=igHGXjRKgKIAX9QeRON&_nc_ht=scontent.frdp1-1.fna&oh=00_AT-w0ZS-xBCHEFM9NGnXZ-pJm3lq9UtkczUIiKBGWcmxQg&oe=621B99E2') center center; background-size:cover;"></div>
-            </div>
-            <div class="timeline-carousel__item-inner">
-               <span class="year">2015</span>
-               <span class="month">Egestas quis ipsum</span>
-               <p>Non odio euismod lacinia at. Egestas quis ipsum suspendisse ultrices gravida. Dui nunc mattis enim ut tellus elementum sagittis vitae. Lectus quam id leo in vitae turpis massa sed elementum. Ridiculus mus mauris vitae ultricies leo integer malesuada. Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus./p>
-                  <a href="#" class="read-more">Read more</a>
-            </div>
-         </div>
-         <!--/Timeline item-->
+        
    
       </div>
    </section>
