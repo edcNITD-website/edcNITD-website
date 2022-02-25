@@ -52,7 +52,7 @@
                             <h3 class="font-semibold pl-8">{{subtask.task.number}}.{{subtask.number}} | {{subtask.title}}</h3>
                             <p class="pl-8">{{subtask.description}}</p>
                             <div class="w-full my-4 flex flex-wrap gap-4 justify-center">
-                                <a class="mx-auto px-4 py-2 font-semibold bg-gradient-to-l from-indigo-600 to-red-500 text-slate-50 rounded-full" href="{{amb.get_current_subtask.submission_url}}">Submit Task Now</a>
+                                <a class="subtask-submit-link mx-auto px-4 py-2 font-semibold bg-gradient-to-l from-indigo-600 to-red-500 text-slate-50 rounded-full" href="{{subtask.submission_url}}">Submit Task Now</a>
                             </div>
                         </div>
                     {% endfor %}

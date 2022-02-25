@@ -207,6 +207,11 @@ def profile(request):
         context['user_details'] = request.user
     return render(request,'campus_ambassador/profile.html',context)
 
+def forgot_password(request):
+    context = {}
+    context = prepareContext(request,context)
+    return render(request,'campus_ambassador/forgotten_password.html',context)
+
 @login_required
 def score_task(request):
     context = {}
