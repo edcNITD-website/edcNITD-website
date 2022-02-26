@@ -15,5 +15,7 @@ urlpatterns = [
     path('score_task/',score_task,name='score_task'),
     path('subtask_completed/<str:amb_uid>',completed_subtask,name='subtask_completed'),
     path('remove_subtask_completed/<str:amb_uid>',remove_comp_subtask,name='remove_completed_subtask'),
+
     path('forgotten_password/',forgot_password,name='forgotten_password'),
+
 ]
