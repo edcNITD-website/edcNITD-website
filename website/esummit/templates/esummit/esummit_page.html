@@ -3,114 +3,118 @@
 {% block content %}
 
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-  <link href="{% static 'css/timeline.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<link href="{% static 'css/timeline.css' %}" rel="stylesheet">
+<link href="{% static 'css/esummitpage.css' %}" rel="stylesheet">
  
- <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous"></script>
- <!-- <link rel="stylesheet" type="text/css" href="slick/slick-theme.min.css"> original link -->
- <!-- <link rel="stylesheet" type="text/css" href="slick/accessible-slick-theme.min.css"> -->
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous"></script>
+<!-- <link rel="stylesheet" type="text/css" href="slick/slick-theme.min.css"> original link -->
+<!-- <link rel="stylesheet" type="text/css" href="slick/accessible-slick-theme.min.css"> -->
 
- <!-- <script type="text/javascript" src="slick/slick.min.js"></script> -->
- <!-- <script src="{% static 'js/esummitpage1.js' %}"></script>
- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
-    <!-- <script src="{% static 'js/esummitpage1.js' %}"></script> -->
+<!-- <script type="text/javascript" src="slick/slick.min.js"></script> -->
+<!-- <script src="{% static 'js/esummitpage1.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
+<!-- <script src="{% static 'js/esummitpage1.js' %}"></script> -->
   
  
 
-  <section id="intro">
+<section id="intro">
 
-    <div class="intro-container">
+  <div class="intro-container">
 
-      <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
-
-
-
-        <ol class="carousel-indicators"></ol>
+    <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
 
 
 
-        <div class="carousel-inner" role="listbox">
+      <ol class="carousel-indicators"></ol>
 
 
 
-          <div class="carousel-item active" style="background-image: url('{% static 'img/esummit/emc1.jpeg' %}')">
+      <div class="carousel-inner" role="listbox">
 
-            <div class="carousel-container">
+        {% for slider in active_slider %}
 
-              <div class="container">
+        <div class="carousel-item active" style="background-image: url('{{slider.event_img.url}}')">
 
-                <h2 class="animate__animated animate__fadeInDown">Entrepreneurship Summit 2021</h2>
+          <div class="carousel-container">
 
-                <p class="animate__animated animate__fadeInUp">
+            <div class="container">
 
-                  Quintessence of Innovation
-		<br>
-		<br>
-		 2-4th April 2021
+              <h2 class="animate__animated animate__fadeInDown">Entrepreneurship Summit {{slider.year}}</h2>
 
-                 </p>
+              <p class="animate__animated animate__fadeInUp">
 
-                <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="carousel-item" style="background-image: url('{% static 'img/esummit/emc2.jpeg' %}')">
-
-            <div class="carousel-container">
-
-              <div class="container">
-
-                <h2 class="animate__animated animate__fadeInDown">Exciting Events and Workshops</h2></h2>
-
-                <p class="animate__animated animate__fadeInUp">
-                  
-                  Learn about the various events in store at E-Summit’21
+                {{slider.subtitle}}
                 
-                </p>
 
-                <a href="#services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Know more</a>
+              </p>
 
-              </div>
+              <a href="#{{slider.btn_link}}"
+                class="btn-get-started scrollto animate__animated animate__fadeInUp">{{slider.btn_content}}</a>
 
             </div>
 
           </div>
 
+        </div>
 
+        {% endfor %}
+        {% for slider in slider %}
 
-          <div class="carousel-item" style="background-image: url('{% static 'img/esummit/emc3.jpeg' %}')">
+        <div class="carousel-item" style="background-image: url('{{slider.event_img.url}}')">
 
-            <div class="carousel-container">
+          <div class="carousel-container">
 
-              <div class="container">
+            <div class="container">
 
-                <h2 class="animate__animated animate__fadeInDown"><h2>A Stellar Speaker Line-Up</h2>
+              <h2 class="animate__animated animate__fadeInDown">{{slider.title}}</h2>
+
+              <p class="animate__animated animate__fadeInUp">
+
+                {{slider.subtitle}}
+
+              </p>
+
+              <a href="#{{slider.btn_link}}"
+                class="btn-get-started scrollto animate__animated animate__fadeInUp">{{slider.btn_content}}</a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {% endfor %}
+
+        <!-- <div class="carousel-item" style="background-image: url('{% static 'img/esummit/emc3.jpeg' %}')">
+
+          <div class="carousel-container">
+
+            <div class="container">
+
+              <h2 class="animate__animated animate__fadeInDown">
+                <h2>A Stellar Speaker Line-Up</h2>
 
                 <p class="animate__animated animate__fadeInUp">
 
                   From YouTubers to CEOs and Co-Founders, we have it all covered!
-                
+
                 </p>
 
-                <a href="#testimonials" class="btn-get-started scrollto animate__animated animate__fadeInUp">OUR PAST SPEAKERS</a></a>
-
-              </div>
+                <a href="#testimonials" class="btn-get-started scrollto animate__animated animate__fadeInUp">OUR PAST
+                  SPEAKERS</a></a>
 
             </div>
 
           </div>
 
+        </div> -->
 
-<!--
+
+        <!--
           <div class="carousel-item" style="background-image: url('static/img/intro-carousel/4.jpg')">
 
             <div class="carousel-container">
@@ -133,68 +137,75 @@
 
           </div>-->
 
-        </div>
-
-
-
-        <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
-
-          <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
-
-          <span class="sr-only">Previous</span>
-
-        </a>
-
-
-
-        <a class="carousel-control-next" href="#introCarousel" role="button" data-slide="next">
-
-          <span class="carousel-control-next-icon ion-chevron-right" aria-hidden="true"></span>
-
-          <span class="sr-only">Next</span>
-
-        </a>
-
-
-
       </div>
+
+
+
+      <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
+
+        <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
+
+        <span class="sr-only">Previous</span>
+
+      </a>
+
+
+
+      <a class="carousel-control-next" href="#introCarousel" role="button" data-slide="next">
+
+        <span class="carousel-control-next-icon ion-chevron-right" aria-hidden="true"></span>
+
+        <span class="sr-only">Next</span>
+
+      </a>
+
+
 
     </div>
 
-  </section><!-- End Intro Section -->
+  </div>
+
+</section><!-- End Intro Section -->
 
 
 
-  <main id="main">
+<main id="main">
 
 
 
-    <!-- ======= About Us Section ======= -->
+  <!-- ======= About Us Section ======= -->
 
-    <section id="about">
+  <section id="about">
 
-      <div class="container" data-aos="fade-up">
+    <div class="container" data-aos="fade-up">
 
 
 
-        <header class="section-header">
+      <header class="section-header">
 
-          <h3>About E-Summit</h3>
+        <h3>About E-Summit</h3>
 
-          <p>
-         	   Our flagship event, E-Summit, currently in its 4th edition, has hosted some of the most prominent stalwarts of the industry over the years 
-		   and is famed as the second largest E-Summit of its kind in eastern India. 
-		   Through a gamut of events such as entrepreneurial guest talks, workshops, competitions and investor meet-ups, 
-		   E-Summit aims to help students get exposure about entrepreneurship and build a strong start-up ecosystem in the country.
-			<br>
-		This year, E-Summit NIT Durgapur comes to you from the comfort of your homes on 2nd, 3rd and 4th April 2021.  
-          </p>
+        <p>
+          Our flagship event, E-Summit, currently in its 4th edition, has hosted some of the most prominent stalwarts of
+          the industry over the years
+          and is famed as the second largest E-Summit of its kind in eastern India.
+          Through a gamut of events such as entrepreneurial guest talks, workshops, competitions and investor meet-ups,
+          E-Summit aims to help students get exposure about entrepreneurship and build a strong start-up ecosystem in
+          the country.
+          <br>
+          This year, E-Summit NIT Durgapur comes to you from the comfort of your homes on 2nd, 3rd and 4th April 2021.
+        </p>
 
-        </header>
+      </header>
+    </div>
+    {% if year.yt_link %}
+    <div class="container iframe-container" data-aos="fade-up">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe src="{{year.yt_link}}" title="YouTube video player">
+        </iframe>
       </div>
-
-    </section>
-    <!-- End About Us Section -->
+    </div>
+    {% endif %}
 
     <!-- timeline section  -->
     <section style="background:#f7f7f7;" id="roadmap">
@@ -272,322 +283,216 @@
   <!-- end of timeline -->
 
 
-    <!-- ======= Events Section ======= -->
 
-    <section id="services">
+  </section>
+  <!-- End About Us Section -->
 
-      <div class="container" data-aos="fade-up">
 
-        <header class="section-header wow fadeInUp">
+  <!-- ======= Events Section ======= -->
 
-          <h3>Events</h3>
+  <section id="services">
+
+    <div class="container" data-aos="fade-up">
+
+      <header class="section-header wow fadeInUp">
+
+        <h3>Events</h3>
+
+        <p>
+          During E-Summit, we host a series of entrepreneurial events.
+          Workshops, competitions, discussion panels, business pitches and E-Talks are conducted.
+          The main objective behind these events is to cultivate entrepreneurial qualities in students and motivate them
+          to dream big.
+        </p>
+
+      </header>
+
+      <div class="container">
+        <div class="row">
+          {% for event in events %}
+          <div class="col-lg-4 col-md-6 col-xs-12" data-aos="fade-up">
+            
+            <div class="card" style="padding: auto;">
+              <div class="card__head">
+                <div class="card__image"><img class="card-img-top" style="width: 100%; height: 100%;"
+                    src="{{event.event_img.url}}" alt="Card image"></div>
+              </div>
+              <div class="card__body">
+                <h2 class="card__headline" style="color: var(--theme-color);"><strong>{{event.event_title}}</strong>
+                </h2>
+              </div>
+              <div class="card__foot">
+                <p class="card__text">
+                  {{event.event_detail}}
+                </p>
+              </div>
+              <div class="card__border"></div>
+            </div>
+            
+          </div>
+          {% endfor %}
+
+        </div>
+        <br>
+        <a href="{% url 'event_page' %}" class="btn-get-started scrollto animate__animated animate__fadeInUp"
+          style="position: absolute; right: 10px;">View all E-SUMMIT Events <i class="fa fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+
+    </div>
+  </section>
+
+  <!-- End Events Section -->
+
+
+
+<!-- ======= Campus Ambassador Section START======= -->
+
+  <section id="cap-top" class="fluid-container cap-top" style=" background:var(--theme-color);">
+    <div class="card_content in">
+
+      <div class="fluid-container inner_content_card row">
+        <div class="col-md-6">
+          <div class="lines">
+            <p>CAMPUS AMBASSADOR PROGRAM</p>
+          </div>
+          
+          <div class=" anime_bord cap-content-box">
+            <hr/>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime eligendi accusamus inventore, ea repellendus fuga est laboriosam, laborum qui deserunt nihil magnam sit repudiandae explicabo! Ad repellendus, pariatur voluptatum repellat magni quibusdam animi itaque laudantium, provident labore error molestiae eveniet minima cupiditate quis, obcaecati ab fugiat optio eius commodi laboriosam voluptates natus! Officia eveniet, voluptas quaerat accusamus vero officiis exercitationem.</h6>
+          </div>
+          
+          <div class="button-wrapper slide-border">
+              <div class="button8div"></div>
+              <input class="button8" type="button" name="button7" value="Apply Now"/>
+          </div>
+          
+        </div>
+
+        <div class="col-md-6 image_place">
+          <div class="cap-image-vector">
+            <img src="{% static 'img/capAmb.svg' %}"  class="capAmb_img" alt="">
+          </div>
+        </div>
+
+      </div>
+      
+    </div>
+
+  
+  </section>
+
+<!-- ======= Campus Ambassador Section END======= -->
+
+
+
+
+
+  <!-- ======= Speakers Section ======= -->
+
+  <section id="testimonials" class="section-bg">
+    <div class="container" data-aos="fade-up">
+
+      <header class="section-header">
+
+        <h3>Speakers</h3>
+
+      </header>
+      <div id="bar"></div>
+
+      <div class="owl-carousel speakers-carousel">
+
+        {% for speaker in speakers %}
+
+        <div class="testimonial-item">
+
+          <img src="{{speaker.speaker_img.url}}" class="testimonial-img" alt="">
+
+          <h3>{{speaker.speaker_title}}</h3>
+
+          <h4>{{speaker.speaker_subtitle}}</h4>
 
           <p>
-            During E-Summit, we host a series of entrepreneurial events. 
-            Workshops, competitions, discussion panels, business pitches and E-Talks are conducted. 
-            The main objective behind these events is to cultivate entrepreneurial qualities in students and motivate them to dream big.
+
+            <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
+
+            {{speaker.speaker_desc}}
+
+            <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
+
           </p>
 
-        </header>
+        </div>
 
-        <div class="container">
-<div class="row">
-  <div class="col-sm" data-aos="fade-up">
-    
-      <div class="card" style="padding: auto;">
-        <div class="card__head">
-          <div class="card__image"><img class="card-img-top" style="width: 100%; height: 100%;" src="{% static 'img/esummit/auction.jpg'%}" alt="Card image"></div>
-        </div>
-        <div class="card__body">
-          <h2 class="card__headline" style="color: var(--theme-color);"><strong>Auction Arcadia</strong></h2>
-          </div>
-        <div class="card__foot">
-          <p class="card__text" >
-        	Auction Arcadia brings an opportunity to bid for the players and form your IPL teams.
-		 A dedicated auctioneer controls the proceedings of this event and at last, it ends with a settles squad for every IPL Team.
-		With online game simulation, E-SUMMIT ’21 brings this unpredictable game into play by organising Auction Arcadia.
-          </p>
-        </div>
-        <div class="card__border"></div>
-      </div>
-    
-  </div>
+        {% endfor %}
 
-  <div class="col-sm" data-aos="fade-up">
-      <div class="card" style="padding: auto;">
-      <div class="card__head">
-        <div class="card__image"><img class="card-img-top" style="width: 100%; height: 100%;" src="{% static 'img/esummit/etalk.jpeg'%}" alt="Card image"></div>
       </div>
-      <div class="card__body">
-        <h2 class="card__headline" style="color: var(--theme-color);"><strong>E-Talks</strong></h2>
-        </div>
-      <div class="card__foot">
-        <p class="card__text">
-          There is no better learning about entrepreneurship than hearing it from the people who have carved an undisputed name in their respective fields.
-	  At E-Talks which draws in huge crowds every year, we will bring in some of the finest and most distinguished names from a range of diverse fields.
-	  From YouTube superstars to CEOs and Founders, we have it all covered.
-        </p>
-      </div>
-      <div class="card__border"></div>
+
     </div>
-  
-  </div>
+  </section>
 
-  <div class="col-sm" data-aos="fade-up">
-    <div class="card">
-      <div class="card__head">
-        <div class="card__image"><img class="card-img-top" style="width: 100%; height: 100%;" src="{% static 'img/esummit/pitchfest.jpeg'%}" alt="Card image"></div>
-      </div>
-      <div class="card__body">
-        <h2 class="card__headline" style="color: var(--theme-color);"><strong>Pitchfest</strong></h2>
+  <!-- ======= End Speakers Section ======= -->
+
+  <br>
+  <br>
+
+  <div class="container">
+    </head>
+
+
+    <header class="section-header">
+
+      <h3>Glimpses</h3>
+
+    </header>
+
+
+    <!-- Swiper -->
+    <div class="swiper-container" data-aos="fade-up" style="padding-top: 50px; padding-bottom: 50px;" id="glimpses">
+      <div class="swiper-wrapper">
+        {% for glimpse in glimpses %}
+        <div class="swiper-slide" style="background-image:url('{{glimpse.glimpse_img.url}}');
+              height:300px; width:350px;background-position: center;
+              background-size: cover;">
+          <div class="container" style="max-width: 300px; height: 250px;"></div>
+          <div class="panel panel-default"
+            style="background-color: rgba(0,0,0,0.7); width: 100%; height: 50px; text-align: center;">
+            <div class="panel-body" style="padding-top: 10px; color: var(--theme-color);">{{glimpse.glimpse_desc}}</div>
+          </div>
         </div>
-      <div class="card__foot">
-        <p class="card__text">
-         	 This E-Summit’21, PITCHFEST brings you the opportunity to present your B-Plan in front of eminent personalities in the world of business
-		 and get mentored in the right direction. Winners might even get a chance to be funded by our investors
-        </p>
+        {% endfor %}
+
+
       </div>
-      <div class="card__border"></div>
+      <div class="swiper-pagination"></div>
     </div>
-  </div>
-</div>
-<br>
-<a href="{% url 'event_page' %}" class="btn-get-started scrollto animate__animated animate__fadeInUp" style="position: absolute; right: 10px;">View all E-SUMMIT'21 Events  <i class="fa fa-arrow-right"></i></a>
-</div>
-</div>
-  
 
-      </div>
-    </section>
 
-    <!-- End Events Section -->
-
-
-    <!-- ======= Speakers Section ======= -->
-
-    <section id="testimonials" class="section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <header class="section-header">
-
-          <h3>Past Speakers</h3>
-
-        </header>
-        <div id="bar"></div>
-
-        <div class="owl-carousel speakers-carousel">
-
-          <div class="testimonial-item">
-
-            <img src="{% static 'img/esummit/prajakta.jpeg'%}" class="testimonial-img" alt="">
-
-            <h3>Ms. Prajakta Koli</h3>
-
-            <h4>YouTuber, popularly known as “MostlySane”</h4>
-
-            <p>
-
-              <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
-
-              One of India’s biggest YouTube stars, Prajakta Koli, spoke at E-SUMMIT’19 to a jam-packed audience of over 6000 students. She covered a range of topics, from battling stereotypes about women in comedy to her perspective on the reason behind her insane fame. 
-
-              <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
-
-            </p>
-
-          </div>
-
-
-
-
-         <div class="testimonial-item">
-
-            <img src="{% static 'img/esummit/rahul.jpeg'%}" class="testimonial-img" alt="">
-
-            <h3>Mr. Rahul Kaushik</h3>
-
-            <h4>Founder, The Melting Words </h4>
-
-            <p>
-
-              <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
-
-              Mr. Rahul Kaushik’s work and his page, The Melting Words has been wildly popular among the youth and the enthusiasm of the crowd was certainly unparalleled. The session included topics ranging from the source of inspiration behind his works to his formula for mega social media popularity.
-
-              <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
-
-            </p>
-
-          </div>
-
-
-
-          <div class="testimonial-item">
-
-            <img src="{% static 'img/esummit/shaan.jpeg'%}" class="testimonial-img" alt="">
-
-            <h3>Ms. Shaan Suhas Kumar</h3>
-
-            <h4>Miss India Earth 2017 </h4>
-
-            <p>
-
-              <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
-
-              The maiden edition of E-Summit in 2018 proudly hosted the very talented, Ms. Shaan Suhas Kumar, India’s representative at the Miss Earth 2017. She spoke about her incredible journey of being a girl from a small city in India to achieving international fame by representing India at one of the biggest beauty pageants in the world.
-
-              <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
-
-            </p>
-
-          </div>
-
-
-
-          <div class="testimonial-item">
-
-            <!--<img src="" class="testimonial-img" alt="">-->
-            <div class="row" style="padding-left: 35%">
-              <div class="col-sm-3 col-sm-offset-1"><img src="{% static 'img/esummit/mir.jpeg'%}" class="testimonial-img" alt=""></div>
-              <div class="col-sm-3"><img src="{% static 'img/esummit/indra.jpeg'%}" class="testimonial-img" alt=""></div>
-            </div>
-            <h3>Mr. Mir Afsar Ali & Mr. Indrajit Lahiri</h3>
-
-            <h4>(Indian RJ, TV Anchor) & (YouTuber, Blogger)</h4>
-
-            <p>
-
-              <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
-		During the virtual E-Summit 2021, we had with us, Mr. Mir Afsar Ali, the MIRacle himself, and Mr. Indrajit Lahiri, or FOODKA. Through the session, they enlightened us on the thought behind their initiative FOODKA, and of course we gathered some insights on how comic relief can bring us out of the gloomiest of situations
-              <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
-
-            </p>
-
-          </div>
-
-
-
-          <div class="testimonial-item">
-
-            <img src="{% static 'img/esummit/abhiandniyu.jpeg'%}" class="testimonial-img" alt="">
-
-            <h3>Mr. Abhiraj Rajadhyaksha and Ms. Niyati Mavinkurve</h3>
-
-            <h4>YouTuber Couple, popularly known as Abhi and Niyu</h4>
-
-            <p>
-
-              <img src="{% static 'img/quote-sign-left.png' %}" class="quote-sign-left" alt="">
-
-              	Abhi and Niyu, immensely popular content creators who together gained popularity through their initiative #100ReasonsToLoveIndia spoke at the virtual E-Summit 2020. In the panel discussion, the duo revealed that one of the reasons behind their #100ReasonsToLoveIndia series was to educate millennials about the beauty of India and the historical significance it holds.
-
-              <img src="{% static 'img/quote-sign-right.png' %}" class="quote-sign-right" alt="">
-
-            </p>
-          </div>
-        </div>
-        
-      </div>
-    </section>
-
-        <!-- ======= End Speakers Section ======= -->
-
-        <br>
-        <br>
-
-        <div class="container">
-        </head>
-         <header class="section-header">
-    
-            <h3>Glimpses</h3>
-    
-          </header>
-          <!-- Swiper -->
-          <div class="swiper-container" data-aos="fade-up" style="padding-top: 50px; padding-bottom: 50px;" id="glimpses">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide" style="background-image:url('{% static 'img/esummit/cr1.jpeg' %}');
-              height:300px; width:350px;background-position: center;
-              background-size: cover;">
-                <div class="container" style="max-width: 300px; height: 250px;"></div>
-                <div class="panel panel-default" style="background-color: rgba(0,0,0,0.7); width: 100%; height: 50px; text-align: center;">
-                  <div class="panel-body" style="padding-top: 10px; color: var(--theme-color);">Auction Arcadia: Favourite among Cricket fans</div>
-                </div>
-              </div>
-              <div class="swiper-slide" style="background-image:url('{% static 'img/esummit/cr2.jpeg' %}');
-              height:300px; width:350px;background-position: center;
-              background-size: cover;">
-                <div class="container" style="max-width: 300px; height: 250px;"></div>
-                <div class="panel panel-default" style="background-color: rgba(0,0,0,0.7); width:  100%; height: 50px; text-align: center;">
-                  <div class="panel-body" style="padding-top: 10px; color: var(--theme-color);">Board Room: A game of wits and strategy</div>
-                </div>
-              </div>
-              <div class="swiper-slide" style="background-image:url('{% static 'img/esummit/cr3.jpeg' %}');
-              height:300px; width:350px;background-position: center;
-              background-size: cover;">
-                <div class="container" style="max-width: 300px; height: 250px;"></div>
-                <div class="panel panel-default" style="background-color: rgba(0,0,0,0.7); width:  100%; height: 50px; text-align: center;">
-                  <div class="panel-body" style="padding-top: 10px; color: var(--theme-color);">Felicitation Ceremony</div>
-                </div>
-              </div>
-              <div class="swiper-slide" style="background-image:url('{% static 'img/esummit/cr4.jpeg' %}');
-              height:300px; width:350px;background-position: center;
-              background-size: cover;">
-                <div class="container" style="max-width: 300px; height: 250px;"></div>
-                <div class="panel panel-default" style="background-color: rgba(0,0,0,0.7); width:  100%; height: 50px; text-align: center;">
-                  <div class="panel-body" style="padding-top: 10px; color: var(--theme-color);">Rahul Kaushik at E-SUMMIT'19</div>
-                </div>
-              </div>
-              <div class="swiper-slide" style="background-image:url('{% static 'img/esummit/cr5.jpeg' %}');
-              height:300px; width:350px;background-position: center;
-              background-size: cover;">
-                <div class="container" style="max-width: 300px; height: 250px;"></div>
-                <div class="panel panel-default" style="background-color: rgba(0,0,0,0.7); width: 100%; height: 50px; text-align: center;">
-                  <div class="panel-body" style="padding-top: 10px; color: var(--theme-color);">Inauguration Ceremony</div>
-                </div>
-              </div>
-              <div class="swiper-slide" style="background-image:url('{% static 'img/esummit/cr6.jpeg' %}');
-              height:300px; width:350px;background-position: center;
-              background-size: cover;">
-                <div class="container" style="max-width: 300px; height: 250px;"></div>
-                <div class="panel panel-default" style="background-color: rgba(0,0,0,0.7); width:  100%; height: 50px; text-align: center;">
-                  <div class="panel-body" style="padding-top: 10px; color: var(--theme-color);">Unique and Fun events</div>
-                </div>
-              </div>
-              
-              </div>
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
-
-        <br>
-
-        <!-- ======= Sponsor Section ======= -->
-        <section id="testimonials" class="section-bg">
-        <div class="container" data-aos="fade-up">
-        <section id="clients">
+  <!-- ======= Sponsor Section ======= -->
+  <section id="testimonials" class="">
+    <div class="container" data-aos="fade-up">
+      <section id="clients">
         <div class="container" data-aos="zoom-in">
 
-        <header class="section-header">
-          <h3>Our Sponsors</h3>
-        </header>
+          <header class="section-header">
+            <h3>Our Sponsors</h3>
+          </header>
 
-        <div class="owl-carousel clients-carousel">
-          <img src="{% static 'img/esummit/sp1.jpeg' %}" alt="image1">
-          <img src="{% static 'img/esummit/sp2.jpeg' %}" alt="image2">
-          <img src="{% static 'img/esummit/sp3.jpeg' %}" alt="image3">
-          <img src="{% static 'img/esummit/sp4.jpeg' %}" alt="image4">
-          <img src="{% static 'img/esummit/sp5.jpeg' %}" alt="image5">
-          <img src="{% static 'img/esummit/sp6.jpeg' %}" alt="image6">
+          <div class="owl-carousel clients-carousel">
+            <img src="{% static 'img/esummit/sp1.jpeg' %}" alt="image1">
+            <img src="{% static 'img/esummit/sp2.jpeg' %}" alt="image2">
+            <img src="{% static 'img/esummit/sp3.jpeg' %}" alt="image3">
+            <img src="{% static 'img/esummit/sp4.jpeg' %}" alt="image4">
+            <img src="{% static 'img/esummit/sp5.jpeg' %}" alt="image5">
+            <img src="{% static 'img/esummit/sp6.jpeg' %}" alt="image6">
+          </div>
+
         </div>
-       
-      </div>
-    </section><!-- End SPonsor Section -->
+      </section><!-- End SPonsor Section -->
 
     </div>
-    </section>
-    <script src="{% static 'js/timeline.js' %}"></script>
-
-  </main>
-
-  {% endblock %}
+  </section>
+  <script src="{% static 'js/timeline.js' %}"></script>
+</main>
+{% endblock %}
