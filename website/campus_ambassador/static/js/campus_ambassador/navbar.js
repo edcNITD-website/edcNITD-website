@@ -5,7 +5,7 @@ function toggleMenu() {
 }
 
 $(window).scroll(function() {
-    if ($(this).scrollTop() > 100) {
+    if ($(this).scrollTop() > 50) {
         $('#navbar').addClass('bg-slate-900');
         $('.nav-item').addClass('scroll');
         

@@ -3,7 +3,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ["'Sarabun'",'sans-serif'],
+        'open-sans': ["'Open Sans'", 'sans'],
+        'montserrat': ["'Montserrat'", 'sans-serif'],
       }
     },
   },
