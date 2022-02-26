@@ -4,26 +4,6 @@
     z-index: -1;
   }
   
-  body {
-    box-sizing: border-box;
-    font-family: "ABeeZee", sans-serif;
-    line-height: 1.48;
-    font-size: 16px;
-    color: #333;
-  }
-  
-  body *,
-  body *::after,
-  body *::before {
-    box-sizing: inherit;
-  }
-  
-  .container {
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
   .section__headline {
     font-family: "Varela Round", sans-serif;
     font-size: 62px;
@@ -155,3 +135,4 @@
   .c-note a {
     color: #1e88e5;
   }
+

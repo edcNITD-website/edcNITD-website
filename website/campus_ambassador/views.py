@@ -61,9 +61,21 @@ def home(request):
     incentives = Incentive.objects.all().order_by('title')
     responsibilities = Responsibliity.objects.all().order_by('title')
     timeline = TimeLineEvent.objects.all().order_by('deadline')
+    new_timeline = []
+    for event in timeline:
+        new_event = event
+        new_event.latest = False
+        new_timeline.append(new_event)
+    print(new_timeline)
+    for event in new_timeline:
+        if not event.completed:
+            print(event)
+            event.latest = True
+            print(event.deadline)
+            break
     context['incentives'] = incentives
     context['responsibilities'] = responsibilities
-    context['timeline'] = timeline
+    context['timeline'] = new_timeline
     context['faqs'] = FAQ.objects.filter(active=False).order_by('title')
     context['active_faqs'] = FAQ.objects.filter(active=True).order_by('title')
     return render(request,'campus_ambassador/home.html',context)
@@ -122,6 +134,14 @@ def register(request):
 def edit_profile(request):
     context = {}
     context= prepareContext(request,context)
+    if context['is_ambassador']:
+        avatars = Avatar.objects.all()
+        new_avatars = []
+        for avatar in avatars:
+            new_avatar = avatar
+            new_avatar.selected = avatar.image_url == context['amb'].profile_img
+            new_avatars.append(new_avatar)
+        context['avatars'] = new_avatars
     if request.method == 'POST':
         if context['is_ambassador']:
             if 'edit_amb' in request.POST:
@@ -129,6 +149,12 @@ def edit_profile(request):
                 amb.facebook = request.POST.get('facebook')
                 amb.linkedin = request.POST.get('linkedin')
                 amb.instagram = request.POST.get('instagram')
+                if '' != request.POST.get('profile_img') or None != request.POST.get('profile_img'):
+                    amb.profile_img = request.POST.get('profile_img')
+                if '' != request.POST.get('new_password'):
+                    user = amb.user
+                    user.set_password(request.POST.get('new_password'))
+                    user.save()
                 amb.save()
                 return redirect('/cap/profile')
         if context['is_moderator']:
@@ -153,7 +179,40 @@ def cap_logout(request):
 @login_required
 def profile(request):
     context = {}
+    context = prepareContext(request,context)   
+    if context['is_ambassador']:
+        context['user_details'] = Ambassador.objects.get(user=request.user)
+    elif context['is_moderator']:
+        context['user_details'] = CAPModerator.objects.get(user=request.user)
+    else:
+        context['user_details'] = request.user
+    return render(request,'campus_ambassador/profile.html',context)
+
+def forgot_password(request):
+    context = {}
     context = prepareContext(request,context)
+    return render(request,'campus_ambassador/forgotten_password.html',context)
+
+
+def task_list(request):
+    context={}
+    context = prepareContext(request,context)
+    all_tasks = Task.objects.filter(campaign=context['cur_campaign'])
+    final_all_tasks = []
+    for task in all_tasks:
+        new_task = task
+        new_task.subtasks = SubTask.objects.filter(task=task)
+        final_all_tasks.append(new_task)
+    tasks_per_page = 2
+    paginator_obj = Paginator(final_all_tasks, tasks_per_page)
+    page_num = request.GET.get('page_num')
+    try:
+        pageObj = paginator_obj.get_page(page_num)
+    except PageNotAnInteger:
+        pageObj = paginator_obj.get_page(1)
+    except EmptyPage:
+        pageObj = paginator_obj.get_page(paginator_obj.num_pages)
+    context['tasks_list'] = pageObj
     context['program_has_ended'] = False
     context['next_campaign_exits'] = False
     if context['is_ambassador']:
@@ -205,12 +264,7 @@ def profile(request):
         context['user_details'] = CAPModerator.objects.get(user=request.user)
     else:
         context['user_details'] = request.user
-    return render(request,'campus_ambassador/profile.html',context)
-
-def forgot_password(request):
-    context = {}
-    context = prepareContext(request,context)
-    return render(request,'campus_ambassador/forgotten_password.html',context)
+    return render(request,'campus_ambassador/task_list.html',context)
 
 @login_required
 def score_task(request):
@@ -315,8 +369,3 @@ def leaderboard(request):
     return render(request,'campus_ambassador/leaderboard.html',{'ambassadors': ambassadors,
                                                                 'current_rank': current_rank, 
                                                                 })
-
-
-def task_list(request):
-    context={}
-    return render(request,'campus_ambassador/task_list.html',context)

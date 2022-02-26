@@ -81,8 +81,15 @@ class SubTask(models.Model):
         result = str(self.task.number)+'.'+str(self.number)
         return result
 
+class Avatar(models.Model):
+    name = models.CharField(max_length=200)
+    image_url = models.CharField(max_length=300)
+    def __str__(self) -> str:
+        return self.name
+
 class Ambassador(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
+    profile_img = models.CharField(max_length=300,default='default.png')
     campaign = models.ForeignKey(Campaign,on_delete=models.CASCADE)
     has_completed = models.BooleanField(default=False)
     college = models.CharField(max_length=200)

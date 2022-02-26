@@ -100,29 +100,49 @@ Home
     {% if timeline %}
         <ul id="timelinevents" class="flex flex-col gap-4 justify-center mt-6">
             {% for event in timeline %}
-                <li class="w-full flex odd:flex-row-reverse even:flex-row justify-center gap-4 overflow-visible col-span-1 max-w-screen-md mx-auto text-xs sm:text-sm md:text-base">
-                    <div class="rounded-full text-slate-50 bg-indigo-500 w-12 h-12 grid place-items-center flex-shrink-0 my-auto ">
+                <li class="w-full flex odd:flex-row-reverse even:flex-row justify-center gap-4 overflow-visible col-span-1 max-w-screen-lg mx-auto text-xs sm:text-sm md:text-base">
+                    <div class="rounded-full text-slate-50 bg-blue-600 w-12 h-12 grid place-items-center flex-shrink-0 my-auto">
                         {% if event.completed %}
                             <div class="text-center">
                                 <i class="fas fa-check"></i>
                             </div>
                         {% else %}
-                            <div class="text-center w-8/10 my-auto">
-                                <img src="{% static 'image/campus_ambassador/loader.gif' %}" alt="gif" class="object-contain w-8">
+                            <div class="text-center w-8/10 my-auto overflow-hidden">
+                                <script
+                                src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script><lottie-player src="https://assets6.lottiefiles.com/packages/lf20_ivcifhbu.json" background="transparent" speed="1" style="width: 140%; height: 140%; margin:0px 0px 0px -10px;" loop autoplay></lottie-player>
                             </div>
                         {% endif %}
                     </div>
-                    <div class="p-4 rounded-md text-center bg-slate-200 text-slate-900">
+                    {% if event.latest %}
+                        <div class="p-4 rounded-md text-center bg-slate-200 text-slate-900  md:latest_animation_l md:even:latest_animation_r">
 
-                        <h3 class="font-semibold">{{event.title}} | {{event.deadline|date:'d F, Y'}} </h3>
-                        <p>{{event.content}}</p>
-                    </div>
+                            <h3 class="font-semibold text-xl">
+                                {{event.title}}
+                            </h3>
+                            <h3 class="text-lg">
+                                {{event.deadline|date:'d F, Y'}}
+                            </h3>
+                            <p>{{event.content}}</p>
+                        </div>
+                    {% else %}
+                        <div class="p-4 rounded-md text-center bg-slate-200 text-slate-900 md:timeline_animation_l md:even:timeline_animation_r">
+
+                            <h3 class="font-semibold text-xl">
+                                {{event.title}}
+                            </h3>
+                            <h3 class="text-lg">
+                                {{event.deadline|date:'d F, Y'}}
+                            </h3>
+                            <p>{{event.content}}</p>
+                        </div>
+                    {% endif %}
                 </li>
             {% endfor %}
         </ul>
     {% else %}
      <h2 class="text-xl font-semibold">No timeline added</h2>
     {% endif %}
+
 </div>
 <!-- faq section -->
 <div class="skew-block text-slate-900 bg-gradient-to-tr from-blue-200 to-blue-400">
@@ -154,4 +174,5 @@ Home
     </div>
 </div>
 <script src="{% static 'js/campus_ambassador/faqs.js'%}"></script>
+<script src="{% static 'js/campus_ambassador/timeline.js'%}"></script>
 {% endblock %}

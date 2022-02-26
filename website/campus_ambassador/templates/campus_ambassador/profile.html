@@ -9,58 +9,71 @@
 {% block content %}
 <div class="view-box">
     {% if is_ambassador %}
-        <div class="grid place-items-stretch lg:grid-cols-2 pt-[15vh] gap-4 md:gap-8">
+        <div class="grid place-items-center lg:place-items-start lg:grid-cols-3 pt-[15vh] gap-4 md:gap-8">
             <!-- Profile Section -->
-            <div class="bg-slate-200 text-slate-900 px-3 py-4 rounded-lg w-full flex flex-col justify-center">
-                <h2 class="text-center">{{user_details.campaign}}</h2>
-                <h1>Profile</h1>
-                <h2>Username : {{request.user.username}}</h2>
-                <h2>First Name : {{request.user.first_name}}</h2>
-                <h2>Last Name : {{request.user.last_name}}</h2>
-                <h2>User Details</h2>
-                <h3>{{user_details.college}}</h3>
-                <h3>{{user_details.phone}}</h3>
-                <h3>Unique Code : {{user_details.unique_code}}</h3>
-                <h3>{{user_details.score}}</h3>
-                <h3>{{user_details.facebook}}</h3>
-                <h3>{{user_details.linkedin}}</h3>
-                <h3>{{user_details.instagram}}</h3>
-                <div class="flex justify-center"><a href="{% url 'cap:edit_profile' %}" class="bg-gradient-to-r from-blue-500 to-purple-600 text-slate-50 font-bold px-4 py-2 rounded-full">Edit Profile</a></div>
-            </div>
-            <div class="bg-slate-200 text-slate-900 px-3 py-4 rounded-lg w-full">
-                <div class="flex flex-col mx-auto justify-center text-center">
-                    <h4>Score</h4>
-                    <h4 class="text-4xl font-bold">{{amb.score}}</h4>
+            <div class="bg-slate-200/80 text-slate-900 px-3 py-4 rounded-lg w-full flex flex-col justify-center lg:col-span-2">
+
+                <h1 class="text-2xl font-semibold text-center font-montserrat">Profile</h1>
+                <table class="max-w-screen-sm text-xs sm:text-base">
+                    <tr>
+                        <td class="font-semibold">Name:</td>
+                        <td>{{request.user.first_name}} {{request.user.last_name}}</td>
+                    </tr>
+                    <tr>
+                        <td class="font-semibold">College:</td>
+                        <td>{{user_details.college}}</td>
+                    </tr>
+                    <tr>
+                        <td class="font-semibold">Phone:</td>
+                        <td>{{user_details.phone}}</td>
+                    </tr>
+                    <tr>
+                        <td class="font-semibold">Facebook url:</td>
+                        {% if user_details.facebook %}
+                            <td><a href="{{user_details.facebook}}" class="underline">{{user_details.facebook}}</a></td>
+                        {% else %}
+                            <td><a href="#"></a></td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td class="font-semibold">Instagram url:</td>
+                        {% if user_details.instagram %}
+                            <td><a href="{{user_details.instagram}}" class="underline">{{user_details.instagram}}</a></td>
+                        {% else %}
+                            <td><a href="#"></a></td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td class="font-semibold">Linkedin url:</td>
+                        {% if user_details.linkedin %}
+                            <td><a href="{{user_details.linkedin}}" class="underline">{{user_details.linkedin}}</a></td>
+                        {% else %}
+                            <td><a href="#"></a></td>
+                        {% endif %}
+                    </tr>
+                    
+                </table>
+                <div class="flex justify-center gap-3 mt-2 flex-wrap text-sm sm:text-base">
+                    <a href="{% url 'cap:edit_profile' %}" class="bg-gradient-to-r from-orange-500 to-yellow-600 text-slate-50 font-bold px-4 py-2 rounded-full">Edit Profile</a>
+                    <a href="{% url 'cap:task_list' %}" class="bg-gradient-to-r from-orange-500 to-yellow-600 text-slate-50 font-bold px-4 py-2 rounded-full">Go to Tasks</a>
                 </div>
-                <!-- Task section -->
-                {% if status.code == 201 %}
-                    <h2>Current Task : {{amb.get_current_task.number}}</h2>
-                    <h3 class="font-semibold">{{amb.get_current_task.number}} | {{amb.get_current_task.title}}</h3>
-                    <p>{{amb.get_current_task.description}}</p>
-                    <div class="hidden"><h4 id="secs-left">{{secs_left}}</h4></div>
-                    <div class="">
-                        <h1>Time Left: </h1>
-                        <ul class="flex gap-2 justify-around w-fit mx-auto">
-                            <li class="bg-stone-800 text-stone-50 font-semibold p-3 rounded-md" id="out_days">00</li>
-                            <li class="bg-stone-800 text-stone-50 font-semibold p-3 rounded-md" id="out_hrs">00</li>
-                            <li class="bg-stone-800 text-stone-50 font-semibold p-3 rounded-md" id="out_mins">00</li>
-                            <li class="bg-stone-800 text-stone-50 font-semibold p-3 rounded-md" id="out_secs">00</li>
-                        </ul>
-                    </div>
-                    {% for subtask in amb.get_all_current_subtasks %}
-                        <div class="">
-                            <h3 class="font-semibold pl-8">{{subtask.task.number}}.{{subtask.number}} | {{subtask.title}}</h3>
-                            <p class="pl-8">{{subtask.description}}</p>
-                            <div class="w-full my-4 flex flex-wrap gap-4 justify-center">
-                                <a class="subtask-submit-link mx-auto px-4 py-2 font-semibold bg-gradient-to-l from-indigo-600 to-red-500 text-slate-50 rounded-full" href="{{subtask.submission_url}}">Submit Task Now</a>
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% elif status.code == 202 %}
-                    <h1>{{status.msg}}</h1>
-                {% elif status.code == 204 %}
-                    <h2>{{status.msg}}</h2>
-                {% endif %}
+            </div>
+            <div class="bg-slate-200/80 w-full flex flex-col justify-center rounded-xl pb-4">
+                <div class="overflow-hidden rounded-full">
+                    <img src="{% static 'image/campus_ambassador/'%}{{user_details.profile_img}}" class="max-w-24 max-h-24 mx-auto my-3" alt="profile image">
+                </div>
+                <div class="px-3 text-slate-700 text-center">
+                    <h2 class="font-montserrat">Ambassador ID: {{user_details.unique_code}}</h2>
+                    <h2 class="font-montserrat">Username: {{user_details.user.username}}</h2>
+                </div>
+                <div class="text-center mt-3 text-slate-800 font-montserrat">
+                    <h3 class="font-semibold text-xl">
+                        Score
+                    </h3>
+                    <h1 class="text-4xl font-bold">
+                        {{user_details.score}}
+                    </h1>
+                </div>
             </div>
         </div>
     {% elif is_moderator %}
@@ -68,17 +81,12 @@
             <!-- Profile Section -->
             <div class="bg-slate-200 text-slate-900 px-3 py-4 rounded-lg w-full flex flex-col justify-center">
                 <h1>Profile</h1>
-                <h2>Username : {{request.user.username}}</h2>
-                <h2>Current Campaign: {{cur_campaign}}</h2>
-                <h2>First Name : {{request.user.first_name}}</h2>
-                <h2>Last Name : {{request.user.last_name}}</h2>
-                <h3>{{user_details.college}}</h3>
-                <h3>{{user_details.phone}}</h3>
-                <h3>Unique Code : {{user_details.unique_code}}</h3>
-                <h3>{{user_details.score}}</h3>
-                <h3>{{user_details.facebook}}</h3>
-                <h3>{{user_details.linkedin}}</h3>
-                <h3>{{user_details.instagram}}</h3>
+                <table>
+                    <tr>
+                        <td>Username</td>
+                        <td>{{request.user.username}}</td>
+                    </tr>
+                </table>
                 <div class="flex justify-center flex-wrap gap-4">
                     <a href="{% url 'cap:score_task' %}" class="bg-gradient-to-r from-blue-500 to-purple-600 text-slate-50 font-bold px-4 py-2 rounded-full">Score Task</a>
                 </div>
