@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+    --theme-color: #f38b36;
+}
+
 @layer components{
     /* note View Box acts as the conatiner where content is displayed */
     .view-box{
@@ -17,7 +21,7 @@
     }
 
     .orange-btn{
-        @apply rounded-md bg-gradient-to-bl from-orange-600 to-amber-500 w-fit px-4 py-2 text-slate-50 font-bold cursor-pointer;
+        @apply rounded-md bg-theme_clr w-fit px-4 py-2 text-slate-50 font-bold cursor-pointer;
     }
 
     .nav-item{
@@ -68,5 +72,20 @@
 
     .form_input{
         @apply rounded-md border-slate-200 bg-slate-900 text-slate-200 w-full text-xs sm:text-sm lg:text-base;
+    }
+
+    .grey-line{
+        border-top: #ddd 1px solid;
+        height: 1px;
+        width: 120px;
+        margin-left: calc(50% - 60px);
+        z-index: -1;
+    }
+    
+    .coloured-line{
+        border-top: var(--theme-color) 3px solid;
+        width: 40px;
+        margin-left: calc(50% - 20px);
+        margin-top: -2px;
     }
 }

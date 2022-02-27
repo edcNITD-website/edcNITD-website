@@ -41,8 +41,11 @@ Home
     </div>
 </div>
 <!-- incentive section -->
+<h2 class="bg-clip-text text-transparent bg-gradient-to-tr pt-5 pb-3 from-purple-600 to-blue-700 dark:from-purple-500 dark:to-blue-500 text-3xl text-center font-bold col-span-1 font-montserrat" >Incentives</h2>
+<div class="grey-line"></div>
+<div class="coloured-line"></div>
 <div class="view-box min-h-screen grid grid-cols-1 place-items-center py-6 scroll-mt-8" id="incentives">
-    <h2 class="bg-clip-text text-transparent bg-gradient-to-tr from-purple-600 to-blue-700 dark:from-purple-500 dark:to-blue-500 text-4xl text-center font-bold col-span-1 font-montserrat" >Incentives</h2>
+    
 
     <ul class="flex flex-row col-span-1 gap-4 md:gap-8 flex-wrap justify-center pt-[25px] md:pt-0 text-sm">
         {% if incentives %}
@@ -95,7 +98,9 @@ Home
 </div>
 <!-- Timeline -->
 <div class="view-box min-h-screen flex flex-col justify-start pt-16">
-    <h2 class="bg-clip-text text-transparent bg-gradient-to-br from-purple-600 to-blue-700 dark:from-purple-500 dark:to-blue-500 text-4xl text-center font-bold col-span-1 font-montserrat" >Timeline</h2>
+    <h2 class="bg-clip-text text-transparent bg-gradient-to-br from-purple-600 to-blue-700 dark:from-purple-500 dark:to-blue-500 text-3xl text-center pb-3 font-bold col-span-1 font-montserrat" >Timeline</h2>
+    <span class="grey-line"></span>
+    <span class="coloured-line"></span>
 
     {% if timeline %}
         <ul id="timelinevents" class="flex flex-col gap-4 justify-center mt-6">
@@ -146,10 +151,12 @@ Home
 
 </div>
 <!-- faq section -->
-<div class="skew-block text-slate-900 bg-gradient-to-tr from-blue-200 to-blue-400">
+<div class="skew-block text-slate-900 bg-gradient-to-tr from-blue-200 to-blue-400" style="clip-path: polygon(0 0, 100% 8%,100% 100%, 0 100%);"  >
     <div class="view-box flex flex-col justify-center">
         <div class="text-3xl text-center font-bold">
-            <h2 class="bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to-stone-700 text-4xl text-center font-bold col-span-1 pt-[8vh] sm:pt-0 font-montserrat" >FAQs</h2>
+            <h2 class="bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to-stone-700 text-4xl text-center font-bold col-span-1 pt-[8vh] pb-3 sm:pt-0 font-montserrat" >FAQs</h2>
+            <span class="grey-line"></span>
+    <span class="coloured-line"></span>
         </div>
         <div class="w-full">
         {% if active_faqs %}
@@ -174,6 +181,7 @@ Home
         {% endif %}
     </div>
 </div>
+
 <script src="{% static 'js/campus_ambassador/faqs.js'%}"></script>
 <script src="{% static 'js/campus_ambassador/timeline.js'%}"></script>
 {% endblock %}

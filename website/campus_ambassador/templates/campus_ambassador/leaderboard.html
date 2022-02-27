@@ -1,4 +1,4 @@
-{% extends 'campus_ambassador/base.html' %}
+{% extends 'campus_ambassador/leaderboard_base.html' %}
 {% load static %}
 {% block title %}
 Home
@@ -6,34 +6,51 @@ Home
 {% block head %}
 
 <link rel="stylesheet" href="{% static 'css/campus_ambassador/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/campus_ambassador/leaderboard.css' %}">
 <!-- <link rel="stylesheet" href="leaderboard.css"> -->
 {% endblock %}
 {% block content %}
-<div class="view-box py-[14vh] grid place-self-center">
-    <h2 class="text-center text-4xl bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-700 dark:from-purple-500 dark:to-blue-500 font-bold">LEADERBOARD</h2>
+<div class="view-box py-[18vh] grid place-self-center">
+    <h2 class="text-center text-3xl bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-700 dark:from-purple-500 dark:to-blue-500 font-bold">Standings</h2>
+    
 
-    <table class="table-auto bg-gradient-to-r from-slate-900 to-slate-700" style="margin-top: 5%;">
+    <table class="table-auto" style="margin-top: 20px;">
         <thead>
-        <tr class="text-center">
-            <th class="py-1 border border-slate-500">Rank</th>
-            <th class="py-1 border border-slate-500">Ambassador</th>
-            <th class="py-1 border border-slate-500">Points</th>
-            <th class="py-1 border border-slate-500">College</th>
+        <tr class="md:text-lg text-sm text-center">
+            <th class="py-3 px-2 text-slate-400">Rank</th>
+            <th class="py-3 px-2 text-slate-400">Username</th>
+            <th class="py-3 px-2 text-slate-400">ID</th>
+            <th class="py-3 px-2 text-slate-400">Points</th>
+            <th class="py-3 px-2 text-slate-400">College</th>
+
         </tr>
     </thead>
     <tbody>
         {% if ambassadors %}
         {% for ambassador in ambassadors %}
-        <tr class="text-center">
-            <td class="py-1 border border-slate-500">{{ambassador.rank}}</td>
-            <td class="py-1 border border-slate-500">{{ambassador.user}}</td>
-            <td class="py-1 border border-slate-500">{{ambassador.score}}</td>
-            <td class="py-1 border border-slate-500">{{ambassador.college}}</td>
+
+        <tr class="rowcss hover:bg-gray-700 text-slate-200 rounded-full text-xs md:text-base text-center">
+            <td class="py-2 px-2">
+                <div class="circle w-[25px] h-[25px] bg-slate-50 mx-auto rounded-full grid place-items-center text-slate-900">
+                    {{ambassador.rank}}
+                </div>
+            </td>
+            <td class="py-2 px-2">{{ambassador.user}}</td>
+            <td class="py-2 px-2">{{ambassador.unique_code}}</td>
+            <td class="py-2 px-2">{{ambassador.score}}</td>
+            <td class="py-2 px-2">{{ambassador.college}}</td>
+
         </tr>
         {% endfor %}
         {% endif %}
     </tbody>
     </table>
+
+    <div class="fixed left-0 bottom-0 p-2">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets9.lottiefiles.com/private_files/lf30_rw51hqmt.json"  background="transparent"  speed="1"  style="width: 150px; height: 150px;"  loop  autoplay></lottie-player>
+</div>
+
 
 </div>
    

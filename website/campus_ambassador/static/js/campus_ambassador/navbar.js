@@ -6,11 +6,11 @@ function toggleMenu() {
 
 $(window).scroll(function() {
     if ($(this).scrollTop() > 50) {
-        $('#navbar').addClass('bg-slate-900');
+        $('#navbar').addClass('bg-black');
         $('.nav-item').addClass('scroll');
         
     } else {
-        $('#navbar').removeClass('bg-slate-900');
+        $('#navbar').removeClass('bg-black');
         $('.nav-item').removeClass('scroll');
     }
   });

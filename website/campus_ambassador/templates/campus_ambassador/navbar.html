@@ -1,20 +1,23 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/campus_ambassador/tailwind.css' %}">
-<nav class="fixed top-0 left-0 h-[8vh] w-full z-50 " id="navbar">
-  <ul class="flex flex-row justify-between w-4/5 max-w-screen-xl mx-auto my-auto h-full items-center font-semibold uppercase tracking-wider">
-    <li class="w-8 h-8 my-auto"><img src="{% static 'img/favicon.ico' %}" alt="edc logo" class="object-contain relative left-0 my-auto"></li>
+
+<link rel="stylesheet" href="{% static 'css/campus_ambassador/navbar.css' %}">
+<nav class="fixed text-xs top-0 left-0 md:h-[14vh] h-[12vh] w-full z-50 " id="navbar">
+  <ul class="flex flex-row justify-between w-11/12 max-w-screen-xl mx-auto my-auto h-full items-center font-semibold uppercase tracking-wider">
+    <li class="border-l-4 pl-3 my-auto"><img src="{%static 'img/logo.png' %}" alt="" class="h-[50px] w-auto"></li>
     <li class="hidden lg:block">
-      <ul class="flex flex-row gap-6 ">
-        <li><a href="{% url 'cap:cap_home_page' %}" class="nav-item">Home</a></li>
-        <li><a href="{% url 'home_page' %}" class="nav-item">EDC</a></li>
-        <li><a href="{% url 'cap:cap_home_page' %}#incentives" class="nav-item">Incentives</a></li>
+      <ul class="flex py-3 border-l-4 flex-row gap-6">
+        <li><a href="{% url 'cap:cap_home_page' %}" class="px-3 ml-5 hover:text-blue-400">Home</a></li>
+        <li><a href="{% url 'home_page' %}" class="pr-3 hover:text-blue-400">EDC</a></li>
+        <li><a href="{% url 'cap:cap_home_page' %}#incentives" class="pr-3 hover:text-blue-400">Incentives</a></li>
+        <li><a href="{% url 'cap:leaderboard' %}" class="pr-3 hover:text-blue-400">Leaderboard</a></li>
         {% if user.is_authenticated %}
-          <li><a href="{% url 'cap:task_list' %}">Tasks</a></li>
-          <li><a href="{% url 'cap:profile' %}" class="px-3 bg-gradient-to-r from-blue-900 to-purple-700 nav-item">Profile</a></li>
-          <li><a href="{% url 'cap:logout' %}" class="px-3  bg-gradient-to-r from-blue-400 to-purple-500 nav-item">Logout</a></li>
+          <li><a href="{% url 'cap:profile' %}" class="pr-3 hover:text-blue-400">Profile</a></li>
+          <li><a href="{% url 'cap:logout' %}" class="pr-3 hover:text-blue-400">Logout</a></li>
         {% else %}
-          <li><a href="{% url 'cap:register' %}" class="px-3 bg-gradient-to-r from-blue-900 to-purple-700 nav-item">Register</a></li>
-          <li><a href="{% url 'cap:login' %}" class="px-3  bg-gradient-to-r from-blue-400 to-purple-500 nav-item">Login</a></li>
+          <li><a href="{% url 'cap:register' %}" class="pr-3 hover:text-blue-400">Register</a></li>
+          <li><a href="{% url 'cap:login' %}" class="pr-3 hover:text-blue-400 ">Login</a></li>
+
         {% endif %}
       </ul>
     </li>
@@ -27,10 +30,13 @@
     </li>
   </ul>
   <nav id="mobile-menu" class="hidden flex-col justify-center bg-stone-900 min-h-[95vh]">
-    <ul class="flex flex-col justify-center text-center gap-6">
+
+    <ul class="text-base flex flex-col justify-center text-center gap-6">
       <li><a href="{% url 'cap:cap_home_page' %}" class=" px-3 hover:bg-stone-700 py-2 rounded"onclick="toggleMenu()">Home</a></li>
       <li><a href="{% url 'home_page' %}" class="px-3 hover:bg-stone-700 py-2 rounded">EDC</a></li>
       <li><a href="{% url 'cap:cap_home_page' %}#incentives" class="px-3 hover:bg-stone-700 py-2 rounded" onclick="toggleMenu()">Incentives</a></li>
+      <li><a href="{% url 'cap:leaderboard' %}" class="px-3 hover:bg-stone-700 py-2 rounded" onclick="toggleMenu()">Leaderboard</a></li>
+
       {% if user.is_authenticated %}
         <li><a href="{% url 'cap:logout' %}" class="px-3 hover:bg-stone-700 py-2 rounded">Logout</a></li>
       {% else %}

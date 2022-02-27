@@ -5,6 +5,9 @@ module.exports = {
       fontFamily: {
         'open-sans': ["'Open Sans'", 'sans'],
         'montserrat': ["'Montserrat'", 'sans-serif'],
+      },
+      colors: {
+        theme_clr: "var(--theme-color)",
       }
     },
   },
