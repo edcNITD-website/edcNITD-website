@@ -368,4 +368,4 @@ def leaderboard(request):
             ambassador.rank = current_rank
     return render(request,'campus_ambassador/leaderboard.html',{'ambassadors': ambassadors,
                                                                 'current_rank': current_rank, 
-
+    })
