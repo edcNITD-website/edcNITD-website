@@ -31,7 +31,9 @@ Home
 <div class="skew-block text-slate-900 bg-gradient-to-br from-blue-200 to-blue-400 min-h-screen grid place-items-center">
     <div class="view-box  grid place-items-center grid-cols-1 lg:grid-cols-2 gap-4">
         <div class="col-span-1">
-            <h2 class="text-3xl bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-stone-700 font-bold my-2 font-montserrat">About Campus Ambassador</h2>
+            <h2 class="text-3xl text-slate-900 text-center font-bold my-2 uppercase font-montserrat">About CA</h2>
+            <div class="grey-line"></div>
+            <div class="coloured-line" style="border-top: #0f172a 3px solid !important;"></div>
             <br>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo nulla eum tempore illo eveniet sequi reprehenderit libero vel odio fuga. Sunt maxime aliquid, perferendis incidunt ad repellendus ut iusto dolor eos expedita quia consectetur nostrum fugiat nisi asperiores adipisci, earum, itaque quos? Enim qui dicta quas atque ex libero id?</p>
         </div>
@@ -41,7 +43,9 @@ Home
     </div>
 </div>
 <!-- incentive section -->
-<h2 class="bg-clip-text text-transparent bg-gradient-to-tr pt-5 pb-3 from-purple-600 to-blue-700 dark:from-purple-500 dark:to-blue-500 text-3xl text-center font-bold col-span-1 font-montserrat" >Incentives</h2>
+
+<h2 class="text-theme_clr text-center font-bold text-3xl uppercase pt-5 pb-3 font-montserrat" >Incentives</h2>
+
 <div class="grey-line"></div>
 <div class="coloured-line"></div>
 <div class="view-box min-h-screen grid grid-cols-1 place-items-center py-6 scroll-mt-8" id="incentives">
@@ -51,7 +55,7 @@ Home
         {% if incentives %}
         {% for incentive in incentives %}
             <li class="bg-slate-200 max-w-xs text-slate-900 flex flex-col gap-0 rounded-md px-4 pt-4 pb-[-25px]">
-                <div class="circle w-[50px] h-[50px] top-[-25px] md:w-[80px] md:h-[80px] md:top-[-50px] bg-blue-500 relative left-0 right-0 mx-auto rounded-full grid place-items-center">
+                <div class="circle w-[50px] h-[50px] top-[-25px] md:w-[80px] md:h-[80px] md:top-[-50px] bg-theme_clr relative left-0 right-0 mx-auto rounded-full grid place-items-center">
                     <i class="fas fa-2x hidden md:block {{incentive.icon_class}}" style="color: ivory;"></i>
                     <i class="fas fa md:hidden {{incentive.icon_class}}" style="color: ivory;"></i>
                 </div>
@@ -71,7 +75,9 @@ Home
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-6 mx-auto">
           <div class="text-center mb-20">
-            <h2 class="bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to-stone-700 text-3xl text-center font-bold col-span-1 pt-[8vh] sm:pt-0 font-montserrat" >Responsiblities</h2>
+            <h2 class="text-slate-900 text-3xl text-center uppercase font-bold col-span-1 pt-[8vh] sm:pt-0 font-montserrat pb-3" >Responsiblities</h2>
+            <div class="grey-line"></div>
+    <div class="coloured-line" style="border-top: #0f172a 3px solid !important;"></div>
           </div>
           <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
 
@@ -98,7 +104,8 @@ Home
 </div>
 <!-- Timeline -->
 <div class="view-box min-h-screen flex flex-col justify-start pt-16">
-    <h2 class="bg-clip-text text-transparent bg-gradient-to-br from-purple-600 to-blue-700 dark:from-purple-500 dark:to-blue-500 text-3xl text-center pb-3 font-bold col-span-1 font-montserrat" >Timeline</h2>
+    <h2 class="text-theme_clr text-3xl text-center pb-3 font-bold col-span-1 uppercase font-montserrat" >Timeline</h2>
+
     <span class="grey-line"></span>
     <span class="coloured-line"></span>
 
@@ -151,12 +158,21 @@ Home
 
 </div>
 <!-- faq section -->
+
+<div class="skew-block text-slate-900 bg-gradient-to-br from-blue-200 to-blue-400" style="clip-path: polygon(0 0, 100% 8%,100% 100%, 0 100%);"  >
+    <div class="view-box flex flex-col justify-center">
+        <div class="text-3xl text-center font-bold">
+            <h2 class="text-slate-900 text-3xl text-center font-bold col-span-1 pt-[8vh] pb-3 sm:pt-0 font-montserrat" >FAQs</h2>
+            <div class="grey-line"></div>
+    <div class="coloured-line" style="border-top: #0f172a 3px solid !important;"></div>
+
 <div class="skew-block text-slate-900 bg-gradient-to-tr from-blue-200 to-blue-400" style="clip-path: polygon(0 0, 100% 8%,100% 100%, 0 100%);"  >
     <div class="view-box flex flex-col justify-center">
         <div class="text-3xl text-center font-bold">
             <h2 class="bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to-stone-700 text-4xl text-center font-bold col-span-1 pt-[8vh] pb-3 sm:pt-0 font-montserrat" >FAQs</h2>
             <span class="grey-line"></span>
     <span class="coloured-line"></span>
+
         </div>
         <div class="w-full">
         {% if active_faqs %}

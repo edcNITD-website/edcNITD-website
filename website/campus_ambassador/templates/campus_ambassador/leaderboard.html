@@ -11,14 +11,16 @@ Home
 {% endblock %}
 {% block content %}
 <div class="view-box py-[18vh] grid place-self-center">
-    <h2 class="text-center text-3xl bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-700 dark:from-purple-500 dark:to-blue-500 font-bold">Standings</h2>
-    
-
-    <table class="table-auto" style="margin-top: 20px;">
+    <h2 class="text-center text-3xl text-theme_clr pb-3 font-montserrat font-bold">Standings</h2>
+    <!-- <div class="grey-line"></div>
+    <div class="coloured-line"></div> -->
+<br>
+    <table class="table-auto">
         <thead>
         <tr class="md:text-lg text-sm text-center">
             <th class="py-3 px-2 text-slate-400">Rank</th>
-            <th class="py-3 px-2 text-slate-400">Username</th>
+            <!-- <th class="py-3 px-2 text-slate-400">Username</th> -->
+
             <th class="py-3 px-2 text-slate-400">ID</th>
             <th class="py-3 px-2 text-slate-400">Points</th>
             <th class="py-3 px-2 text-slate-400">College</th>
@@ -31,11 +33,12 @@ Home
 
         <tr class="rowcss hover:bg-gray-700 text-slate-200 rounded-full text-xs md:text-base text-center">
             <td class="py-2 px-2">
-                <div class="circle w-[25px] h-[25px] bg-slate-50 mx-auto rounded-full grid place-items-center text-slate-900">
+                <div class="circle w-[25px] h-[25px] bg-theme_clr mx-auto rounded-full grid place-items-center text-black">
                     {{ambassador.rank}}
                 </div>
             </td>
-            <td class="py-2 px-2">{{ambassador.user}}</td>
+            <!-- <td class="py-2 px-2">{{ambassador.user}}</td> -->
+
             <td class="py-2 px-2">{{ambassador.unique_code}}</td>
             <td class="py-2 px-2">{{ambassador.score}}</td>
             <td class="py-2 px-2">{{ambassador.college}}</td>
@@ -46,9 +49,10 @@ Home
     </tbody>
     </table>
 
-    <div class="fixed left-0 bottom-0 p-2">
+    <div class="fixed left-0 md:scale-90 scale-50 bottom-0 p-1">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<lottie-player src="https://assets9.lottiefiles.com/private_files/lf30_rw51hqmt.json"  background="transparent"  speed="1"  style="width: 150px; height: 150px;"  loop  autoplay></lottie-player>
+<lottie-player src="https://assets9.lottiefiles.com/private_files/lf30_rw51hqmt.json"  background="transparent"  speed="1"  style="width: 100%; height: 100%;"  loop  autoplay></lottie-player>
+
 </div>
 
 
