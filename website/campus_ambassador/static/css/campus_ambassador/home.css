@@ -44,16 +44,6 @@
   .c-faq__title:hover {
     text-decoration: underline;
   }
-  .c-faq__title::after {
-    white-space: nowrap;
-    font-weight: 300;
-    padding-left: 5px;
-    opacity: 0;
-    transform-origin: 11px;
-    transform: rotateZ(90deg);
-    display: none;
-    content: ">";
-  }
   
   .c-faq--active .c-faq__title {
     color: #0f172a;
@@ -82,9 +72,9 @@
     margin-top: 5px;
     margin-bottom: 10px;
     transition: all 0.2s;
-    border-radius: 3px;
-    border: 1px solid #eff6ff;
-    border-top: 1px solid #1e293b;
+    border-radius: 0.8rem;
+    background-color: #0f172a;
+    color: #eff6ff;
     padding: 20px;
   }
   
