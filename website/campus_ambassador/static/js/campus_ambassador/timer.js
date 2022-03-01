@@ -5,7 +5,12 @@
 // // Listen for `DOMContentLoaded` event
 // document.addEventListener('DOMContentLoaded', handler);
 var x = setInterval(function () {
+    if (document.getElementById('secs-left') == null) {
+        clearInterval(x);
+        return 0;
+    }
     var totalseconds = document.getElementById('secs-left').innerHTML;
+
     if (totalseconds > 0) {
         var day = 86400;
         var hour = 3600;
@@ -13,7 +18,7 @@ var x = setInterval(function () {
         var daysout = Math.floor(totalseconds / day);
         var hoursout = Math.floor((totalseconds - daysout * day)/hour);
         var minutesout = Math.floor((totalseconds - daysout * day - hoursout * hour)/minute);
-        var secondsout = totalseconds - daysout * day - hoursout * hour - minutesout * minute;
+        var secondsout = Math.floor(totalseconds - daysout * day - hoursout * hour - minutesout * minute);
         var hours_out = document.getElementById('out_hrs');
         var mins_out = document.getElementById('out_mins');
         var secs_out = document.getElementById('out_secs');

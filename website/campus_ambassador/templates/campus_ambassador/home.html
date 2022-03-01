@@ -61,7 +61,7 @@ Home
                     <i class="fas fa-2x hidden md:block {{incentive.icon_class}}" style="color: ivory;"></i>
                     <i class="fas fa md:hidden {{incentive.icon_class}}" style="color: ivory;"></i>
                 </div>
-                <div class="text-center relative left-0  top-[-25px] md:top-[-50px] right-0 mx-auto my-auto">
+                <div class="text-center relative left-0  top-[-25px] md:top-[-50px] right-0 mx-auto mt-2">
                     <h3 class="font-bold text-lg">{{incentive.title}}</h3>
                     <p>{{incentive.content}}</p>
                 </div>
@@ -87,7 +87,7 @@ Home
             {% for responsibility in responsibilities %}
             <div class="p-2 sm:w-1/2 w-full">
               <div class="bg-slate-200 rounded flex p-4 h-full items-center">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-theme_clr w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
                   <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
                   <path d="M22 4L12 14.01l-3-3"></path>
                 </svg>
@@ -129,7 +129,7 @@ Home
                         {% endif %}
                     </div>
                     {% if event.latest %}
-                        <div class="p-4 rounded-md text-center bg-slate-200 text-slate-900  md:latest_animation_l md:even:latest_animation_r">
+                        <div class="p-4 rounded-md text-center bg-slate-200/90 text-slate-900  md:latest_animation_l md:even:latest_animation_r">
 
 
                             <h3 class="font-semibold text-xl">
@@ -141,7 +141,7 @@ Home
                             <p>{{event.content}}</p>
                         </div>
                     {% else %}
-                        <div class="p-4 rounded-md text-center bg-slate-200 text-slate-900 md:timeline_animation_l md:even:timeline_animation_r">
+                        <div class="p-4 rounded-md text-center bg-slate-200/50 text-slate-900 md:timeline_animation_l md:even:timeline_animation_r">
 
                             <h3 class="font-semibold text-xl">
                                 {{event.title}}
@@ -174,7 +174,7 @@ Home
         {% if active_faqs %}
             <ul class="c-faqs">
             {% for faq in active_faqs %}
-                <li class="c-faq c-faq--active">
+                <li class="c-faq c-faq--active list-disc text-slate-800">
                     <span class="c-faq__title">{{faq.title}}</span>
                     <div class="c-faq__answer rounded-lg">{{faq.content}}</div>
                 </li>
@@ -182,7 +182,7 @@ Home
         {% endif %}
         {% if faqs %}
             {% for faq in faqs %}
-                <li class="c-faq">
+                <li class="c-faq list-disc text-slate-800">
                     <span class="c-faq__title">{{faq.title}}</span>
                     <div class="c-faq__answer">{{faq.content}}</div>
                 </li>

@@ -46,7 +46,7 @@
   }
   
   .c-faq--active .c-faq__title {
-    color: #f6f6f6;
+    color: #1e293b;
     font-weight: 600;
   }
   .c-faq--active .c-faq__title::after {

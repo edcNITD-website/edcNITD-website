@@ -122,6 +122,50 @@
                     <a href="{% url 'cap:task_list' %}" class="bg-gradient-to-r from-orange-500 to-yellow-600 text-slate-50 font-bold px-4 py-2 rounded-full text-xs md:text-base">Go to Tasks</a>
                 </div>
             </div>
+            <div class="flex flex-col gap-2 col-span-1 lg:col-span-3 text-center bg-slate-200/80 w-full rounded-lg text-slate-900 pt-2">
+                <div class="text-center">
+                    <h2 class="font-semibold">Task Progress</h2>
+                </div>
+                <div class="w-full">
+                    <table class="w-full">
+                        <thead>
+                            <tr>
+                                <th class="table-head-cell text-center lg:text-left">Sub Task Number</th>
+                                <th class="table-head-cell text-center hidden lg:block lg:text-left">Title</th>
+                                <th class="table-head-cell text-center lg:text-left">Score</th>
+                                <th class="table-head-cell text-center lg:text-left">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                {% for st in amb.get_all_subtasks %}
+                                    <tr class="odd:bg-slate-600/10">
+                                        <td class="table-cell text-center lg:text-left">{{st.index}}</td>
+                                        <td class="lg:table-cell text-center hidden lg:text-left">
+                                            {{st.title}}
+                                        </td>
+                                        <td class="table-cell text-center lg:text-left">
+                                            {% if st.completed %}
+                                                {{st.score}}
+                                            {% else %}
+                                                0
+                                            {% endif %}
+                                        </td>
+                                        <td class="table-cell text-center lg:text-left">
+                                            {% if st.completed %}
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto lg:mx-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                  </svg>
+                                        {% else %}
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto lg:mx-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                              </svg>
+                                        {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
         </div>
     {% elif is_moderator %}
         <div class="grid place-items-center lg:place-items-start lg:grid-cols-3 pt-[15vh] gap-4 md:gap-8">

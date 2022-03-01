@@ -39,13 +39,27 @@
     }
 
     .paginator-btn{
-        @apply bg-slate-100 text-slate-800 font-bold px-2 py-1 rounded-sm shadow-md 
+        @apply bg-theme_clr text-slate-800 font-bold px-2 py-1 rounded-sm shadow-md 
+    }
+
+    .timeline_animation_l{
+        transform: scale(0.8);
+        margin-right: -2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .timeline_animation_r{
+        transform: scale(0.8);
+        margin-left: -2rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
     }
 
     .timeline_animation_l:hover{
         transform: scale(1.1);
         margin-right: 4rem;
         margin-bottom: 2rem;
+        @apply text-slate-100
     }
     
     .timeline_animation_r:hover{
@@ -53,6 +67,7 @@
         margin-left: 4rem;
         margin-bottom: 1rem;
         margin-top: 1rem;
+        @apply text-slate-100
     }
     
     .latest_animation_l{

@@ -11,6 +11,7 @@
         <li><a href="{% url 'cap:cap_home_page' %}#incentives" class="cap-nav-item">Incentives</a></li>
         <li><a href="{% url 'cap:leaderboard' %}" class="cap-nav-item">Leaderboard</a></li>
         {% if user.is_authenticated %}
+        <li><a href="{% url 'cap:task_list' %}" class="cap-nav-item">Tasks</a></li>
           <li><a href="{% url 'cap:profile' %}" class="cap-nav-item">Profile</a></li>
           <li><a href="{% url 'cap:logout' %}" class="cap-nav-item">Logout</a></li>
         {% else %}
@@ -39,6 +40,8 @@
       <li><a href="{% url 'cap:leaderboard' %}" class="px-3 hover:bg-stone-700 py-2 rounded" onclick="toggleMenu()">Leaderboard</a></li>
 
       {% if user.is_authenticated %}
+        <li><a href="{% url 'cap:task_list' %}" class="px-3 hover:bg-stone-700 py-2 rounded">Tasks</a></li>
+        <li><a href="{% url 'cap:profile' %}" class="px-3 hover:bg-stone-700 py-2 rounded">Profile</a></li>
         <li><a href="{% url 'cap:logout' %}" class="px-3 hover:bg-stone-700 py-2 rounded">Logout</a></li>
       {% else %}
         <li><a href="{% url 'cap:register' %}" class="px-3 hover:bg-stone-700 py-2 rounded">Register</a></li>
