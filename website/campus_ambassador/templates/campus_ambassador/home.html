@@ -22,7 +22,7 @@ Home
         </div>
         <div class="col-span-1 lg:col-span-2 max-h-[50vh]">
             <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-            <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_2juopw8b.json"  background="transparent"  speed="1"  style="width: 400px; height: 400px;"  loop  autoplay></lottie-player>
+            <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_2juopw8b.json"  background="transparent"  speed="1"  style="width: 100%; height: 100%;"  loop  autoplay class="md:scale-100"></lottie-player>
         </div>
     </div>
 </div>
@@ -31,9 +31,11 @@ Home
 <div class="skew-block text-slate-900 bg-gradient-to-br from-blue-200 to-blue-400 min-h-screen grid place-items-center">
     <div class="view-box  grid place-items-center grid-cols-1 lg:grid-cols-2 gap-4">
         <div class="col-span-1">
+
             <h2 class="text-3xl text-slate-900 text-center font-bold my-2 uppercase font-montserrat">About CA</h2>
             <div class="grey-line"></div>
             <div class="coloured-line" style="border-top: #0f172a 3px solid !important;"></div>
+
             <br>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo nulla eum tempore illo eveniet sequi reprehenderit libero vel odio fuga. Sunt maxime aliquid, perferendis incidunt ad repellendus ut iusto dolor eos expedita quia consectetur nostrum fugiat nisi asperiores adipisci, earum, itaque quos? Enim qui dicta quas atque ex libero id?</p>
         </div>
@@ -109,6 +111,7 @@ Home
     <span class="grey-line"></span>
     <span class="coloured-line"></span>
 
+
     {% if timeline %}
         <ul id="timelinevents" class="flex flex-col gap-4 justify-center mt-6">
             {% for event in timeline %}
@@ -159,7 +162,6 @@ Home
 </div>
 <!-- faq section -->
 
-
 <div class="skew-block text-slate-900 bg-gradient-to-tr from-blue-200 to-blue-400" style="clip-path: polygon(0 0, 100% 8%,100% 100%, 0 100%);"  >
     <div class="view-box flex flex-col justify-center mt-16">
         <div class="text-3xl text-center font-bold">
@@ -174,7 +176,7 @@ Home
             {% for faq in active_faqs %}
                 <li class="c-faq c-faq--active">
                     <span class="c-faq__title">{{faq.title}}</span>
-                    <div class="c-faq__answer">{{faq.content}}</div>
+                    <div class="c-faq__answer rounded-lg">{{faq.content}}</div>
                 </li>
             {% endfor %}
         {% endif %}

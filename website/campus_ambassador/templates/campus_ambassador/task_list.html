@@ -10,7 +10,7 @@ Home
 {% block content %}
 <div class="view-box">
     {% if is_ambassador %}
-        <div class="grid place-items-start  pt-[10vh] gap-4 md:gap-8">
+        <div class="grid place-items-start  pt-[15vh] gap-4 md:gap-8">
             <div class="bg-slate-200/70 text-slate-900 px-3 py-4 rounded-lg w-full">
                 <!-- Task section -->
                 {% if status.code == 201 %}
@@ -81,6 +81,45 @@ Home
                     </center>
                 </div>
               </div>
+        </div>
+    {% elif is_moderator %}
+        <div class="w-full pt-[15vh]">
+            <h2 class="font-semibold text-lg">All tasks</h2>
+            <br>
+            <div class="flex flex-col gap-4 text-slate-800">
+                {% for task in tasks_list %}
+                    <div class="bg-slate-200/70 rounded-lg p-3">
+                        <h2>{{task.number}} | {{task.title}}e</h2>
+                        <h3>{{task.description}}</h3>
+                        {% for st in task.subtasks %}
+                            <div class="pl-4 pt-2">
+                                <h2>{{task.number}}.{{st.number}} | {{st.title}}</h2>
+                                <p>{{st.description}}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                <!-- Final Pagination -->
+                <center>
+                    <div class="paginator">
+
+                        {%if tasks_list.has_previous %} {# whether the previous page exists #}
+
+                        <a href="?page_num={{tasks_list.previous_page_number}}" class="paginator-btn"> &lt;</a>
+                        {# link to the prev page #}
+                        {% else %}
+                        <a href="#" class="paginator-btn hidden">
+                            <</a> {# link to the prev page #} {% endif %} &ensp; <!-- <span id="current-page">
+                                {{ambassadors.number}}</span> {# the current page number #} -->
+                                {%if tasks_list.has_next %} {# whether the next page exists #}
+                                <a href="?page_num={{tasks_list.next_page_number}}" class="paginator-btn"> ></a>
+                                {# link to the next page #}
+                                {% else %}
+                                <a href="#" class="paginator-btn hidden"> ></a> {# link to the prev page #}
+                                {% endif %}
+                    </div>
+                </center>
+            </div>
         </div>
     {% endif %}
     

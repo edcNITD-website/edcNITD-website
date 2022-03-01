@@ -11,10 +11,10 @@
     {% if is_ambassador %}
         <div class="grid place-items-center lg:place-items-start lg:grid-cols-3 pt-[15vh] gap-4 md:gap-8">
             <!-- Profile Section -->
-            <div class="bg-slate-200/80 text-slate-900 px-3 py-4 rounded-lg w-full flex flex-col justify-center lg:col-span-2">
+            <div class="hidden md:flex bg-slate-200/80 text-slate-900 px-3 py-4 rounded-lg w-full  flex-col justify-center lg:col-span-2">
 
                 <h1 class="text-2xl font-semibold text-center font-montserrat">Profile</h1>
-                <table class="max-w-screen-sm text-xs sm:text-base">
+                <table class="max-w-screen-sm text-xs sm:text-base mt-2">
                     <tr>
                         <td class="font-semibold">Name:</td>
                         <td>{{request.user.first_name}} {{request.user.last_name}}</td>
@@ -62,7 +62,7 @@
                 <div class="overflow-hidden rounded-full">
                     <img src="{% static 'image/campus_ambassador/'%}{{user_details.profile_img}}" class="max-w-24 max-h-24 mx-auto my-3" alt="profile image">
                 </div>
-                <div class="px-3 text-slate-700 text-center">
+                <div class="px-3 text-slate-700 text-center text-sm md:text-base">
                     <h2 class="font-montserrat">Ambassador ID: {{user_details.unique_code}}</h2>
                     <h2 class="font-montserrat">Username: {{user_details.user.username}}</h2>
                 </div>
@@ -75,22 +75,96 @@
                     </h1>
                 </div>
             </div>
-        </div>
-    {% elif is_moderator %}
-        <div class="grid place-items-stretch  pt-[15vh] gap-4 md:gap-8">
-            <!-- Profile Section -->
-            <div class="bg-slate-200 text-slate-900 px-3 py-4 rounded-lg w-full flex flex-col justify-center">
-                <h1>Profile</h1>
-                <table>
+            <div class="flex md:hidden bg-slate-200/80 text-slate-900 px-3 py-4 rounded-lg w-full  flex-col justify-center lg:col-span-2">
+
+                <h1 class="text-2xl font-semibold text-center font-montserrat">Profile</h1>
+                <table class="max-w-screen-sm text-xs sm:text-base">
                     <tr>
-                        <td>Username</td>
-                        <td>{{request.user.username}}</td>
+                        <td class="font-semibold">Name:</td>
+                        <td>{{request.user.first_name}} {{request.user.last_name}}</td>
                     </tr>
+                    <tr>
+                        <td class="font-semibold">College:</td>
+                        <td>{{user_details.college}}</td>
+                    </tr>
+                    <tr>
+                        <td class="font-semibold">Phone:</td>
+                        <td>{{user_details.phone}}</td>
+                    </tr>
+                    <tr>
+                        <td class="font-semibold">Facebook url:</td>
+                        {% if user_details.facebook %}
+                            <td><a href="{{user_details.facebook}}" class="underline">{{user_details.facebook}}</a></td>
+                        {% else %}
+                            <td><a href="#"></a></td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td class="font-semibold">Instagram url:</td>
+                        {% if user_details.instagram %}
+                            <td><a href="{{user_details.instagram}}" class="underline">{{user_details.instagram}}</a></td>
+                        {% else %}
+                            <td><a href="#"></a></td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td class="font-semibold">Linkedin url:</td>
+                        {% if user_details.linkedin %}
+                            <td><a href="{{user_details.linkedin}}" class="underline">{{user_details.linkedin}}</a></td>
+                        {% else %}
+                            <td><a href="#"></a></td>
+                        {% endif %}
+                    </tr>
+                    
                 </table>
-                <div class="flex justify-center flex-wrap gap-4">
-                    <a href="{% url 'cap:score_task' %}" class="bg-gradient-to-r from-blue-500 to-purple-600 text-slate-50 font-bold px-4 py-2 rounded-full">Score Task</a>
+                <div class="flex justify-center gap-3 mt-2 flex-wrap text-sm sm:text-base">
+                    <a href="{% url 'cap:edit_profile' %}" class="bg-gradient-to-r from-orange-500 to-yellow-600 text-slate-50 font-bold px-4 py-2 rounded-full text-xs md:text-base">Edit Profile</a>
+                    <a href="{% url 'cap:task_list' %}" class="bg-gradient-to-r from-orange-500 to-yellow-600 text-slate-50 font-bold px-4 py-2 rounded-full text-xs md:text-base">Go to Tasks</a>
                 </div>
             </div>
+        </div>
+    {% elif is_moderator %}
+        <div class="grid place-items-center lg:place-items-start lg:grid-cols-3 pt-[15vh] gap-4 md:gap-8">
+            <!-- Profile Section -->
+            <div class="hidden md:flex bg-slate-200/80 text-slate-900 px-3 py-4 rounded-lg w-full  flex-col justify-center lg:col-span-2">
+
+                <h1 class="text-2xl font-semibold text-center font-montserrat">Profile</h1>
+                <table class="max-w-screen-sm text-xs sm:text-base mt-2">
+                    <tr>
+                        <td class="font-semibold">Name:</td>
+                        <td>{{request.user.first_name}} {{request.user.last_name}}</td>
+                    </tr>
+                </table>
+                <div class="flex justify-center gap-3 mt-2 flex-wrap text-sm sm:text-base">
+                    <a href="{% url 'cap:edit_profile' %}" class="bg-gradient-to-r from-orange-500 to-yellow-600 text-slate-50 font-bold px-4 py-2 rounded-full">Edit Profile</a>
+                    <a href="{% url 'cap:score_task' %}" class="bg-gradient-to-r from-orange-500 to-yellow-600 text-slate-50 font-bold px-4 py-2 rounded-full">Score Tasks</a>
+                </div>
+            </div>
+            <div class="bg-slate-200/80 w-full flex flex-col justify-center rounded-xl pb-4">
+                <div class="overflow-hidden rounded-full">
+                    <img src="{% static 'image/campus_ambassador/'%}default.png" class="max-w-24 max-h-24 mx-auto my-3" alt="profile image">
+                </div>
+                <div class="px-3 text-slate-700 text-center text-sm md:text-base">
+                    <h2 class="font-montserrat">Moderator ID: {{user_details.unique_code}}</h2>
+                    <h2 class="font-montserrat">Username: {{user_details.user.username}}</h2>
+                </div>
+            </div>
+            <div class="flex md:hidden bg-slate-200/80 text-slate-900 px-3 py-4 rounded-lg w-full  flex-col justify-center lg:col-span-2">
+
+                <h1 class="text-2xl font-semibold text-center font-montserrat">Profile</h1>
+                <table class="max-w-screen-sm text-xs sm:text-base">
+                    <tr>
+                        <td class="font-semibold">Name:</td>
+                        <td>{{request.user.first_name}} {{request.user.last_name}}</td>
+                    </tr>
+                    
+                </table>
+                <div class="flex justify-center gap-3 mt-2 flex-wrap text-sm sm:text-base">
+                    <a href="{% url 'cap:edit_profile' %}" class="bg-gradient-to-r from-orange-500 to-yellow-600 text-slate-50 font-bold px-4 py-2 rounded-full text-xs md:text-base">Edit Profile</a>
+                    <a href="{% url 'cap:score_task' %}" class="bg-gradient-to-r from-orange-500 to-yellow-600 text-slate-50 font-bold px-4 py-2 rounded-full text-xs md:text-base">Score Task</a>
+                </div>
+            </div>
+        </div>
     {% elif is_staff %}
         <h2>Is Staff</h2>
     {% endif %}

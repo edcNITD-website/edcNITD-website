@@ -204,6 +204,8 @@ def task_list(request):
         new_task.subtasks = SubTask.objects.filter(task=task)
         final_all_tasks.append(new_task)
     tasks_per_page = 2
+    if context['is_moderator']:
+        tasks_per_page = 5
     paginator_obj = Paginator(final_all_tasks, tasks_per_page)
     page_num = request.GET.get('page_num')
     try:
@@ -369,4 +371,3 @@ def leaderboard(request):
     return render(request,'campus_ambassador/leaderboard.html',{'ambassadors': ambassadors,
                                                                 'current_rank': current_rank, 
     })
-

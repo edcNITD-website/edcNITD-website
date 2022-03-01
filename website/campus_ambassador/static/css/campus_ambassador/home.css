@@ -46,7 +46,7 @@
   }
   
   .c-faq--active .c-faq__title {
-    color: #0f172a;
+    color: #f6f6f6;
     font-weight: 600;
   }
   .c-faq--active .c-faq__title::after {
@@ -61,7 +61,8 @@
     transition: all 0.1s;
     z-index: 1;
     font-size: 1em;
-    color: #0f172a;
+    color: #fbfbfb;
+    background-color: #1e293bb7;
   }
   
   .c-faq--active .c-faq__answer {

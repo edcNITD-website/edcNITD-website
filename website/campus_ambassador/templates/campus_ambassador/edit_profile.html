@@ -56,6 +56,8 @@
                     
                     <input type="submit" name="edit_amb" id="login_id" value="Save Profile" class="orange-btn mx-auto">
                 </form>
+            {% elif is_moderator %}
+                <h2 class="text-lg">Changes can be made via admin only</h2>
             {% endif %}
         </div>
     </div>
