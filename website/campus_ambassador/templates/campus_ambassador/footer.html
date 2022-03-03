@@ -1,0 +1,81 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/campus_ambassador/tailwind.css' %}">
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+
+<link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/campus_ambassador/footer.css' %}">
+<link href="{% static 'vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+
+<footer id="footer" class="text-gray-100 font-sans bg-black body-font">
+    <div class="container pb-[60px] mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+      
+      <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 text-left">
+
+        <div class="lg:w-1/3 mx-auto px-6 w-full text-left lg:px-16 footer-info">
+            <h3 style="text-align: center;">Entrepreneurship Development Cell</h3>
+            <p style="border-left: 4px solid var(--theme-color); text-align:center;">NIT Durgapur</p>            
+            <br>
+            <p style="text-align:center;">Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a class="text-theme_clr" href="{% url 'web_team' %}"> Web-Team </a></p>
+            <p style="text-align:center;">© <span id="Auto_Year"></span> EDC. All Rights Reserved.</p>
+        </div>
+      
+      
+        <div class="lg:w-1/3 mx-auto px-6 w-full text-left lg:px-14 footer-contact ">
+            <h4 class="mb-5">Contact Us</h4>
+  
+            <p>
+    
+              <i class="fa fa-map-marker"> :</i> Mahatma Gandhi Avenue,<br> A-Zone, Durgapur,
+               West Bengal <br> Durgapur: 713209 
+               <br>
+    
+              <i class="fa fa-phone "></i> : +91 96096 04777 (Swagata Laxmi Sengupta)<br>
+    
+              <i class="fa fa-envelope-o"> :</i><a class="text-theme_clr" href="mailto:edcnitd.official@gmail.com"> edcnitd.official@gmail.com</a><br>
+    
+            </p>
+    
+            <br>
+    
+    
+            <div class="social-links">
+    
+              <a target="_blank" href="https://twitter.com/edcnitd" class="twitter"><i class="fa fa-twitter"></i></a>
+    
+              <a target="_blank" href="https://www.facebook.com/edc.nitd" class="facebook"><i class="fa fa-facebook"></i></a>
+    
+              <a target="_blank" href="https://www.instagram.com/edc.nitd" class="instagram"><i class="fa fa-instagram"></i></a>
+    
+              <a target="_blank" href="https://www.youtube.com/channel/UCaBiTXfp5gknGPS6N3asDBg" class="google-plus"><i class="fa fa-youtube"></i></a>
+    
+              <a target="_blank" href="https://www.linkedin.com/company/edcnitd/" class="linkedin"><i class="fa fa-linkedin"></i></a>
+    
+            </div> 
+          </div>
+        <div class=" lg:w-1/3 mx-auto px-6 w-full text-left footer-links lg:px-28">
+            <h4>Useful Links</h4>
+  
+            <ul>
+    
+              <li class="mt-5"><i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="{% url 'home_page' %}">Home</a></l>
+    
+              <li><i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="{% url 'esummit_page' %}">E-Summit'21</a></li>
+    
+              <li><i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="{% url 'event_page' %}">Event Registrations</a></li>
+  
+              <li><i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="{% url 'post:post_list' %}">E-Quest</a></li>
+    
+              <li><i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="{% url 'sotm:sotm_home' %}">Startup of the Month</a></li>
+  
+              <li><i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="{% url 'team_page' %}">Our Team</a></li>
+  
+              <li><i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="https://nitdgp.ac.in/iic/" target="_blank">Innovation and Incubation Cell (IIC)</a></li>
+            </ul>
+    
+          </div>
+      </div>
+    </div>
+   
+  </footer>
+
+  

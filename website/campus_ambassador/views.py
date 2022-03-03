@@ -368,3 +368,4 @@ def leaderboard(request):
     return render(request,'campus_ambassador/leaderboard.html',{'ambassadors': ambassadors,
                                                                 'current_rank': current_rank, 
     })
+
