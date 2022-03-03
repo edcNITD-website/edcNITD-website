@@ -18,7 +18,7 @@ Home
             <h2 class="text-center lg:text-left text-base lg:text-xl font-medium dark:font-light text-slate-900 dark:text-slate-200 my-3">
                 Access to network with the entrepreneurial youth of the nation. 
             </h2>
-            <a href="#" class="bg-gradient-to-r mb-4 from-blue-900 to-purple-700 font-semibold rounded py-2 px-4 mx-auto">Join Us Now! <span class="hidden lg:inline">As a campus ambassador</span></a>
+            <a href="{% url 'cap:register' %}" class="bg-gradient-to-r mb-4 from-blue-900 to-purple-700 font-semibold rounded py-2 px-4 mx-auto">Join Us Now! <span class="hidden lg:inline">As a campus ambassador</span></a>
         </div>
         <div class="col-span-1 lg:col-span-2 max-h-[50vh]">
             <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
@@ -75,7 +75,7 @@ Home
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-6 mx-auto">
           <div class="text-center mb-20">
-            <h2 class="text-slate-900 text-3xl text-center uppercase font-bold col-span-1 pt-[8vh] sm:pt-0 font-montserrat pb-3" >Responsiblities</h2>
+            <h2 class="text-slate-900 text-3xl text-center uppercase font-bold col-span-1 pt-[8vh] sm:pt-0 font-montserrat pb-3 max-w-[90vw]" >Responsiblities</h2>
             <div class="grey-line"></div>
     <div class="coloured-line" style="border-top: #0f172a 3px solid !important;"></div>
           </div>
@@ -110,7 +110,7 @@ Home
     <span class="coloured-line"></span>
 
     {% if timeline %}
-        <ul id="timelinevents" class="flex flex-col gap-4 justify-center mt-6">
+        <ul id="timelinevents" class="flex flex-col gap-2 justify-center mt-6 pb-4">
             {% for event in timeline %}
                 <li class="w-full flex odd:flex-row-reverse even:flex-row justify-center gap-4 overflow-visible col-span-1 max-w-screen-lg mx-auto text-xs sm:text-sm md:text-base">
                     <div class="rounded-full text-slate-50 bg-blue-600 w-12 h-12 grid place-items-center flex-shrink-0 my-auto">
@@ -129,10 +129,10 @@ Home
                         <div class="p-4 rounded-md text-center bg-slate-200/90 text-slate-900  md:latest_animation_l md:even:latest_animation_r">
 
 
-                            <h3 class="font-semibold text-xl">
+                            <h3 class="font-semibold text-lg md:text-xl">
                                 {{event.title}}
                             </h3>
-                            <h3 class="text-lg">
+                            <h3 class="text-base md:text-lg">
                                 {{event.deadline|date:'d F, Y'}}
                             </h3>
                             <p>{{event.content}}</p>
@@ -140,10 +140,10 @@ Home
                     {% else %}
                         <div class="p-4 rounded-md text-center bg-slate-200/50 text-slate-900 md:timeline_animation_l md:even:timeline_animation_r">
 
-                            <h3 class="font-semibold text-xl">
+                            <h3 class="font-semibold text-lg md:text-xl">
                                 {{event.title}}
                             </h3>
-                            <h3 class="text-lg">
+                            <h3 class="md:text-lg">
                                 {{event.deadline|date:'d F, Y'}}
                             </h3>
                             <p>{{event.content}}</p>
@@ -159,7 +159,7 @@ Home
 </div>
 <!-- faq section -->
 
-<div class="skew-block text-slate-900 bg-gradient-to-tr from-blue-200 to-blue-400" style="clip-path: polygon(0 0, 100% 8%,100% 100%, 0 100%);"  >
+<div class="skew-block text-slate-900 bg-gradient-to-tr from-blue-200 to-blue-400 min-h-screen" style="clip-path: polygon(0 0, 100% 8%,100% 100%, 0 100%);;"  >
     <div class="view-box flex flex-col justify-center mt-16">
         <div class="text-3xl text-center font-bold">
             <h2 class="bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to-stone-700 text-4xl text-center font-bold col-span-1 pt-[8vh] pb-3 sm:pt-0 font-montserrat" >FAQs</h2>
@@ -188,6 +188,7 @@ Home
         {% else %}
             <h3>No FAQs added</h3>
         {% endif %}
+        </div>
     </div>
 </div>
 

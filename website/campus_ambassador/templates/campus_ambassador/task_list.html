@@ -15,7 +15,7 @@ Home
                 {% if status.code == 201 %}
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 place-items-start w-full">
                         <div class="lg:col-span-2 bg-slate-200/70 text-slate-900 rounded-lg px-3 py-2 w-full">
-                            <h2 class="text-center text-lg font-montserrat font-semibold uppercase">Current Task : {{amb.get_current_task.number}}</h2>
+                            <h2 class="text-center text-lg font-montserrat font-semibold uppercase ">Current Task : {{amb.get_current_task.number}}</h2>
                             <h3 class="font-semibold">{{amb.get_current_task.number}} | {{amb.get_current_task.title}}</h3>
                             <p>{{amb.get_current_task.description}}</p>
                             <div class="hidden"><h4 id="secs-left">{{secs_left}}</h4></div>
@@ -30,7 +30,9 @@ Home
                     {% endfor %}
                         </div>
                         <div class="bg-stone-900 rounded-2xl shadow-lg shadow-stone-300/30 p-3 lg:p-5 flex flex-col justify-center w-full max-w-xs mx-auto">
-                            <h1 class="font-bold text-lg text-center font-montserrat uppercase">Time Left: </h1>
+                            <h1 class="font-bold text-lg text-center font-montserrat uppercase text-theme_clr">Time Left: </h1>
+                            <div class="grey-line mt-2"></div>
+                            <div class="coloured-line"></div>
                             <div class="grid grid-cols-2 gap-2 mx-auto my-3">
                                 <div class="bg-stone-600/80 text-stone-50 font-semibold p-3 rounded-md text-center" >
                                     <h2 id="out_days">00</h2>

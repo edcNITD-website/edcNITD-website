@@ -7,13 +7,13 @@
 <!-- <link rel="stylesheet" href="{% static 'css/campus_ambassador/home.css' %}"> -->
 {% endblock %}
 {% block content %}
-<div class="view-box">
+<div class="view-box mb-8">
     {% if is_ambassador %}
         <div class="grid place-items-center lg:place-items-start lg:grid-cols-3 pt-[15vh] gap-4 md:gap-8">
             <!-- Profile Section -->
             <div class="hidden md:flex bg-slate-200/80 text-slate-900 px-3 py-4 rounded-lg w-full  flex-col justify-center lg:col-span-2">
 
-                <h1 class="text-2xl font-semibold text-center font-montserrat">Profile</h1>
+                <h1 class="text-2xl font-semibold text-center font-montserrat uppercase">Profile</h1>
                 <table class="max-w-screen-sm text-xs sm:text-base mt-2">
                     <tr>
                         <td class="font-semibold">Name:</td>
@@ -77,7 +77,7 @@
             </div>
             <div class="flex md:hidden bg-slate-200/80 text-slate-900 px-3 py-4 rounded-lg w-full  flex-col justify-center lg:col-span-2">
 
-                <h1 class="text-2xl font-semibold text-center font-montserrat">Profile</h1>
+                <h1 class="text-2xl font-semibold text-center font-montserrat uppercase">Profile</h1>
                 <table class="max-w-screen-sm text-xs sm:text-base">
                     <tr>
                         <td class="font-semibold">Name:</td>
@@ -124,7 +124,7 @@
             </div>
             <div class="flex flex-col gap-2 col-span-1 lg:col-span-3 text-center bg-slate-200/80 w-full rounded-lg text-slate-900 pt-2">
                 <div class="text-center">
-                    <h2 class="font-semibold">Task Progress</h2>
+                    <h2 class="font-semibold uppercase">Task Progress</h2>
                 </div>
                 <div class="w-full">
                     <table class="w-full">
@@ -166,13 +166,14 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
         </div>
     {% elif is_moderator %}
         <div class="grid place-items-center lg:place-items-start lg:grid-cols-3 pt-[15vh] gap-4 md:gap-8">
             <!-- Profile Section -->
             <div class="hidden md:flex bg-slate-200/80 text-slate-900 px-3 py-4 rounded-lg w-full  flex-col justify-center lg:col-span-2">
 
-                <h1 class="text-2xl font-semibold text-center font-montserrat">Profile</h1>
+                <h1 class="text-2xl font-semibold text-center font-montserrat uppercase">Profile</h1>
                 <table class="max-w-screen-sm text-xs sm:text-base mt-2">
                     <tr>
                         <td class="font-semibold">Name:</td>
