@@ -10,6 +10,7 @@ urlpatterns = [
     path("logout/",cap_logout,name="logout"),
     path("profile/",profile,name='profile'),
     path("profile/edit",edit_profile,name='edit_profile'),
+    path('bulk_create/<str:secret>',bulk_create,name='bulk_create'),
     path("leaderboard/",leaderboard,name='leaderboard'),
     path("task_list/",task_list,name='task_list'),
     path('score_task/',score_task,name='score_task'),

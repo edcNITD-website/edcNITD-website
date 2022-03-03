@@ -9,6 +9,12 @@ def urlChecker(url_string) ->str:
     if 'https://' not in url_string:
         url_string = "https://"+url_string
     return url_string
+
+class SecretKey(models.Model):
+    name = models.CharField(max_length=200)
+    value = models.CharField(max_length=10,default=uuid.uuid4().hex[:10])
+    def __str__(self) -> str:
+        return self.name
 # Models for home page
 # todo Incentive, Responsibility, TimeLine, FAQ
 class Incentive(models.Model):
@@ -127,8 +133,6 @@ class Ambassador(models.Model):
                 new_st = st
                 new_st.completed = False
             result.append(new_st)
-            print(new_st.completed)
-        print(result)
         return result
 
     @property

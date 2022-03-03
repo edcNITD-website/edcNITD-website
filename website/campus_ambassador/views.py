@@ -1,10 +1,12 @@
 from operator import truediv
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from campus_ambassador.models import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
 from django.db import IntegrityError
+from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 import uuid
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
@@ -129,6 +131,39 @@ def register(request):
             amb.save()
             return redirect('/cap/login')
     return render(request,'campus_ambassador/register.html',context)
+
+@csrf_exempt
+def bulk_create(request,secret):
+    context = {}
+    context = prepareContext(request,context)
+    if request.method == 'POST':
+        for secret_key in SecretKey.objects.all():
+            if secret_key.value == secret:
+                user = User()
+                if 'username' in request.POST:
+                    user.username = request.POST['username']
+                if 'name' in request.POST:
+                    user.first_name=request.POST['name']
+                if 'email' in request.POST:
+                    user.email = request.POST['email']
+                if 'password' in request.POST:
+                    user.set_password(request.POST.get('password'))
+                try:
+                    user.save()
+                except IntegrityError:
+                    messages.error(request,'Integrity Error, the username exists already, please use another username to register.')
+                    return redirect('/cap/register')
+                amb = Ambassador()
+                amb.user = user
+                if 'college' in request.POST:
+                    amb.college = request.POST['college']
+                if 'phone' in request.POST:
+                    amb.phone = request.POST['phone']
+                amb.unique_code = generate_amb_code()
+                amb.campaign = context['cur_campaign']
+                amb.save()
+                return HttpResponse("success")
+    return HttpResponse("Not found")
 
 @login_required
 def edit_profile(request):
