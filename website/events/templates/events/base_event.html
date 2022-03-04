@@ -81,8 +81,9 @@
                       href="{%url 'home_page' %}">Home</a></li>
 
                   <div class="dropdown1">
-                    <button class="btn1">E-Summit
-                      <i class="fa fa-caret-down"></i>
+                    <button {%if request.resolver_match.url_name == 'esummit_page' %}class="btn1 btn_active" {% else %}
+                      class="btn1" {% endif %}><a href="{% url 'esummit_page' latest %}">E-Summit
+                        <i class="fa fa-caret-down"></i></a>
                     </button>
                     <div id="dropdown_menu">
                       {% for year in years %}
@@ -91,13 +92,17 @@
                     </div>
                   </div>
 
-                  <li {%if request.resolver_match.url_name == 'event_page' or request.resolver_match.url_name == 'showevent'%}class="active" {% endif %}><a
-                      href="{% url 'event_page' %}">Events</a></li>
-                      
-                      
-                      <li {%if request.resolver_match.url_name  == 'post_list' or request.resolver_match.url_name  == 'post_detail' %}  class="active"{% endif %}><a href="{% url 'post:post_list' %}">E-Quest</a></li>  
-                      
-                      <li {%if request.resolver_match.url_name == 'sotm_home' %}class="active" {% endif %}><a href="{% url 'sotm:sotm_home' %}">SOTM</a></li>
+                  <li
+                    {%if request.resolver_match.url_name == 'event_page' or request.resolver_match.url_name == 'showevent'%}class="active"
+                    {% endif %}><a href="{% url 'event_page' %}">Events</a></li>
+
+
+                  <li
+                    {%if request.resolver_match.url_name  == 'post_list' or request.resolver_match.url_name  == 'post_detail' %}
+                    class="active" {% endif %}><a href="{% url 'post:post_list' %}">E-Quest</a></li>
+
+                  <li {%if request.resolver_match.url_name == 'sotm_home' %}class="active" {% endif %}><a
+                      href="{% url 'sotm:sotm_home' %}">SOTM</a></li>
                   <!--<li {%if request.resolver_match.url_name == 'innovationcell_page' %}class="active"{% endif %}><a href="{% url 'innovationcell_page' %}">Innovation Cell</a></li>-->
 
                   <li {%if request.resolver_match.url_name == 'team_page' %}class="active" {% endif %}><a
@@ -198,7 +203,8 @@
 
               <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'home_page' %}">Home</a></li>
 
-              <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'esummit_page' latest %}">E-Summit'{{latest_year}}</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a
+                  href="{% url 'esummit_page' latest %}">E-Summit'{{latest_year}}</a></li>
 
               <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'event_page' %}">Event Registrations</a></li>
 
