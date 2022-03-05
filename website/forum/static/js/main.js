@@ -244,13 +244,19 @@ $(document).ready(function() {
   $(window).scroll(function() {
     if ($(this).scrollTop() > 100) {
       $('#header').addClass('header-scrolled');
+      $('#dropdown_menu').addClass('dropdown-scrolled');
+      $('#dropdown_menu').removeClass('dropdown-transparent');
     } else {
       $('#header').removeClass('header-scrolled');
+      $('#dropdown_menu').removeClass('dropdown-scrolled');
+      $('#dropdown_menu').addClass('dropdown-transparent');
     }
   });
 
   if ($(window).scrollTop() > 100) {
     $('#header').addClass('header-scrolled');
+    $('#dropdown_menu').addClass('dropdown-scrolled');
+    $('#dropdown_menu').removeClass('dropdown-transparent');
   }
 
 

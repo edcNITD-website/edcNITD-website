@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Post
+from esummit.models import Year_Detail
 from django.core.paginator import Paginator
 from django.db.models import Count
 def home_page(request):
@@ -18,10 +19,21 @@ def post_list(request,category_slug=None):
         category=get_object_or_404(Category,slug=category_slug)
         post=post.filter(category = category)
     categories = Category.objects.all().annotate(posts_count=Count('post'))
+    
+    year = Year_Detail.objects.all().order_by("-year")
+    max_year=0
+    max_id=0
+    for y in Year_Detail.objects.all():
+        if(y.year>max_year):
+            max_year=y.year
+            max_id=y.id
     return render(request,'EQuest/post_list.html',{'categories':categories,
                                                    'category':category,
                                                    'post': post,
                                                    'count':count,
+                                                   'years' :year,
+                                                   'latest' :max_id, 
+                                                   'latest_year' :max_year%100,
                                                  })
 
 def post_detail(request,id):

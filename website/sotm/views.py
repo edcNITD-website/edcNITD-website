@@ -3,11 +3,28 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from sotm.models import *
+from esummit.models import Year_Detail
 from django.contrib.auth.models import AnonymousUser, User
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db import IntegrityError
 from django.contrib import messages
+from esummit.models import Year_Detail
 # Create your views here.
+
+def esummit(request):
+    year = Year_Detail.objects.all().order_by("-year")
+    context = {}
+    context['years'] = year
+    max_year=0
+    max_id=0
+    for y in Year_Detail.objects.all():
+        if(y.year>max_year):
+            max_year=y.year
+            max_id=y.id
+    context['latest_year'] = max_year%100
+    context['latest'] = max_id
+    return render(request,'sotm/sotm_base.html',context)
+
 
 def get_students_list()->List:
     all_students = []
@@ -36,6 +53,16 @@ def sotm_home(request):
                 break
             all_opportunities.append(opp)
     context['all_opportunities'] = all_opportunities
+    
+    year = Year_Detail.objects.all().order_by("-year")
+    context['years'] = year
+    max_year=0
+    max_id=0
+    for y in Year_Detail.objects.all():
+        if(y.year>max_year):
+            max_year=y.year
+            max_id=y.id
+    context['latest'] = max_id
     return render(request, 'sotm/sotm_home.html', context)
 
 
