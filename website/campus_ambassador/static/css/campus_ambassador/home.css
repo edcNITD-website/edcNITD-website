@@ -1,0 +1,130 @@
+.c-faq__answer {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+  
+  .section__headline {
+    font-family: "Varela Round", sans-serif;
+    font-size: 62px;
+    font-weight: light;
+    color: #1e88e5;
+    padding-left: 15px;
+    padding-top: 30px;
+  }
+  
+  .c-faqs__headline {
+    font-family: "Varela Round", sans-serif;
+    text-align: left;
+    padding-left: 15px;
+    font-size: 1.5em;
+    margin-top: 1.5em;
+    font-weight: bold;
+  }
+  
+  .c-faqs {
+    margin: 15px 0;
+    padding: 0 15px;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+  }
+  
+  .c-faq {
+    list-style: none;
+    margin: 10px 0 5px;
+  }
+  
+  .c-faq__title {
+    cursor: pointer;
+    font-weight: 500;
+    z-index: 10;
+    position: relative;
+    font-size: 1.1em;
+  }
+  .c-faq__title:hover {
+    text-decoration: underline;
+  }
+  
+  .c-faq--active .c-faq__title {
+    color: #1e293b;
+    font-weight: 600;
+  }
+  .c-faq--active .c-faq__title::after {
+    opacity: 1;
+    transform: rotateZ(90deg);
+    display: inline-block;
+  }
+  
+  .c-faq__answer {
+    font-weight: normal;
+    margin-top: -10%;
+    transition: all 0.1s;
+    z-index: 1;
+    font-size: 1em;
+    color: #fbfbfb;
+    background-color: #1e293bb7;
+  }
+  
+  .c-faq--active .c-faq__answer {
+    opacity: 1;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    transition: all 0.2s;
+    border-radius: 0.8rem;
+    background-color: #0f172a;
+    color: #eff6ff;
+    padding: 20px;
+  }
+  
+  @media (min-width: 780px) {
+    .c-faqs {
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      height: auto;
+    }
+  
+    .c-faqs::before {
+      opacity: 0.2;
+    }
+  
+    .c-faq {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+    .c-faq .c-faq__title {
+      width: 50%;
+      padding-right: 40px;
+      display: inline-block;
+    }
+    .c-faq .c-faq__title::after {
+      display: none;
+    }
+    .c-faq .c-faq__answer {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 50%;
+      width: 50%;
+      border-left-color: #1e293b;
+      border-top-color: #eff6ff;
+    }
+  }
+  .c-note {
+    font-size: 0.8em;
+    padding-left: 15px;
+    opacity: 0.5;
+    transition: opacity 0.2s ease-in-out;
+  }
+  .c-note:hover {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+  }
+  .c-note a {
+    color: #1e88e5;
+  }
+
+

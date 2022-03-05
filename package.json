@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tailwindcss -i website/campus_ambassador/static/css/campus_ambassador/src_tailwind.css -o website/campus_ambassador/static/css/campus_ambassador/tailwind.css",
+    "watch": "npx tailwindcss -i website/campus_ambassador/static/css/campus_ambassador/src_tailwind.css -o website/campus_ambassador/static/css/campus_ambassador/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.7"
+  },
+  "dependencies": {
+    "@tailwindcss/forms": "^0.4.0"
+  }
+}

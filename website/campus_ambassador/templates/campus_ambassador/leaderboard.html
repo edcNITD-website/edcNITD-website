@@ -1,0 +1,63 @@
+{% extends 'campus_ambassador/leaderboard_base.html' %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" href="{% static 'css/campus_ambassador/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/campus_ambassador/leaderboard.css' %}">
+<!-- <link rel="stylesheet" href="leaderboard.css"> -->
+{% endblock %}
+{% block content %}
+<div class="view-box pt-[18vh] pb-8 grid place-items-center min-h-screen w-full">
+    <div class="w-full m-auto">
+        <h2 class="text-center text-3xl text-theme_clr pb-3 font-montserrat font-bold uppercase">Leaderboard</h2>
+    <div>
+        <div class="grey-line"></div>
+        <div class="coloured-line"></div>
+    </div>
+    {% if cur_campaign %}
+        <div class="w-full overflow-auto">
+            <table class="table-auto w-full">
+                <thead>
+                <tr class="md:text-lg text-sm text-center">
+                    <th class="py-3 px-2 text-slate-400">Rank</th>
+                    <!-- <th class="py-3 px-2 text-slate-400">Username</th> -->
+        
+                    <th class="py-3 px-2 text-slate-400">ID</th>
+                    <th class="py-3 px-2 text-slate-400">Score</th>
+                    <th class="py-3 px-2 text-slate-400">College</th>
+        
+                </tr>
+            </thead>
+            <tbody>
+                {% if ambassadors %}
+                {% for ambassador in ambassadors %}
+        
+                <tr class="rowcss bg-slate-800 text-slate-200 text-xs md:text-base text-center even:bg-slate-700">
+                    <td class="py-2 px-2">
+                        <div class="w-8 h-8 bg-theme_clr mx-auto rounded-full grid place-items-center text-black">
+                            {{ambassador.rank}}
+                        </div>
+                    </td>
+                    <!-- <td class="py-2 px-2">{{ambassador.user}}</td> -->
+        
+                    <td class="py-2 px-2">{{ambassador.unique_code}}</td>
+                    <td class="py-2 px-2">{{ambassador.score}}</td>
+                    <td class="py-2 px-2">{{ambassador.college}}</td>
+        
+                </tr>
+                {% endfor %}
+                {% endif %}
+            </tbody>
+            </table>
+        </div>
+    {% else %}
+        <h2 class="text-center mt-3">This year's program has ended, the leaderboard is no longer visible.</h2>
+    {% endif %}
+    </div>
+    
+</div>
+   
+{% endblock %}

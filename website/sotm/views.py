@@ -402,6 +402,11 @@ def sotm_register(request):
 
 
 def sotm_login(request):
+    if 'next' in request.GET:
+        origin_url = request.GET.get('next')
+        origin_base = origin_url.split('/')[1]
+        origin_base = '/'+origin_base + '/login'
+        return redirect(origin_base)
     if request.method == 'POST':
         if 'student' in request.POST:
             username = request.POST.get('username')

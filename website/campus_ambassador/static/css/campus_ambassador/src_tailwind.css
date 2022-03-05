@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    --theme-color: #f38b36;
+}
+
+@layer components{
+    /* note View Box acts as the conatiner where content is displayed */
+    .view-box{
+        @apply w-4/5 max-w-screen-xl mx-auto my-auto;
+    }
+    /* note skew block applies a skew background to any container */
+    .skew-block{
+        width: 100%;
+        min-height: 100vh;
+        padding-bottom: 4rem;
+        padding-top: 4rem;
+        clip-path: polygon(0 0, 100% 8%,100% 95%, 0 100%);
+    }
+
+    .orange-btn{
+        @apply rounded-md bg-theme_clr w-fit px-4 py-2 text-slate-50 font-bold cursor-pointer;
+    }
+    .cap-nav-item{
+        @apply text-slate-100 hover:text-theme_clr pr-3;
+    }
+    .active{
+        @apply text-theme_clr
+    }
+
+    .table-head-cell{
+        @apply text-sm p-3 font-semibold tracking-wide text-left;
+    }
+
+    .table-cell{
+        @apply text-sm p-3 tracking-wide text-left;
+    }
+
+    .paginator-btn{
+        @apply bg-theme_clr text-slate-800 font-bold px-2 py-1 rounded-sm shadow-md 
+    }
+
+    .timeline_animation_l{
+        transform: scale(0.8);
+        margin-right: -2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .timeline_animation_r{
+        transform: scale(0.8);
+        margin-left: -2rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+
+    .timeline_animation_l:hover{
+        transform: scale(1.1);
+        margin-right: 4rem;
+        margin-bottom: 2rem;
+        @apply text-slate-100
+    }
+    
+    .timeline_animation_r:hover{
+        transform: scale(1.1);
+        margin-left: 4rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+        @apply text-slate-100
+    }
+    
+    .latest_animation_l{
+        transform: scale(1.1);
+        margin-right: 4rem;
+        margin-bottom: 2rem;
+    }
+    
+    .latest_animation_r{
+        transform: scale(1.1);
+        margin-left: 4rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+
+    .form_input{
+        @apply rounded-md border-slate-200 bg-slate-900 text-slate-200 w-full text-xs sm:text-sm lg:text-base;
+    }
+
+    .grey-line{
+        border-top: #ddd 1px solid;
+        height: 1px;
+        width: 120px;
+        margin-left: calc(50% - 60px);
+        z-index: -1;
+    }
+    
+    .coloured-line{
+        border-top: var(--theme-color) 3px solid;
+        width: 40px;
+        margin-left: calc(50% - 20px);
+        margin-top: -2px;
+    }
+}

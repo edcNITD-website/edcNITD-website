@@ -1,0 +1,84 @@
+{% extends 'campus_ambassador/base.html' %}
+{% load static %}
+{% block title %}Score Task
+{% endblock %}
+{% block head %}
+<!-- <link rel="stylesheet" href="{% static 'css/campus_ambassador/home.css' %}"> -->
+{% endblock %}
+{% block content %}
+<div class="view-box">
+    <div class="flex flex-col justify-center py-[15vh] min-h-[100vh] gap-4">
+        <h1 class="text-3xl font-bold mx-auto text-center uppercase">Score Task</h1>
+        <div>
+
+            <div class="grey-line"></div>
+            <div class="coloured-line"></div>
+        </div>
+        <div class="bg-slate-400 w-full overflow-x-auto px-4 py-4 rounded-lg  mx-auto text-slate-900">
+            {% if is_ambassador %}
+                <h2>Login as a moderator</h2>
+            {% elif is_moderator %}
+                {% if ambassadors %}
+                    <table class="w-full">
+                        <thead class="border-b-2 border-blue-900">
+                            <tr>
+                                <th class="table-head-cell">Ambassador Name</th>
+                                <th class="table-head-cell">Ambassador Unique Code</th>
+                                <th class="table-head-cell">Score</th>
+                                {% for st in subtasks %}
+                                    <th class="table-head-cell">{{st.index}}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for amb in ambassadors %}
+                            <tr>
+                                <td class="table-cell">{{amb.user.username}}</td>
+                                <td class="table-cell">{{amb.unique_code}}</td>
+                                <td class="table-cell">{{amb.score}}</td>
+                                {% for st in amb.get_all_subtasks %}
+                                    <td class="table-cell">
+                                        {% if not st.completed %}
+                                            <a href="{% url 'cap:subtask_completed' amb.unique_code %}?subtask={{st.index}}&id={{amb.id}}&page_num={{page_num}}">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                  </svg>
+                                            </a>
+                                        {% else %}
+                                            <a href="{% url 'cap:remove_completed_subtask' amb.unique_code %}?subtask={{st.index}}&id={{amb.id}}&page_num={{page_num}}"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                              </svg></a>
+                                        {% endif %}
+                                    </td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <!-- Final Pagination -->
+                    <center>
+                        <div class="paginator">
+
+                            {%if ambassadors.has_previous %} {# whether the previous page exists #}
+
+                            <a href="?page_num={{ambassadors.previous_page_number}}" class="paginator-btn"> &lt;</a>
+                            {# link to the prev page #}
+                            {% else %}
+                            <a href="#" class="paginator-btn hidden">
+                                <</a> {# link to the prev page #} {% endif %} &ensp; <!-- <span id="current-page">
+                                    {{ambassadors.number}}</span> {# the current page number #} -->
+                                    {%if ambassadors.has_next %} {# whether the next page exists #}
+                                    <a href="?page_num={{ambassadors.next_page_number}}" class="paginator-btn"> ></a>
+                                    {# link to the next page #}
+                                    {% else %}
+                                    <a href="#" class="paginator-btn hidden"> ></a> {# link to the prev page #}
+                                    {% endif %}
+                        </div>
+                    </center>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

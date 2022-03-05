@@ -1,0 +1,187 @@
+{% extends 'campus_ambassador/base.html' %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" href="{% static 'css/campus_ambassador/task_list.css' %}">
+{% endblock %}
+{% block content %}
+<div class="view-box">
+    {% if is_ambassador %}
+        <div class="grid place-items-start  pt-[15vh] gap-4 md:gap-8">
+                <!-- Task section -->
+                {% if status.code == 201 %}
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 place-items-start w-full">
+                        <div class="lg:col-span-2 bg-slate-200/70 text-slate-900 rounded-lg px-3 py-2 w-full">
+                            <h2 class="text-center text-lg font-montserrat font-semibold uppercase ">Current Task : {{amb.get_current_task.number}}</h2>
+                            <h3 class="font-semibold">{{amb.get_current_task.number}} | {{amb.get_current_task.title}}</h3>
+                            <p>{{amb.get_current_task.description}}</p>
+                            <div class="hidden"><h4 id="secs-left">{{secs_left}}</h4></div>
+                            {% for subtask in amb.get_all_current_subtasks %}
+                        <div class="">
+                            <h3 class="font-semibold pl-8">{{subtask.task.number}}.{{subtask.number}} | {{subtask.title}}</h3>
+                            <p class="pl-8">{{subtask.description}}</p>
+                            <div class="w-full my-4 flex flex-wrap gap-4 justify-center">
+                                <a class="subtask-submit-link mx-auto px-4 py-2 font-semibold bg-stone-800 text-slate-50 rounded-full" href="{{subtask.submission_url}}">Submit Task Now</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                        </div>
+                        <div class="bg-stone-900 rounded-2xl shadow-lg shadow-stone-300/30 p-3 lg:p-5 flex flex-col justify-center w-full max-w-xs mx-auto">
+                            <h1 class="font-bold text-lg text-center font-montserrat uppercase text-theme_clr">Time Left: </h1>
+                            <div class="grey-line mt-2"></div>
+                            <div class="coloured-line"></div>
+                            <div class="grid grid-cols-2 gap-2 mx-auto my-3">
+                                <div class="bg-stone-600/80 text-stone-50 font-semibold p-3 rounded-md text-center" >
+                                    <h2 id="out_days">00</h2>
+                                    <h2>Days</h2>
+                                </div>
+                                <div class="bg-stone-600/80 text-stone-50 font-semibold p-3 rounded-md text-center" >
+                                    <h2 id="out_hrs">00</h2>
+                                    <h2>Hours</h2>
+                                </div>
+                                <div class="bg-stone-600/80 text-stone-50 font-semibold p-3 rounded-md text-center" >
+                                    <h2 id="out_mins">00</h2>
+                                    <h2>Minutes</h2>
+                                </div>
+                                <div class="bg-stone-600/80 text-stone-50 font-semibold p-3 rounded-md text-center" >
+                                    <h2 id="out_secs">00</h2>
+                                    <h2>Seconds</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                {% elif status.code == 202 %}
+                    <div class="grid grid-cols-1 w-full">
+                        <div class="lg:col-span-2 bg-slate-200/70 text-slate-900 rounded-lg px-3 py-2 w-full">
+                            <h2 class="text-center text-lg font-semibold">Campus Ambassador Program has Ended</h2>
+                            <h3 class="text-center my-2">{{status.msg}}</h3>
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+                {% elif status.code == 204 %}
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 place-items-start w-full">
+                        <div class="lg:col-span-2 bg-slate-200/70 text-slate-900 rounded-lg px-3 py-2 w-full">
+                            <h2 class="text-center text-lg font-semibold">Next task will be available soon.</h2>
+                            <h3 class="text-center my-2">{{status.msg}}</h3>
+                            <div class="hidden"><h4 id="secs-left">{{secs_left}}</h4></div>
+                        </div>
+                        <div class="bg-stone-900 rounded-2xl shadow-lg shadow-stone-300/30 p-3 lg:p-5 flex flex-col justify-center w-full max-w-xs mx-auto">
+                            <h1 class="font-bold text-lg text-center font-montserrat uppercase">Time Left: </h1>
+                            <div class="grid grid-cols-2 gap-2 mx-auto my-3">
+                                <div class="bg-stone-600/80 text-stone-50 font-semibold p-3 rounded-md text-center" >
+                                    <h2 id="out_days">00</h2>
+                                    <h2>Days</h2>
+                                </div>
+                                <div class="bg-stone-600/80 text-stone-50 font-semibold p-3 rounded-md text-center" >
+                                    <h2 id="out_hrs">00</h2>
+                                    <h2>Hours</h2>
+                                </div>
+                                <div class="bg-stone-600/80 text-stone-50 font-semibold p-3 rounded-md text-center" >
+                                    <h2 id="out_mins">00</h2>
+                                    <h2>Minutes</h2>
+                                </div>
+                                <div class="bg-stone-600/80 text-stone-50 font-semibold p-3 rounded-md text-center" >
+                                    <h2 id="out_secs">00</h2>
+                                    <h2>Seconds</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            <div class="w-full my-2">
+                <h2 class="font-semibold text-xl text-center uppercase font-montserrat">All tasks</h2>
+
+                <div class="grey-line mt-2"></div>
+                <div class="coloured-line"></div>
+                <br>
+                <div class="flex flex-col gap-4 text-slate-800">
+                    {% for task in tasks_list %}
+                        <div class="bg-slate-200/70 rounded-lg p-3">
+                            <h2>{{task.number}} | {{task.title}}e</h2>
+                            <h3>{{task.description}}</h3>
+                            {% for st in task.subtasks %}
+                                <div class="pl-4 pt-2">
+                                    <h2>{{task.number}}.{{st.number}} | {{st.title}}</h2>
+                                    <p>{{st.description}}</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                    <!-- Final Pagination -->
+                    <center>
+                        <div class="paginator">
+
+                            {%if tasks_list.has_previous %} {# whether the previous page exists #}
+
+                            <a href="?page_num={{tasks_list.previous_page_number}}" class="paginator-btn"> &lt;</a>
+                            {# link to the prev page #}
+                            {% else %}
+                            <a href="#" class="paginator-btn hidden">
+                                <</a> {# link to the prev page #} {% endif %} &ensp; <!-- <span id="current-page">
+                                    {{ambassadors.number}}</span> {# the current page number #} -->
+                                    {%if tasks_list.has_next %} {# whether the next page exists #}
+                                    <a href="?page_num={{tasks_list.next_page_number}}" class="paginator-btn"> ></a>
+                                    {# link to the next page #}
+                                    {% else %}
+                                    <a href="#" class="paginator-btn hidden"> ></a> {# link to the prev page #}
+                                    {% endif %}
+                        </div>
+                    </center>
+                </div>
+              </div>
+        </div>
+    {% elif is_moderator %}
+        <div class="w-full pt-[15vh]">
+            <div class="w-full my-2">
+                <h2 class="font-semibold text-xl text-center uppercase font-montserrat">All tasks</h2>
+
+                <div class="grey-line mt-2"></div>
+                <div class="coloured-line"></div>
+                <br>
+                <div class="flex flex-col gap-4 text-slate-800">
+                    {% for task in tasks_list %}
+                        <div class="bg-slate-200/70 rounded-lg p-3">
+                            <h2>{{task.number}} | {{task.title}}e</h2>
+                            <h3>{{task.description}}</h3>
+                            {% for st in task.subtasks %}
+                                <div class="pl-4 pt-2">
+                                    <h2>{{task.number}}.{{st.number}} | {{st.title}}</h2>
+                                    <p>{{st.description}}</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                    <!-- Final Pagination -->
+                    <center>
+                        <div class="paginator">
+
+                            {%if tasks_list.has_previous %} {# whether the previous page exists #}
+
+                            <a href="?page_num={{tasks_list.previous_page_number}}" class="paginator-btn"> &lt;</a>
+                            {# link to the prev page #}
+                            {% else %}
+                            <a href="#" class="paginator-btn hidden">
+                                <</a> {# link to the prev page #} {% endif %} &ensp; <!-- <span id="current-page">
+                                    {{ambassadors.number}}</span> {# the current page number #} -->
+                                    {%if tasks_list.has_next %} {# whether the next page exists #}
+                                    <a href="?page_num={{tasks_list.next_page_number}}" class="paginator-btn"> ></a>
+                                    {# link to the next page #}
+                                    {% else %}
+                                    <a href="#" class="paginator-btn hidden"> ></a> {# link to the prev page #}
+                                    {% endif %}
+                        </div>
+                    </center>
+                </div>
+              </div>
+        </div>
+    {% endif %}
+    
+</div>
+<script src="{% static 'js/campus_ambassador/timer.js' %}"></script>
+{% endblock %}

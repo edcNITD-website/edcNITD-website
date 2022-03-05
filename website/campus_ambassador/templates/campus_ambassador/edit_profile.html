@@ -1,0 +1,66 @@
+{% extends 'campus_ambassador/base.html' %}
+{% load static %}
+{% block title %}Edit 
+{{request.user}}'s Profile
+{% endblock %}
+{% block head %}
+<!-- <link rel="stylesheet" href="{% static 'css/campus_ambassador/home.css' %}"> -->
+{% endblock %}
+{% block content %}
+<div class="view-box">
+    <div class="flex flex-col justify-center py-[15vh] min-h-[100vh] gap-4">
+        <h1 class="text-3xl font-bold mx-auto text-center">Edit Profile</h1>
+        <div class="bg-slate-200/20 w-full px-4 py-4 rounded-lg  mx-auto text-slate-900 max-w-screen-md">
+            {% if is_ambassador %}
+
+                <form action="" method="post" class="flex flex-col justify-center gap-4 mt-4">
+                    {% csrf_token %}
+                    <h3 class="text-center text-slate-100 font-semibold">Select avatar</h3>
+                    <div id="avatars" class=" flex flex-row justify-center gap-3 flex-wrap">
+                        {% for avatar in avatars %}
+                            {% if avatar.selected %}
+                                <input type="radio" name="profile_img" id="id_prof_{{avatar.name}}" checked value="{{avatar.image_url}}" class="hidden">
+                                <label for="id_prof_{{avatar.name}}"><img src="{% static 'image/campus_ambassador/' %}{{avatar.image_url}}" alt="{{avatar.name}}" class="w-12 h-12  border-4 border-blue-400 rounded-full" /></label>
+                            {% else %}
+                                <input type="radio" name="profile_img" id="id_prof_{{avatar.name}}" value="{{avatar.image_url}}" class="hidden">
+                                <label for="id_prof_{{avatar.name}}"><img src="{% static 'image/campus_ambassador/' %}{{avatar.image_url}}" alt="{{avatar.name}}" class="w-12 h-12  " /></label>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="grid w-full gap-2">
+                        <div class="flex flex-col gap-3 max-w-screen-sm w-full mx-auto">
+
+                            <h2 class="font-semibold text-slate-200 text-center">Social Media Links</h2>
+                            {% if amb.facebook %}
+                                <input type="text" name="facebook" id="facebook_id" placeholder="facebook Link" class="form_input" value="{{amb.facebook}}">
+                            {% else %}
+                                <input type="text" name="facebook" id="facebook_id" placeholder="facebook Link" class="form_input">
+                            {% endif %}
+                            {% if amb.linkedin %}
+                                <input type="text" name="linkedin" id="linkedin_id" placeholder="Linkedin Link" class="form_input" value="{{amb.linkedin}}">
+                            {% else %}
+                                <input type="text" name="linkedin" id="linkedin_id" placeholder="Linkedin Link" class="form_input">
+                            {% endif %}
+                            {% if amb.instagram %}
+                                <input type="text" name="instagram" id="instagram_id" placeholder="instagram Link" class="form_input" value="{{amb.instagram}}">
+                            {% else %}
+                                <input type="text" name="instagram" id="instagram_id" placeholder="instagram Link" class="form_input">
+                            {% endif %}
+                        </div>
+                        <div class="text-center w-full flex gap-3 flex-col max-w-screen-sm mx-auto">
+                            <h2 class="font-semibold text-slate-200">Password Change</h2>
+
+                            <input type="password" name="new_password" id="new_pass" class="form_input" placeholder="New Password">
+                        </div>
+                    </div>
+                    
+                    <input type="submit" name="edit_amb" id="login_id" value="Save Profile" class="orange-btn mx-auto">
+                </form>
+            {% elif is_moderator %}
+                <h2 class="text-lg">Changes can be made via admin only</h2>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/campus_ambassador/edit_profile.js' %}"></script>
+{% endblock %}

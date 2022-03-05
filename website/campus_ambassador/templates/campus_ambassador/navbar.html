@@ -1,0 +1,53 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/campus_ambassador/tailwind.css' %}">
+
+<nav class="fixed text-xs top-0 left-0 md:h-[14vh] h-[12vh] w-full z-50 " id="navbar">
+  <ul class="flex flex-row justify-between w-11/12 max-w-screen-xl mx-auto my-auto h-full items-center font-semibold uppercase tracking-wider">
+    <li class="border-l-4 border-theme_clr pl-3 my-auto"><img src="{%static 'img/logo.png' %}" alt="" class="h-[50px] w-auto"></li>
+    <li class="hidden lg:block">
+      <ul class="flex py-3 border-l-4 border-theme_clr flex-row gap-6">
+        <li><a href="{% url 'cap:cap_home_page' %}" class="ml-6 pl-3 cap-nav-item">Home</a></li>
+        
+        <li><a href="{% url 'cap:cap_home_page' %}#incentives" class="cap-nav-item">Incentives</a></li>
+        <li><a href="{% url 'cap:leaderboard' %}" class="cap-nav-item">Leaderboard</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'cap:task_list' %}" class="cap-nav-item">Tasks</a></li>
+          <li><a href="{% url 'cap:profile' %}" class="cap-nav-item">Profile</a></li>
+          <li><a href="{% url 'cap:logout' %}" class="cap-nav-item">Logout</a></li>
+        {% else %}
+          <li><a href="{% url 'cap:register' %}" class="cap-nav-item">Register</a></li>
+          <li><a href="{% url 'cap:login' %}" class="cap-nav-item">Login</a></li>
+
+        {% endif %}
+        <li><a href="{% url 'home_page' %}" class="cap-nav-item">EDC</a></li>
+      </ul>
+    </li>
+    <li class="lg:hidden">
+      <button onclick="toggleMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 my-auto" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+        </svg>
+      </button>
+    </li>
+  </ul>
+  <nav id="mobile-menu" class="hidden flex-col justify-center bg-stone-900 min-h-[95vh]">
+
+    <ul class="text-base flex flex-col justify-center text-center gap-6">
+      <li><a href="{% url 'cap:cap_home_page' %}" class=" px-3 hover:bg-stone-700 py-2 rounded"onclick="toggleMenu()">Home</a></li>
+      
+      <li><a href="{% url 'cap:cap_home_page' %}#incentives" class="px-3 hover:bg-stone-700 py-2 rounded" onclick="toggleMenu()">Incentives</a></li>
+      <li><a href="{% url 'cap:leaderboard' %}" class="px-3 hover:bg-stone-700 py-2 rounded" onclick="toggleMenu()">Leaderboard</a></li>
+
+      {% if user.is_authenticated %}
+        <li><a href="{% url 'cap:task_list' %}" class="px-3 hover:bg-stone-700 py-2 rounded">Tasks</a></li>
+        <li><a href="{% url 'cap:profile' %}" class="px-3 hover:bg-stone-700 py-2 rounded">Profile</a></li>
+        <li><a href="{% url 'cap:logout' %}" class="px-3 hover:bg-stone-700 py-2 rounded">Logout</a></li>
+      {% else %}
+        <li><a href="{% url 'cap:register' %}" class="px-3 hover:bg-stone-700 py-2 rounded">Register</a></li>
+        <li><a href="{% url 'cap:login' %}" class="px-3 hover:bg-stone-700 py-2 rounded">Login</a></li>
+      {% endif %}
+      <li><a href="{% url 'home_page' %}" class="px-3 hover:bg-stone-700 py-2 rounded">EDC</a></li>
+    </ul>
+  </nav>
+</nav>
+<script src="{% static 'js/campus_ambassador/navbar.js' %}" defer></script>

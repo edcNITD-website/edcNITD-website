@@ -4,7 +4,7 @@ __pycache__/
 secrets.py
 # C extensions
 *.so
-
+node_modules/
 # Distribution / packaging
 bin/
 build/
@@ -80,7 +80,13 @@ website/team/migrations/
 website/web_team/migrations/
 website/sotm/migrations/
 website/EQuest/migrations/
-
+*migrations/
 
 # Media files
 media/
+node_modules/
+package.json
+package-lock.json
+tailwind.config.js
+Scripts/
+pyvenv.cfg
