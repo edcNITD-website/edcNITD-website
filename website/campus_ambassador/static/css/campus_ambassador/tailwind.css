@@ -770,6 +770,10 @@ select {
   pointer-events: none;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .static {
   position: static;
 }
@@ -827,6 +831,10 @@ select {
 
 .col-span-1 {
   grid-column: span 1 / span 1;
+}
+
+.m-auto {
+  margin: auto;
 }
 
 .mx-auto {
@@ -907,16 +915,16 @@ select {
   margin-top: 1.5rem;
 }
 
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
 .ml-6 {
   margin-left: 1.5rem;
 }
 
 .mb-8 {
   margin-bottom: 2rem;
-}
-
-.mt-3 {
-  margin-top: 0.75rem;
 }
 
 .block {
@@ -1161,10 +1169,6 @@ select {
 
 .gap-6 {
   gap: 1.5rem;
-}
-
-.place-self-center {
-  place-self: center;
 }
 
 .self-center {
