@@ -140,6 +140,7 @@ def bulk_create(request,secret):
         for secret_key in SecretKey.objects.all():
             if secret_key.value == secret:
                 user = User()
+                json_content = {}
                 if 'username' in request.POST:
                     user.username = request.POST['username']
                 if 'name' in request.POST:
@@ -152,7 +153,10 @@ def bulk_create(request,secret):
                     user.save()
                 except IntegrityError:
                     messages.error(request,'Integrity Error, the username exists already, please use another username to register.')
-                    return redirect('/cap/register')
+                    json_content= {}
+                    json_content['success'] = False
+                    print(json_content)
+                    return JsonResponse(data=json_content,safe=False)
                 amb = Ambassador()
                 amb.user = user
                 if 'college' in request.POST:
@@ -162,7 +166,11 @@ def bulk_create(request,secret):
                 amb.unique_code = generate_amb_code()
                 amb.campaign = context['cur_campaign']
                 amb.save()
-                return HttpResponse("success")
+                json_content= {}
+                json_content['amb_code'] = amb.unique_code
+                json_content['success'] = True
+                print(json_content)
+                return JsonResponse(data=json_content,safe=False)
     return HttpResponse("Not found")
 
 @login_required
