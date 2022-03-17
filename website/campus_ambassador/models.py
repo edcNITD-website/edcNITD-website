@@ -111,6 +111,7 @@ class Ambassador(models.Model):
     instagram = models.CharField(
         max_length=200, null=True, blank=True, default=None)
     active = models.BooleanField(default=False)
+    drive_link = models.CharField(max_length=400,default='Pending')
     def __str__(self) -> str:
         return self.user.username
 

@@ -24,7 +24,11 @@ Tasks
                             <h3 class="font-semibold pl-8">{{subtask.task.number}}.{{subtask.number}} | {{subtask.title}}</h3>
                             <p class="pl-8">{{subtask.description}}</p>
                             <div class="w-full my-4 flex flex-wrap gap-4 justify-center">
-                                <a class="subtask-submit-link mx-auto px-4 py-2 font-semibold bg-stone-800 text-slate-50 rounded-full" href="{{subtask.submission_url}}">Submit Task Now</a>
+                                {% if subtask.submission_url == 'drive' %}
+                                    <a class="subtask-submit-link mx-auto px-4 py-2 font-semibold bg-stone-800 text-slate-50 rounded-full" href="{{amb.drive_link}}">Upload the files to the subtask folder named {{subtask.task.number}}.{{subtask.number}}</a>
+                                {% else %}
+                                    <a class="subtask-submit-link mx-auto px-4 py-2 font-semibold bg-stone-800 text-slate-50 rounded-full" href="{{subtask.submission_url}}">Submit Task Now</a>
+                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}
