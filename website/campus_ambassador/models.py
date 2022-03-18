@@ -139,10 +139,29 @@ class Ambassador(models.Model):
     @property
     def get_current_task(self):
         all_tasks = Task.objects.filter(campaign=self.campaign).order_by('start_date')
+        task_list = []
         for task in all_tasks:
             if task.start_date<=timezone.now() and task.end_date >=timezone.now():
-                return task
+                task_list.append(task)
+        if len(task_list) == 0:
+            return None
+        else:
+            return task_list[len(task_list)-1]
         return None
+
+    @property
+    def get_ongoing_tasks(self):
+        all_tasks = Task.objects.filter(campaign=self.campaign).order_by('-start_date')
+        ongoing_tasks = []
+        for task in all_tasks:
+            if task.start_date<=timezone.now() and task.end_date >=timezone.now():
+                if task != self.get_current_task:
+                    new_task = task
+                    new_task.subtasks = SubTask.objects.filter(task=task).order_by('number')
+                    ongoing_tasks.append(new_task)
+        if len(ongoing_tasks) == 0:
+            return None
+        return ongoing_tasks
 
     @property
     def get_all_current_subtasks(self):
