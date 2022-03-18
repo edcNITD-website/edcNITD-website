@@ -272,7 +272,7 @@ def task_list(request):
             context['secs_left'] = timeleft.total_seconds()
             
         if cur_task == None:
-            next_task = Task.objects.filter(start_date__gte=timezone.now(),end_date__gte=timezone.now()).order_by('-start_date')
+            next_task = Task.objects.filter(start_date__gte=timezone.now()).order_by('start_date')
             if next_task.count() == 0:
                 # finished all the tasks
                 

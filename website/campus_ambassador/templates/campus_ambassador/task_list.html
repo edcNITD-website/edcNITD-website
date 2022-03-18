@@ -23,14 +23,19 @@ Tasks
                         <div class="">
                             <h3 class="font-semibold pl-8">{{subtask.task.number}}.{{subtask.number}} | {{subtask.title}}</h3>
                             <p class="pl-8">{{subtask.description}}</p>
+                            <p class="font-semibold pl-8">Score: {{subtask.score}}</p>
                             <div class="w-full my-4 flex flex-wrap gap-4 justify-center">
-                                <a class="subtask-submit-link mx-auto px-4 py-2 font-semibold bg-stone-800 text-slate-50 rounded-full" href="{{subtask.submission_url}}">Submit Task Now</a>
+                                {% if subtask.submission_url == 'drive' %}
+                                    <a class="subtask-submit-link mx-auto px-4 py-2 sm:font-semibold bg-stone-800 text-slate-50 rounded-lg" href="{{amb.drive_link}}">Upload the files to the subtask folder named {{subtask.task.number}}.{{subtask.number}}</a>
+                                {% else %}
+                                    <a class="subtask-submit-link mx-auto px-4 py-2 font-semibold bg-stone-800 text-slate-50 rounded-full" href="{{subtask.submission_url}}">Submit Task Now</a>
+                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}
                         </div>
                         <div class="bg-stone-900 rounded-2xl shadow-lg shadow-stone-300/30 p-3 lg:p-5 flex flex-col justify-center w-full max-w-xs mx-auto">
-                            <h1 class="font-bold text-lg text-center font-montserrat uppercase text-theme_clr">Time Left: </h1>
+                            <h1 class="font-bold text-lg text-center font-montserrat uppercase text-theme_clr">Time Left for Task {{amb.get_current_task.number}} :</h1>
                             <div class="grey-line mt-2"></div>
                             <div class="coloured-line"></div>
                             <div class="grid grid-cols-2 gap-2 mx-auto my-3">
@@ -94,6 +99,40 @@ Tasks
                         </div>
                     </div>
                 {% endif %}
+            </div>
+            {% if status.code == 201 and amb.get_ongoing_tasks != None %}
+                <div class="w-full my-4">
+                    <h2 class="font-semibold text-xl text-center uppercase font-montserrat">Other Ongoing Tasks</h2>
+
+                    <div class="grey-line mt-2"></div>
+                    <div class="coloured-line"></div>
+                    <br>
+                    <div class="flex flex-col gap-4 text-slate-800">
+                        {% for task in amb.get_ongoing_tasks %}
+                            <div class="bg-slate-200/70 rounded-lg p-3">
+                                <h2 class="font-semibold">{{task.number}} | {{task.title}}e</h2>
+                                <h3>{{task.description}}</h3>
+                                <h2 class="font-semibold">Deadline : {{task.end_date|date:'d F, Y'}}</h2>
+                                {% for st in task.subtasks %}
+                                    <div class="pt-2">
+                                        <h2 class="font-semibold pl-8">{{task.number}}.{{st.number}} | {{st.title}}</h2>
+                                        <p class="pl-8">{{st.description}}</p>
+                                        <p class="pl-8">Score :{{st.score}}</p>
+                                        <div class="w-full my-4 flex flex-wrap gap-4 justify-center">
+                                            {% if st.submission_url == 'drive' %}
+                                                <a class="subtask-submit-link mx-auto px-4 py-2 sm:font-semibold bg-stone-800 text-slate-50 rounded-lg" href="{{amb.drive_link}}">Upload the files to the subtask folder named {{st.task.number}}.{{st.number}}</a>
+                                            {% else %}
+                                                <a class="subtask-submit-link mx-auto px-4 py-2 font-semibold bg-stone-800 text-slate-50 rounded-full" href="{{st.submission_url}}">Submit Task Now</a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            
+            {% endif %}
             <div class="w-full my-2">
                 <h2 class="font-semibold text-xl text-center uppercase font-montserrat">All tasks</h2>
 
