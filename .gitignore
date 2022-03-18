@@ -80,7 +80,7 @@ website/team/migrations/
 website/web_team/migrations/
 website/sotm/migrations/
 website/EQuest/migrations/
-website/campus_ambassador/migrations/
+# website/campus_ambassador/migrations/
 *migrations/
 
 # Media files
