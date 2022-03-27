@@ -39,11 +39,11 @@
         <h1 class="about-event">{{event.about_event}}</h1>
         <hr>
       {% if event in ue or event in oe %}
-        <p class="title-header"><i class="fa fa-calendar" aria-hidden="true"></i> Registration Starts:<span id="break1"></span> <span class="date-calender"><strong>{{event.start_date|date:"d F Y, P" }}</strong></span></p>
-        <p class="title-header"><i class="fa fa-calendar" aria-hidden="true"></i> Registration Ends:<span id="break2"></span> <span class="date-calender"><strong>{{event.end_date|date:"d F Y, P" }}</strong></span></p>
+        <p class="title-header"><i class="fa fa-calendar" aria-hidden="true"></i> Event Starts at:<span id="break1"></span> <span class="date-calender"><strong>{{event.start_date|date:"d F Y, P" }}</strong></span></p>
+        <p class="title-header"><i class="fa fa-calendar" aria-hidden="true"></i> Event Ends at:<span id="break2"></span> <span class="date-calender"><strong>{{event.end_date|date:"d F Y, P" }}</strong></span></p>
       {% else %}
-        <p class="title-header"><i class="fa fa-calendar" aria-hidden="true"></i> Registration Starts:<span id="break1"></span> <span class="date-calender"><strong>WILL BE NOTIFIED LATER</strong></span></p>
-        <p class="title-header"><i class="fa fa-calendar" aria-hidden="true"></i> Registration Ends:<span id="break2"></span> <span class="date-calender"><strong>WILL BE NOTIFIED LATER</strong></span></p>
+        <p class="title-header"><i class="fa fa-calendar" aria-hidden="true"></i> Event Starts at:<span id="break1"></span> <span class="date-calender"><strong>WILL BE NOTIFIED LATER</strong></span></p>
+        <p class="title-header"><i class="fa fa-calendar" aria-hidden="true"></i> Event Ends at:<span id="break2"></span> <span class="date-calender"><strong>WILL BE NOTIFIED LATER</strong></span></p>
       {% endif %}
         <div class="btn_eve" style="text-align: center; max-height: 100%; margin-top: 2rem; display: flex; justify-content: center;">
       {% if event in ue or event in oe %}
