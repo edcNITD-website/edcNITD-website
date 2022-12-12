@@ -111,6 +111,9 @@
                   </div>
                 </div>
 
+                <li><a href="https://hult.edcnitd.co.in" target="_blank">Hult Prize</a></li>
+
+
                 <li {%if request.resolver_match.url_name == 'event_page' %}class="active" {% endif %}><a
                     href="{% url 'event_page' %}">Events</a></li>
 
@@ -235,6 +238,9 @@
                   href="{% url 'esummit_page' latest %}">E-Summit'{{latest_year}}</a></li>
 
               <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'event_page' %}">Event Registrations</a></li>
+
+              <li><i class="ion-ios-arrow-right"></i><a href="https://hult.edcnitd.co.in" target="_blank">Hult Prize</a></li>
+
 
               <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'post:post_list' %}">E-Quest</a></li>
 
