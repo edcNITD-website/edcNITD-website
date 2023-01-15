@@ -38,7 +38,6 @@ mixins==0.1.4
 oauthlib==3.2.0     
 Pillow==9.0.1     
 pip==20.0.2    
-pkg-resources==0.0.0     
 pycparser==2.21      
 PyJWT==2.3.0     
 pyparsing==3.0.7     
