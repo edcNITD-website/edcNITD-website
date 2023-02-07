@@ -1,0 +1,241 @@
+/* TEAMS CSS COPIED HERE */
+.container{
+    text-align: center;
+    justify-content: center;
+    padding-top: 4rem;
+}
+
+.team-title{
+    font-size: 45px;
+    margin-top: 50px;
+    color: var(--theme-color);
+    font-weight: 700;
+}
+
+.year-heading{
+    margin-top: 40px;
+    color: var(--theme-color);
+    font-size: 32px !important;
+    font-weight: 700 !important;
+}
+
+
+.grey-line{
+    border-top: #ddd 1px solid;
+    height: 1px;
+    width: 120px;
+    margin-left: calc(50% - 60px);
+    z-index: -1;
+}
+
+.coloured-line{
+    border-top:var(--theme-color) 3px solid;
+    width: 40px;
+    margin-left: calc(50% - 20px);
+    margin-top: -2px;
+}
+
+.members{
+
+    text-align: center;
+}
+
+.second-container{
+
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 50px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
+
+.second-container .image{
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+
+.second-container .image img{
+    width: 148px;
+    height: 148px;
+    border: rgba(0, 0, 0, 0.9) solid 5px;
+    border-radius: 20px;
+}
+
+.third-container{
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 50px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
+
+.third-container .image{
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+
+.third-container .image img{
+    width: 148px;
+    height: 148px;
+    border: rgba(0, 0, 0, 0.9) solid 5px;
+    border-radius: 20px;
+}
+
+.final-container{
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 50px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
+
+.final-container .image{
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.final-container .image img{
+    width: 178px;
+    height: 178px;
+    border: rgba(0, 0, 0, 0.9) solid 5px;
+    border-radius: 20px;
+} 
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.name h5{
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.name h6{
+    font-size: 15px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.position h6{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: large;
+    font-size: 17px;
+    font-weight: 500;
+    margin-top: -10px;
+}
+.facebook{
+    margin-right:10px ;
+    background-color: black;
+    padding: 5px;
+    width: 26px;
+    height: 26px;
+    border-radius: 5px;
+}
+.linkedin{
+    background-color: black;
+    padding: 5px;
+    border-radius: 5px;
+    width: 26px;
+    height: 26px;
+}
+
+.final-container .image:before {
+	content: "";
+	width: 178px;
+	height: 178px;
+	position: absolute;
+	box-shadow: 0 0 0 0 lightgray inset;
+	transition: all 1s ease-in-out 0s;
+    border-radius:20px; 
+}
+
+.final-container:hover .image:before {
+    border-radius: 20px;
+	box-shadow: 0 0 0 100px lightgray inset;
+    opacity: 0.7;
+}
+
+.final-container .social-links{
+    position: relative;
+    bottom: 85px;
+    margin-top: -24px;
+    transform: scale(0, 0);
+	transition: all 1s ease-in-out 0s;
+}
+
+.final-container:hover .social-links{
+    display: inline;
+    transition-delay: .1s;
+	transform: scale(1, 1);
+}
+.second-container .image:before {
+	content: "";
+	width: 148px;
+	height: 148px;
+	position: absolute;
+	box-shadow: 0 0 0 400 lightgray inset;
+	transition: all 1s ease-in-out 0s;
+    border-radius:20px; 
+}
+
+.second-container:hover .image:before {
+	box-shadow: 0 0 0 90px lightgray inset;
+    opacity: 0.7;
+}
+
+.second-container .social-links{
+   position: relative;
+    bottom: 75px;
+    margin-top: -24px;
+    transform: scale(0, 0);
+	transition: all 1s ease-in-out 0s;
+}
+
+.second-container:hover .social-links{
+    display: inline;
+    transition-delay: .1s;
+	transform: scale(1, 1);
+}
+
+.third-container .image:before {
+	content: "";
+	width: 148px;
+	height: 148px;
+	position: absolute;
+	box-shadow: 0 0 0 400 lightgray inset;
+	transition: all 1s ease-in-out 0s;
+    border-radius:20px; 
+}
+
+.third-container:hover .image:before {
+	box-shadow: 0 0 0 90px lightgray inset;
+    opacity: 0.7;
+}
+
+.third-container .social-links{
+   position: relative;
+    bottom: 75px;
+    margin-top: -24px;
+    transform: scale(0, 0);
+	transition: all 1s ease-in-out 0s;
+   
+}
+
+.third-container:hover .social-links{
+    display: inline;
+    transition-delay: .1s;
+	transform: scale(1, 1);
+}

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'sotm',
     'EQuest',
     'campus_ambassador',
+    'sponsors',
 ]
 
 MIDDLEWARE = [
@@ -137,6 +138,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'web_team/static'),
     os.path.join(BASE_DIR, 'sotm/static'),
     os.path.join(BASE_DIR,'campus_ambassador/static'),
+    os.path.join(BASE_DIR,'sponsors/static'),
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
