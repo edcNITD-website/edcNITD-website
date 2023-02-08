@@ -3,7 +3,6 @@ from typing import List
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
-from django.db.models.expressions import Random
 from website import settings
 from django.utils import timezone
 from django.utils.crypto import get_random_string
