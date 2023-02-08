@@ -110,23 +110,22 @@
                     {% endfor %}
                   </div>
                 </div>
-                <li><a href="https://audition.edcnitd.co.in" target="_blank">Audition</a></li>
-
-                <li><a href="https://hult.edcnitd.co.in" target="_blank">Hult Prize</a></li>
 
 
-                <li {%if request.resolver_match.url_name == 'event_page' %}class="active" {% endif %}><a
+                <li {% if request.resolver_match.url_name == 'sponsors' %}class="active" {% endif %}><a
+                    href="{% url 'sponsors' %}">Sponsors</a></li>
+
+                <li {% if request.resolver_match.url_name == 'event_page' %}class="active" {% endif %}><a
                     href="{% url 'event_page' %}">Events</a></li>
 
-                <li {%if request.resolver_match.url_name == 'EQuest' %} or
-                  request.resolver_match.url_name=='post_detail' %}class="active" {% endif %}><a
-                    href="{% url 'post:post_list' %}">E-Quest</a></li>
+                <li {% if request.resolver_match.url_name == 'EQuest' %} or request.resolver_match.url_name=='post_detail'
+                  %}class="active" {% endif %}><a href="{% url 'post:post_list' %}">E-Quest</a></li>
 
-                <li {%if request.resolver_match.url_name == 'sotm_home' %}class="active" {% endif %}><a
+                <li {% if request.resolver_match.url_name == 'sotm_home' %}class="active" {% endif %}><a
                     href="{% url 'sotm:sotm_home' %}">SOTM</a></li>
                 <!--<li {%if request.resolver_match.url_name == 'innovationcell_page' %}class="active"{% endif %}><a href="{% url 'innovationcell_page' %}">Innovation Cell</a></li>-->
 
-                <li {%if request.resolver_match.url_name == 'team_page' %}class="active" {% endif %}><a
+                <li {% if request.resolver_match.url_name == 'team_page' %}class="active" {% endif %}><a
                     href="{% url 'team_page' %}">Our Team</a>
 
 
@@ -239,9 +238,8 @@
                   href="{% url 'esummit_page' latest %}">E-Summit'{{latest_year}}</a></li>
 
               <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'event_page' %}">Event Registrations</a></li>
-              <li><i class="ion-ios-arrow-right"></i><a href="https://audition.edcnitd.co.in" target="_blank">Audition</a></li>
-              
-              <li><i class="ion-ios-arrow-right"></i><a href="https://hult.edcnitd.co.in" target="_blank">Hult Prize</a></li>
+
+              <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'sponsors' %}">Sponsors</a></li>
 
 
               <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'post:post_list' %}">E-Quest</a></li>

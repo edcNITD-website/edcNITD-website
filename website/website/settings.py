@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    "whitenoise.runserver_nostatic",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,11 +48,13 @@ INSTALLED_APPS = [
     'sotm',
     'EQuest',
     'campus_ambassador',
+    'sponsors',
 ]
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -137,6 +140,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'web_team/static'),
     os.path.join(BASE_DIR, 'sotm/static'),
     os.path.join(BASE_DIR,'campus_ambassador/static'),
+    os.path.join(BASE_DIR,'sponsors/static'),
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -156,5 +160,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = os.getenv('EMAIL',secrets.email)
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD',secrets.email_password)
+EMAIL_HOST_USER = os.getenv('EMAIL',"email")
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD',"password")

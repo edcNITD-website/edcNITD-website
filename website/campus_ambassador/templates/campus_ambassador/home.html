@@ -12,17 +12,23 @@ Home
     <div class="grid place-items-center py-[15vh] min-h-[100vh] grid-cols-1 lg:grid-cols-5">
         <div class="col-span-3 flex flex-col gap-2">
 
-            <h1 class="text-center lg:text-left text-4xl lg:text-5xl font-extrabold font-montserrat text-slate-50  mx-auto">
-                Opportunity to <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500" >Learn</span> of a Lifetime
+            <h1
+                class="text-center lg:text-left text-4xl lg:text-5xl font-extrabold font-montserrat text-slate-50  mx-auto">
+                Opportunity to <span
+                    class="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">Learn</span> of a
+                Lifetime
             </h1>
             <h2 class="text-center lg:text-left text-base lg:text-xlfont-light text-slate-200 my-3">
-                Access to network with the entrepreneurial youth of the nation. 
+                Access to network with the entrepreneurial youth of the nation.
             </h2>
-            <a href="{% url 'cap:register' %}" class="bg-gradient-to-r mb-4 from-blue-900 to-purple-700 font-semibold rounded py-2 px-4 mx-auto">Join Us Now! <span class="hidden lg:inline">As a campus ambassador</span></a>
+            <a href="{% url 'cap:register' %}"
+                class="bg-gradient-to-r mb-4 from-blue-900 to-purple-700 font-semibold rounded py-2 px-4 mx-auto">Join
+                Us Now! <span class="hidden lg:inline">As a campus ambassador</span></a>
         </div>
         <div class="col-span-1 lg:col-span-2 max-h-[50vh]">
             <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-            <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_2juopw8b.json"  background="transparent"  speed="1"  style="width: 100%; height: 100%;"  loop  autoplay class="md:scale-100"></lottie-player>
+            <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_2juopw8b.json" background="transparent"
+                speed="1" style="width: 100%; height: 100%;" loop autoplay class="md:scale-100"></lottie-player>
         </div>
     </div>
 </div>
@@ -35,7 +41,13 @@ Home
             <div class="grey-line"></div>
             <div class="coloured-line" style="border-top: #0f172a 3px solid !important;"></div>
             <br>
-            <p>Campus Ambassador program provides a platform to infinitely increase your managerial, marketing, and networking skills. It is the perfect platform for refining personal & people skills, and providing exposure to the entrepreneurial world. This internship involves managing over 2 lakh participants from all across India, handling 300 + Startup ideas from the brightest minds, and interacting with an esteemed and experienced panel of Investors and StartUp mentors. The selected ambassadors, throughout their tenure, will work closely with Team EDC, NIT Durgapur, and represent our E-Summit’22 in their college.</p>
+            <p>Campus Ambassador program provides a platform to infinitely increase your managerial, marketing, and
+                networking skills. It is the perfect platform for refining personal & people skills, and providing
+                exposure to the entrepreneurial world. This internship involves managing over 2 lakh participants from
+                all across India, handling 300 + Startup ideas from the brightest minds, and interacting with an
+                esteemed and experienced panel of Investors and StartUp mentors. The selected ambassadors, throughout
+                their tenure, will work closely with Team EDC, NIT Durgapur, and represent our E-Summit’22 in their
+                college.</p>
         </div>
         <div class="col-span-1 max-h-[50vh]">
             <img src="{% static 'image/campus_ambassador/about_team.svg' %}" alt="image" class=" h-[40vh] lg:h-[60vh]">
@@ -44,150 +56,163 @@ Home
 </div>
 <!-- incentive section -->
 
-<h2 class="text-theme_clr text-center font-bold text-3xl uppercase pt-5 pb-3 font-montserrat" >Incentives</h2>
+<h2 class="text-theme_clr text-center font-bold text-3xl uppercase pt-5 pb-3 font-montserrat">Incentives</h2>
 
 <div class="grey-line"></div>
 <div class="coloured-line"></div>
 <div class="view-box min-h-screen grid grid-cols-1 place-items-center py-6 scroll-mt-8" id="incentives">
-    
+
 
     <ul class="flex flex-row col-span-1 gap-4 md:gap-8 flex-wrap justify-center pt-[25px] md:pt-0 text-sm">
         {% if incentives %}
         {% for incentive in incentives %}
-            <li class="bg-slate-200 max-w-xs text-slate-900 flex flex-col gap-0 rounded-md px-4 pt-4 pb-[-25px]">
-                <div class="circle w-[50px] h-[50px] top-[-25px] md:w-[80px] md:h-[80px] md:top-[-50px] bg-theme_clr relative left-0 right-0 mx-auto rounded-full grid place-items-center">
-                    <i class="fas fa-2x hidden md:block {{incentive.icon_class}}" style="color: ivory;"></i>
-                    <i class="fas fa md:hidden {{incentive.icon_class}}" style="color: ivory;"></i>
-                </div>
-                <div class="text-center relative left-0  top-[-25px] md:top-[-50px] right-0 mx-auto mt-2">
-                    <h3 class="font-bold text-lg">{{incentive.title}}</h3>
-                    <p>{{incentive.content}}</p>
-                </div>
-            </li>
+        <li class="bg-slate-200 max-w-xs text-slate-900 flex flex-col gap-0 rounded-md px-4 pt-4 pb-[-25px]">
+            <div
+                class="circle w-[50px] h-[50px] top-[-25px] md:w-[80px] md:h-[80px] md:top-[-50px] bg-theme_clr relative left-0 right-0 mx-auto rounded-full grid place-items-center">
+                <i class="fas fa-2x hidden md:block {{incentive.icon_class}}" style="color: ivory;"></i>
+                <i class="fas fa md:hidden {{incentive.icon_class}}" style="color: ivory;"></i>
+            </div>
+            <div class="text-center relative left-0  top-[-25px] md:top-[-50px] right-0 mx-auto mt-2">
+                <h3 class="font-bold text-lg">{{incentive.title}}</h3>
+                <p>{{incentive.content}}</p>
+            </div>
+        </li>
         {% endfor %}
         {% else %}
-            <h2 class="text-lg">No incentives added yet.</h2>
+        <h2 class="text-lg">No incentives added yet.</h2>
         {% endif %}
     </ul>
 </div>
 <!-- responsiblities section  -->
-<div class="skew-block text-slate-900 bg-gradient-to-br from-blue-200 to-blue-400 pb-[15vh] sm:pb-[10vh]" id="responsibilities">
+<div class="skew-block text-slate-900 bg-gradient-to-br from-blue-200 to-blue-400 pb-[15vh] sm:pb-[10vh]"
+    id="responsibilities">
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-6 mx-auto">
-          <div class="text-center mb-20">
-            <h2 class="text-slate-900 text-3xl text-center uppercase font-bold col-span-1 pt-[8vh] sm:pt-0 font-montserrat pb-3 max-w-[90vw]" >Responsiblities</h2>
-            <div class="grey-line"></div>
-    <div class="coloured-line" style="border-top: #0f172a 3px solid !important;"></div>
-          </div>
-          <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
-
-            {% if responsibilities %}
-            {% for responsibility in responsibilities %}
-            <div class="p-2 sm:w-1/2 w-full">
-              <div class="bg-slate-200 rounded flex p-4 h-full items-center">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-theme_clr w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
-                  <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
-                  <path d="M22 4L12 14.01l-3-3"></path>
-                </svg>
-                <span class="title-font font-medium">{{responsibility.content}}</span>
-              </div>
+            <div class="text-center mb-20">
+                <h2
+                    class="text-slate-900 text-3xl text-center uppercase font-bold col-span-1 pt-[8vh] sm:pt-0 font-montserrat pb-3 max-w-[90vw]">
+                    Responsiblities</h2>
+                <div class="grey-line"></div>
+                <div class="coloured-line" style="border-top: #0f172a 3px solid !important;"></div>
             </div>
-            {% endfor %}
-            {% else %}
+            <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+
+                {% if responsibilities %}
+                {% for responsibility in responsibilities %}
+                <div class="p-2 sm:w-1/2 w-full">
+                    <div class="bg-slate-200 rounded flex p-4 h-full items-center">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="3" class="text-theme_clr w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                            <path d="M22 4L12 14.01l-3-3"></path>
+                        </svg>
+                        <span class="title-font font-medium">{{responsibility.content}}</span>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
                 <h3>No responsibilities added yet.</h3>
-            {% endif %}
-            
-          </div>
-          <!-- <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button> -->
+                {% endif %}
+
+            </div>
+            <!-- <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button> -->
         </div>
-      </section>
+    </section>
 </div>
 <!-- Timeline -->
 <div class="view-box min-h-screen flex flex-col justify-start pt-16">
-    <h2 class="text-theme_clr text-3xl text-center pb-3 font-bold col-span-1 uppercase font-montserrat" >Timeline</h2>
+    <h2 class="text-theme_clr text-3xl text-center pb-3 font-bold col-span-1 uppercase font-montserrat">Timeline</h2>
 
     <span class="grey-line"></span>
     <span class="coloured-line"></span>
 
     {% if timeline %}
-        <ul id="timelinevents" class="flex flex-col gap-2 justify-center mt-6 pb-4">
-            {% for event in timeline %}
-                <li class="w-full flex odd:flex-row-reverse even:flex-row justify-center gap-4 overflow-visible col-span-1 max-w-screen-lg mx-auto text-xs sm:text-sm md:text-base">
-                    <div class="rounded-full text-slate-50 bg-blue-600 w-12 h-12 grid place-items-center flex-shrink-0 my-auto">
-                        {% if event.completed %}
-                            <div class="text-center">
-                                <i class="fas fa-check"></i>
-                            </div>
-                        {% else %}
-                            <div class="text-center w-8/10 my-auto overflow-hidden">
-                                <script
-                                src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script><lottie-player src="https://assets6.lottiefiles.com/packages/lf20_ivcifhbu.json" background="transparent" speed="1" style="width: 140%; height: 140%; margin:0px 0px 0px -10px;" loop autoplay></lottie-player>
-                            </div>
-                        {% endif %}
-                    </div>
-                    {% if event.latest %}
-                        <div class="p-4 rounded-md text-center bg-slate-200/90 text-slate-900  md:latest_animation_l md:even:latest_animation_r">
+    <ul id="timelinevents" class="flex flex-col gap-2 justify-center mt-6 pb-4">
+        {% for event in timeline %}
+        <li
+            class="w-full flex odd:flex-row-reverse even:flex-row justify-center gap-4 overflow-visible col-span-1 max-w-screen-lg mx-auto text-xs sm:text-sm md:text-base">
+            <div class="rounded-full text-slate-50 bg-blue-600 w-12 h-12 grid place-items-center flex-shrink-0 my-auto">
+                {% if event.completed %}
+                <div class="text-center">
+                    <i class="fas fa-check"></i>
+                </div>
+                {% else %}
+                <div class="text-center w-8/10 my-auto overflow-hidden">
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_ivcifhbu.json"
+                        background="transparent" speed="1" style="width: 140%; height: 140%; margin:0px 0px 0px -10px;"
+                        loop autoplay></lottie-player>
+                </div>
+                {% endif %}
+            </div>
+            {% if event.latest %}
+            <div
+                class="p-4 rounded-md text-center bg-slate-200/90 text-slate-900  md:latest_animation_l md:even:latest_animation_r">
 
 
-                            <h3 class="font-semibold text-lg md:text-xl">
-                                {{event.title}}
-                            </h3>
-                            <h3 class="text-base md:text-lg">
-                                {{event.deadline|date:'d F, Y'}}
-                            </h3>
-                            <p>{{event.content}}</p>
-                        </div>
-                    {% else %}
-                        <div class="p-4 rounded-md text-center bg-slate-200/50 text-slate-900 md:timeline_animation_l md:even:timeline_animation_r">
+                <h3 class="font-semibold text-lg md:text-xl">
+                    {{event.title}}
+                </h3>
+                <h3 class="text-base md:text-lg">
+                    {{event.deadline|date:'d F, Y'}}
+                </h3>
+                <p>{{event.content}}</p>
+            </div>
+            {% else %}
+            <div
+                class="p-4 rounded-md text-center bg-slate-200/50 text-slate-900 md:timeline_animation_l md:even:timeline_animation_r">
 
-                            <h3 class="font-semibold text-lg md:text-xl">
-                                {{event.title}}
-                            </h3>
-                            <h3 class="md:text-lg">
-                                {{event.deadline|date:'d F, Y'}}
-                            </h3>
-                            <p>{{event.content}}</p>
-                        </div>
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ul>
+                <h3 class="font-semibold text-lg md:text-xl">
+                    {{event.title}}
+                </h3>
+                <h3 class="md:text-lg">
+                    {{event.deadline|date:'d F, Y'}}
+                </h3>
+                <p>{{event.content}}</p>
+            </div>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
     {% else %}
-     <h2 class="text-xl font-semibold">No timeline added</h2>
+    <h2 class="text-xl font-semibold">No timeline added</h2>
     {% endif %}
 
 </div>
 <!-- faq section -->
 
-<div class="skew-block text-slate-900 bg-gradient-to-tr from-blue-200 to-blue-400 min-h-screen" style="clip-path: polygon(0 0, 100% 8%,100% 100%, 0 100%);;"  >
+<div class="skew-block text-slate-900 bg-gradient-to-tr from-blue-200 to-blue-400 min-h-screen"
+    style="clip-path: polygon(0 0, 100% 8%,100% 100%, 0 100%);;">
     <div class="view-box flex flex-col justify-center mt-16">
         <div class="text-3xl text-center font-bold">
-            <h2 class="bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to-stone-700 text-4xl text-center font-bold col-span-1 pt-[8vh] pb-3 sm:pt-0 font-montserrat" >FAQs</h2>
+            <h2
+                class="bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to-stone-700 text-4xl text-center font-bold col-span-1 pt-[8vh] pb-3 sm:pt-0 font-montserrat">
+                FAQs</h2>
             <div class="grey-line"></div>
             <div class="coloured-line" style="border-top: #0f172a 3px solid !important;"></div>
 
         </div>
         <div class="w-full">
-        {% if active_faqs %}
+            {% if active_faqs %}
             <ul class="c-faqs">
-            {% for faq in active_faqs %}
+                {% for faq in active_faqs %}
                 <li class="c-faq c-faq--active list-disc text-slate-800">
                     <span class="c-faq__title">{{faq.title}}</span>
                     <div class="c-faq__answer rounded-lg">{{faq.content}}</div>
                 </li>
-            {% endfor %}
-        {% endif %}
-        {% if faqs %}
-            {% for faq in faqs %}
+                {% endfor %}
+                {% endif %}
+                {% if faqs %}
+                {% for faq in faqs %}
                 <li class="c-faq list-disc text-slate-800">
                     <span class="c-faq__title">{{faq.title}}</span>
                     <div class="c-faq__answer">{{faq.content}}</div>
                 </li>
-            {% endfor %}
+                {% endfor %}
             </ul>
-        {% else %}
+            {% else %}
             <h3>No FAQs added</h3>
-        {% endif %}
+            {% endif %}
         </div>
     </div>
 </div>
