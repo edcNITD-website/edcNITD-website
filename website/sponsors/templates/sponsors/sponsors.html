@@ -1,0 +1,281 @@
+{% extends 'events/base_event.html' %}
+{% load static %}
+{% block content %}
+
+<!-- INITIAL LOADING FILES -->
+
+<div>
+
+
+  <!-- Team JS file and plugins -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer type="text/javascript" src="{% static 'js/alumni.js' %}"></script>
+  <script defer type="text/javascript" src="{% static 'js/snavbar.js' %}"></script>
+
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+
+  <!-- Team CSS file -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/sponsors1.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/sponsors2.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/sponsors.css' %}">
+
+</div>
+
+<div class="container">
+
+
+  <!--SPONSOR HEADING-->
+  <div class="container sponsorheading">
+    <h2 class="title">E-SUMMIT SPONSORS</h2>
+    <div class="grey-line"></div>
+    <div class="coloured-line"></div>
+  </div>
+
+  <!-- YEAR WISE CAROUSEL -->
+  <div class="container">
+
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+
+      <div class="swiper-wrapper">
+        {% for year in esummit %}
+        <div class="swiper-slide"
+          style="background-image: linear-gradient(135deg, rgba(136, 8, 255, 0.653), rgba(5, 209, 188, 0.742)), url('{{year.esummit_image.url}}');">
+          <div>
+            <h1>E-SUMMIT {{year.year}}</h1>
+            <div class="grey-line"></div>
+            <div class="coloured-line"></div>
+            <div class="sponsorslist">
+              {% for sponsor in year.esummit_sponsors.all %}
+
+              <div class="sponsorcard">
+                <li class="sponsordiv-list2 type">
+                  {{sponsor.type}}
+                </li>
+                <!-- <a href=" {{sponsor.website}}" target="_blank"> -->
+                <li class="sponsordiv-list1">
+                  <img src="{{sponsor.image.url}}" alt="">
+                </li>
+                <li class="sponsordiv-list2 bold">
+                  {{sponsor.name}}
+                  <a href="{{sponsor.website}}" target="_blank">
+
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+      
+                    </svg>
+                  </a>
+                </li>
+                <!-- </a> -->
+              </div>
+
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+
+    </div>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- CAROUSEL SWIPER JS LOADING FILES -->
+  <div>
+    <!-- Swiper JS  -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+
+  </div>
+
+  <div class="center">
+
+
+    <!-- ALL SPONSORS -->
+    <div class="container">
+
+      <!-- heading -->
+      <h1 class="title">EVENT SPONSORS</h1>
+      <div class="grey-line"></div>
+      <div class="coloured-line"></div>
+
+      <!-- SEARCH BAR -->
+      <div>
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+        <div class="wrapper">
+          <div class="searchBar">
+            <input id="searchQueryInput" onkeyup="searchsponsor()" type="text" name="searchQueryInput"
+              placeholder="Search" value="" />
+            <button id="searchQuerySubmit" onclick="searchsponsor()" type="submit" name="searchQuerySubmit">
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="#666666"
+                  d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ALL SPONSORS CARDS -->
+
+      <!-- final  -->
+      <div class="cardcontainer">
+
+        {% for sponsor in sponsors %}
+        <div class="allsponsorcard">
+          <img src="{{sponsor.sponsor_image.url}}" alt="">
+          <h2 class="sponsorname">{{sponsor.sponsor_name}}
+            <a href="{{sponsor.sponsor_website}}" target="_blank">
+
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+
+              </svg>
+            </a>
+          </h2>
+          <div class="dropdowncard">
+
+            {% for event in sponsor.event_set.all %}
+            {% if forloop.counter == 1 %}
+            <h2 class="firstevent">
+              <li class="searchable"> {{event.event_name}}</li>
+              <li>
+                {% if sponsor.event_set.all.count > 1 %}
+                <button class="dropdownbutton" onclick="toggleEvents({{sponsor.id}})">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </button>
+                {% endif %}
+              </li>
+
+            </h2>
+            <h2 class="hideevent">
+              <li class="searchable">
+                {{sponsor.sponsor_name}}
+              </li>
+            </h2>
+            {% else %}
+
+            <h2 class="hideevent  sponsor-{{sponsor.id}}">
+              <li class="searchable">
+                {{event.event_name}}
+              </li>
+            </h2>
+            {% endif %}
+
+            {% endfor %}
+          </div>
+
+        </div>
+        {% endfor %}
+
+      </div>
+
+      <!-- DYNAMIC CARDS -->
+
+      <!--<div class="sponsorslist allsponsors">
+    {% for sponsor in sponsors %}
+
+    <div class="sponsorcard">
+      <li class="sponsordiv-list1">
+        <img src="{{sponsor.sponsor_image.url}}" alt="">
+      </li>
+      <li class="sponsordiv-list2">
+        {{sponsor.sponsor_name}}
+      </li>
+    </div>
+
+    {% endfor %}
+  </div>
+ -->
+      <!-- TABLE -->
+
+      <!-- <div>
+
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Event Name</th>
+            <th>Date</th>
+            <th>Sponsors</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for event in events%}
+          <tr class="{% if forloop.counter|divisibleby:2 %}active-row{% endif %}">
+            <td>{{event.event_name}}</td>
+            <td>{{event.event_date}}</td>
+            {% for sponsor in event.event_sponsors.all %}
+            <td><img src="{{sponsor.sponsor_image.url}}" alt=""></td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+
+    </div> -->
+
+
+
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function toggleEvents(sponsor_id) {
+    const elements = document.getElementsByClassName("sponsor-" + sponsor_id);
+    for (const e of elements) {
+      e.classList.toggle("hideevent");
+    }
+  }
+
+  function searchsponsor() {
+    const searchinput = document.getElementById("searchQueryInput");
+    let key = searchinput.value.toString().toLowerCase();
+    const elements = document.getElementsByClassName("searchable");
+    for (const element of elements) {
+      element.parentElement.parentElement.parentElement.style.display = "none";
+    }
+    for (const element of elements) {
+      let display = element.innerText.toString().toLowerCase().includes(key);
+      if (display == true) {
+        element.parentElement.parentElement.parentElement.style.display = "flex";
+      }
+
+    }
+  }
+
+</script>
+
+{% endblock %}

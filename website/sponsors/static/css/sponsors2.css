@@ -1,0 +1,269 @@
+/* ALUMNI CSS OF TEAMS APP IS COPIED HERE */
+
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+
+/*ALUMNI SECTION*/
+
+#year-bar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#year-arrow{
+    color: var(--theme-color);
+    font-size: 2rem;
+    margin-top: 0.77em;
+    cursor: pointer;
+}
+
+.fa-arrow-right{
+    margin-left: -12px;
+}
+
+.year-list-holder{
+    height: 7rem;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    width: max-content;
+}
+
+.year-list{
+    width: max-content;
+    margin: 0;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.year-list .year{
+    position: relative;
+    list-style: none;
+    display: inline-block;
+}
+
+.year-list-holder ul {
+    text-align: justify;
+    position: relative;
+    padding: 0;
+    margin-right: -2px;
+}
+
+.year-list-holder ul:before, .year-list-holder ul .active:after{
+  content: '';
+  width: 100%;
+  border: 2px solid var(--theme-color);
+  position: absolute;
+  top: 2.6em;
+  margin-top: -2px;
+  z-index: -1;
+}
+
+.year-list-holder ul:after {
+  content: " ";
+  display: inline-block;
+}
+
+.year-list-holder ul li {
+  width: 4em;
+  height: 4em;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 4.1em;
+  border-radius: 50%;
+  background: #ffffff;
+  margin: 0 6.5em;
+  display: inline-block;
+  color: var(--theme-color);
+  font-weight: 900;
+  cursor: pointer;
+  border: 3px solid var(--theme-color);
+  transition-duration: 0.3s ;
+  position: static;
+}
+
+.year-list-holder ul li.active_year{
+  width: 4.4em;
+  height: 4.4em;
+  font-size: 1.1rem;
+  text-align: center;
+  line-height: 4.3em;
+  border-radius: 50%;
+  background: var(--theme-color);
+  margin: 0 6.5em;
+  display: inline-block;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+  transition-duration: 0.3s ;
+}
+
+@media screen and (max-width: 768px) {
+  .year-list-holder ul li {
+    width: 4em;
+    height: 4em;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 4.1em;
+    border-radius: 50%;
+    background: #ffffff;
+    margin: 0 6em;
+    display: inline-block;
+    color: var(--theme-color);
+    font-weight: 900;
+    cursor: pointer;
+    border: 3px solid var(--theme-color);
+    transition-duration: 0.3s ;
+    position: static;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .year-list-holder ul li.active_year {
+    width: 4.4em;
+    height: 4.4em;
+    font-size: 1.1rem;
+    text-align: center;
+    line-height: 4.3em;
+    border-radius: 50%;
+    background: var(--theme-color);
+    margin: 0 6em;
+    display: inline-block;
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+    transition-duration: 0.3s ;
+  }
+}
+
+.year-list-holder::-webkit-scrollbar{
+    height: 4px;
+    width: 7px;
+}
+
+.year-list-holder::-webkit-scrollbar-thumb{
+    background: var(--theme-color);
+    border-radius: 10px;
+}
+
+.year-list-holder i {
+    font-size: 2rem;
+    margin: 2px;
+}
+
+
+.alumni-grey-line{
+    border-top: #ddd 1px solid;
+    height: 1px;
+    width: 240px;
+    margin-left: calc(50% - 120px);
+    z-index: -1;
+}
+
+.alumni-coloured-line{
+    border-top:var(--theme-color) 3px solid;
+    width: 80px;
+    margin-left: calc(50% - 40px);
+    margin-top: -2px;
+}
+
+#alumni.container{
+    padding-top: 10px;
+    width: 100%;
+    max-width: 1500px;
+}
+
+#alumni.flex-container{
+    padding-top: 20px;
+    width: 100%;
+}
+
+.alumnibox {
+    position: relative;
+    display: inline-block;
+    margin: 15px 15px 15px 15px;
+    min-width: 220px;
+    max-width: 310px;
+    height: 130px;
+    width: 100%;
+    color: #000000;
+    text-align: left;
+    font-size: 16px;
+    background: #ffffff;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    border: 3px solid;
+    border-color: var(--theme-color);
+    border-radius: 10px;
+    
+}
+   
+.alumnibox *, .alumnibox:before, .alumnibox:after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+        
+.alumnibox img {
+    width: 35%;
+    height: 110px;
+    margin-top: -15px;
+    margin-left: 60%;
+    margin-bottom: 15px;
+    backface-visibility: hidden;
+    vertical-align: top;
+    /* border: 3px solid;
+    border-image: linear-gradient(145deg, var(--theme-color), #ffcc00);
+    border-image-slice: 1; */
+}    
+
+.alumnibox figcaption {
+    position: absolute;
+    max-width: 300px;
+    top: 0.4em;
+    left: 0.6em;
+    bottom: 0;
+    padding: 15px;
+}
+        
+.alumnibox h3 {
+    margin: 0;
+    font-size: 1em;
+    font-weight: 500;
+    padding-right: 7em;
+}
+        
+.alumnibox .icons {
+    font-size: 1.5rem;
+    padding-top: 0.5em;
+}
+        
+.alumnibox .icons #facebook {
+    color: #000;
+}
+
+.alumnibox .icons #linkedin{
+    color: #000;
+    margin-left: 0.6em;
+}
+
+.alumnibox .icons:hover {
+  color: var(--theme-color);
+}        
+
+.alumnibox .icons #linkedin:hover, .alumnibox .icons #facebook:hover {
+    color: var(--theme-color);
+}
+
+.year-alumni-holder{
+    display: none;
+}
+
+.year-alumni-holder.batch-visible{
+    display: block;
+}
+
+@media screen and (min-width: 1200px) {
+    #padder {
+        max-width: 1500px;
+    }
+}
