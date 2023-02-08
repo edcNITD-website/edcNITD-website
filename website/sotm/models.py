@@ -9,6 +9,7 @@ from django.utils import timezone
 from django.utils.crypto import get_random_string
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+from datetime import datetime
 
 # Create your models here.
 
@@ -61,6 +62,7 @@ class Company(models.Model):
         max_length=200, null=True, blank=True, default=None)
     website = models.CharField(
         max_length=200, null=True, blank=True, default=None)
+    date = models.DateTimeField(default=datetime.now)
 
     class Meta:
         verbose_name_plural = 'Companies'
@@ -173,3 +175,7 @@ class TemporaryLink(models.Model):
             from_email=settings.EMAIL_HOST_USER,
             recipient_list=[self.user.email],
         )
+        
+class Universal(models.Model):
+    start_time = models.DateTimeField(default=datetime.now)
+    end_time = models.DateTimeField(default=datetime.now)

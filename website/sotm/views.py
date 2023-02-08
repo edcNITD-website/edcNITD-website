@@ -38,6 +38,22 @@ def get_companies_list()->List:
         all_companies.append(company.user)
     return all_companies
 
+# def get_sotm_companies_list()->List:
+#     sotm_companies = []
+#     obj = Universal.objects.all().first()
+#     for company in Company.objects.all():
+#         if company.created < obj.start_time or company.created > obj.end_time:
+#             sotm_companies.append(company.user)
+#     return sotm_companies
+
+# def get_if_companies_list()->List:
+#     if_companies = []
+#     obj = Universal.objects.all().first()
+#     for company in Company.objects.all():
+#         if company.created > obj.start_time and company.created < obj.end_time:
+#             if_companies.append(company.user)
+#     return if_companies
+
 def sotm_home(request):
     context = {}
     context['about'] = AboutSec.objects.all()
@@ -67,19 +83,22 @@ def sotm_home(request):
 
 
 def sotm_companies(request):
+    obj = Universal.objects.all().first()
+    # companies_per_page = 5
+    verified_companies_if = Company.objects.filter(verified=True).filter(date__range=[obj.start_time, obj.end_time])
+    # paginator_obj = Paginator(verified_companies, companies_per_page)
+    # pageNumber = request.GET.get('page')
+    # try:
+    #     pageObj = paginator_obj.get_page(pageNumber)
+    # except PageNotAnInteger:
+    #     pageObj = paginator_obj.get_page(1)
+    # except EmptyPage:
+    #     pageObj = paginator_obj.get_page(paginator_obj.num_pages)
+    verified_companies_sotm = Company.objects.filter(verified=True).exclude(date__range=[obj.start_time, obj.end_time])
     context = {}
-    companies_per_page = 5
-    verified_companies = Company.objects.filter(verified=True)
-    paginator_obj = Paginator(verified_companies, companies_per_page)
-    pageNumber = request.GET.get('page')
-    try:
-        pageObj = paginator_obj.get_page(pageNumber)
-    except PageNotAnInteger:
-        pageObj = paginator_obj.get_page(1)
-    except EmptyPage:
-        pageObj = paginator_obj.get_page(paginator_obj.num_pages)
-    context = {}
-    context['company_list'] = pageObj
+    # context['if_company_list'] = pageObj
+    context['if_company_list'] = verified_companies_if
+    context['sotm_company_list'] = verified_companies_sotm
     context['owned_company'] = None
     for company in Company.objects.filter(verified=True):
         if company.user == request.user:
