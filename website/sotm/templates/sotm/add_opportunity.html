@@ -8,9 +8,9 @@
 
 <section class="back-section container mb-2">
     <!-- back button -->
-  <div onclick="window.history.go(-1)" class="back-btn">
-    <i class="fa fa-arrow-left" aria-hidden="true"><span> BACK</span></i>
-  </div>
+    <div onclick="window.history.go(-1)" class="back-btn">
+        <i class="fa fa-arrow-left" aria-hidden="true"><span> BACK</span></i>
+    </div>
 </section>
 <section class="companies">
     {% if is_owner %}
@@ -29,22 +29,6 @@
                                     <input type="text" name="name" placeholder="" maxlength="300" id="name">
                                 </fieldset>
 
-
-                                <fieldset>
-                                    <label for="id_position_description">Internship Description</label>
-                                    <br>
-                                    <textarea name="description" placeholder="Internship Description"
-                                        id="id_position_description"></textarea>
-                                </fieldset>
-
-                            </div>
-                            <div class="part-2">
-                                <fieldset>
-                                    <label for="registeration_url">Registeration Url</label>
-                                    <br>
-                                    <input type="text" name="registeration_url" placeholder="" maxlength="300" id="id_uregisteration_url">
-                                </fieldset>
-
                                 <fieldset>
                                     <label>Select Tags related to the position</label>
                                     <br>
@@ -55,11 +39,26 @@
                                     </select>
                                 </fieldset>
 
-                                
+                            </div>
+                            <div class="part-2">
+                                <!-- <fieldset>
+                                    <label for="registeration_url">Registeration Url</label>
+                                    <br>
+                                    <input type="text" name="registeration_url" placeholder="" maxlength="300" id="id_uregisteration_url">
+                                </fieldset> -->
+
+                                <fieldset>
+                                    <label for="id_position_description">Internship Description</label>
+                                    <br>
+                                    <textarea name="description" placeholder="Internship Description"
+                                        id="id_position_description" rows="7"></textarea>
+                                </fieldset>
+
                             </div>
                         </div>
                         <fieldset>
-                            <input type="submit" value="Create Internship" class="cta-btn" name="add_position" id="submit-btn">
+                            <input type="submit" value="Create Internship" class="cta-btn" name="add_position"
+                                id="submit-btn">
                         </fieldset>
                     </form>
                 </div>

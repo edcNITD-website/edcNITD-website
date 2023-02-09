@@ -10,9 +10,9 @@
 
 <section class="back-section container mb-2">
     <!-- back button -->
-  <div onclick="window.history.go(-1)" class="back-btn">
-    <i class="fa fa-arrow-left" aria-hidden="true"><span> BACK</span></i>
-  </div>
+    <div onclick="window.history.go(-1)" class="back-btn">
+        <i class="fa fa-arrow-left" aria-hidden="true"><span> BACK</span></i>
+    </div>
 </section>
 
 <!-- FAQs -->
@@ -33,24 +33,8 @@
                                 <fieldset>
                                     <label for="name">Name</label>
                                     <br>
-                                    <input type="text" name="name" value="{{opportunity.name}}" maxlength="300" id="name">
-                                </fieldset>
-
-
-                                <fieldset>
-                                    <label for="id_position_description">Internship Description</label>
-                                    <br>
-                                    <textarea name="description" id="id_position_description"
-                                        rows="10">{{opportunity.description}}</textarea>
-                                </fieldset>
-                                
-                            </div>
-                            <div class="part-2">
-                                <fieldset>
-                                    <label for="registeration_url">Registeration Url</label>
-                                    <br>
-                                    <input type="text" name="registeration_url" value="{{opportunity.register_url}}" maxlength="300"
-                                        id="id_uregisteration_url">
+                                    <input type="text" name="name" value="{{opportunity.name}}" maxlength="300"
+                                        id="name">
                                 </fieldset>
 
                                 <fieldset>
@@ -65,10 +49,30 @@
                                         {% endfor %}
                                     </select>
                                 </fieldset>
+
+
+                            </div>
+                            <div class="part-2">
+                                <!-- <fieldset>
+                                    <label for="registeration_url">Registeration Url</label>
+                                    <br>
+                                    <input type="text" name="registeration_url" value="{{opportunity.register_url}}" maxlength="300"
+                                        id="id_uregisteration_url">
+                                </fieldset> -->
+
+                                <fieldset>
+                                    <label for="id_position_description">Internship Description</label>
+                                    <br>
+                                    <textarea name="description" id="id_position_description"
+                                        rows="10">{{opportunity.description}}</textarea>
+                                </fieldset>
+
+
                             </div>
                         </div>
                         <fieldset>
-                            <input type="submit" value="Save changes" class="cta-btn" name="add_position" id="submit-btn">
+                            <input type="submit" value="Save changes" class="cta-btn" name="add_position"
+                                id="submit-btn">
                         </fieldset>
                     </form>
                 </div>
