@@ -43,7 +43,7 @@
       <div class="swiper-wrapper">
         {% for year in esummit %}
         <div class="swiper-slide"
-          style="background-image: linear-gradient(135deg, rgba(136, 8, 255, 0.653), rgba(5, 209, 188, 0.742)), url('{{year.esummit_image.url}}');">
+          style="background-image: linear-gradient(356deg, rgb(0 0 0 / 59%), #333333ab), url('{{year.esummit_image.url}}');">
           <div>
             <h1>E-SUMMIT {{year.year}}</h1>
             <div class="grey-line"></div>
@@ -83,8 +83,8 @@
 
     </div>
 
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next" style="margin-right: 1.5rem;"></div>
+    <div class="swiper-button-prev" style="margin-left: 1.5rem;"></div>
     <div class="swiper-pagination"></div>
   </div>
 
