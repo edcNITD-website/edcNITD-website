@@ -50,3 +50,9 @@ class Esummit(models.Model):
 
     def __str__(self) -> str:
         return str(self.year)
+
+
+# BROCHURE DOWNLOAD
+
+class Brochure(models.Model):
+    brochure = models.FileField(upload_to='brochurePDF')
