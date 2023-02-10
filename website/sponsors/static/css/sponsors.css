@@ -8,6 +8,38 @@ body {
 }
 
 
+
+/* BROCHURE DOWNLOAD BUTTON */
+#download .btn-get-started:hover {
+  background: #fff;
+  color: var(--theme-color);
+}
+#download .btn-get-started {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 32px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin: 10px;
+  color: #fff;
+  background: var(--theme-color);
+}
+.animate__fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+.animate__animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-duration: var(--animate-duration);
+  animation-duration: var(--animate-duration);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
 /* CSS ON HTML CLASSES */
 .container {
   padding-top: 20px;
