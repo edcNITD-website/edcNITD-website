@@ -68,12 +68,12 @@ def home(request):
         new_event = event
         new_event.latest = False
         new_timeline.append(new_event)
-    print(new_timeline)
+    # print(new_timeline)
     for event in new_timeline:
         if not event.completed:
-            print(event)
+            # print(event)
             event.latest = True
-            print(event.deadline)
+            # print(event.deadline)
             break
     context['incentives'] = incentives
     context['responsibilities'] = responsibilities
@@ -93,7 +93,7 @@ def cap_login(request):
             if user != None:
                 login(request, user)
                 messages.success(request,"Successfully logged in.")
-                print(get_ambassadors_list())    
+                # print(get_ambassadors_list())    
                 if user in get_ambassadors_list():
                     return redirect('/cap/profile')
                 if user in get_moderators_list():
@@ -107,7 +107,7 @@ def register(request):
     context = prepareContext(request,context)
     if request.method == 'POST':
         if 'register' in request.POST:
-            print("hello")
+            # print("hello")
             user = User()
             user.username = request.POST.get('username')
             user.set_password(request.POST.get('password'))
@@ -155,7 +155,7 @@ def bulk_create(request,secret):
                     messages.error(request,'Integrity Error, the username exists already, please use another username to register.')
                     json_content= {}
                     json_content['success'] = False
-                    print(json_content)
+                    # print(json_content)
                     return JsonResponse(data=json_content,safe=False)
                 amb = Ambassador()
                 amb.user = user
@@ -169,7 +169,7 @@ def bulk_create(request,secret):
                 json_content= {}
                 json_content['amb_code'] = amb.unique_code
                 json_content['success'] = True
-                print(json_content)
+                # print(json_content)
                 return JsonResponse(data=json_content,safe=False)
     return HttpResponse("Not found")
 
@@ -381,7 +381,7 @@ def remove_comp_subtask(request,amb_uid):
     if(subtask.count()!=0):
         subtask = subtask[0]
     amb = Ambassador.objects.get(id=id)
-    print(subtask.id)
+    # print(subtask.id)
     new_subtask_list = ''
     for st in amb.get_all_subtasks:
         # print(st.id)
@@ -392,7 +392,7 @@ def remove_comp_subtask(request,amb_uid):
             else:
                 new_subtask_list+=str(st.id)+'|'
     amb.subtasks_completed = new_subtask_list
-    print(new_subtask_list)
+    # print(new_subtask_list)
     amb.save()
     return redirect(next_url)
 
