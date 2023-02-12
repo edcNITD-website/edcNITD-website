@@ -124,7 +124,7 @@ class Ambassador(models.Model):
     @property
     def get_all_subtasks(self):
         all_subtasks = SubTask.objects.all().order_by('task__number','number')
-        print(all_subtasks)
+        # print(all_subtasks)
         result = []
         for st in all_subtasks:
             completed_st_ids = self.subtasks_completed.split('|')
