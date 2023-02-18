@@ -255,7 +255,7 @@ def edit_opportunity(request, company_id, opp_id):
                 tag = OpportunityTag.objects.get(name=opp_tag)
                 opportunity.tags.add(tag)
             return HttpResponseRedirect('/sotm/companies/'+str(company.id))
-    print(context)
+    # print(context)
     return render(request, 'sotm/edit_opportunity.html', context)
 
 
