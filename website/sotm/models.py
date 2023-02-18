@@ -142,7 +142,7 @@ class Opportunity(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     name = models.CharField("Opportunity Name", max_length=200)
     tags = models.ManyToManyField(OpportunityTag)
-    register_url = models.CharField("Link to register", max_length=300, null=True, blank=True)
+    register_url = models.CharField("Link to register", max_length=300, null=True, blank=True, default="")
     description = models.TextField()
     create_date = models.DateTimeField(default=timezone.now)
 

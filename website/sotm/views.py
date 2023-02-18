@@ -194,7 +194,7 @@ def sotm_add_opportunity(request, company_id):
         if request.user == company.user:
             opportunity = Opportunity()
             opportunity.name = request.POST.get('name')
-            opportunity.register_url = request.POST.get('registeration_url')
+            # opportunity.register_url = request.POST.get('registeration_url')
             company.save()
             opportunity.company = company
             opportunity.description = request.POST.get('description')
@@ -245,7 +245,7 @@ def edit_opportunity(request, company_id, opp_id):
     if request.method == 'POST':
         if request.user == company.user:
             opportunity.name = request.POST.get('name')
-            opportunity.register_url = request.POST.get('registeration_url')
+            # opportunity.register_url = request.POST.get('registeration_url')
             company.save()
             opportunity.company = company
             opportunity.description = request.POST.get('description')
