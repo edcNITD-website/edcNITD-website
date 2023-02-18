@@ -62,7 +62,7 @@ class Company(models.Model):
         max_length=200, null=True, blank=True, default=None)
     website = models.CharField(
         max_length=200, null=True, blank=True, default=None)
-    date = models.DateTimeField(default=datetime.now)
+    date = models.DateTimeField(default=datetime.now())
 
     class Meta:
         verbose_name_plural = 'Companies'
@@ -142,7 +142,7 @@ class Opportunity(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     name = models.CharField("Opportunity Name", max_length=200)
     tags = models.ManyToManyField(OpportunityTag)
-    register_url = models.CharField("Link to register", max_length=300, null=True)
+    register_url = models.CharField("Link to register", max_length=300, null=True, blank=True)
     description = models.TextField()
     create_date = models.DateTimeField(default=timezone.now)
 
@@ -177,5 +177,5 @@ class TemporaryLink(models.Model):
         )
         
 class Universal(models.Model):
-    start_time = models.DateTimeField(default=datetime.now)
-    end_time = models.DateTimeField(default=datetime.now)
+    start_time = models.DateTimeField(default=timezone.now)
+    end_time = models.DateTimeField(default=timezone.now)
