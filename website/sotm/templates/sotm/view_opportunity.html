@@ -36,11 +36,11 @@
                         <a href="{% url 'sotm:company_view' opportunity.company.id %}"><i></i>Company
                             Details</a>
                     </li>
-                    {% if is_student %}
+                    {% comment %}{% if is_student %}{% endcomment %}
                     <li class="tag__item play blue">
                         <a href="{{opportunity.register_url}}">Register link</a>
                     </li>
-                    {% endif %}
+                    {% comment %}{% endif %}{% endcomment %}
 
                 </ul>
             </div>
