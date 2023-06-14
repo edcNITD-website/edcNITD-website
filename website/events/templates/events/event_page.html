@@ -5,7 +5,8 @@
 
 <!-- sub-navbar -->
 <div class="sub-nav">
-    <ul class="nav sub-nav-menu justify-content-center bg-dark" style="margin-top: 84px;position: fixed;top: 0;right: 0;left: 0;z-index: 996;">
+    <ul class="nav sub-nav-menu justify-content-center bg-dark"
+        style="margin-top: 84px;position: fixed;top: 0;right: 0;left: 0;z-index: 996;">
         <li>
             <button id="hamb">
                 <i class="fa fa-ellipsis-v" id="subnav-icon"></i>
@@ -31,7 +32,7 @@
         text-decoration: none;
         outline: none;
     }
-    
+
     .morecontent span {
         display: none;
     }
@@ -52,11 +53,13 @@
         <div class="row">
             {% for oe in oe %}
             <div class="col-md-4">
-                <section class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
+                <section
+                    class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
                     <div class="container">
                         <div class="portfolio-details-container">
                             <div class="portfolio-details-carousel">
-                                <img src="{{ oe.image.url }}" class="img-fluid" style="width: 300px; height: 200px; " alt="">
+                                <img src="{{ oe.image.url }}" class="img-fluid" style="width: 300px; height: 200px; "
+                                    alt="">
                             </div>
                         </div>
                         <div class="portfolio-description">
@@ -66,19 +69,25 @@
                             {% csrf_token %}
                             <button type="submit" class="btn btn-success btn-eve-eve">View event</button>
                         </form>
-                        <button type="submit" class="btn btn-success btn-eve-reg"><a href="{{oe.registration_link}}" target="blank">Register Now</a></button>
+                        <button type="submit" class="btn btn-success btn-eve-reg"><a href="{{oe.registration_link}}"
+                                target="blank">Register Now</a></button>
                 </section>
             </div>
             {% endfor %}
         </div>
         {%else%}
+        <div class="comingsoon hide">
+            <p class="event_font">Coming soon</p>
+        </div>
         <div class="default_display">
-            <p class="event_font">Next Event will be <span style="color: var(--theme-color);font-size: 29px;font-weight: 600;">LIVE</span> in:</p>
+            <p class="event_font">Next Event will be <span
+                    style="color: var(--theme-color);font-size: 29px;font-weight: 600;">LIVE</span> in:</p>
             <div id="countdown">
                 <div class="contain">
                     <svg width="150px" height="150px" viewBox="0 0 150 150">
                         <g fill="none" stroke-width="6">
-                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="var(--theme-color)" opacity="0.1" />
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="var(--theme-color)"
+                                opacity="0.1" />
                             <circle id="oedayss" cx="75" cy="75" r="50" stroke="var(--theme-color)"
                                 transform="rotate(-90 75 75)" />
                         </g>
@@ -89,7 +98,8 @@
                 <div class="contain">
                     <svg width="150px" height="150px" viewBox="0 0 150 150">
                         <g fill="none" stroke-width="6">
-                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="var(--theme-color)" opacity="0.1" />
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="var(--theme-color)"
+                                opacity="0.1" />
                             <circle id="oehourss" cx="75" cy="75" r="50" stroke="var(--theme-color)"
                                 transform="rotate(-90 75 75)" />
                         </g>
@@ -100,7 +110,8 @@
                 <div class="contain">
                     <svg width="150px" height="150px" viewBox="0 0 150 150">
                         <g fill="none" stroke-width="6">
-                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="var(--theme-color)" opacity="0.1" />
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="var(--theme-color)"
+                                opacity="0.1" />
                             <circle id="oeminutess" cx="75" cy="75" r="50" stroke="var(--theme-color)"
                                 transform="rotate(-90 75 75)" />
                         </g>
@@ -111,7 +122,8 @@
                 <div class="contain">
                     <svg width="150px" height="150px" viewBox="0 0 150 150">
                         <g fill="none" stroke-width="6">
-                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="var(--theme-color)" opacity="0.1" />
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="var(--theme-color)"
+                                opacity="0.1" />
                             <circle id="oesecondss" cx="75" cy="75" r="50" stroke="var(--theme-color)"
                                 transform="rotate(-90 75 75)" />
                         </g>
@@ -138,12 +150,14 @@
         <div class="row">
             {% for ue in ue %}
             <div class="col-md-4">
-                <section class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
+                <section
+                    class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
                     <div class="container">
 
                         <div class="portfolio-details-container">
                             <div class="portfolio-details-carousel">
-                                <img src="{{ ue.image.url }}" class="img-fluid" style="width: 300px; height: 200px; " alt="">
+                                <img src="{{ ue.image.url }}" class="img-fluid" style="width: 300px; height: 200px; "
+                                    alt="">
                             </div>
                         </div>
 
@@ -152,21 +166,28 @@
                         </div>
                         <form action="{% url 'showevent' ue.id %}" method="POST" class="d-inline">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-success btn-eve-eve" >View Event</button>
+                            <button type="submit" class="btn btn-success btn-eve-eve">View Event</button>
                         </form>
-                        <button type="submit" class="btn btn-success btn-eve-reg"><a href="{{ue.registration_link}}" target="blank">Register Now</a></button>
+                        <button type="submit" class="btn btn-success btn-eve-reg"><a href="{{ue.registration_link}}"
+                                target="blank">Register Now</a></button>
                 </section>
             </div>
             {% endfor %}
         </div>
         {%else%}
+        <div class="comingsoon hide">
+            <p class="event_font">Coming soon</p>
+        </div>
         <div class="default_display">
-            <p class="event_font">Next Event <span style="color: var(--theme-color);font-size: 29px;font-weight: 600;">REGISTRATION</span> starts in:</p>
+            <p class="event_font">Next Event <span
+                    style="color: var(--theme-color);font-size: 29px;font-weight: 600;">REGISTRATION</span> starts in:
+            </p>
             <div id="countdown">
                 <div class="contain">
                     <svg width="150px" height="150px" viewBox="0 0 150 150">
                         <g fill="none" stroke-width="6">
-                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="var(--theme-color)" opacity="0.1" />
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="var(--theme-color)"
+                                opacity="0.1" />
                             <circle id="uedayss" cx="75" cy="75" r="50" stroke="var(--theme-color)"
                                 transform="rotate(-90 75 75)" />
                         </g>
@@ -177,7 +198,8 @@
                 <div class="contain">
                     <svg width="150px" height="150px" viewBox="0 0 150 150">
                         <g fill="none" stroke-width="6">
-                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="var(--theme-color)" opacity="0.1" />
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="var(--theme-color)"
+                                opacity="0.1" />
                             <circle id="uehourss" cx="75" cy="75" r="50" stroke="var(--theme-color)"
                                 transform="rotate(-90 75 75)" />
                         </g>
@@ -188,7 +210,8 @@
                 <div class="contain">
                     <svg width="150px" height="150px" viewBox="0 0 150 150">
                         <g fill="none" stroke-width="6">
-                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="var(--theme-color)" opacity="0.1" />
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="var(--theme-color)"
+                                opacity="0.1" />
                             <circle id="ueminutess" cx="75" cy="75" r="50" stroke="var(--theme-color)"
                                 transform="rotate(-90 75 75)" />
                         </g>
@@ -199,7 +222,8 @@
                 <div class="contain">
                     <svg width="150px" height="150px" viewBox="0 0 150 150">
                         <g fill="none" stroke-width="6">
-                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="var(--theme-color)" opacity="0.1" />
+                            <circle cx="75" cy="75" r="50" fill="transparent" stroke="var(--theme-color)"
+                                opacity="0.1" />
                             <circle id="uesecondss" cx="75" cy="75" r="50" stroke="var(--theme-color)"
                                 transform="rotate(-90 75 75)" />
                         </g>
@@ -222,11 +246,13 @@
         <div class="row">
             {% for ae in ae %}
             <div class="col-md-4">
-                <section class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
+                <section
+                    class="portfolio-details animate__animated animate__fadeInUp shadow-lg p-3 mb-5 bg-white rounded">
                     <div class="container">
                         <div class="portfolio-details-container">
                             <div class="portfolio-details-carousel">
-                                <img src="{{ ae.image.url }}" class="img-fluid" style="width: 300px; height: 200px; " alt="">
+                                <img src="{{ ae.image.url }}" class="img-fluid" style="width: 300px; height: 200px; "
+                                    alt="">
                             </div>
                         </div>
                         <div class="portfolio-description">
@@ -259,22 +285,32 @@
         countDown1 = new Date(eventday1).getTime(),
         countDown2 = new Date(eventday2).getTime();
     if (timer.oe == 0) {
-        let x = setInterval(function() {
-            let now = new Date().getTime(),
+        let x = setInterval(function () {
+            let now = Date.now(),
                 distance2 = countDown2 - now;
-            (document.getElementById("oedays").innerText = Math.floor(
-                distance2 / day
-            )),
-            (document.getElementById("oehours").innerText = Math.floor(
-                (distance2 % day) / hour
-            )),
-            (document.getElementById("oeminutes").innerText = Math.floor(
-                (distance2 % hour) / minute
-            )),
-            (document.getElementById("oeseconds").innerText = Math.floor(
-                (distance2 % minute) / second
-            ));
 
+            if (isNaN(distance2)) {
+
+                // Get the elements with a specific class
+                var elements = document.getElementsByClassName("default_display");
+                elements[0].style.display = "none";
+
+                var elements = document.getElementsByClassName("comingsoon");
+                elements[0].classList.remove("hide");
+            } else {
+                (document.getElementById("oedays").innerText = Math.floor(
+                    distance2 / day
+                )),
+                    (document.getElementById("oehours").innerText = Math.floor(
+                        (distance2 % day) / hour
+                    )),
+                    (document.getElementById("oeminutes").innerText = Math.floor(
+                        (distance2 % hour) / minute
+                    )),
+                    (document.getElementById("oeseconds").innerText = Math.floor(
+                        (distance2 % minute) / second
+                    ));
+            }
             function setCounter(id, value, max) {
                 var elem = document.getElementById(id);
                 var radius = elem.r.baseVal.value;
@@ -290,22 +326,44 @@
         }, 0);
     }
     if (timer.ue == 0) {
-        let y = setInterval(function() {
+        let y = setInterval(function () {
             let now = new Date().getTime(),
                 distance1 = countDown1 - now;
 
-            (document.getElementById("uedays").innerText = Math.floor(
-                distance1 / day
-            )),
-            (document.getElementById("uehours").innerText = Math.floor(
-                (distance1 % day) / hour
-            )),
-            (document.getElementById("ueminutes").innerText = Math.floor(
-                (distance1 % hour) / minute
-            )),
-            (document.getElementById("ueseconds").innerText = Math.floor(
-                (distance1 % minute) / second
-            ));
+            if (isNaN(distance1)) {
+                console.log("it is coming in if part");
+
+                var elements = document.getElementsByClassName("default_display");
+
+                // Loop through the collection and add the class to each element
+                for (var i = 0; i < elements.length; i++) {
+                    elements[i].style.display = "none";
+                }
+
+
+                var elements = document.getElementsByClassName("comingsoon");
+
+                // Loop through the collection and add the class to each element
+                for (var i = 0; i < elements.length; i++) {
+                    elements[i].classList.remove("hide");
+                }
+
+            } else {
+                console.log("it is coming in else part");
+
+                (document.getElementById("uedays").innerText = Math.floor(
+                    distance1 / day
+                )),
+                    (document.getElementById("uehours").innerText = Math.floor(
+                        (distance1 % day) / hour
+                    )),
+                    (document.getElementById("ueminutes").innerText = Math.floor(
+                        (distance1 % hour) / minute
+                    )),
+                    (document.getElementById("ueseconds").innerText = Math.floor(
+                        (distance1 % minute) / second
+                    ));
+            }
 
             function setCounter(id, value, max) {
                 var elem = document.getElementById(id);
