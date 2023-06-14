@@ -290,7 +290,6 @@
                 distance2 = countDown2 - now;
 
             if (isNaN(distance2)) {
-
                 // Get the elements with a specific class
                 var elements = document.getElementsByClassName("default_display");
                 elements[0].style.display = "none";
@@ -331,25 +330,19 @@
                 distance1 = countDown1 - now;
 
             if (isNaN(distance1)) {
-                console.log("it is coming in if part");
-
                 var elements = document.getElementsByClassName("default_display");
-
                 // Loop through the collection and add the class to each element
                 for (var i = 0; i < elements.length; i++) {
                     elements[i].style.display = "none";
                 }
-
-
                 var elements = document.getElementsByClassName("comingsoon");
-
                 // Loop through the collection and add the class to each element
                 for (var i = 0; i < elements.length; i++) {
                     elements[i].classList.remove("hide");
                 }
 
             } else {
-                console.log("it is coming in else part");
+
 
                 (document.getElementById("uedays").innerText = Math.floor(
                     distance1 / day
