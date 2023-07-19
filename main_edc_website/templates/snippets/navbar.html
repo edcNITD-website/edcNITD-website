@@ -1,0 +1,63 @@
+{% load static %}
+{% load socialaccount %}
+
+<link rel="stylesheet" href="{% static 'base/css/tailwind.css' %}" />
+<nav class="fixed top-0 left-0 h-[8vh] w-full z-50 " id="navbar">
+  <ul class="flex flex-row justify-between w-4/5 mx-auto my-auto h-full items-center font-semibold uppercase tracking-wider container">
+    <li class="w-8 h-8">
+      <a href="{% url 'home' %}#">
+        <img src="{% static 'images/favicons/favicon.ico' %}"
+             alt="TutorAI logo"
+             class="object-contain relative left-0 my-auto rounded" />
+      </a>
+    </li>
+    <li class="hidden lg:block my-auto">
+      <ul class="flex flex-row gap-6 ">
+        <li>
+          <a href="{% url 'home' %}#" class="nav-item">Home</a>
+        </li>
+        {% if user.is_authenticated %}
+          <li>
+            <a href="{% url 'topics:all_topics' %}" class="nav-item">Topics</a>
+          </li>
+          <li>
+            <a href="{% url 'learners:profile' %}" class="nav-item">Profile</a>
+          </li>
+          <li>
+            <a href="{% url 'account_logout' %}" class="nav-item">Logout</a>
+          </li>
+        {% else %}
+          <li>
+            <a href="{% provider_login_url 'google' %}" class="nav-item">Login</a>
+          </li>
+        {% endif %}
+      </ul>
+    </li>
+    <li class="lg:hidden mt-5">
+      <button onclick="toggleMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             class="h-6 w-6 my-auto"
+             viewBox="0 0 20 20"
+             fill="currentColor">
+          <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+        </svg>
+      </button>
+    </li>
+  </ul>
+  <nav id="mobile-menu"
+       class="hidden flex-col justify-center bg-stone-900 min-h-[95vh]">
+    <ul class="flex flex-col justify-center text-center gap-6">
+      <li>
+        <a href="{% url 'home' %}"
+           class=" px-3 hover:bg-stone-700 py-2 rounded"
+           onclick="toggleMenu()">Home</a>
+      </li>
+      <li>
+        <a href="{% provider_login_url 'google' %}"
+           class="px-3 hover:bg-stone-700 py-2 rounded"
+           onclick="toggleMenu()">Login</a>
+      </li>
+    </ul>
+  </nav>
+</nav>
+<script src="{% static 'js/base/navbar.js' %}" defer></script>

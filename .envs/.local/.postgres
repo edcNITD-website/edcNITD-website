@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=main_edc_website
+POSTGRES_USER=agoKjijIielTcGZhsUCQaxyfEsDyVCAb
+POSTGRES_PASSWORD=u46ixFDy9qlycBvhPaVTqGhJl41iav8r0IslV7ds2LCzJrTXw1t4EE0VbSeSeJ7f
