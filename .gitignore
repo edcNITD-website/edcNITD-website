@@ -93,3 +93,5 @@ Scripts/
 pyvenv.cfg
 
 website/staticfiles/
+.DS_Store
+
