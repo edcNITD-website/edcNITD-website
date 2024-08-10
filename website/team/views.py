@@ -36,7 +36,7 @@ def team(request):
 
     # print(position_holders)
 
-    position_holders.sort(key=lambda x: x.order,reverse=True)
+    # position_holders.sort(key=lambda x: x.order,reverse=True)
 
     context['final']=position_holders
     context['third']=[third for third in third_year]
