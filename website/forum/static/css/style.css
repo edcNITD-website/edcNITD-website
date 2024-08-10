@@ -1080,6 +1080,12 @@ section {
   transition: 0.3s;
 }
 
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #services .services-col i {
   font-size: 36px;
   line-height: 1;
